@@ -1,0 +1,1025 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tanya Samarakovskaya — (Phygital)design Studio 🌍</title>
+<link rel="icon" type="image/jpeg" href="Assets/icon.jpg">
+<meta property="og:title" content="Tanya Samarakovskaya — Creative Director">
+<meta property="og:description" content="Designing WOW emotion. Phygital spaces, exhibitions, experience design.">
+<meta property="og:image" content="Assets/icon.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Fraunces:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#f3efe6;          /* cream paper */
+    --bg-2:#ebe6d8;
+    --ink:#0d0d0d;          /* near-black */
+    --ink-2:#3a3a3a;
+    --ink-3:#7a7a73;
+    --line:#0d0d0d;
+    --pink:#0a5cff;         /* bright electric blue */
+    --lime:#c8ff2e;         /* electric lime */
+    --blue:#0a5cff;
+    --warn:#ff5a2b;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+    --sans:"Space Grotesk","Helvetica Neue",sans-serif;
+    --serif:"Instrument Serif",Georgia,serif;
+    --display-alt:"Instrument Serif",Georgia,serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--ink);color:var(--bg);font-family:var(--sans);-webkit-font-smoothing:antialiased;font-weight:400}
+  body{overflow-x:hidden;cursor:none;background:var(--ink)}
+  /* sections control their own bg color */
+  ::selection{background:var(--pink);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:none}
+  img{display:block;max-width:100%}
+
+  .mono{font-family:var(--mono);font-weight:400;letter-spacing:.02em}
+  .serif{font-family:var(--serif);font-style:italic}
+
+  /* paper grain */
+  body::before{
+    content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.07;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    animation:grain 7s steps(8) infinite;
+  }
+  @keyframes grain{
+    0%,100%{transform:translate(0,0)}
+    20%{transform:translate(-2%,1%)}
+    40%{transform:translate(1%,-2%)}
+    60%{transform:translate(-1%,2%)}
+    80%{transform:translate(2%,-1%)}
+  }
+
+  /* CURSOR — twistudio-style oversized */
+  .cur{position:fixed;top:0;left:0;width:14px;height:14px;border-radius:50%;background:var(--ink);pointer-events:none;z-index:9999;mix-blend-mode:multiply;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s}
+  .cur.hot{width:74px;height:74px;background:var(--pink);mix-blend-mode:normal}
+  .cur.hot::after{content:"↗";position:absolute;inset:0;display:grid;place-items:center;color:var(--ink);font-family:var(--sans);font-weight:600;font-size:22px}
+  .cur-ring{position:fixed;top:0;left:0;width:38px;height:38px;border:1.5px solid var(--ink);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s linear,opacity .25s}
+  .cur-ring.hot{opacity:0}
+  @media (hover:none){body{cursor:auto}.cur,.cur-ring{display:none}a,button{cursor:pointer}}
+
+  /* ==== TOP NAV — fixed pill row ==== */
+  .top{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:0 24px;pointer-events:none}
+  .top > *{pointer-events:auto}
+
+  .brand{display:inline-flex;align-items:center;gap:12px;font-family:var(--sans);font-weight:500;font-size:14px;letter-spacing:-.01em;background:var(--bg);color:var(--ink);padding:10px 16px 10px 12px;border-radius:99px;border:1px solid var(--ink)}
+  .brand-mark{width:28px;height:28px;border-radius:50%;background:var(--pink);display:grid;place-items:center;color:var(--ink);font-family:var(--serif);font-style:italic;font-size:18px;line-height:1;animation:spinSlow 14s linear infinite}
+  .brand i{font-family:var(--serif);font-style:italic;font-weight:400;opacity:.7;margin-left:-2px}
+  @keyframes spinSlow{to{transform:rotate(360deg)}}
+
+  .top-mid{display:inline-flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--ink);color:var(--ink);border-radius:99px;padding:6px 8px 6px 14px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
+  .top-mid b{font-weight:500;color:var(--ink)}
+  .top-mid .live{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(200,255,46,.35);margin-right:6px;animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  @media (max-width:780px){.top-mid{display:none}}
+
+  .menu-btn{display:inline-flex;align-items:center;gap:10px;background:var(--bg);color:var(--ink);border:1px solid var(--ink);padding:10px 14px 10px 18px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+  .menu-btn .bars{display:inline-flex;flex-direction:column;gap:3px;width:18px}
+  .menu-btn .bars span{height:2px;background:var(--ink);border-radius:1px;transition:transform .25s}
+  .menu-btn:hover .bars span:first-child{transform:translateX(3px)}
+  .menu-btn:hover .bars span:last-child{transform:translateX(-3px)}
+
+  /* ==== FULL-SCREEN MENU OVERLAY ==== */
+  .menu{position:fixed;inset:0;z-index:80;background:var(--ink);color:var(--bg);transform:translateY(-100%);transition:transform .55s cubic-bezier(.7,.05,.3,1);overflow:hidden;display:flex;flex-direction:column}
+  .menu.open{transform:none}
+  .menu-top{display:flex;justify-content:space-between;align-items:center;padding:24px;border-bottom:1px solid rgba(243,239,230,.15)}
+  .menu-top .x{display:inline-flex;align-items:center;gap:10px;background:var(--pink);color:var(--ink);padding:10px 14px 10px 18px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+  .menu-list{flex:1;display:flex;flex-direction:column;justify-content:center;padding:0 6vw;gap:.05em}
+  .menu-list a{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0;font-family:var(--sans);font-weight:500;font-size:clamp(48px,9vw,140px);line-height:.95;letter-spacing:-.04em;border-bottom:1px solid rgba(243,239,230,.12);transition:color .25s, padding .35s, transform .35s}
+  .menu-list a em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--pink)}
+  .menu-list a .num{font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:rgba(243,239,230,.5);font-weight:400;text-transform:uppercase}
+  .menu-list a:hover{color:var(--lime);padding-left:24px}
+  .menu-list a::before{content:"[*]";font-family:var(--mono);font-size:14px;color:rgba(243,239,230,.4);margin-right:18px;transition:transform .35s, color .25s;display:inline-block;vertical-align:middle}
+  .menu-list a:hover::before{transform:rotate(180deg);color:var(--lime)}
+  .menu-foot{padding:24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(243,239,230,.15);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(243,239,230,.6);gap:24px;flex-wrap:wrap}
+  .menu-foot a{color:var(--bg)}
+  .menu-foot a:hover{color:var(--pink)}
+
+  /* ==== HERO ==== */
+  .hero{padding:120px 24px 40px;min-height:100vh;display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--ink);color:var(--bg)}
+  .hero .pill-stamp.outline{background:transparent;color:var(--bg);border:1px solid rgba(243,239,230,.35)}
+  .hero-meta{color:rgba(243,239,230,.7)}
+  .hero-meta b{color:var(--bg)}
+  .hero-meta em{color:rgba(243,239,230,.5)}
+  .hero-foot{border-top:1px solid rgba(243,239,230,.18);color:rgba(243,239,230,.6)}
+  .hero-foot .cell b{color:var(--bg)}
+  /* photo on black bg — arch shape, hover unwraps to rectangle */
+  .hero-photo{position:absolute;right:4%;top:11%;width:36%;max-width:520px;aspect-ratio:4/5;z-index:3;overflow:hidden;background:var(--ink-2);transition:transform .7s cubic-bezier(.4,0,.2,1), border-radius .7s;border-radius:50% 50% 14px 14px / 40% 40% 14px 14px}
+  .hero-photo:hover{transform:scale(1.03);border-radius:14px}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.1)}
+  .hero-photo .ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(243,239,230,.4);font-family:var(--serif);font-style:italic;font-size:60px}
+  .hero-photo-edge{display:none}
+  @media (max-width:900px){.hero-photo,.hero-photo-edge{position:static;width:60%;margin:24px auto;right:auto;top:auto}}
+
+  .hero-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);flex-wrap:wrap}
+  .hero-meta .col{max-width:240px;line-height:1.6}
+  .hero-meta b{color:var(--ink);font-weight:500}
+  .hero-meta .col em{font-family:var(--serif);font-style:italic;text-transform:none;font-size:13px;color:var(--ink-2)}
+  .hero-meta .right{text-align:right}
+
+  .hero-h{margin:auto 0;padding:6vh 0 4vh;font-family:var(--sans);font-weight:500;font-size:clamp(44px,10.5vw,184px);line-height:.86;letter-spacing:-.05em;text-align:left;position:relative;max-width:60%;z-index:2}
+  .hero-h .l{display:block;line-height:.92}
+  .hero-h .syl{display:inline-block;transition:font-family .3s ease, font-style .3s ease, letter-spacing .3s ease, color .3s ease, font-weight .3s ease;cursor:none}
+  .hero-h .syl:hover{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--lime)}
+  .hero-h .syl.s2:hover{font-family:"Bricolage Grotesque",var(--sans);font-weight:700;font-style:normal;letter-spacing:-.06em;color:var(--pink)}
+  .hero-h .syl.s3:hover{font-family:"Fraunces",var(--serif);font-weight:600;font-style:normal;letter-spacing:-.04em;color:var(--bg);text-decoration:underline;text-decoration-thickness:6px;text-underline-offset:14px;text-decoration-color:var(--pink)}
+  .hero-h em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em}
+  .hero-h .pink{color:var(--pink)}
+  .hero-h .star-mark{display:inline-block;color:var(--lime);font-size:.6em;vertical-align:.2em;margin-left:.04em;animation:spinFast 6s linear infinite;font-weight:400}
+  @media (max-width:900px){.hero-h{max-width:100%;text-align:center;font-size:clamp(44px,14vw,184px)}}
+  .hero-h .blob{display:inline-block;background:var(--lime);padding:.04em .18em .14em;border-radius:99px;margin:0 .04em;line-height:.92}
+  .hero-h .ix{display:inline-block;width:.85em;height:.85em;background:var(--pink);border-radius:50%;vertical-align:-.04em;margin:0 .03em;position:relative}
+  .hero-h .ix::after{content:"";position:absolute;inset:18%;background:var(--bg);border-radius:50%}
+
+  /* sticker compositions */
+  .sticker{position:absolute;z-index:5;pointer-events:none;will-change:transform}
+  .sticker.a{top:18%;left:4%;transform:rotate(-9deg);animation:bob 5s ease-in-out infinite}
+  .sticker.b{top:54%;left:38%;transform:rotate(7deg);animation:bob 6.5s ease-in-out infinite reverse}
+  .sticker.c{bottom:30%;left:6%;transform:rotate(4deg);animation:bob 7.2s ease-in-out infinite}
+  .sticker.d{bottom:18%;left:34%;transform:rotate(-6deg);animation:bob 5.8s ease-in-out infinite reverse}
+  @keyframes bob{0%,100%{translate:0 0}50%{translate:0 -12px}}
+
+  .pill-stamp{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:9px 16px 11px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
+  .pill-stamp.pink{background:var(--pink);color:var(--ink)}
+  .pill-stamp.lime{background:var(--lime);color:var(--ink)}
+  .pill-stamp.outline{background:var(--bg);color:var(--ink);border:1px solid var(--ink)}
+
+  .badge-disk{width:120px;height:120px;border-radius:50%;background:var(--pink);color:var(--ink);display:grid;place-items:center;text-align:center;font-family:var(--serif);font-style:italic;font-weight:400;font-size:20px;line-height:1.05;padding:14px;animation:spinSlow 16s linear infinite reverse}
+  .badge-disk small{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-style:normal;margin-top:4px;color:var(--ink)}
+
+  .scribble svg{display:block}
+
+  @media (max-width:780px){.sticker{transform:scale(.7) rotate(var(--r,0))}.sticker.a{top:11%;left:2%}.sticker.b{top:9%;right:2%}.sticker.c{bottom:30%;left:0}.sticker.d{bottom:24%;right:0}}
+
+  .hero-foot{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:24px;padding-top:24px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2);max-width:62%;position:relative;z-index:2}
+  @media (max-width:900px){.hero-foot{max-width:100%}}
+  .hero-foot .cell{display:flex;flex-direction:column;gap:6px}
+  .hero-foot .cell b{font-family:var(--sans);font-size:36px;font-weight:500;letter-spacing:-.03em;color:var(--bg);line-height:1}
+  .hero-foot .cell b em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--lime)}
+  @media (max-width:720px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
+
+  /* ==== TICKER ==== */
+  .ticker{border-block:1px solid var(--ink);overflow:hidden;background:var(--ink);color:var(--bg);padding:18px 0;position:relative}
+  .ticker-track{display:flex;gap:36px;width:max-content;animation:scroll 38s linear infinite;font-family:var(--sans);font-weight:500;font-size:clamp(28px,4.6vw,64px);letter-spacing:-.02em;line-height:1;white-space:nowrap}
+  .ticker-track em{font-family:var(--serif);font-style:italic;color:var(--pink);font-weight:400}
+  .ticker-track .star{display:inline-block;color:var(--lime);animation:spinFast 4s linear infinite}
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  @keyframes spinFast{to{transform:rotate(360deg)}}
+  .ticker-track .row{display:inline-flex;align-items:center;gap:36px}
+
+  /* ==== SECTIONS ==== */
+  .sec{padding:120px 24px;border-top:1px solid var(--ink);position:relative}
+  @media (max-width:720px){.sec{padding:72px 20px}}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;margin-bottom:64px;padding-bottom:24px;border-bottom:1px solid var(--ink)}
+  @media (max-width:780px){.sec-head{grid-template-columns:1fr;gap:18px}}
+  .sec-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink)}
+  .sec-tag .num{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--ink);font-weight:500;background:var(--bg)}
+  .sec-tag .star{color:var(--pink);font-size:14px;animation:spinFast 5s linear infinite}
+  .sec-h{font-family:var(--sans);font-weight:500;font-size:clamp(48px,8vw,128px);line-height:.9;letter-spacing:-.04em;text-align:center}
+  .sec-h em{font-family:var(--serif);font-style:italic;font-weight:400}
+  .sec-h .pink{color:var(--pink)}
+  .sec-side{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-2);text-align:right;line-height:1.6}
+  .sec-side b{color:var(--ink);font-weight:500}
+
+  /* ==== ABOUT ==== */
+  .about{display:grid;grid-template-columns:1.4fr 1fr;gap:80px;align-items:start}
+  @media (max-width:900px){.about{grid-template-columns:1fr;gap:40px}}
+  .about-h{font-family:var(--sans);font-weight:400;font-size:clamp(28px,3.6vw,52px);line-height:1.08;letter-spacing:-.02em;text-wrap:balance}
+  .about-h em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--pink)}
+  .about-h .mark{background:var(--lime);padding:0 .12em;border-radius:6px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+  .about-h .strike{position:relative;display:inline-block}
+  .about-h .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:55%;height:8px;background:var(--pink);transform:rotate(-1.5deg);z-index:-1}
+  .about-side{display:flex;flex-direction:column;gap:24px;font-size:16px;line-height:1.6;color:var(--ink-2)}
+  .about-side p{max-width:440px}
+  .about-side p b{color:var(--ink);font-weight:500}
+  .about-numbers{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px;padding-top:24px;border-top:1px solid var(--ink)}
+  .about-num b{display:block;font-family:var(--sans);font-size:60px;letter-spacing:-.04em;font-weight:500;line-height:1;color:var(--ink)}
+  .about-num small{display:block;margin-top:8px;font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em}
+
+  /* portrait card — full color */
+  .portrait{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;background:var(--ink);margin-top:40px}
+  .portrait img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(1.05)}
+  .portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(13,13,13,.6) 100%)}
+  .portrait .pcap{position:absolute;left:18px;right:18px;bottom:16px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bg);display:flex;justify-content:space-between;align-items:center;z-index:2}
+  .portrait .badge-disk{position:absolute;top:18px;right:18px;width:96px;height:96px;font-size:14px;z-index:2}
+
+  /* ==== SERVICES ==== */
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--bg)}
+  @media (max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.svc{grid-template-columns:1fr}}
+  .svc-cell{padding:32px 24px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);position:relative;background:var(--bg);transition:background .25s, color .25s;min-height:240px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;overflow:hidden}
+  .svc-cell:nth-child(3n){border-right:0}
+  .svc-cell:nth-last-child(-n+3){border-bottom:0}
+  @media (max-width:900px){.svc-cell:nth-child(3n){border-right:1px solid var(--ink)}.svc-cell:nth-child(2n){border-right:0}.svc-cell:nth-last-child(-n+3){border-bottom:1px solid var(--ink)}.svc-cell:nth-last-child(-n+2){border-bottom:0}}
+  @media (max-width:560px){.svc-cell{border-right:0!important}.svc-cell:not(:last-child){border-bottom:1px solid var(--ink)!important}}
+
+  .svc-cell:hover{background:var(--ink);color:var(--bg)}
+  .svc-cell:hover .svc-num{color:rgba(243,239,230,.6)}
+  .svc-cell:hover .svc-h em{color:var(--pink)}
+  .svc-cell:hover .svc-tag{color:var(--lime)}
+
+  .svc-num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-3);text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;transition:color .25s}
+  .svc-num .star{color:var(--pink);transition:transform .4s}
+  .svc-cell:hover .svc-num .star{transform:rotate(180deg);color:var(--lime)}
+  .svc-tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);transition:color .25s}
+  .svc-h{font-family:var(--sans);font-size:28px;font-weight:500;letter-spacing:-.02em;line-height:1.1}
+  .svc-h em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--pink);transition:color .25s}
+  .svc-desc{font-size:13px;line-height:1.55;color:var(--ink-2);transition:color .25s}
+  .svc-cell:hover .svc-desc{color:rgba(243,239,230,.7)}
+
+  /* CORE FEATURE — dark text on blue, inverts on hover */
+  .svc-cell.feature{background:var(--pink);color:#1a1a1a;grid-column:span 2;transition:background .35s, color .35s}
+  .svc-cell.feature .svc-num,
+  .svc-cell.feature .svc-tag,
+  .svc-cell.feature .svc-h,
+  .svc-cell.feature .svc-headline,
+  .svc-cell.feature .svc-desc{color:#1a1a1a}
+  .svc-cell.feature .svc-num .star{color:#1a1a1a}
+  .svc-cell.feature .svc-h em{color:#1a1a1a;font-style:italic}
+  .svc-cell.feature .svc-headline em{color:#1a1a1a;background:transparent;padding:0;border-radius:0}
+  /* hover: invert — blue text on dark-grey card */
+  .svc-cell.feature:hover{background:#1a1a1a;color:var(--pink)}
+  .svc-cell.feature:hover .svc-num,
+  .svc-cell.feature:hover .svc-tag,
+  .svc-cell.feature:hover .svc-h,
+  .svc-cell.feature:hover .svc-headline,
+  .svc-cell.feature:hover .svc-desc{color:var(--pink)}
+  .svc-cell.feature:hover .svc-num .star{color:var(--pink);transform:rotate(180deg)}
+  .svc-cell.feature:hover .svc-h em,
+  .svc-cell.feature:hover .svc-headline em{color:var(--pink)}
+  .svc-cell.feature .svc-h{font-size:36px}
+  .svc-cell.feature .svc-headline{font-family:var(--serif);font-style:italic;font-weight:400;font-size:42px;line-height:1.05;letter-spacing:-.01em}
+  @media (max-width:560px){.svc-cell.feature{grid-column:span 1}}
+
+  /* ==== WORKS ==== */
+  .works-views{display:inline-flex;gap:6px;padding:4px;border:1px solid var(--ink);border-radius:99px;background:var(--bg);font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+  .works-views button{padding:8px 14px;border-radius:99px;color:var(--ink-3);transition:all .25s;display:inline-flex;align-items:center;gap:6px}
+  .works-views button.on{background:var(--ink);color:var(--bg)}
+  .works-views button.on::before{content:"[*]";color:var(--pink)}
+
+  /* CLASSIC LIST — milky cream rows w/ persistent thumb that scales on hover */
+  .works-list{border-top:1px solid var(--ink);background:var(--bg-2);border-radius:18px;overflow:hidden;border:1px solid var(--ink)}
+  .wrow{display:grid;grid-template-columns:50px 80px 1.4fr 1fr 100px 36px;gap:24px;padding:16px 20px;border-bottom:1px solid rgba(13,13,13,.12);align-items:center;color:inherit;background:var(--bg);transition:background .3s, color .3s, padding .3s, grid-template-columns .4s;position:relative}
+  .wrow:nth-child(even){background:var(--bg-2)}
+  .wrow:last-child{border-bottom:0}
+  .wrow:hover{background:var(--ink);color:var(--bg);padding-left:32px;grid-template-columns:50px 280px 1.4fr 1fr 100px 36px}
+  .wrow:hover .wrow-num,.wrow:hover .wrow-tags,.wrow:hover .wrow-year{color:rgba(243,239,230,.65)}
+  .wrow:hover .wrow-title em{color:var(--lime)}
+  .wrow-num{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;transition:color .25s}
+  .wrow-num::before{content:"[*]";color:var(--pink);margin-right:6px}
+  .wrow-thumb{width:100%;height:60px;border-radius:8px;overflow:hidden;background:var(--bg-2);position:relative;transition:height .4s cubic-bezier(.4,0,.2,1), transform .4s}
+  .wrow-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.05) saturate(1.1)}
+  .wrow-thumb .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--ink-3);font-family:var(--serif);font-style:italic;font-size:24px}
+  .wrow:hover .wrow-thumb{height:180px}
+  @media (max-width:780px){.wrow,.wrow:hover{grid-template-columns:32px 56px 1fr 28px;gap:12px;padding:12px 14px}.wrow-tags,.wrow-year{display:none}.wrow:hover .wrow-thumb{height:60px}}
+  .wrow-title{font-family:var(--sans);font-size:clamp(20px,2.6vw,34px);font-weight:500;letter-spacing:-.02em;line-height:1}
+  .wrow-title em{font-family:var(--serif);font-style:italic;color:var(--pink);font-weight:400;transition:color .25s}
+  .wrow-tags{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);transition:color .25s}
+  .wrow-year{font-family:var(--mono);font-size:11px;color:var(--ink-3);text-align:right;letter-spacing:.06em;transition:color .25s}
+  .wrow-go{width:36px;height:36px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;color:inherit;transition:all .25s;justify-self:end}
+  .wrow:hover .wrow-go{background:var(--pink);color:var(--bg);border-color:var(--pink);transform:rotate(45deg)}
+
+  /* hover preview thumb — disabled (replaced by inline thumbs) */
+  .wpreview{display:none}
+
+  /* GRID VIEW */
+  .works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;display:none}
+  body[data-view="grid"] .works-grid{display:grid}
+  body[data-view="grid"] .works-list{display:none}
+  body:not([data-view="grid"]) .works-grid{display:none}
+  .wcard{position:relative;border:1px solid var(--ink);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:20px;min-height:380px;color:var(--bg);background:var(--ink);transition:transform .25s}
+  .wcard:hover{transform:translateY(-4px)}
+  .wcard .vis{position:absolute;inset:0;z-index:0}
+  .wcard .vis img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:transform .35s, opacity .25s}
+  .wcard:hover .vis img{transform:scale(1.04);opacity:.85}
+  .wcard .vis::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(13,13,13,.85))}
+  .wcard-top{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(243,239,230,.7);margin-bottom:auto}
+  .wcard-top .tag{padding:5px 10px;border:1px solid rgba(243,239,230,.3);border-radius:99px;background:rgba(13,13,13,.4);backdrop-filter:blur(8px)}
+  .wcard-meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:end;gap:18px}
+  .wcard-title{font-family:var(--sans);font-size:30px;font-weight:500;letter-spacing:-.02em;line-height:1}
+  .wcard-title em{font-family:var(--serif);font-style:italic;color:var(--pink);font-weight:400}
+  .wcard-cat{font-family:var(--mono);font-size:11px;color:rgba(243,239,230,.65);letter-spacing:.06em;text-transform:uppercase;margin-top:6px}
+  .wcard-go{width:44px;height:44px;border-radius:50%;background:var(--pink);color:var(--ink);display:grid;place-items:center;flex-shrink:0;transition:all .3s}
+  .wcard:hover .wcard-go{background:var(--lime);transform:rotate(45deg)}
+  .wcard.s7{grid-column:span 7}
+  .wcard.s5{grid-column:span 5}
+  .wcard.s4{grid-column:span 4}
+  .wcard.s6{grid-column:span 6}
+  .wcard.s8{grid-column:span 8}
+  .wcard.s12{grid-column:span 12;min-height:520px}
+  .wcard.s12 .wcard-title{font-size:clamp(48px,7vw,96px);letter-spacing:-.04em;line-height:.9}
+  @media (max-width:900px){.wcard,.wcard.s7,.wcard.s5,.wcard.s4,.wcard.s6,.wcard.s8{grid-column:span 6}.wcard.s12{grid-column:span 12}}
+  @media (max-width:560px){.wcard,.wcard.s12{grid-column:1/-1;min-height:300px}}
+
+  /* fallback visuals (no image) */
+  .vph{width:100%;height:100%;display:grid;place-items:center;color:var(--bg);opacity:.4;font-family:var(--serif);font-style:italic;font-size:80px}
+
+  /* ==== CAREER TIMELINE ==== */
+  .career{display:grid;grid-template-columns:.6fr 1.4fr;gap:64px;align-items:start}
+  @media (max-width:900px){.career{grid-template-columns:1fr;gap:32px}}
+  .career-aside{position:sticky;top:100px}
+  .career-aside p{font-family:var(--mono);font-size:11px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.08em;line-height:1.7;margin-bottom:18px}
+  .career-aside a.dl{display:inline-flex;align-items:center;gap:10px;padding:12px 18px 12px 16px;background:var(--ink);color:var(--bg);border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500;transition:background .25s, color .25s}
+  .career-aside a.dl:hover{background:var(--pink)}
+  .career-aside a.dl::before{content:"↓";color:var(--lime);font-weight:600}
+
+  .timeline{display:flex;flex-direction:column;border-top:1px solid var(--ink)}
+  .titem{display:grid;grid-template-columns:100px 1fr 32px;gap:32px;padding:26px 0;border-bottom:1px solid var(--ink);align-items:start;color:inherit;transition:padding .25s, background .25s, color .25s;position:relative}
+  .titem:hover{background:var(--ink);color:var(--bg);padding-left:18px;padding-right:18px}
+  .titem:hover .tyear,.titem:hover .trole,.titem:hover .tdesc{color:rgba(243,239,230,.65)}
+  .titem:hover .ttitle em{color:var(--pink)}
+  .tyear{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;text-transform:uppercase;line-height:1.4;transition:color .25s;padding-top:6px}
+  .ttitle{font-family:var(--sans);font-size:clamp(24px,2.6vw,32px);font-weight:500;letter-spacing:-.02em;line-height:1.05;margin-bottom:8px}
+  .ttitle em{font-family:var(--serif);font-style:italic;color:var(--pink);font-weight:400;transition:color .25s}
+  .trole{font-family:var(--mono);font-size:10px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;display:inline-flex;gap:8px;align-items:center;transition:color .25s}
+  .trole::before{content:"●";color:var(--pink);font-size:7px}
+  .tdesc{font-size:14px;line-height:1.55;color:var(--ink-2);max-width:600px;transition:color .25s}
+  .tgo{width:32px;height:32px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;color:inherit;transition:all .25s;align-self:center;opacity:.5}
+  .titem:hover .tgo{background:var(--pink);color:var(--ink);border-color:var(--pink);transform:rotate(45deg);opacity:1}
+
+  /* ==== CONTACT ==== */
+  .contact-h{font-family:var(--sans);font-size:clamp(64px,14vw,220px);font-weight:500;line-height:.85;letter-spacing:-.05em;text-align:center;margin:0 0 48px;position:relative;color:var(--ink)}
+  .contact-h em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--pink)}
+  .contact-h .pink{color:var(--pink)}
+  .contact-h .lime-bg{background:var(--lime);padding:0 .12em .08em;border-radius:99px;display:inline-block;line-height:.92;color:var(--ink)}
+  .contact-h a{transition:color .25s;color:var(--ink)}
+  .contact-h a:hover{color:var(--pink)}
+
+  .ccards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  @media (max-width:780px){.ccards{grid-template-columns:1fr}}
+  .ccard{padding:24px;border:1px solid var(--ink);border-radius:18px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;background:var(--bg);transition:background .25s, color .25s;color:inherit;min-height:170px}
+  .ccard:hover{background:var(--ink);color:var(--bg)}
+  .ccard:hover .ccard-go{background:var(--pink);color:var(--bg);border-color:var(--pink);transform:rotate(45deg)}
+  .ccard:hover .ccard-lbl{color:rgba(243,239,230,.7)}
+  .ccard-lbl{font-family:var(--mono);font-size:10px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.12em;display:flex;justify-content:space-between;align-items:center;transition:color .25s}
+  .ccard-lbl::before{content:"[*]";color:var(--pink);margin-right:4px}
+  .ccard-val{font-family:var(--sans);font-size:18px;font-weight:500;letter-spacing:-.005em;word-break:break-all;line-height:1.2}
+  .ccard-go{width:34px;height:34px;border-radius:50%;border:1px solid currentColor;display:grid;place-items:center;transition:all .25s}
+
+  /* ==== FOOTER ==== */
+  .footer{padding:32px 24px;border-top:1px solid var(--ink);font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.08em}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+  .footer-row b{color:var(--ink);font-weight:500}
+  .footer-row a:hover{color:var(--pink)}
+
+  /* ==== reveal ==== */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ==== TWEAKS ==== */
+  .tweaks-fab{position:fixed;bottom:24px;left:24px;z-index:60;width:48px;height:48px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;cursor:none;box-shadow:0 8px 28px rgba(0,0,0,.2);transition:all .3s;font-size:18px}
+  .tweaks-fab:hover{background:var(--pink);color:var(--ink);transform:rotate(90deg) scale(1.1)}
+  .tweaks-panel{position:fixed;bottom:84px;left:24px;z-index:60;width:280px;background:var(--bg);border:1px solid var(--ink);border-radius:18px;padding:18px;display:none;font-family:var(--mono);font-size:11px;color:var(--ink-2);text-transform:uppercase;letter-spacing:.06em;box-shadow:0 20px 60px rgba(0,0,0,.18)}
+  .tweaks-panel.open{display:block;animation:tweakIn .25s ease}
+  @keyframes tweakIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .tweaks-panel h4{color:var(--ink);font-size:11px;font-weight:500;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center}
+  .tweaks-panel h4 .x{cursor:none;font-size:14px;color:var(--ink-3)}
+  .tweaks-panel .row{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .tweaks-panel .row .lbl{flex:1;color:var(--ink-3);font-size:10px}
+  .tweaks-panel .swatch{width:22px;height:22px;border-radius:50%;cursor:none;border:2px solid transparent;transition:all .2s}
+  .tweaks-panel .swatch.active{border-color:var(--ink);transform:scale(1.15)}
+  .tweaks-panel .seg{display:inline-flex;border:1px solid var(--ink);border-radius:99px;overflow:hidden}
+  .tweaks-panel .seg button{padding:6px 10px;font-family:inherit;font-size:9px;color:var(--ink-3);background:transparent;text-transform:uppercase;cursor:none;letter-spacing:.06em}
+  .tweaks-panel .seg button.on{background:var(--ink);color:var(--bg)}
+
+  body[data-bg="cream"]{--bg:#f3efe6;--bg-2:#ebe6d8}
+  body[data-bg="white"]{--bg:#ffffff;--bg-2:#f1efe9}
+  body[data-bg="ink"]{--bg:#0d0d0d;--bg-2:#161616;--ink:#f3efe6;--ink-2:#bdbab1;--ink-3:#7a7872;--line:#f3efe6}
+  body[data-accent="blue"]{--pink:#0a5cff;--lime:#c8ff2e}
+  body[data-accent="pink"]{--pink:#ff4fb1;--lime:#c8ff2e}
+  body[data-accent="lime"]{--pink:#c8ff2e;--lime:#0a5cff}
+  body[data-accent="orange"]{--pink:#ff5a2b;--lime:#0a5cff}
+  body[data-grain="off"]::before{display:none}
+
+  @media (hover:none){.tweaks-fab,.tweaks-panel button,.tweaks-panel .swatch{cursor:pointer}}
+</style>
+</head>
+<body data-view="list" data-bg="cream" data-accent="blue" data-grain="on">
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
+
+<!-- TOP NAV -->
+<header class="top">
+  <a class="brand" href="https://samarakovskaya.netlify.app/#top" target="_blank" rel="noopener">
+    <span class="brand-mark">✦</span>
+    <span><b>Samarakovskaya</b><i> · Tanya</i></span>
+  </a>
+  <div class="top-mid"><span class="live"></span><b>Edition v.26</b> &nbsp;· Moscow / WW</div>
+  <button class="menu-btn" id="menuBtn">
+    <span class="bars"><span></span><span></span></span>
+    Menu
+  </button>
+</header>
+
+<!-- FULL-SCREEN MENU -->
+<nav class="menu" id="menu" aria-hidden="true">
+  <div class="menu-top">
+    <span class="mono" style="font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(243,239,230,.6)">[*] Index — six chapters</span>
+    <button class="x" id="menuClose">Close <span style="font-size:14px">✕</span></button>
+  </div>
+  <div class="menu-list">
+    <a href="#hero" data-close><span><em>00</em> Hero</span><span class="num">→ Top</span></a>
+    <a href="#about" data-close><span><em>01</em> About</span><span class="num">→ Practice</span></a>
+    <a href="#services" data-close><span><em>02</em> Services</span><span class="num">→ Eight disciplines</span></a>
+    <a href="#works" data-close><span><em>03</em> Works</span><span class="num">→ Selected projects</span></a>
+    <a href="#career" data-close><span><em>04</em> Career</span><span class="num">→ Path</span></a>
+    <a href="#contact" data-close><span><em>05</em> Contact</span><span class="num">→ Get in touch</span></a>
+  </div>
+  <div class="menu-foot">
+    <span>© 2026 — Samarakovskaya Tanya · (Phygital)design Practice</span>
+    <span><a href="/cdn-cgi/l/email-protection#403433212d2132212b2f36332b21392100272d21292c6e232f2d"><span class="__cf_email__" data-cfemail="710502101c1003101a1e07021a10081031161c10181d5f121e1c">[email&#160;protected]</span></a> &nbsp;·&nbsp; <a href="https://t.me/samarakovskaya_tanya" target="_blank">@samarakovskaya_tanya</a></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero" data-screen-label="00 Hero">
+
+  <!-- stickers -->
+  <span class="sticker a"><span class="badge-disk">Designing<br><em>WOW</em><br>emotion<small>★ 2014—26</small></span></span>
+  <span class="sticker b"><span class="pill-stamp lime">[*] Phygital · Art × Tech</span></span>
+
+  <div class="hero-meta">
+    <div class="col">
+      <b>(Phygital)<br>design Studio</b><br>
+      <em>Founded 2014, Moscow</em>
+    </div>
+    <div class="col" style="text-align:center">
+      <span class="pill-stamp outline">[*] Portfolio · Edition <em style="font-family:var(--serif);text-transform:none">v.</em>26</span>
+    </div>
+    <div class="col right">
+      <b>Creative Direction<br>+ Experience Design</b><br>
+      <em>Theater · Brands · Spaces</em>
+    </div>
+  </div>
+
+  <h1 class="hero-h">
+    <span class="l">
+      <span class="syl s1">Sa</span><span class="syl s2">ma</span><span class="syl s3">ra</span><span class="syl s1">kov</span><span class="syl s2">ska</span><span class="syl s3">ya</span>
+    </span>
+    <span class="l">
+      <span class="syl s2 pink">Ta</span><span class="syl s1 pink">nya</span><span class="star-mark">✦</span><span class="blob"><em>cd.</em></span>
+    </span>
+  </h1>
+
+  <!-- Color photo, irregular blob shape, floats on dark bg -->
+  <div class="hero-photo">
+    <img src="Assets/mememe_new.webp" alt="Tanya Samarakovskaya" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+    <div class="ph" style="display:none">✦</div>
+  </div>
+  <div class="hero-photo-edge" aria-hidden="true">
+    <div class="row"><span>● REC</span><span>26 · 05 · ED.</span></div>
+    <div class="row"><span>F 4.0 · 1/250</span><span>4×5 — ␢1</span></div>
+  </div>
+
+  <div class="hero-foot">
+    <div class="cell"><b>10<em>+</em></b><span>Years in field</span></div>
+    <div class="cell"><b>40<em>+</em></b><span>Projects shipped</span></div>
+    <div class="cell"><b>8</b><span>Disciplines</span></div>
+    <div class="cell"><b>12</b><span>Industries</span></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="row">Experience design <span class="star">✦</span> Phygital spaces <em>storytelling</em> <span class="star">✦</span> Art × Tech <em>immersive</em> <span class="star">✦</span> AI production <em>direction</em> <span class="star">✦</span></span>
+    <span class="row">Experience design <span class="star">✦</span> Phygital spaces <em>storytelling</em> <span class="star">✦</span> Art × Tech <em>immersive</em> <span class="star">✦</span> AI production <em>direction</em> <span class="star">✦</span></span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about" data-screen-label="01 About">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">01</span><span class="star">✦</span> About / Practice</span>
+    <h2 class="sec-h">A practice for <em>WOW</em> <span class="pink">emotion.</span></h2>
+    <span class="sec-side">Between <b>art &amp; tech</b><br>since <b>2014</b></span>
+  </div>
+
+  <div class="about">
+    <div class="reveal">
+      <p class="about-h">
+        I design <em>phygital</em> projects where <span class="mark">physical space</span>, game and digital content work as <span class="strike">a single ecosystem</span>. Not decor — a <em>controlled experience</em>.
+      </p>
+      <div class="portrait">
+        <img src="Assets/mememe_new.webp" alt="Tanya Samarakovskaya">
+        <div class="badge-disk">since<br><em>2014</em><small>★ 10+ years</small></div>
+        <div class="pcap"><span>[*] Tanya Samarakovskaya</span><span>Creative Director</span></div>
+      </div>
+    </div>
+    <div class="about-side reveal">
+      <p>Работаю на стыке <b>искусства и технологий</b> — там, где визуальный язык, интерактив, пространство, звук и механики формируют цельный, управляемый опыт.</p>
+      <p>В основе подхода — <b>сторителлинг и experience design</b>. Я проектирую <b>не креатив и не декорации, а эмоции человека</b>: что он чувствует, как взаимодействует с пространством и какой опыт уносит с собой.</p>
+      <div class="about-numbers">
+        <div class="about-num"><b>40+</b><small>shipped projects</small></div>
+        <div class="about-num"><b>12</b><small>industries</small></div>
+        <div class="about-num"><b>8</b><small>disciplines</small></div>
+        <div class="about-num"><b>10+</b><small>years</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="sec" id="services" data-screen-label="02 Services">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">02</span><span class="star">✦</span> Services</span>
+    <h2 class="sec-h">What <em>I</em> <span class="pink">do.</span></h2>
+    <span class="sec-side">Eight disciplines<br><b>one practice</b></span>
+  </div>
+
+  <div class="svc reveal">
+    <div class="svc-cell feature">
+      <div class="svc-num"><span>[*] 01 / Core</span><span class="star">✦</span></div>
+      <div>
+        <span class="svc-tag">Core practice</span>
+        <h3 class="svc-headline">Experience design — <em>от первого контакта</em> до того, что человек уносит с собой.</h3>
+      </div>
+    </div>
+
+    <div class="svc-cell">
+      <div class="svc-num"><span>[*] 02 / Storytelling</span><span class="star">✦</span></div>
+      <div>
+        <span class="svc-tag">Storytelling &amp; engagement</span>
+        <h3 class="svc-h">Сторителлинг <em>&amp;</em> вовлечение</h3>
+        <p class="svc-desc">Нарратив, игровые механики, квестовые модели, удержание аудитории.</p>
+      </div>
+    </div>
+
+    <div class="svc-cell">
+      <div class="svc-num"><span>[*] 03 / Multimedia</span><span class="star">✦</span></div>
+      <div>
+        <span class="svc-tag">Multimedia</span>
+        <h3 class="svc-h">Мультимедийные <em>среды</em></h3>
+        <p class="svc-desc">Свет, звук, проекция и механика как единая партитура.</p>
+      </div>
+    </div>
+
+    <div class="svc-cell">
+      <div class="svc-num"><span>[*] 04 / Art × Tech</span><span class="star">✦</span></div>
+      <div>
+        <span class="svc-tag">Art × Tech</span>
+        <h3 class="svc-h">Phygital-<em>пространства</em></h3>
+        <p class="svc-desc">AR-слои, проекционные системы, кинетика — бесшовная среда.</p>
+      </div>
+    </div>
+
+    <div class="svc-cell">
+      <div class="svc-num"><span>[*] 05 / AI</span><span class="star">✦</span></div>
+      <div>
+        <span class="svc-tag">AI · Production</span>
+        <h3 class="svc-h">AI <em>в</em> продакшне</h3>
+        <p class="svc-desc">Генеративные инструменты как часть полного цикла производства.</p>
+      </div>
+    </div>
+
+    <div class="svc-cell">
+      <div class="svc-num"><span>[*] 06 / Direction</span><span class="star">✦</span></div>
+      <div>
+        <span class="svc-tag">Art direction</span>
+        <h3 class="svc-h">Арт-<em>дирекшен</em></h3>
+        <p class="svc-desc">Key visual, персонажи, ToV — целостный визуальный мир проекта.</p>
+      </div>
+    </div>
+
+    <div class="svc-cell">
+      <div class="svc-num"><span>[*] 07 / Strategy</span><span class="star">✦</span></div>
+      <div>
+        <span class="svc-tag">Strategy</span>
+        <h3 class="svc-h">Креативная <em>стратегия</em></h3>
+        <p class="svc-desc">Идея, позиционирование и драматургия — основа всего остального.</p>
+      </div>
+    </div>
+
+    <div class="svc-cell">
+      <div class="svc-num"><span>[*] 08 / Producing</span><span class="star">✦</span></div>
+      <div>
+        <span class="svc-tag">Producing</span>
+        <h3 class="svc-h">Продюси-<em>рование</em></h3>
+        <p class="svc-desc">Команда, бюджет, площадка, технологии — от идеи до релиза.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="sec" id="works" data-screen-label="03 Works">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">03</span><span class="star">✦</span> Works</span>
+    <h2 class="sec-h"><em>Selected</em> <span class="pink">projects.</span></h2>
+    <span class="sec-side">10 featured<br>40+ total<br><b>By request</b></span>
+  </div>
+
+  <div class="reveal" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0;flex-wrap:wrap;gap:12px">
+    <span class="mono" style="font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)">[*] 10 selected · 2014—2026</span>
+    <div class="works-views" id="worksViews">
+      <button data-view="list" class="on">≡ Classic view</button>
+      <button data-view="grid">◧ Grid view</button>
+    </div>
+  </div>
+
+  <div class="works-list" id="worksList">
+    <a class="wrow" href="https://youtu.be/bGKW-AaJ7QU?si=T_fIMrwg4e0Ccxs7" target="_blank" rel="noopener" data-img="Assets/Preview_projects/Nebula.webp">
+      <span class="wrow-num">01</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Nebula.webp" alt="" onerror="this.style.display='none'"><span class="ph">✦</span></span>
+      <span class="wrow-title">Nebula<em>*</em></span>
+      <span class="wrow-tags">Exhibitions · Experience design</span>
+      <span class="wrow-year">2023</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="https://www.behance.net/gallery/246301713/CYMATIC-Project-mapping" target="_blank" rel="noopener" data-img="Assets/Preview_projects/Cymatic.webp">
+      <span class="wrow-num">02</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Cymatic.webp" alt="" onerror="this.style.display='none'"><span class="ph">◐</span></span>
+      <span class="wrow-title">Mapping <em>Festival</em></span>
+      <span class="wrow-tags">Festivals · Projection mapping</span>
+      <span class="wrow-year">2018—22</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="projects/capybarabooom.html" data-img="Assets/Preview_projects/Capybaraboom.webp">
+      <span class="wrow-num">03</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Capybaraboom.webp" alt="" onerror="this.style.display='none'"><span class="ph">◯</span></span>
+      <span class="wrow-title">Capybara <em>Booom</em></span>
+      <span class="wrow-tags">Exhibitions · IP system</span>
+      <span class="wrow-year">2024—26</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="https://www.behance.net/gallery/246508109/spektakl-pole" target="_blank" rel="noopener" data-img="Assets/Preview_projects/Pole.webp">
+      <span class="wrow-num">04</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Pole.webp" alt="" onerror="this.style.display='none'"><span class="ph">▲</span></span>
+      <span class="wrow-title">POLE<em>.</em></span>
+      <span class="wrow-tags">Theater · Media artist</span>
+      <span class="wrow-year">2021</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="https://www.behance.net/gallery/243376077/rejv-operetta-kandid-teatr-praktika" target="_blank" rel="noopener" data-img="Assets/Preview_projects/Kandid.webp">
+      <span class="wrow-num">05</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Kandid.webp" alt="" onerror="this.style.display='none'"><span class="ph">K</span></span>
+      <span class="wrow-title">Kandid<em>.</em></span>
+      <span class="wrow-tags">Theater · Media artist</span>
+      <span class="wrow-year">2020</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="https://www.behance.net/gallery/243547831/spektakl-baal-teatr-mejerholda" target="_blank" rel="noopener" data-img="Assets/Preview_projects/Baal.webp">
+      <span class="wrow-num">06</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Baal.webp" alt="" onerror="this.style.display='none'"><span class="ph">B</span></span>
+      <span class="wrow-title">BAAL<em>.</em></span>
+      <span class="wrow-tags">Theater · Media artist</span>
+      <span class="wrow-year">2019</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="https://www.behance.net/gallery/244178281/krugosvetnyj-novyj-god-v-sadu-im-baumana" target="_blank" rel="noopener" data-img="Assets/Preview_projects/Souzmultpark.webp">
+      <span class="wrow-num">07</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Souzmultpark.webp" alt="" onerror="this.style.display='none'"><span class="ph">✦</span></span>
+      <span class="wrow-title">Souzmult<em>park</em></span>
+      <span class="wrow-tags">Interactive parks</span>
+      <span class="wrow-year">2020—23</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="https://youtu.be/jnXBmeKDf_w?si=cEujStRIjw5NZfJK" target="_blank" rel="noopener" data-img="Assets/Preview_projects/WayOfWater.webp">
+      <span class="wrow-num">08</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/WayOfWater.webp" alt="" onerror="this.style.display='none'"><span class="ph">~</span></span>
+      <span class="wrow-title">Way of <em>Water</em></span>
+      <span class="wrow-tags">Exhibitions · Experience design</span>
+      <span class="wrow-year">2022—24</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="https://www.behance.net/gallery/44325905/LIGHTWORKS-interactive-urban-project" target="_blank" rel="noopener" data-img="Assets/Preview_projects/Lightworks.webp">
+      <span class="wrow-num">09</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Lightworks.webp" alt="" onerror="this.style.display='none'"><span class="ph">◇</span></span>
+      <span class="wrow-title">Light<em>works</em></span>
+      <span class="wrow-tags">Creative · Visual programming</span>
+      <span class="wrow-year">2014—17</span>
+      <span class="wrow-go">↗</span>
+    </a>
+    <a class="wrow" href="https://www.behance.net/gallery/244320221/premija-prosvetitel-10-let" target="_blank" rel="noopener" data-img="Assets/Preview_projects/Prosvetitel.webp">
+      <span class="wrow-num">10</span>
+      <span class="wrow-thumb"><img src="Assets/Preview_projects/Prosvetitel.webp" alt="" onerror="this.style.display='none'"><span class="ph">✶</span></span>
+      <span class="wrow-title">Prosvetitel</span>
+      <span class="wrow-tags">Festivals · Awards</span>
+      <span class="wrow-year">2018</span>
+      <span class="wrow-go">↗</span>
+    </a>
+  </div>
+
+  <div class="works-grid" id="worksGrid">
+    <a class="wcard s7" href="https://youtu.be/bGKW-AaJ7QU?si=T_fIMrwg4e0Ccxs7" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/Nebula.webp" alt="" onerror="this.style.display='none'"><div class="vph">✦</div></div>
+      <div class="wcard-top"><span class="tag">[*] Арт-инсталляция</span><span>01 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">Nebula<em>*</em></h3><p class="wcard-cat">Exhibitions · Experience design</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s5" href="https://www.behance.net/gallery/246301713/CYMATIC-Project-mapping" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/Cymatic.webp" alt="" onerror="this.style.display='none'"><div class="vph">◐</div></div>
+      <div class="wcard-top"><span class="tag">[*] Festival</span><span>02 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">Mapping</h3><p class="wcard-cat">Festivals · Projection mapping</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s12" href="projects/capybarabooom.html">
+      <div class="vis"><img src="Assets/Preview_projects/Capybaraboom.webp" alt="" onerror="this.style.display='none'"><div class="vph">◯</div></div>
+      <div class="wcard-top"><span class="tag">[*] Pop-IP · Interactive exhibition</span><span>03 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">Capybara <em>Booom</em></h3><p class="wcard-cat">Exhibitions · IP system · Experience design</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s4" href="https://www.behance.net/gallery/246508109/spektakl-pole" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/Pole.webp" alt="" onerror="this.style.display='none'"><div class="vph">▲</div></div>
+      <div class="wcard-top"><span class="tag">[*] Theater</span><span>04 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">POLE<em>.</em></h3><p class="wcard-cat">Media artist</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s4" href="https://www.behance.net/gallery/243376077/rejv-operetta-kandid-teatr-praktika" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/Kandid.webp" alt="" onerror="this.style.display='none'"><div class="vph">K</div></div>
+      <div class="wcard-top"><span class="tag">[*] Theater</span><span>05 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">Kandid<em>.</em></h3><p class="wcard-cat">Media artist</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s4" href="https://www.behance.net/gallery/243547831/spektakl-baal-teatr-mejerholda" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/Baal.webp" alt="" onerror="this.style.display='none'"><div class="vph">B</div></div>
+      <div class="wcard-top"><span class="tag">[*] Theater</span><span>06 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">BAAL<em>.</em></h3><p class="wcard-cat">Media artist</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s6" href="https://www.behance.net/gallery/244178281/krugosvetnyj-novyj-god-v-sadu-im-baumana" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/Souzmultpark.webp" alt="" onerror="this.style.display='none'"><div class="vph">✦</div></div>
+      <div class="wcard-top"><span class="tag">[*] Multimedia park</span><span>07 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">Souzmult<em>park</em></h3><p class="wcard-cat">Interactive parks</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s6" href="https://youtu.be/jnXBmeKDf_w?si=cEujStRIjw5NZfJK" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/WayOfWater.webp" alt="" onerror="this.style.display='none'"><div class="vph">~</div></div>
+      <div class="wcard-top"><span class="tag">[*] Multimedia exhibition</span><span>08 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">Way of <em>Water</em></h3><p class="wcard-cat">Exhibitions · Experience design</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s6" href="https://www.behance.net/gallery/44325905/LIGHTWORKS-interactive-urban-project" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/Lightworks.webp" alt="" onerror="this.style.display='none'"><div class="vph">◇</div></div>
+      <div class="wcard-top"><span class="tag">[*] Interactive installation</span><span>09 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">Light<em>works</em></h3><p class="wcard-cat">Creative · Visual programming</p></div><span class="wcard-go">↗</span></div>
+    </a>
+    <a class="wcard s6" href="https://www.behance.net/gallery/244320221/premija-prosvetitel-10-let" target="_blank" rel="noopener">
+      <div class="vis"><img src="Assets/Preview_projects/Prosvetitel.webp" alt="" onerror="this.style.display='none'"><div class="vph">✶</div></div>
+      <div class="wcard-top"><span class="tag">[*] Award</span><span>10 / 10</span></div>
+      <div class="wcard-meta"><div><h3 class="wcard-title">Prosvetitel</h3><p class="wcard-cat">Festivals · Awards</p></div><span class="wcard-go">↗</span></div>
+    </a>
+  </div>
+
+  <!-- floating preview thumb (used by classic list) -->
+  <div class="wpreview" id="wpreview"><div class="ph">[*] preview</div></div>
+</section>
+
+<!-- CAREER -->
+<section class="sec" id="career" data-screen-label="04 Career">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">04</span><span class="star">✦</span> Career</span>
+    <h2 class="sec-h">Career <em>path</em><span class="pink">.</span></h2>
+    <span class="sec-side">10+ years<br>40+ projects<br><b>2014 — now</b></span>
+  </div>
+
+  <div class="career">
+    <aside class="career-aside reveal">
+      <p>Театр, выставки, бренды, phygital-среды, AI · 12 индустрий, 8 дисциплин, одна практика.</p>
+      <a class="dl" href="Assets/resume.pdf" download>Download CV (PDF)</a>
+    </aside>
+    <div class="timeline reveal">
+      <a class="titem" href="https://capybarabooom.ru" target="_blank" rel="noopener">
+        <span class="tyear">2024<br>—2026</span>
+        <div>
+          <span class="trole">Exhibitions · Experience design</span>
+          <h3 class="ttitle"><em>Capybara</em> Booom</h3>
+          <p class="tdesc">Pop-IP с нуля — персонаж, мерч-система, phygital-парк. Интерактивная выставка, игровые механики, полный цикл от концепции до релиза.</p>
+        </div>
+        <span class="tgo">↗</span>
+      </a>
+      <a class="titem" href="https://youtu.be/jnXBmeKDf_w?si=cEujStRIjw5NZfJK" target="_blank" rel="noopener">
+        <span class="tyear">2022<br>—2024</span>
+        <div>
+          <span class="trole">Exhibitions · Experience design</span>
+          <h3 class="ttitle">Way of <em>Water</em></h3>
+          <p class="tdesc">Иммерсивная выставка: интерактивные зоны, проекция, сенсорные механики. Арт-дирекшен, сценография, координация технической команды.</p>
+        </div>
+        <span class="tgo">↗</span>
+      </a>
+      <a class="titem" href="https://www.behance.net/gallery/244178281/krugosvetnyj-novyj-god-v-sadu-im-baumana" target="_blank" rel="noopener">
+        <span class="tyear">2020<br>—2023</span>
+        <div>
+          <span class="trole">Interactive parks</span>
+          <h3 class="ttitle">Souz<em>multpark</em></h3>
+          <p class="tdesc">Концепция и реализация интерактивного семейного парка на базе советской анимации. Зонирование, игровые механики, мультимедийные среды, IP-система.</p>
+        </div>
+        <span class="tgo">↗</span>
+      </a>
+      <a class="titem" href="https://www.behance.net/gallery/243547831/spektakl-baal-teatr-mejerholda" target="_blank" rel="noopener">
+        <span class="tyear">2019<br>—2022</span>
+        <div>
+          <span class="trole">Media artist</span>
+          <h3 class="ttitle">BAAL. / POLE. / <em>Kandid</em></h3>
+          <p class="tdesc">Три театральные постановки — сценография, видеоконтент, световые партитуры. От иммерсивного театра до phygital-спектакля с живым оркестром.</p>
+        </div>
+        <span class="tgo">↗</span>
+      </a>
+      <a class="titem" href="https://www.behance.net/gallery/246301713/CYMATIC-Project-mapping" target="_blank" rel="noopener">
+        <span class="tyear">2017<br>—2020</span>
+        <div>
+          <span class="trole">Festivals</span>
+          <h3 class="ttitle">Mapping Festival · <em>Большой</em> театр</h3>
+          <p class="tdesc">Проекционный маппинг на фасаде Большого театра и других знаковых объектах. Концепция, сценарий, арт-дирекшен контента, координация технической команды.</p>
+        </div>
+        <span class="tgo">↗</span>
+      </a>
+      <a class="titem" href="https://www.behance.net/gallery/44325905/LIGHTWORKS-interactive-urban-project" target="_blank" rel="noopener">
+        <span class="tyear">2014<br>—2017</span>
+        <div>
+          <span class="trole">Creative · Visual programming</span>
+          <h3 class="ttitle">Adidas · <em>Vandalism Free</em> / Light Graffiti</h3>
+          <p class="tdesc">Брендовый experiential-проект: концепция light graffiti как замена вандализму. Активация в городской среде, контент-система, интерактивная механика.</p>
+        </div>
+        <span class="tgo">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact" data-screen-label="05 Contact">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">05</span><span class="star">✦</span> Contact</span>
+    <h2 class="sec-h">Get in <em>touch</em><span class="pink">.</span></h2>
+    <span class="sec-side">Studio<br><b>Moscow / WW</b></span>
+  </div>
+
+  <h2 class="contact-h reveal">
+    <a href="/cdn-cgi/l/email-protection#7d090e1c101c0f1c16120b0e161c041c3d1a101c1411531e1210">Let's build<br>something <em><span class="lime-bg">unreal</span></em><span class="pink">.</span></a>
+  </h2>
+
+  <div class="ccards reveal">
+    <a class="ccard" href="/cdn-cgi/l/email-protection#2d595e4c404c5f4c46425b5e464c544c6d4a404c4441034e4240">
+      <div class="ccard-lbl"><span>01 · Email</span><span class="ccard-go">↗</span></div>
+      <div class="ccard-val" style="font-size:15px">tsamarakovskaya<br>@gmail.com</div>
+    </a>
+    <a class="ccard" href="tel:+79859148848">
+      <div class="ccard-lbl"><span>02 · Phone</span><span class="ccard-go">↗</span></div>
+      <div class="ccard-val">+7 985<br>914 88 48</div>
+    </a>
+    <a class="ccard" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <div class="ccard-lbl"><span>03 · Telegram</span><span class="ccard-go">↗</span></div>
+      <div class="ccard-val">@samarakovskaya<br>_tanya</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-row">
+    <span>© 2026 · <b>Samarakovskaya Tanya</b></span>
+    <span>(Phygital)<b>design Practice</b> · Moscow / Worldwide</span>
+    <span>Updated · <b>05.2026</b> · <a href="#hero">Back to top ↑</a></span>
+  </div>
+</footer>
+
+<!-- TWEAKS -->
+<button class="tweaks-fab" id="tweaksFab" aria-label="Tweaks">✦</button>
+<div class="tweaks-panel" id="tweaksPanel">
+  <h4>Tweaks <span class="x" id="tweaksClose">✕</span></h4>
+  <div class="row">
+    <span class="lbl">Background</span>
+    <div class="seg" data-key="bg">
+      <button data-val="cream" class="on">Cream</button>
+      <button data-val="white">White</button>
+      <button data-val="ink">Ink</button>
+    </div>
+  </div>
+  <div class="row">
+    <span class="lbl">Accent</span>
+    <span class="swatch active" data-accent="blue" style="background:#0a5cff"></span>
+    <span class="swatch" data-accent="pink" style="background:#ff4fb1"></span>
+    <span class="swatch" data-accent="lime" style="background:#c8ff2e"></span>
+    <span class="swatch" data-accent="orange" style="background:#ff5a2b"></span>
+  </div>
+  <div class="row">
+    <span class="lbl">Grain</span>
+    <div class="seg" data-key="grain">
+      <button data-val="on" class="on">On</button>
+      <button data-val="off">Off</button>
+    </div>
+  </div>
+  <div class="row">
+    <span class="lbl">Cursor</span>
+    <div class="seg" data-key="cursor">
+      <button data-val="custom" class="on">Custom</button>
+      <button data-val="default">Default</button>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Custom cursor
+  const cur = document.getElementById('cur');
+  const ring = document.getElementById('curRing');
+  let mx=window.innerWidth/2, my=window.innerHeight/2, rx=mx, ry=my;
+  window.addEventListener('mousemove',e=>{
+    mx=e.clientX; my=e.clientY;
+    cur.style.transform = `translate(${mx}px, ${my}px) translate(-50%,-50%)`;
+  });
+  function loop(){
+    rx += (mx-rx)*0.18;
+    ry += (my-ry)*0.18;
+    ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  }
+  loop();
+  document.querySelectorAll('a, button, .wcard, .wrow, .ccard, .titem, .svc-cell').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.classList.add('hot');ring.classList.add('hot')});
+    el.addEventListener('mouseleave',()=>{cur.classList.remove('hot');ring.classList.remove('hot')});
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',(e)=>{
+      const id = a.getAttribute('href');
+      if(id.length>1){
+        const el = document.querySelector(id);
+        if(el){ e.preventDefault(); window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-40,behavior:'smooth'}); }
+      }
+    });
+  });
+
+  // Menu
+  const menu = document.getElementById('menu');
+  document.getElementById('menuBtn').addEventListener('click',()=>menu.classList.add('open'));
+  document.getElementById('menuClose').addEventListener('click',()=>menu.classList.remove('open'));
+  document.querySelectorAll('[data-close]').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+
+  // Works view toggle
+  const views = document.getElementById('worksViews');
+  views.querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click',()=>{
+      views.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+      b.classList.add('on');
+      document.body.dataset.view = b.dataset.view;
+    });
+  });
+
+  // Floating image preview on classic rows
+  const wp = document.getElementById('wpreview');
+  let wpImg = null;
+  document.querySelectorAll('.wrow').forEach(r=>{
+    r.addEventListener('mouseenter',()=>{
+      const src = r.dataset.img;
+      if(!wpImg){ wpImg = document.createElement('img'); wp.appendChild(wpImg); }
+      wpImg.onerror = ()=>{ wpImg.style.display='none'; wp.querySelector('.ph').style.display='grid'; };
+      wpImg.onload = ()=>{ wpImg.style.display='block'; wp.querySelector('.ph').style.display='none'; };
+      wpImg.src = src;
+      wp.classList.add('show');
+    });
+    r.addEventListener('mouseleave',()=>{ wp.classList.remove('show'); });
+  });
+  window.addEventListener('mousemove',e=>{
+    if(wp.classList.contains('show')){
+      wp.style.left = e.clientX + 'px';
+      wp.style.top = e.clientY + 'px';
+    }
+  });
+
+  // Tweaks
+  const fab = document.getElementById('tweaksFab');
+  const panel = document.getElementById('tweaksPanel');
+  fab.addEventListener('click',()=>panel.classList.toggle('open'));
+  document.getElementById('tweaksClose').addEventListener('click',()=>panel.classList.remove('open'));
+  document.querySelectorAll('.tweaks-panel .swatch').forEach(s=>{
+    s.addEventListener('click',()=>{
+      document.querySelectorAll('.tweaks-panel .swatch').forEach(x=>x.classList.remove('active'));
+      s.classList.add('active');
+      document.body.dataset.accent = s.dataset.accent;
+    });
+  });
+  document.querySelectorAll('.tweaks-panel .seg').forEach(seg=>{
+    const key = seg.dataset.key;
+    seg.querySelectorAll('button').forEach(b=>{
+      b.addEventListener('click',()=>{
+        seg.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+        b.classList.add('on');
+        const v = b.dataset.val;
+        if(key==='bg') document.body.dataset.bg = v;
+        if(key==='grain') document.body.dataset.grain = v;
+        if(key==='cursor'){
+          if(v==='default'){
+            document.body.style.cursor='auto';
+            cur.style.display='none'; ring.style.display='none';
+            document.querySelectorAll('a,button').forEach(el=>el.style.cursor='pointer');
+          } else {
+            document.body.style.cursor='none';
+            cur.style.display=''; ring.style.display='';
+            document.querySelectorAll('a,button').forEach(el=>el.style.cursor='');
+          }
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
