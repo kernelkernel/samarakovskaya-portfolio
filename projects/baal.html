@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BAAL — Case · Tanya Samarakovskaya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#090909;
+  --bg-2:#0e0b0a;
+  --bg-3:#151009;
+  --ink:#f0e8dc;
+  --ink-2:rgba(240,232,220,.68);
+  --ink-3:rgba(240,232,220,.38);
+  --red:#c8360a;
+  --amber:#e89018;
+  --glow:rgba(200,54,10,.18);
+  --glow-s:rgba(200,54,10,.08);
+  --border:rgba(180,180,180,.13);
+  --border-s:rgba(180,180,180,.07);
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+  --sans:"Space Grotesk",sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --fr:"Cormorant Garamond",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{overflow-x:hidden;cursor:none}
+::selection{background:var(--red);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+
+/* grain */
+body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.5  0 0 0 0 0  0 0 0 0.8 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* cursor */
+.cur{position:fixed;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--red);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+.cur.hot{width:56px;height:56px;background:var(--amber)}
+.cur.hot::after{content:"↗";position:absolute;inset:0;display:grid;place-items:center;color:#000;font-family:var(--sans);font-weight:600;font-size:16px}
+.cur-ring{position:fixed;top:0;left:0;width:32px;height:32px;border:1px solid rgba(200,54,10,.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s linear,opacity .2s;opacity:.5}
+.cur-ring.hot{opacity:0}
+@media(hover:none){body{cursor:auto}.cur,.cur-ring{display:none}a,button{cursor:pointer}}
+
+/* ===== NAV ===== */
+.top{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:0 24px;pointer-events:none}
+.top>*{pointer-events:auto}
+.back{display:inline-flex;align-items:center;gap:8px;background:rgba(9,9,9,.85);backdrop-filter:blur(14px);color:var(--ink);border:1px solid var(--border);padding:9px 16px 9px 12px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.back:hover{background:var(--red);color:#fff;border-color:transparent}
+.back .ar{display:inline-block;transition:transform .2s}
+.back:hover .ar{transform:translateX(-3px)}
+.top-mid{display:inline-flex;align-items:center;gap:8px;background:rgba(9,9,9,.85);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:99px;padding:7px 14px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
+.top-mid .live{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,54,10,.25);flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@media(max-width:780px){.top-mid{display:none}}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#000}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 25%;opacity:.55;filter:saturate(0.7)}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,9,.2) 0%,rgba(9,9,9,.1) 40%,rgba(9,9,9,.85) 80%,var(--bg) 100%)}
+.hero-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:40%;background:radial-gradient(ellipse at bottom,rgba(200,54,10,.15) 0%,transparent 70%);pointer-events:none}
+.hero-body{position:relative;z-index:2;padding:0 24px 56px}
+.hero-kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3);margin-bottom:16px}
+.hero-h{font-family:var(--sans);font-weight:600;font-size:clamp(88px,22vw,320px);line-height:.82;letter-spacing:-.04em;color:#fff;text-shadow:0 0 120px rgba(200,54,10,.3)}
+.hero-sub{font-family:var(--fr);font-style:italic;font-size:clamp(18px,2vw,28px);color:var(--ink-2);margin-top:20px;letter-spacing:-.01em}
+.hero-meta-row{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hero-fact{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);line-height:1.7}
+.hero-fact b{color:var(--ink);font-weight:500;display:block;margin-top:2px}
+
+/* ===== TICKER ===== */
+.ticker{border-block:1px solid rgba(200,54,10,.2);overflow:hidden;background:var(--red);color:#fff;padding:14px 0}
+.ticker-track{display:flex;gap:40px;width:max-content;animation:ticker-scroll 50s linear infinite;font-family:var(--sans);font-weight:500;font-size:clamp(20px,3vw,40px);letter-spacing:-.02em;line-height:1;white-space:nowrap}
+.ticker-track em{font-family:var(--fr);font-style:italic;font-weight:400;color:rgba(255,255,255,.65)}
+.ticker-track .sep{color:rgba(255,255,255,.35);font-weight:300}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== SECTION BASE ===== */
+.sec{padding:96px 24px;border-top:1px solid var(--border-s);position:relative}
+@media(max-width:720px){.sec{padding:60px 20px}}
+.sec.warm{background:var(--bg-2);border-color:var(--border-s)}
+.sec.deep{background:var(--bg-3);border-color:rgba(200,54,10,.12)}
+.sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end;margin-bottom:56px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+@media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+.sec-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+.sec-tag .num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border);font-weight:500;font-size:11px;color:var(--ink-3)}
+.sec-h{font-family:var(--fr);font-weight:400;font-style:italic;font-size:clamp(40px,7vw,108px);line-height:.88;letter-spacing:-.03em;text-align:center;color:var(--ink)}
+.sec-h em{font-style:normal;color:var(--red)}
+.sec-side{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;text-align:right;line-height:1.75;color:var(--ink-3)}
+.sec-side b{font-weight:500;color:var(--ink-2)}
+
+/* ===== INTRO ===== */
+.intro{display:grid;grid-template-columns:1fr 1.8fr;gap:80px;align-items:start}
+@media(max-width:900px){.intro{grid-template-columns:1fr;gap:40px}}
+.intro-aside{position:sticky;top:100px;display:flex;flex-direction:column;gap:18px}
+.aside-img{aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:var(--bg-2);border:1px solid var(--border-s)}
+.aside-img img{width:100%;height:100%;object-fit:cover}
+.aside-dl{display:grid;grid-template-columns:1fr 1.2fr;gap:9px 16px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.06em;border-top:1px solid var(--border);padding-top:16px}
+.aside-dl dt{color:var(--ink-3)}
+.aside-dl dd{color:var(--ink-2);font-weight:500}
+.intro-body h3{font-family:var(--sans);font-weight:400;font-size:clamp(22px,2.6vw,38px);line-height:1.1;letter-spacing:-.02em;text-wrap:balance;color:var(--ink)}
+.intro-body h3 em{font-family:var(--fr);font-style:italic;color:var(--red)}
+.intro-text{display:flex;flex-direction:column;gap:18px;margin-top:28px;font-size:15px;line-height:1.7;color:var(--ink-2)}
+.intro-text b{font-weight:600;color:var(--ink)}
+
+/* hook block */
+.hook-block{margin-top:48px;padding:36px 40px;background:var(--bg-3);border-radius:18px;border:1px solid rgba(200,54,10,.2)}
+.hook-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--red);opacity:.7;margin-bottom:16px}
+.hook-text{font-family:var(--fr);font-weight:400;font-style:italic;font-size:clamp(20px,2.4vw,32px);line-height:1.14;letter-spacing:-.01em;color:var(--ink)}
+.hook-text em{font-style:normal;color:var(--amber)}
+
+/* ===== PILLARS (концепция) ===== */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--border);border-radius:20px;overflow:hidden}
+@media(max-width:780px){.pillars{grid-template-columns:1fr}}
+.pillar{padding:34px 28px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:14px;transition:background .25s}
+.pillar:last-child{border-right:0}
+@media(max-width:780px){.pillar{border-right:0;border-bottom:1px solid var(--border)}.pillar:last-child{border-bottom:0}}
+.pillar:hover{background:var(--bg-2)}
+.pillar-num{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--red);display:flex;justify-content:space-between;align-items:center}
+.pillar-icon{font-size:20px}
+.pillar-tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.pillar-h{font-family:var(--sans);font-size:18px;font-weight:500;letter-spacing:-.01em;line-height:1.2;color:var(--ink)}
+.pillar-desc{font-size:13px;line-height:1.62;color:var(--ink-2)}
+
+/* ===== GALLERY GRID ===== */
+.gal-main{display:grid;grid-template-columns:1.6fr 1fr 1fr;grid-template-rows:280px 280px;gap:12px;margin-top:0}
+@media(max-width:900px){.gal-main{grid-template-columns:1fr 1fr;grid-template-rows:auto}}
+.g{border-radius:14px;overflow:hidden;position:relative;background:var(--bg-2)}
+.g.tall{grid-row:span 2}
+.g img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.25,.46,.45,.94),filter .4s}
+.g:hover img{transform:scale(1.04);filter:saturate(1.15)}
+.g .glbl{position:absolute;bottom:10px;left:10px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#fff;background:rgba(9,9,9,.6);backdrop-filter:blur(8px);padding:3px 9px;border-radius:99px;z-index:2;pointer-events:none}
+
+/* ===== WIDE PHOTO ===== */
+.photo-wide{width:100%;aspect-ratio:21/9;overflow:hidden;position:relative;background:var(--bg-2)}
+@media(max-width:720px){.photo-wide{aspect-ratio:16/9}}
+.photo-wide img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.photo-wide .caption{position:absolute;bottom:20px;right:24px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.4)}
+
+/* ===== SYSTEM BLOCKS (видеосистема) ===== */
+.vsystem{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-top:0}
+@media(max-width:780px){.vsystem{grid-template-columns:1fr}}
+.vsys-half{padding:52px 44px;display:flex;flex-direction:column;gap:24px}
+.vsys-half.dark-half{background:var(--bg-3);border-right:1px solid var(--border)}
+.vsys-half.warm-half{background:rgba(200,54,10,.06)}
+@media(max-width:780px){.vsys-half.dark-half{border-right:0;border-bottom:1px solid var(--border)}}
+.vsys-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--red);opacity:.65}
+.vsys-h{font-family:var(--fr);font-weight:400;font-style:italic;font-size:clamp(26px,3.5vw,48px);line-height:.95;letter-spacing:-.02em;color:var(--ink)}
+.vsys-body{font-size:14px;line-height:1.68;color:var(--ink-2)}
+.vsys-list{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.vsys-row{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(240,232,220,.04);border:1px solid var(--border-s)}
+.vsys-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px}
+.vsys-text{font-size:13px;line-height:1.55;color:var(--ink-2)}
+.vsys-text b{color:var(--ink);font-weight:600}
+
+/* ===== BACKSTAGE STRIP ===== */
+.backstage-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:0}
+@media(max-width:780px){.backstage-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.backstage-grid{grid-template-columns:1fr}}
+.bs-item{aspect-ratio:4/3;border-radius:14px;overflow:hidden;position:relative;background:var(--bg-2)}
+.bs-item img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.bs-item:hover img{transform:scale(1.05)}
+.bs-item .bs-lbl{position:absolute;bottom:10px;left:10px;font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#fff;background:rgba(9,9,9,.55);backdrop-filter:blur(6px);padding:3px 9px;border-radius:99px}
+
+/* ===== CREDITS ===== */
+.deliv{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:20px;overflow:hidden}
+@media(max-width:900px){.deliv{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.deliv{grid-template-columns:1fr}}
+.deliv-cell{padding:28px 22px;border-right:1px solid var(--border);display:flex;flex-direction:column;gap:12px}
+.deliv-cell:last-child{border-right:0}
+@media(max-width:900px){.deliv-cell:nth-child(2n){border-right:0}.deliv-cell:nth-child(n+3){border-top:1px solid var(--border)}}
+.deliv-icon{font-size:24px}
+.deliv-h{font-family:var(--sans);font-size:14px;font-weight:600;letter-spacing:-.01em;color:var(--ink)}
+.deliv-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.deliv-list li{font-size:12px;color:var(--ink-2);line-height:1.5;display:flex;align-items:baseline;gap:7px}
+.deliv-list li::before{content:"—";font-family:var(--mono);font-size:9px;color:var(--ink-3);flex-shrink:0}
+
+.credits{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-top:44px;border-top:1px solid var(--border);margin-top:44px}
+@media(max-width:780px){.credits{grid-template-columns:1fr 1fr}}
+.credit-role{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3);margin-bottom:4px}
+.credit-name{font-size:13px;font-weight:500;color:var(--ink-2)}
+
+/* ===== QUOTE ===== */
+.quote-sec{background:var(--bg-3);border-block:1px solid rgba(200,54,10,.15);padding:96px 24px;text-align:center}
+.quote-mark{font-family:var(--fr);font-style:italic;font-size:90px;line-height:.5;color:rgba(200,54,10,.2);display:block;margin-bottom:16px}
+.quote-text{font-family:var(--fr);font-weight:400;font-style:italic;font-size:clamp(24px,3.5vw,52px);line-height:1.08;letter-spacing:-.02em;max-width:800px;margin:0 auto;color:var(--ink)}
+.quote-attr{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-3);margin-top:26px}
+
+/* ===== CTA ===== */
+.cta-sec{background:#000;color:#fff;padding:96px 24px;text-align:center;border-top:1px solid var(--border-s)}
+.cta-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.2em;color:var(--ink-3);margin-bottom:20px}
+.cta-h{font-family:var(--fr);font-weight:400;font-style:italic;font-size:clamp(38px,6vw,88px);line-height:.9;letter-spacing:-.03em;color:var(--ink);margin-bottom:36px}
+.cta-h em{font-style:normal;color:var(--red)}
+.cta-links{display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.cta-btn.primary{background:var(--red);color:#fff}
+.cta-btn.primary:hover{background:var(--amber);color:#000}
+.cta-btn.outline{border:1px solid var(--border);color:var(--ink-2)}
+.cta-btn.outline:hover{background:var(--border);color:var(--ink)}
+
+/* ===== FOOTER ===== */
+.foot{padding:28px 24px;border-top:1px solid var(--border-s);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--bg)}
+.foot-copy{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.foot-back{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);transition:color .2s}
+.foot-back:hover{color:var(--red)}
+.foot-back .ar{transition:transform .2s}
+.foot-back:hover .ar{transform:translateX(-3px)}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.shown{opacity:1;transform:none}
+
+/* path indicator */
+.path-indicator{position:fixed;left:18px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:7px;pointer-events:none}
+@media(max-width:900px){.path-indicator{display:none}}
+.path-dot{width:6px;height:6px;border-radius:50%;background:rgba(200,54,10,.2);transition:background .3s,transform .3s}
+.path-dot.active{background:var(--red);transform:scale(1.6)}
+.path-dot.passed{background:rgba(200,54,10,.45)}
+
+/* title card illustration */
+.title-card-wrap{text-align:center;padding:48px 24px 0}
+.title-card-img{max-width:480px;margin:0 auto;border-radius:12px;overflow:hidden;opacity:.75}
+.title-card-img img{width:100%;filter:invert(1) brightness(.85)}
+</style>
+</head>
+<body>
+
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+
+<header class="top">
+  <a class="back" href="../index.html"><span class="ar">←</span> Назад</a>
+  <div class="top-mid"><span class="live"></span>Театр · Видеоарт</div>
+</header>
+
+<nav class="path-indicator" id="pathIndicator">
+  <div class="path-dot" data-zone="hero"></div>
+  <div class="path-dot" data-zone="intro"></div>
+  <div class="path-dot" data-zone="gallery"></div>
+  <div class="path-dot" data-zone="system"></div>
+  <div class="path-dot" data-zone="backstage"></div>
+  <div class="path-dot" data-zone="credits"></div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="zone-hero">
+  <img class="hero-img" src="../assets/baal/photo/webp/hero.webp" alt="BAAL — спектакль" loading="eager">
+  <div class="hero-grad"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-body">
+    <div class="hero-kicker">Пьеса Бертольта Брехта · Видеоарт</div>
+    <h1 class="hero-h">BAAL</h1>
+    <p class="hero-sub">Проекция как сознание. Сцена как медиасреда.</p>
+    <div class="hero-meta-row">
+      <div class="hero-fact">Формат<b>Театральная постановка</b></div>
+      <div class="hero-fact">Роль<b>Видеохудожник</b></div>
+      <div class="hero-fact">Команда<b>Иван Комаров · Василина Харламова</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Бояться надо не смерти, а пустой жизни. <em>·</em> Никому не двигаться <em>·</em> Я люблю леса больше, чем людей. <em>·</em> Он пел так, будто хотел выплюнуть из себя весь мир. <em>·</em> Тело умнее морали. <em>·</em> Бессердечный <em>·</em></span>
+    <span>Бояться надо не смерти, а пустой жизни. <em>·</em> Никому не двигаться <em>·</em> Я люблю леса больше, чем людей. <em>·</em> Он пел так, будто хотел выплюнуть из себя весь мир. <em>·</em> Тело умнее морали. <em>·</em> Бессердечный <em>·</em></span>
+  </div>
+</div>
+
+<!-- ===== INTRO ===== -->
+<section class="sec" id="zone-intro">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">01</span> О проекте</span>
+    <h2 class="sec-h">Цифровое <em>сознание</em></h2>
+    <span class="sec-side">Видеопроекция<br>Realtime-съёмка<br><b>Медиадраматургия</b></span>
+  </div>
+
+  <div class="intro reveal">
+    <aside class="intro-aside">
+      <div class="aside-img">
+        <img src="../assets/baal/photo/webp/actors.webp" alt="Актёры спектакля BAAL">
+      </div>
+      <dl class="aside-dl">
+        <dt>Спектакль</dt><dd>BAAL</dd>
+        <dt>Автор</dt><dd>Б. Брехт</dd>
+        <dt>Режиссёр</dt><dd>Иван Комаров</dd>
+        <dt>Художник</dt><dd>В. Харламова</dd>
+        <dt>Роль</dt><dd>Видеохудожник</dd>
+        <dt>Перевод</dt><dd>А. Филиппов-Чехов</dd>
+        <!-- Уточни театр и год: -->
+        <dt>Театр</dt><dd>—</dd>
+        <dt>Год</dt><dd>—</dd>
+      </dl>
+    </aside>
+    <div class="intro-body">
+      <h3>Проекция — <em>не иллюстрация</em>. Это визуализация внутреннего состояния Баала.</h3>
+      <div class="intro-text">
+        <p>BAAL — постановка по одноимённой пьесе Бертольта Брехта, в которой видеопроекция стала полноправным участником драматургии. Сцена перестаёт быть фиксированным пространством и превращается в <b>динамическую медиасреду</b>, реагирующую на действия актёров.</p>
+        <p>Основа визуальной системы — авторские иллюстрации художника Василины Харламовой, переработанные в realtime-проекции. Они не объясняют происходящее. Они <b>показывают изнутри</b>: нестабильное, фрагментированное, искажённое восприятие главного героя.</p>
+        <p>Постановка сознательно опирается на эстетику авангардных практик начала XX века — когда художники стремились разрушить традиционные формы искусства и найти новые способы выражения внутреннего состояния человека.</p>
+      </div>
+
+      <div class="hook-block reveal">
+        <div class="hook-label">Ключевая идея</div>
+        <p class="hook-text">Цифровое изображение здесь — <em>полноценный персонаж</em>. Не фон, не декорация. Медиахудожественное исследование природы личности, свободы и саморазрушения.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="sec warm" id="zone-gallery" style="padding-top:80px;padding-bottom:80px">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">02</span> Спектакль</span>
+    <h2 class="sec-h">На <em>сцене</em></h2>
+    <span class="sec-side">Видео · Проекции<br>Живой свет</span>
+  </div>
+
+  <div class="gal-main reveal">
+    <div class="g tall">
+      <img src="../assets/baal/photo/webp/baal-lights.webp" alt="BAAL — надпись на экране">
+      <span class="glbl">BAAL · надпись</span>
+    </div>
+    <div class="g">
+      <img src="../assets/baal/photo/webp/scene-red.webp" alt="Красная сцена">
+      <span class="glbl">Красная сцена</span>
+    </div>
+    <div class="g">
+      <img src="../assets/baal/photo/webp/cast.webp" alt="Труппа с RGB-проекцией">
+      <span class="glbl">Труппа · RGB-проекция</span>
+    </div>
+    <div class="g" style="grid-column:2/4">
+      <img src="../assets/baal/photo/webp/hero.webp" alt="Актёр и проекция лица" style="object-position:center 20%">
+      <span class="glbl">Проекция · крупный план</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ВИДЕОСИСТЕМА ===== -->
+<section class="sec deep" id="zone-system">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">03</span> Видеосистема</span>
+    <h2 class="sec-h">Как это <em>работало</em></h2>
+    <span class="sec-side">Иллюстрации<br>Realtime-съёмка<br><b>TouchDesigner</b></span>
+  </div>
+
+  <div class="vsystem reveal" style="display:block;max-width:860px;margin:0 auto">
+    <p class="vsys-body" style="font-size:clamp(16px,1.4vw,20px);line-height:1.7;margin-bottom:40px">Видеоряд строился на пересечении двух потоков: авторские иллюстрации Василины Харламовой и живая съёмка актёров — обрабатывалась и выводилась на экран без задержки. Над сценой — отдельный облако-экран, самостоятельный объект в пространстве.</p>
+    <div class="vsys-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px">
+      <div class="vsys-row">
+        <div class="vsys-dot"></div>
+        <p class="vsys-text"><b>Проекция — не иллюстрация.</b> Она показывает изнутри: нестабильное, фрагментированное восприятие Баала. Изображение искажается, дублируется — вслед за состоянием героя.</p>
+      </div>
+      <div class="vsys-row">
+        <div class="vsys-dot"></div>
+        <p class="vsys-text"><b>Медиасреда живая.</b> Пространство сцены реагирует на действие актёров — TouchDesigner обрабатывает сигнал в реальном времени.</p>
+      </div>
+      <div class="vsys-row">
+        <div class="vsys-dot"></div>
+        <p class="vsys-text"><b>Визуальный язык.</b> Цифровой авангард как отсылка к Брехту — разрушение привычных форм через медиу.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BACKSTAGE ===== -->
+<section class="sec" id="zone-backstage" style="padding-top:80px;padding-bottom:80px">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">04</span> Процесс</span>
+    <h2 class="sec-h">За <em>пультом</em></h2>
+    <span class="sec-side">Репетиции<br>Настройка · Live</span>
+  </div>
+
+  <div class="backstage-grid reveal">
+    <div class="bs-item" style="aspect-ratio:3/4">
+      <img src="../assets/baal/photo/webp/scene-red.webp" alt="Пульт управления">
+      <span class="bs-lbl">Пульт · TouchDesigner</span>
+    </div>
+    <div class="bs-item" style="aspect-ratio:3/4">
+      <img src="../assets/baal/photo/webp/cast.webp" alt="Репетиция">
+      <span class="bs-lbl">Репетиция · Цвет</span>
+    </div>
+    <div class="bs-item" style="aspect-ratio:3/4">
+      <img src="../assets/baal/photo/webp/baal-lights.webp" alt="Облако-экран">
+      <span class="bs-lbl">Облако-экран</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTE ===== -->
+<div class="quote-sec">
+  <div style="max-width:820px;margin:0 auto;text-align:center">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">Сцена перестаёт быть фиксированным пространством — и превращается в динамическую медиасреду, реагирующую на действия актёров.</p>
+    <p class="quote-attr">Tanya Samarakovskaya · Видеохудожник · BAAL</p>
+  </div>
+</div>
+
+<!-- ===== DELIVERABLES / CREDITS ===== -->
+<section class="sec" id="zone-credits">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">05</span> Что сделано</span>
+    <h2 class="sec-h">Полный <em>цикл</em></h2>
+    <span class="sec-side">Концепция → Прокат</span>
+  </div>
+
+  <div class="deliv reveal">
+    <div class="deliv-cell">
+      <div class="deliv-icon">🎥</div>
+      <h4 class="deliv-h">Видеосистема</h4>
+      <ul class="deliv-list">
+        <li>Концепция видеоряда</li>
+        <li>Realtime-процессинг</li>
+        <li>TouchDesigner / live-режим</li>
+        <li>Настройка под репертуар</li>
+      </ul>
+    </div>
+    <div class="deliv-cell">
+      <div class="deliv-icon">🎨</div>
+      <h4 class="deliv-h">Визуальный язык</h4>
+      <ul class="deliv-list">
+        <li>Работа с иллюстрациями Харламовой</li>
+        <li>Цифровая обработка графики</li>
+        <li>Композиция проекционных слоёв</li>
+        <li>Цветовые и световые решения</li>
+      </ul>
+    </div>
+    <div class="deliv-cell">
+      <div class="deliv-icon">📽️</div>
+      <h4 class="deliv-h">Сцена как медиум</h4>
+      <ul class="deliv-list">
+        <li>Облако-экран — объект+поверхность</li>
+        <li>Фронтальный экран</li>
+        <li>Световая и видеоинтеграция</li>
+        <li>Связь с движением актёров</li>
+      </ul>
+    </div>
+    <div class="deliv-cell">
+      <div class="deliv-icon">⚡</div>
+      <h4 class="deliv-h">Прокат</h4>
+      <ul class="deliv-list">
+        <li>Операция во время показов</li>
+        <li>Техническая поддержка</li>
+        <li>Адаптация под разные площадки</li>
+        <li>Видеоархив спектакля</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="credits reveal">
+    <div><div class="credit-role">Видеохудожник</div><div class="credit-name">Татьяна Самараковская</div></div>
+    <div><div class="credit-role">Режиссёр</div><div class="credit-name">Иван Комаров</div></div>
+    <div><div class="credit-role">Художник</div><div class="credit-name">Василина Харламова</div></div>
+    <div><div class="credit-role">Перевод</div><div class="credit-name">Александр Филиппов-Чехов</div></div>
+    <div><div class="credit-role">Пьеса</div><div class="credit-name">Бертольт Брехт «Ваал»</div></div>
+    <!-- ⚠️ Заполни: -->
+    <div><div class="credit-role">Театр · Год</div><div class="credit-name" style="color:var(--red);opacity:.5">— заполни —</div></div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-sec">
+  <div class="cta-label">Следующий проект</div>
+  <h2 class="cta-h">Есть идея,<br>которую нужно<br><em>воплотить?</em></h2>
+  <div class="cta-links">
+    <a class="cta-btn primary" href="mailto:tsamarakovskaya@gmail.com">Написать ↗</a>
+    <a class="cta-btn outline" href="../index.html#works">Другие проекты</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <span class="foot-copy">© 2026 · Tanya Samarakovskaya · BAAL</span>
+  <a class="foot-back" href="../index.html"><span class="ar">←</span> Вернуться к портфолио</a>
+</footer>
+
+<script>
+// CURSOR
+const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('hot');ring.classList.add('hot')});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('hot');ring.classList.remove('hot')});
+});
+
+// REVEAL
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('shown')})},{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// PATH INDICATOR
+const zones=['zone-hero','zone-intro','zone-gallery','zone-system','zone-backstage','zone-credits'];
+const dots=document.querySelectorAll('.path-dot');
+function updatePath(){
+  const mid=window.innerHeight*.4;
+  let cur=0;
+  zones.forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    if(el.getBoundingClientRect().top<=mid)cur=i;
+  });
+  dots.forEach((d,i)=>{d.classList.remove('active','passed');if(i===cur)d.classList.add('active');else if(i<cur)d.classList.add('passed')});
+}
+window.addEventListener('scroll',updatePath,{passive:true});
+updatePath();
+</script>
+</body>
+</html>

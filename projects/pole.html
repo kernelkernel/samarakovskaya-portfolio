@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Поле — Case · Tanya Samarakovskaya</title>
+<meta name="description" content="Поле — графическая сюита по Айтматову. Видеодизайн и проекция. Бишкек, 2017.">
+<meta property="og:image" content="../assets/pole/preview.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f3efe6;--bg-2:#ebe6d8;--bg-3:#e2dccb;
+    --graphite:#121212;--ink:#121212;--ink-2:#3a3a3a;--ink-3:#7a7a73;
+    --accent:#00ffcc;--hot:#ff3b1f;
+    --mono:"JetBrains Mono",ui-monospace,monospace;
+    --sans:"Space Grotesk",sans-serif;
+    --serif:"Instrument Serif",Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden}
+  ::selection{background:var(--accent);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+  /* image placeholder fallback */
+  .ph{position:relative;background:#222 repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:rgba(243,239,230,.35);padding:18px;text-align:center}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* film-grain */
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.032;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.85 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  /* TOP NAV */
+  .top{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:0 24px;pointer-events:none;mix-blend-mode:difference}
+  .top > *{pointer-events:auto}
+  .back,.top-mid{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+  .back{display:inline-flex;align-items:center;gap:10px;color:var(--bg);padding:10px 16px;border:1px solid var(--bg);border-radius:99px}
+  .back:hover{background:var(--bg);color:var(--ink);mix-blend-mode:normal}
+  .top-mid{color:var(--bg);display:flex;gap:14px;align-items:center}
+  .top-mid .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 1.2s steps(1) infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;background:var(--graphite);color:var(--bg);overflow:hidden}
+  .hero-img{position:absolute;inset:0;z-index:0}
+  .hero-img .ph{position:absolute;inset:0}
+  .hero-img img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) saturate(.85) brightness(.48)}
+  .hero-img::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(ellipse at 30% 30%,rgba(18,18,18,0) 0%,rgba(18,18,18,.35) 60%,rgba(18,18,18,.82) 100%),
+    linear-gradient(180deg,rgba(18,18,18,.55) 0%,rgba(18,18,18,.08) 30%,rgba(18,18,18,.38) 70%,rgba(18,18,18,.95) 100%)}
+
+  .hero-wrap{position:relative;z-index:3;min-height:100vh;display:flex;flex-direction:column;padding:120px 24px 44px}
+
+  .hero-meta{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(243,239,230,.55);text-align:center}
+  .hero-meta b{display:block;color:var(--accent);margin-bottom:2px;font-weight:500;letter-spacing:.12em}
+  .hero-meta em{font-family:var(--serif);font-style:italic;text-transform:none;color:rgba(243,239,230,.85);font-size:13px;letter-spacing:0}
+  @media (max-width:780px){.hero-meta{gap:20px}}
+
+  .hero-title{flex:1;display:flex;align-items:center;justify-content:center;padding:8vh 0}
+  .hero-h1{font-family:var(--mono);font-weight:500;font-size:clamp(72px,19vw,300px);line-height:.78;letter-spacing:-.05em;text-align:center;text-transform:uppercase}
+  .hero-h1 em{display:block;font-family:var(--serif);font-style:italic;font-weight:400;color:var(--bg);font-size:.32em;text-transform:none;letter-spacing:.01em;line-height:1.1;margin-top:.08em;opacity:.9}
+  .hero-h1 em::before,.hero-h1 em::after{content:"—";color:var(--accent);margin:0 .35em;font-style:normal;font-family:var(--mono)}
+
+  .hero-foot{display:flex;justify-content:center;align-items:center;gap:24px;flex-wrap:wrap}
+  .hero-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+  .pill{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:99px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:500}
+  .pill.accent{background:var(--accent);color:var(--ink)}
+  .pill.outline{border:1px solid rgba(243,239,230,.3);color:rgba(243,239,230,.85)}
+
+  /* MARQUEE */
+  .marq{background:var(--accent);color:var(--ink);overflow:hidden;padding:14px 0;border-block:1px solid var(--ink)}
+  .marq-track{display:flex;gap:32px;width:max-content;animation:scroll 42s linear infinite;font-family:var(--mono);font-weight:500;font-size:clamp(16px,2.4vw,28px);letter-spacing:.05em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .sep{color:var(--ink);opacity:.35}
+  .marq-track em{font-family:var(--serif);font-style:italic;text-transform:none;font-weight:400}
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  /* CONCEPT */
+  .concept{position:relative;padding:120px 0 80px;overflow:hidden}
+  .concept-inner{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
+  @media (max-width:900px){.concept-inner{grid-template-columns:1fr}}
+
+  .concept-img{position:relative;min-height:60vh}
+  .concept-img .ph{position:absolute;inset:0}
+  .concept-img img{width:100%;height:100%;object-fit:cover}
+  .concept-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,transparent 35%,transparent 60%,rgba(0,0,0,.55) 100%);pointer-events:none;z-index:1}
+
+  .concept-body{padding:80px 6vw 80px 6vw;background:var(--bg);position:relative;display:flex;flex-direction:column;gap:30px}
+  .concept-body::before{content:"";position:absolute;top:0;bottom:0;left:0;width:1px;background:var(--ink);opacity:.15}
+  @media (max-width:900px){.concept-body{padding:60px 24px}.concept-body::before{display:none}}
+  .sec-num{display:flex;align-items:baseline;gap:14px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-3)}
+  .sec-num .big{font-family:var(--mono);font-weight:500;color:var(--ink);font-size:64px;line-height:.9;letter-spacing:-.04em}
+  .sec-num .big em{font-family:var(--serif);font-style:italic;color:var(--hot);font-weight:400}
+  .sec-num .lbl{flex:1;border-bottom:1px dashed var(--ink-3);padding-bottom:6px}
+  .concept-lead{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(28px,3.6vw,52px);line-height:1.08;letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
+  .concept-lead .hl{font-family:var(--sans);font-style:normal;font-weight:500;background:var(--ink);color:var(--accent);padding:0 .15em;letter-spacing:-.02em}
+  .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px;max-width:50ch}
+  .concept-text b{color:var(--ink);font-weight:500;background:linear-gradient(transparent 75%,var(--accent) 75%)}
+  .concept-meta{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 20px;border-top:1px solid var(--ink);padding-top:18px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;margin-top:auto}
+  .concept-meta dt{color:var(--ink-3)}
+  .concept-meta dd{color:var(--ink);font-weight:500;margin-top:2px}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;background:var(--graphite);color:var(--bg);min-height:90vh;display:flex;align-items:center;overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.1) brightness(.38)}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,transparent 0%,rgba(18,18,18,.72) 80%)}
+  .pullq-wrap{position:relative;z-index:2;max-width:1400px;margin:0 auto;padding:120px 24px;width:100%;display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center}
+  @media (max-width:780px){.pullq-wrap{grid-template-columns:1fr}}
+  .pullq-mark{font-family:var(--serif);font-size:140px;line-height:.8;color:var(--accent);font-style:italic;opacity:.9}
+  .pullq-mark.close{align-self:end;justify-self:end}
+  .pullq-text{font-family:var(--serif);font-style:italic;font-size:clamp(28px,5vw,76px);line-height:1.05;letter-spacing:-.015em;text-wrap:balance}
+  .pullq-text .key{font-family:var(--mono);font-style:normal;font-weight:500;background:var(--accent);color:var(--ink);padding:.05em .18em;letter-spacing:-.02em;text-transform:uppercase;font-size:.85em}
+  .pullq-cite{position:absolute;bottom:30px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:rgba(243,239,230,.4);z-index:3}
+  .pullq-cite b{color:var(--accent);font-weight:500}
+
+  /* LEVELS / CHAPTERS */
+  .levels{background:var(--bg);position:relative;padding:0}
+  .levels-head{padding:120px 24px 60px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:end;border-bottom:1px solid var(--ink)}
+  @media (max-width:900px){.levels-head{grid-template-columns:1fr;gap:18px}}
+  .head-num{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;display:flex;align-items:baseline;gap:14px;color:var(--ink-3)}
+  .head-num .big{font-size:54px;line-height:.9;color:var(--ink);letter-spacing:-.04em;font-weight:500}
+  .head-num .big em{font-family:var(--serif);font-style:italic;color:var(--hot);font-weight:400}
+  .levels-h{font-family:var(--sans);font-weight:500;font-size:clamp(42px,7vw,108px);line-height:.88;letter-spacing:-.04em;text-align:center}
+  .levels-h em{font-family:var(--serif);font-style:italic;font-weight:400}
+  .levels-side{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;line-height:1.7;text-align:right;color:var(--ink-3)}
+  .levels-side b{color:var(--ink);font-weight:500}
+
+  .chap{position:relative;border-bottom:1px solid var(--ink);min-height:88vh;display:grid;align-items:stretch}
+  .chap.img-l{grid-template-columns:55% 45%}
+  .chap.img-r{grid-template-columns:45% 55%}
+  .chap.img-full{grid-template-columns:1fr;min-height:100vh}
+  @media (max-width:900px){.chap.img-l,.chap.img-r{grid-template-columns:1fr}}
+  .chap-img{position:relative;min-height:60vh;overflow:hidden}
+  .chap-img .ph{position:absolute;inset:0}
+  .chap-img img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .chap-img:hover img{transform:scale(1.03)}
+  .chap-img.r{order:2}
+  @media (max-width:900px){.chap-img.r{order:0}}
+  .chap-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.4) 0%,transparent 30%,transparent 70%,rgba(0,0,0,.58) 100%);pointer-events:none;z-index:1}
+
+  .chap-caption{position:absolute;left:24px;right:24px;bottom:24px;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;color:var(--bg);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;z-index:2;pointer-events:none}
+  .chap-caption b{color:var(--accent);font-weight:500}
+  .chap-caption-top{position:absolute;top:24px;left:24px;right:24px;display:flex;justify-content:space-between;color:var(--bg);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;z-index:2;pointer-events:none}
+  .chap-caption-top .level{display:inline-flex;align-items:center;gap:10px;background:rgba(18,18,18,.45);backdrop-filter:blur(8px);padding:6px 12px;border:1px solid var(--accent);color:var(--accent)}
+  .chap-caption-top .level::before{content:"";width:8px;height:8px;background:var(--accent);display:inline-block}
+
+  .chap-body{padding:8vh 6vw;display:flex;flex-direction:column;gap:26px;position:relative;background:var(--bg)}
+  .chap.img-full .chap-body{position:absolute;inset:0;background:transparent;color:var(--bg);justify-content:flex-end;padding:8vh 6vw;z-index:3}
+  .chap.img-full .chap-img{grid-row:1;grid-column:1;min-height:100vh}
+  .chap.img-full .chap-img::after{background:linear-gradient(180deg,rgba(0,0,0,.48) 0%,transparent 25%,transparent 50%,rgba(0,0,0,.92) 100%)}
+  .chap-key{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink-3);display:flex;align-items:center;gap:14px}
+  .chap-key .sq{width:10px;height:10px;background:var(--accent);display:inline-block}
+  .chap.img-full .chap-key{color:rgba(243,239,230,.7)}
+  .chap-title{font-family:var(--sans);font-weight:500;font-size:clamp(32px,4.6vw,68px);line-height:.95;letter-spacing:-.03em;text-wrap:balance}
+  .chap-title em{font-family:var(--serif);font-style:italic;font-weight:400}
+  .chap.img-full .chap-title em{color:var(--accent)}
+  .chap:not(.img-full) .chap-title em{color:var(--hot)}
+  .chap-body p{font-size:16px;line-height:1.65;color:var(--ink-2);max-width:52ch}
+  .chap.img-full .chap-body p{color:rgba(243,239,230,.85);max-width:70ch}
+  .chap-body p b{color:var(--ink);font-weight:500}
+  .chap.img-full .chap-body p b{color:var(--accent)}
+
+  /* MY ROLE */
+  .role{background:var(--graphite);color:var(--bg);padding:0;position:relative;overflow:hidden}
+  .role-head{padding:120px 24px 70px;display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:end;border-bottom:1px solid rgba(243,239,230,.15)}
+  @media (max-width:900px){.role-head{grid-template-columns:1fr;gap:18px}}
+  .role-head .head-num{color:rgba(243,239,230,.5)}
+  .role-head .head-num .big{color:var(--bg)}
+  .role-head .levels-side{color:rgba(243,239,230,.5)}
+  .role-head .levels-side b{color:var(--bg)}
+
+  .role-stack{display:flex;flex-direction:column}
+  .role-block{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid rgba(243,239,230,.12);min-height:80vh;align-items:stretch}
+  @media (max-width:900px){.role-block{grid-template-columns:1fr}}
+  .role-block-img{position:relative;overflow:hidden;min-height:50vh}
+  .role-block-img .ph{position:absolute;inset:0}
+  .role-block-img img{width:100%;height:100%;object-fit:cover}
+  .role-block:nth-child(even) .role-block-img{order:2}
+  @media (max-width:900px){.role-block:nth-child(even) .role-block-img{order:0}}
+  .role-block-img::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(18,18,18,.65) 0%,transparent 40%);pointer-events:none}
+
+  .role-block-body{padding:7vh 5vw;display:flex;flex-direction:column;gap:24px;position:relative;justify-content:center}
+  .role-num{font-family:var(--mono);font-weight:500;font-size:120px;line-height:.85;letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1.5px var(--accent);position:absolute;top:50px;right:50px;opacity:.5}
+  .role-block:nth-child(even) .role-num{left:50px;right:auto;top:50px}
+  @media (max-width:900px){.role-num{font-size:80px;top:30px;right:30px;left:auto}}
+  .role-step{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--accent);display:flex;align-items:center;gap:12px}
+  .role-step::before{content:"";width:36px;height:1px;background:var(--accent)}
+  .role-h{font-family:var(--sans);font-weight:500;font-size:clamp(30px,3.8vw,56px);line-height:1;letter-spacing:-.03em;text-wrap:balance;position:relative;z-index:2}
+  .role-h em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent)}
+  .role-d{font-size:15px;line-height:1.7;color:rgba(243,239,230,.75);max-width:50ch;position:relative;z-index:2}
+  .role-d b{color:var(--bg);font-weight:500}
+
+  .role-overlay{position:absolute;color:var(--bg);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;z-index:3;pointer-events:none}
+  .role-overlay.tl{top:24px;left:24px;display:flex;flex-direction:column;gap:6px}
+  .role-overlay.tl b{color:var(--accent);font-weight:500}
+  .role-overlay.br{bottom:24px;right:24px;text-align:right;display:flex;flex-direction:column;gap:6px}
+
+  /* GALLERY */
+  .gal{padding:120px 24px;background:var(--bg-2);position:relative}
+  .gal-head{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:end;border-bottom:1px solid var(--ink);padding-bottom:40px;margin-bottom:60px}
+  @media (max-width:900px){.gal-head{grid-template-columns:1fr;gap:18px}}
+
+  .collage{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:7vw;gap:10px}
+  @media (max-width:780px){.collage{grid-auto-rows:18vw}}
+  .col-item{position:relative;overflow:hidden;cursor:zoom-in;background:#222}
+  .col-item .ph{position:absolute;inset:0}
+  .col-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s}
+  .col-item:hover img{transform:scale(1.04);filter:brightness(1.1)}
+  .col-item::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 35%);opacity:.7;pointer-events:none;transition:opacity .3s}
+  .col-item:hover::after{opacity:.3}
+  .col-item .lbl{position:absolute;left:14px;bottom:14px;display:flex;align-items:center;gap:8px;color:var(--bg);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;z-index:2;pointer-events:none}
+  .col-item .lbl b{color:var(--accent);font-weight:500}
+  .col-item .idx{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;letter-spacing:.1em;background:rgba(0,255,204,.85);color:var(--ink);padding:3px 7px;z-index:2;pointer-events:none;font-weight:500}
+
+  .s1{grid-column:span 7;grid-row:span 5}
+  .s2{grid-column:span 5;grid-row:span 3}
+  .s3{grid-column:span 3;grid-row:span 3}
+  .s4{grid-column:span 4;grid-row:span 4}
+  .s5{grid-column:span 5;grid-row:span 4}
+  .s6{grid-column:span 4;grid-row:span 3}
+  .s7{grid-column:span 4;grid-row:span 4}
+  .s8{grid-column:span 4;grid-row:span 3}
+  .s9{grid-column:span 8;grid-row:span 4}
+  .s10{grid-column:span 6;grid-row:span 3}
+  .s11{grid-column:span 6;grid-row:span 3}
+  .s12{grid-column:span 5;grid-row:span 3}
+  @media (max-width:780px){.collage > *{grid-column:span 12!important;grid-row:span 1!important;aspect-ratio:4/3}}
+
+  .col-cap{grid-column:span 4;grid-row:span 3;background:var(--graphite);color:var(--bg);padding:24px;display:flex;flex-direction:column;justify-content:space-between;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;position:relative;overflow:hidden}
+  .col-cap .big{font-family:var(--serif);font-style:italic;font-size:clamp(28px,3vw,46px);line-height:1.05;color:var(--accent);letter-spacing:-.01em;text-transform:none}
+  .col-cap .meta{color:rgba(243,239,230,.5);line-height:1.6}
+  .col-cap .meta b{color:var(--bg);font-weight:500;display:block}
+  @media (max-width:780px){.col-cap{aspect-ratio:auto;padding:30px}}
+
+  /* lightbox */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);cursor:zoom-out;align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:92vw;max-height:90vh;object-fit:contain}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(243,239,230,.55);padding:8px}
+  .lb-close:hover{color:var(--accent)}
+
+  /* CREDITS */
+  .credits{background:var(--graphite);color:var(--bg);padding:100px 24px 80px}
+  .credits-top{display:grid;grid-template-columns:1fr 1fr;gap:0;border-bottom:1px solid rgba(243,239,230,.15);padding-bottom:60px;margin-bottom:60px;align-items:end}
+  @media(max-width:900px){.credits-top{grid-template-columns:1fr;gap:30px}}
+  .credits-title{font-family:var(--sans);font-weight:500;font-size:clamp(48px,8vw,120px);line-height:.88;letter-spacing:-.04em}
+  .credits-title em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--accent)}
+  .credits-facts{display:flex;gap:40px;flex-wrap:wrap;justify-content:flex-end}
+  @media(max-width:900px){.credits-facts{justify-content:flex-start}}
+  .cred-fact{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(243,239,230,.5);text-align:center}
+  .cred-fact strong{display:block;font-family:var(--sans);font-size:clamp(28px,3.5vw,52px);font-weight:500;letter-spacing:-.04em;line-height:.9;color:var(--bg);margin-bottom:6px}
+  .cred-fact strong em{font-family:var(--serif);font-style:italic;color:var(--accent);font-weight:400}
+
+  .credits-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:900px){.credits-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(243,239,230,.1);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid rgba(243,239,230,.1)}
+  .cred-row dt{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(243,239,230,.4)}
+  .cred-row dd{font-family:var(--sans);font-size:clamp(16px,1.6vw,22px);font-weight:500;letter-spacing:-.02em;line-height:1.2;color:var(--bg)}
+  .cred-row dd em{font-family:var(--serif);font-style:italic;color:var(--accent);font-weight:400}
+  .cred-row dd .sub{display:block;font-family:var(--mono);font-size:10px;color:rgba(243,239,230,.4);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .cred-row.hl dd{color:var(--accent)}
+  .credits-col-right{border-left:1px solid rgba(243,239,230,.1);padding-left:48px}
+  @media(max-width:900px){.credits-col-right{border-left:none;padding-left:0;border-top:1px solid rgba(243,239,230,.15);padding-top:40px}}
+
+  /* PROJ-NAV */
+  .proj-nav{border-top:1px solid var(--ink);background:var(--bg-2)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr;grid-template-rows:auto auto auto}}
+  .proj-nav-card{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 36px;gap:8px;transition:background .3s;cursor:pointer;text-decoration:none;border-bottom:1px solid var(--ink)}
+  .proj-nav-card:first-child{border-right:1px solid var(--ink)}
+  .proj-nav-card:last-child{border-left:1px solid var(--ink)}
+  @media(max-width:760px){.proj-nav-card:first-child,.proj-nav-card:last-child{border:none;border-top:1px solid var(--ink)}}
+  .proj-nav-bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.12;transition:opacity .4s;filter:saturate(.4)}
+  .proj-nav-card:hover .proj-nav-bg{opacity:.25}
+  .proj-nav-card:hover{background:rgba(0,255,204,.04)}
+  .proj-nav-content{position:relative;z-index:1}
+  .proj-nav-dir{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-3);margin-bottom:12px}
+  .proj-nav-name{font-family:var(--serif);font-style:italic;font-size:clamp(28px,4vw,56px);font-weight:400;color:var(--ink);line-height:1;letter-spacing:-.01em}
+  .proj-nav-sub{font-family:var(--mono);font-size:10px;color:var(--ink-3);margin-top:8px;text-transform:uppercase;letter-spacing:.08em}
+  .proj-nav-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:18px;text-decoration:none;transition:background .3s;border-bottom:1px solid var(--ink)}
+  .proj-nav-contact:hover{background:rgba(0,255,204,.06)}
+  @media(max-width:760px){.proj-nav-contact{border:none;border-top:1px solid var(--ink);padding:36px 24px}}
+  .proj-nav-contact-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3)}
+  .proj-nav-contact-btn{display:inline-flex;align-items:center;gap:8px;background:var(--ink);color:var(--bg);padding:14px 28px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;transition:background .2s,color .2s}
+  .proj-nav-contact:hover .proj-nav-contact-btn{background:var(--accent);color:var(--ink)}
+
+  /* FOOTER */
+  .pgfoot{padding:36px 24px;border-top:1px solid var(--ink);background:var(--bg);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+  .pgfoot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center}
+  .pgfoot b{color:var(--ink);font-weight:500}
+  .pgfoot a:hover{color:var(--ink)}
+
+  /* reveal */
+  .reveal{opacity:0;transition:opacity .8s ease}
+  .reveal.in{opacity:1}
+</style>
+</head>
+<body>
+
+<!-- Lightbox -->
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">[ESC] Закрыть</button>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<header class="top">
+  <a class="back" href="../index.html#works">← Назад к работам</a>
+  <span class="top-mid"><span class="dot"></span>CASE · <em style="font-family:var(--serif);font-style:italic;text-transform:none">Поле</em></span>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-img">
+    <div class="ph" data-ph="pole · сцена · колосья">
+      <img src="../assets/pole/photo/webp/pole-01-stage.webp" alt="Поле — полная сцена" loading="eager" decoding="async">
+    </div>
+  </div>
+
+  <div class="hero-wrap">
+    <div class="hero-meta">
+      <div><b>Performance · Video design</b><em>2017 · Бишкек</em></div>
+      <div><b>Format</b><em>Графическая сюита</em></div>
+      <div><b>Team</b><em>Supervisuals &amp; Global Illumination</em></div>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="hero-h1">
+        ПОЛЕ
+        <em>графическая сюита</em>
+      </h1>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-tags">
+        <span class="pill accent">[▲] Айтматов</span>
+        <span class="pill outline">Бишкек · Кыргызстан</span>
+        <span class="pill outline">Supervisuals</span>
+        <span class="pill outline">Global Illumination</span>
+        <span class="pill outline">Video Design</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>ПОЛЕ <span class="sep">▮</span> <em>Айтматов</em> <span class="sep">▮</span> БИШКЕК <span class="sep">▮</span> ПРОЕКЦИЯ <span class="sep">▮</span> ПЛАСТИКА <span class="sep">▮</span> <em>графическая сюита</em> <span class="sep">▮</span> КЫРГЫЗСКИЕ ГОРЫ <span class="sep">▮</span> VIDEO DESIGN <span class="sep">▮</span> SUPERVISUALS <span class="sep">▮</span> GLOBAL ILLUMINATION <span class="sep">▮</span></span>
+    <span>ПОЛЕ <span class="sep">▮</span> <em>Айтматов</em> <span class="sep">▮</span> БИШКЕК <span class="sep">▮</span> ПРОЕКЦИЯ <span class="sep">▮</span> ПЛАСТИКА <span class="sep">▮</span> <em>графическая сюита</em> <span class="sep">▮</span> КЫРГЫЗСКИЕ ГОРЫ <span class="sep">▮</span> VIDEO DESIGN <span class="sep">▮</span> SUPERVISUALS <span class="sep">▮</span> GLOBAL ILLUMINATION <span class="sep">▮</span></span>
+  </div>
+</div>
+
+<!-- CONCEPT -->
+<section class="concept">
+  <div class="concept-inner">
+    <div class="concept-img reveal">
+      <div class="ph" data-ph="pole · поле · горы">
+        <img src="../assets/pole/photo/webp/pole-02-field.webp" alt="Поле — Кыргызстан" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="concept-body reveal">
+      <div class="sec-num">
+        <span class="big">01<em>.</em></span>
+        <span class="lbl">Concept · идея</span>
+      </div>
+
+      <p class="concept-lead">
+        Возвращение Айтматова в Бишкек, где его слово <span class="hl">вшито в культурный код.</span>
+      </p>
+
+      <div class="concept-text">
+        <p>«Поле» — это спектакль, который намеренно отказывается от текста. В пространстве, пропитанном памятью, смыслы рождаются в ритме, движении и паузах. Это не литературная адаптация — <b>физическое переживание</b>, где сцена становится живым полем битвы между любовью, войной и судьбой.</p>
+        <p>Команда сделала ставку на визуальную честность: когда нет возможности строить сложные декорации, в ход идут пластика, свет, ритм и видео. <b>Проекция — полноценный герой</b>, который направляет сюжет и усиливает чувства.</p>
+        <p>Видеоряд снимали в Кыргызских горах, чтобы перенести на сцену дух и суровую красоту айтматовских мест. Ограничения стали стилем, а минимализм — мощным высказыванием.</p>
+      </div>
+
+      <dl class="concept-meta">
+        <div><dt>Формат</dt><dd>Графическая сюита</dd></div>
+        <div><dt>Локация</dt><dd>Бишкек</dd></div>
+        <div><dt>Команда</dt><dd>Supervisuals &amp; GI</dd></div>
+        <div><dt>Год</dt><dd>2017</dd></div>
+        <div><dt>Съёмки</dt><dd>Кыргызские горы</dd></div>
+        <div><dt>Роль</dt><dd>Video Design</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="pullq">
+  <div class="pullq-bg">
+    <div class="ph" data-ph="pole · solo blue">
+      <img src="../assets/pole/photo/webp/pole-06-solo-blue.webp" alt="Соло в синем" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  <div class="pullq-wrap">
+    <div class="pullq-mark">"</div>
+    <p class="pullq-text">
+      Когда нет декораций — <span class="key">проекция</span> становится всем: героем, пространством, памятью.
+    </p>
+    <div class="pullq-mark close">"</div>
+  </div>
+
+  <div class="pullq-cite">[▲] <b>Поле</b> · Supervisuals &amp; Global Illumination · 2017</div>
+</section>
+
+<!-- LEVELS / CHAPTERS -->
+<section class="levels">
+  <div class="levels-head reveal">
+    <span class="head-num"><span class="big">02<em>.</em></span><span>Show<br>· образы</span></span>
+    <h2 class="levels-h">5 сцен<br>одного <em>поля.</em></h2>
+    <span class="levels-side"><b>Сюита</b><br>2017 · Бишкек<br>· Кыргызстан</span>
+  </div>
+
+  <!-- Chapter 01 -->
+  <article class="chap img-l reveal">
+    <div class="chap-img">
+      <div class="ph" data-ph="pole · проекция · лицо">
+        <img src="../assets/pole/photo/webp/pole-04-projection.webp" alt="Проекция" loading="lazy" decoding="async">
+      </div>
+      <div class="chap-caption-top">
+        <span class="level">СЦ · 01</span>
+      </div>
+      <div class="chap-caption">
+        <span><b>pole-04</b> · projection · face</span>
+      </div>
+    </div>
+    <div class="chap-body">
+      <span class="chap-key"><span class="sq"></span> Идея · 01</span>
+      <h3 class="chap-title">Пространство, <em>пронизанное памятью</em></h3>
+      <p>«Поле» возвращает Айтматова туда, где его слово существует не как литература, а как культурный рефлекс. <b>Спектакль отказывается от текста</b>: смыслы рождаются в ритме, движении, в том, что остаётся после паузы. Проекция несёт лица, пейзажи, архивы — всё то, что невозможно произнести вслух.</p>
+    </div>
+  </article>
+
+  <!-- Chapter 02 -->
+  <article class="chap img-full reveal">
+    <div class="chap-img">
+      <div class="ph" data-ph="pole · ансамбль · золото">
+        <img src="../assets/pole/photo/webp/pole-11-ensemble-full.webp" alt="Ансамбль — полная сцена" loading="lazy" decoding="async">
+      </div>
+      <div class="chap-caption-top">
+        <span class="level">СЦ · 02</span>
+      </div>
+    </div>
+    <div class="chap-body">
+      <span class="chap-key"><span class="sq"></span> Тело · 02</span>
+      <h3 class="chap-title"><em>Тело как текст,</em> пластика как речь</h3>
+      <p>Там, где слова умолкают, <b>говорит движение</b>. Хореография выстраивает нарратив войны и любви без единой реплики. Ансамбль работает как живое поле — каждый участник одновременно солист и часть единого организма.</p>
+    </div>
+  </article>
+
+  <!-- Chapter 03 -->
+  <article class="chap img-r reveal">
+    <div class="chap-body">
+      <span class="chap-key"><span class="sq"></span> Проекция · 03</span>
+      <h3 class="chap-title">Видео как <em>главный герой</em></h3>
+      <p>Когда нет возможности строить сложные декорации, проекция берёт на себя всё: создаёт пространство, ведёт сюжет, задаёт эмоциональную температуру. <b>Видеоряд снимался в Кыргызских горах</b> — чтобы перенести на сцену подлинный дух и суровую красоту айтматовских мест.</p>
+    </div>
+    <div class="chap-img r">
+      <div class="ph" data-ph="pole · соло · синий">
+        <img src="../assets/pole/photo/webp/pole-06-solo-blue.webp" alt="Соло в синем" loading="lazy" decoding="async">
+      </div>
+      <div class="chap-caption-top">
+        <span class="level">СЦ · 03</span>
+      </div>
+      <div class="chap-caption">
+        <span><b>pole-06</b> · solo · blue projection</span>
+      </div>
+    </div>
+  </article>
+
+  <!-- Chapter 04 -->
+  <article class="chap img-full reveal">
+    <div class="chap-img">
+      <div class="ph" data-ph="pole · солистка · звёзды">
+        <img src="../assets/pole/photo/webp/pole-08-soloist-wide.webp" alt="Солистка" loading="lazy" decoding="async">
+      </div>
+      <div class="chap-caption-top">
+        <span class="level">СЦ · 04</span>
+      </div>
+    </div>
+    <div class="chap-body">
+      <span class="chap-key"><span class="sq"></span> Минимализм · 04</span>
+      <h3 class="chap-title">Ограничения как <em>стиль</em></h3>
+      <p>Это работа о том, как <b>минимализм становится мощным высказыванием</b>. Один голос. Одно тело. Один луч проектора. Когда убираешь лишнее — остаётся только суть. Айтматов писал про поле, войну, выбор. Спектакль делает то же самое — только без слов.</p>
+    </div>
+  </article>
+
+  <!-- Chapter 05 -->
+  <article class="chap img-l reveal">
+    <div class="chap-img">
+      <div class="ph" data-ph="pole · круг · ритуал">
+        <img src="../assets/pole/photo/webp/pole-10-circle.webp" alt="Круг — ритуал" loading="lazy" decoding="async">
+      </div>
+      <div class="chap-caption-top">
+        <span class="level">СЦ · 05</span>
+      </div>
+      <div class="chap-caption">
+        <span><b>pole-10</b> · circle · ritual</span>
+      </div>
+    </div>
+    <div class="chap-body">
+      <span class="chap-key"><span class="sq"></span> Ритуал · 05</span>
+      <h3 class="chap-title">Судьба, <em>война и любовь</em></h3>
+      <p>Три силы, определяющие героев Айтматова, — разыгрываются в трёх регистрах: хореография, живой свет и проекция. <b>Круг — главная геометрия спектакля</b>: замкнутость судьбы, цикл времени, ритуальное поле, где нет выхода — есть только выбор.</p>
+    </div>
+  </article>
+</section>
+
+<!-- MY ROLE -->
+<section class="role">
+  <div class="role-head reveal">
+    <span class="head-num"><span class="big">03<em>.</em></span><span>My role<br>· видеодизайн</span></span>
+    <h2 class="levels-h">Видео<em>дизайн</em></h2>
+    <span class="levels-side"><b>Video Design</b><br>Supervisuals<br>&amp; Global Illumination</span>
+  </div>
+
+  <div class="role-stack">
+    <article class="role-block reveal">
+      <div class="role-block-img">
+        <div class="ph" data-ph="pole · съёмки · горы">
+          <img src="../assets/pole/photo/webp/pole-03-process.webp" alt="Съёмки — Кыргызстан" loading="lazy" decoding="async">
+        </div>
+        <div class="role-overlay tl"><b>STEP · 01</b><span>fieldwork</span></div>
+        <div class="role-overlay br"><span>кыргызские горы<br>натурные съёмки</span><b>// location</b></div>
+      </div>
+      <div class="role-block-body">
+        <span class="role-num">01</span>
+        <span class="role-step">шаг · 01 / 04</span>
+        <h3 class="role-h">Экспедиция в <em>места Айтматова</em></h3>
+        <p class="role-d">Видеоматериал для проекции создавался на натуре — в Кыргызских горах. Задача: перенести на сцену <b>подлинное ощущение пространства</b>, которым пропитана проза Айтматова. Степь, горы, небо, лица — снятые в реальных местах, они не имитируют, а документируют. Проекция становится не декорацией, а свидетелем.</p>
+      </div>
+    </article>
+
+    <article class="role-block reveal">
+      <div class="role-block-img">
+        <div class="ph" data-ph="pole · ансамбль · бирюза">
+          <img src="../assets/pole/photo/webp/pole-05-ensemble-teal.webp" alt="Ансамбль — бирюза" loading="lazy" decoding="async">
+        </div>
+        <div class="role-overlay tl"><b>STEP · 02</b><span>visual language</span></div>
+        <div class="role-overlay br"><span>цвет · ритм<br>визуальный язык</span><b>// design</b></div>
+      </div>
+      <div class="role-block-body">
+        <span class="role-num">02</span>
+        <span class="role-step">шаг · 02 / 04</span>
+        <h3 class="role-h">Язык <em>образов</em></h3>
+        <p class="role-d">Каждый раздел сюиты получил свою визуальную температуру: <b>холодный синий — тревога и разлука, золотой — сила и судьба, белый — пустота и открытость</b>. Проекция не иллюстрирует — она задаёт эмоциональный регистр, в котором существует тело на сцене. Визуальный язык разрабатывался в паре с хореографом.</p>
+      </div>
+    </article>
+
+    <article class="role-block reveal">
+      <div class="role-block-img">
+        <div class="ph" data-ph="pole · солистка · огонь">
+          <img src="../assets/pole/photo/webp/pole-07-soloist.webp" alt="Солистка — огонь" loading="lazy" decoding="async">
+        </div>
+        <div class="role-overlay tl"><b>STEP · 03</b><span>sync · timing</span></div>
+        <div class="role-overlay br"><span>пластика · проекция<br>единый ритм</span><b>// sync</b></div>
+      </div>
+      <div class="role-block-body">
+        <span class="role-num">03</span>
+        <span class="role-step">шаг · 03 / 04</span>
+        <h3 class="role-h">Синхронизация с <em>живым телом</em></h3>
+        <p class="role-d">Главная задача видеодизайна — <b>видео дышит вместе с хореографией</b>. Проекция не фон: она реагирует на движение, на паузу, на момент падения. Каждый переход монтировался под конкретное движение конкретного артиста. Репетиционный процесс — постоянная итерация между сценой и монтажным столом.</p>
+      </div>
+    </article>
+
+    <article class="role-block reveal">
+      <div class="role-block-img">
+        <div class="ph" data-ph="pole · силуэты">
+          <img src="../assets/pole/photo/webp/pole-09-silhouettes.webp" alt="Силуэты" loading="lazy" decoding="async">
+        </div>
+        <div class="role-overlay tl"><b>STEP · 04</b><span>minimalism</span></div>
+        <div class="role-overlay br"><span>минимум средств<br>максимум смысла</span><b>// output</b></div>
+      </div>
+      <div class="role-block-body">
+        <span class="role-num">04</span>
+        <span class="role-step">шаг · 04 / 04</span>
+        <h3 class="role-h">Минимализм как <em>метод</em></h3>
+        <p class="role-d">Работа в условиях ограниченных ресурсов учит точности. <b>Каждый кадр должен нести смысл</b> — нет места для декоративного. Силуэт на белом экране говорит больше, чем сложная анимация. Этот спектакль — про то, как убрать лишнее и оставить только то, что невозможно не почувствовать.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<!-- VIDEO -->
+<section class="concept" id="zone-video" style="padding-top:72px;padding-bottom:72px">
+  <div style="max-width:1380px;margin:0 auto;padding:0 clamp(18px,4vw,64px)">
+    <div style="display:flex;justify-content:space-between;align-items:end;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid rgba(240,232,220,.08)">
+      <span style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(240,232,220,.45)">03b / Видео</span>
+      <span style="font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(240,232,220,.35)">YouTube · Documentation</span>
+    </div>
+    <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px"
+      onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/veRpa1JUwHM?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
+      <img src="https://img.youtube.com/vi/veRpa1JUwHM/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/veRpa1JUwHM/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;display:block" alt="POLE видео">
+      <div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
+        <div style="width:80px;height:80px;border-radius:50%;background:#C8FF2E;display:grid;place-items:center;font-size:28px;color:#16161A">▶</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gal">
+  <div class="gal-head reveal">
+    <span class="head-num"><span class="big">04<em>.</em></span><span>Gallery<br>· фото</span></span>
+    <h2 class="levels-h">Образы <em>спектакля</em></h2>
+    <span class="levels-side"><b>12 кадров</b><br>сцена · горы<br>· проекция</span>
+  </div>
+
+  <div class="collage reveal">
+    <figure class="col-item s1">
+      <div class="ph" data-ph="pole · stage"><img src="../assets/pole/photo/webp/pole-01-stage.webp" alt="Поле — сцена" loading="lazy" decoding="async"></div>
+      <span class="idx">01</span>
+      <span class="lbl"><b>pole-01</b> · полная сцена</span>
+    </figure>
+    <figure class="col-item s2">
+      <div class="ph" data-ph="pole · field"><img src="../assets/pole/photo/webp/pole-02-field.webp" alt="Поле — Кыргызстан" loading="lazy" decoding="async"></div>
+      <span class="idx">02</span>
+      <span class="lbl"><b>02</b> · поле · горы</span>
+    </figure>
+    <div class="col-cap">
+      <div class="big">«Поле»<br>в кадрах.</div>
+      <div class="meta">
+        <b>12 кадров · 2017</b>
+        Бишкек · Кыргызстан<br>сцена + натура
+      </div>
+    </div>
+    <figure class="col-item s3">
+      <div class="ph" data-ph="pole · process"><img src="../assets/pole/photo/webp/pole-03-process.webp" alt="Съёмки" loading="lazy" decoding="async"></div>
+      <span class="idx">03</span>
+      <span class="lbl"><b>03</b> · съёмки</span>
+    </figure>
+    <figure class="col-item s4">
+      <div class="ph" data-ph="pole · projection"><img src="../assets/pole/photo/webp/pole-04-projection.webp" alt="Проекция" loading="lazy" decoding="async"></div>
+      <span class="idx">04</span>
+      <span class="lbl"><b>04</b> · проекция · лицо</span>
+    </figure>
+    <figure class="col-item s5">
+      <div class="ph" data-ph="pole · ensemble teal"><img src="../assets/pole/photo/webp/pole-05-ensemble-teal.webp" alt="Ансамбль" loading="lazy" decoding="async"></div>
+      <span class="idx">05</span>
+      <span class="lbl"><b>05</b> · ансамбль · бирюза</span>
+    </figure>
+    <figure class="col-item s6">
+      <div class="ph" data-ph="pole · solo blue"><img src="../assets/pole/photo/webp/pole-06-solo-blue.webp" alt="Соло — синий" loading="lazy" decoding="async"></div>
+      <span class="idx">06</span>
+      <span class="lbl"><b>06</b> · соло · синий</span>
+    </figure>
+    <figure class="col-item s7">
+      <div class="ph" data-ph="pole · soloist"><img src="../assets/pole/photo/webp/pole-07-soloist.webp" alt="Солистка" loading="lazy" decoding="async"></div>
+      <span class="idx">07</span>
+      <span class="lbl"><b>07</b> · солистка · огонь</span>
+    </figure>
+    <figure class="col-item s8">
+      <div class="ph" data-ph="pole · soloist wide"><img src="../assets/pole/photo/webp/pole-08-soloist-wide.webp" alt="Солистка — широко" loading="lazy" decoding="async"></div>
+      <span class="idx">08</span>
+      <span class="lbl"><b>08</b> · солистка · широко</span>
+    </figure>
+    <figure class="col-item s9">
+      <div class="ph" data-ph="pole · silhouettes"><img src="../assets/pole/photo/webp/pole-09-silhouettes.webp" alt="Силуэты" loading="lazy" decoding="async"></div>
+      <span class="idx">09</span>
+      <span class="lbl"><b>09</b> · силуэты</span>
+    </figure>
+    <figure class="col-item s10">
+      <div class="ph" data-ph="pole · circle"><img src="../assets/pole/photo/webp/pole-10-circle.webp" alt="Круг" loading="lazy" decoding="async"></div>
+      <span class="idx">10</span>
+      <span class="lbl"><b>10</b> · круг · ритуал</span>
+    </figure>
+    <figure class="col-item s11">
+      <div class="ph" data-ph="pole · ensemble full"><img src="../assets/pole/photo/webp/pole-11-ensemble-full.webp" alt="Ансамбль — полный" loading="lazy" decoding="async"></div>
+      <span class="idx">11</span>
+      <span class="lbl"><b>11</b> · ансамбль · полный</span>
+    </figure>
+    <figure class="col-item s12">
+      <div class="ph" data-ph="pole · rehearsal"><img src="../assets/pole/photo/webp/pole-12-rehearsal.webp" alt="Репетиция" loading="lazy" decoding="async"></div>
+      <span class="idx">12</span>
+      <span class="lbl"><b>12</b> · репетиция</span>
+    </figure>
+  </div>
+</section>
+
+<!-- CREDITS -->
+<section class="credits reveal">
+  <div class="credits-top">
+    <div>
+      <div style="font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:rgba(243,239,230,.4);margin-bottom:16px">05 · Команда</div>
+      <h2 class="credits-title">Кто<br><em>сделал</em><br>это</h2>
+    </div>
+    <div class="credits-facts">
+      <div class="cred-fact"><strong>2017</strong>год</div>
+      <div class="cred-fact"><strong><em>Бишкек</em></strong>локация</div>
+      <div class="cred-fact"><strong>2<em> кмд.</em></strong>команды</div>
+    </div>
+  </div>
+
+  <div class="credits-body">
+    <dl>
+      <div class="cred-row hl">
+        <dt>Video Design</dt>
+        <dd>Татьяна <em>Самараковская</em></dd>
+      </div>
+      <div class="cred-row">
+        <dt>Продакшн</dt>
+        <dd>Supervisuals</dd>
+      </div>
+      <div class="cred-row">
+        <dt>Партнёр</dt>
+        <dd>Global <em>Illumination</em></dd>
+      </div>
+      <div class="cred-row">
+        <dt>Съёмки</dt>
+        <dd>Кыргызские <em>горы</em><span class="sub">Натурные съёмки · 2017</span></dd>
+      </div>
+    </dl>
+    <dl class="credits-col-right">
+      <div class="cred-row">
+        <dt>Формат</dt>
+        <dd>Графическая <em>сюита</em></dd>
+      </div>
+      <div class="cred-row">
+        <dt>Источник</dt>
+        <dd>Чингиз <em>Айтматов</em></dd>
+      </div>
+      <div class="cred-row">
+        <dt>Локация показа</dt>
+        <dd>Бишкек · <em>Кыргызстан</em></dd>
+      </div>
+      <div class="cred-row">
+        <dt>Жанр</dt>
+        <dd>Performance · <em>Video Art</em><span class="sub">Проекция · Пластика · Свет</span></dd>
+      </div>
+    </dl>
+  </div>
+</section>
+
+<!-- PROJ-NAV -->
+<nav class="proj-nav" aria-label="Другие проекты">
+  <div class="proj-nav-inner">
+    <a class="proj-nav-card" href="lightworks.html">
+      <img class="proj-nav-bg" src="../assets/preview_projects/lightworks.webp" alt="" aria-hidden="true">
+      <div class="proj-nav-content">
+        <div class="proj-nav-dir">← Предыдущий</div>
+        <div class="proj-nav-name">Lightworks</div>
+        <div class="proj-nav-sub">Light Installation · 2018</div>
+      </div>
+    </a>
+    <a class="proj-nav-contact" href="mailto:cactus.cave@gmail.com">
+      <div class="proj-nav-contact-label">Есть проект?</div>
+      <div class="proj-nav-contact-btn">Написать ↗</div>
+    </a>
+    <a class="proj-nav-card" href="prosvetitel.html">
+      <img class="proj-nav-bg" src="../assets/preview_projects/prosvetitel.webp" alt="" aria-hidden="true">
+      <div class="proj-nav-content">
+        <div class="proj-nav-dir">Следующий →</div>
+        <div class="proj-nav-name">Просветитель</div>
+        <div class="proj-nav-sub">Interactive · Award · 2019</div>
+      </div>
+    </a>
+  </div>
+</nav>
+
+<footer class="pgfoot">
+  <div class="pgfoot-row">
+    <span>© 2026 · <b>Tanya Samarakovskaya</b></span>
+    <span><a href="#top">↑ Наверх</a></span>
+  </div>
+</footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Lightbox for gallery
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  document.querySelectorAll('.col-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+  lb.addEventListener('click', e => { if(e.target === lb) closeLb(); });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
+</script>
+</body>
+</html>
