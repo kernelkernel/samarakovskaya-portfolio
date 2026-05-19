@@ -26,6 +26,7 @@
 <meta name="twitter:description" content="Phygital пространства, мультимедийные выставки, иммерсивные шоу. 10+ лет, 30+ проектов.">
 <meta name="twitter:image" content="https://samarakovskaya.art/assets/mememe_new.webp">
 
+<link rel="preload" href="assets/mememe_new.webp" as="image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -606,7 +607,7 @@
 
   <!-- fullscreen photo bg -->
   <div class="hero-bg" aria-hidden="true">
-    <img src="assets/mememe_new.webp" alt="Tanya Samarakovskaya" onerror="this.style.display='none'">
+    <img src="assets/mememe_new.webp" alt="Tanya Samarakovskaya" fetchpriority="high" decoding="async" onerror="this.style.display='none'">
   </div>
 
   <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;">
@@ -642,8 +643,8 @@
     <!-- lede + cta -->
     <div class="hero-lede-row">
       <p class="hero-lede">
-        Креативный директор и продюсер креативных проектов на стыке искусства, технологий и задач бизнеса.<br>
-        Мультимедийные выставки, иммерсивные шоу, AR-опыт, креативные рекламные кампании, команды до <b>30 человек</b>, полный производственный цикл от идеи до эксплуатации.
+        Креативный директор и продюсер креативных проектов на стыке бренда, технологий, пространства и впечатлений.<br>
+        Создаю интерактивные продукты, phygital-экосистемы, брендовые активации, мультимедийные форматы и рекламные кампании — от стратегии и концепции до продакшена, запуска и работы в реальности.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href="mailto:tsamarakovskaya@gmail.com">Написать <span class="arrow">↗</span></a>
@@ -687,7 +688,7 @@
         </p>
         <div class="about-body" style="margin-top:36px">
           <p>Сотни квадратных метров, десятки тысяч посетителей, тонны эмоций, миллионы решений до первого гвоздя. Каждый элемент проекта существует ради реакции аудитории: что человек увидит, что почувствует, как взаимодействует с пространством и какой опыт уносит с собой.</p>
-          <p>Мультимедийные проекты требуют мышления одновременно в нескольких измерениях: идея, пространство, изображение, звук, технология, движение человека и логика производства. Полный цикл: концепция, сторителлинг, арт-дирекшен, интерактивные механики, визуальное направление, технический контроль подрядчиков, команда, бюджет, сроки и запуск. От питча до эксплуатации — с равным вниманием к силе идеи и к тому, как она работает в реальности.</p>
+          <p>Мультимедийные проекты требуют мышления одновременно в нескольких измерениях: идея, пространство, изображение, звук, технология, движение человека и логика производства. Опыт охватывает полный цикл разработки концепции, сторителлинг, арт-дирекшен, интерактивные механики, визуальное направление, техническая разработка, контроль подрядчиков, команда, бюджет, сроки и запуск. От питча до эксплуатации — с равным вниманием к силе идеи и к тому, как она работает в реальности.</p>
           <p>Мультимедийные выставки, иммерсивные шоу, интерактивные парки, AR-опыт, рекламные кампании, театральные и фестивальные проекты. <b>AI-инструменты</b> встроены в пайплайн — для быстрого визуального поиска, прототипирования, оптимизации продакшн-ресурсов, времени и бюджетов.</p>
           <div class="about-tags">
             <span class="pill on-cream">experience design</span>
@@ -703,7 +704,7 @@
       <div class="about-photo reveal">
         <div class="about-photo-arches"></div>
         <div class="about-photo-img">
-          <img src="assets/mememe_new.webp" alt="Tanya" onerror="this.style.display='none'">
+          <img loading="lazy" decoding="async" src="assets/mememe_new.webp" alt="Tanya" onerror="this.style.display='none'">
         </div>
       </div>
     </div>
@@ -716,7 +717,7 @@
     <div class="sec-head reveal" style="border-color:var(--line-l)">
       <span class="sec-num" style="color:var(--ink-3)">02 / Экспертиза</span>
       <h2 class="sec-h" style="color:var(--ink)"><span class="word-pill">Экспер</span>тиза.</h2>
-      <span class="sec-side" style="color:var(--ink-2)">Восемь направлений<br><b>одна практика</b></span>
+      <span class="sec-side" style="color:var(--ink-2)">Восемь направлений</span>
     </div>
     <div class="svc reveal">
       <div class="svc-cell feat">
@@ -806,7 +807,7 @@
     <div class="works-list reveal">
       <a class="wrow" href="projects/nebula.html">
         <span class="wrow-num">01</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/nebula.webp" alt="" onerror="this.style.display='none'"><span class="ph">✦</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="" onerror="this.style.display='none'"><span class="ph">✦</span></span>
         <span class="wrow-title">Nebula<em>*</em></span>
         <span class="wrow-tags">Exhibitions · Experience design</span>
         <span class="wrow-year">2023</span>
@@ -814,7 +815,7 @@
       </a>
       <a class="wrow" href="projects/cymatic.html">
         <span class="wrow-num">02</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/cymatic.webp" alt="" onerror="this.style.display='none'"><span class="ph">◐</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/cymatic.webp" alt="" onerror="this.style.display='none'"><span class="ph">◐</span></span>
         <span class="wrow-title">Mapping <em>Festival</em></span>
         <span class="wrow-tags">Festivals · Projection mapping</span>
         <span class="wrow-year">2018—22</span>
@@ -822,7 +823,7 @@
       </a>
       <a class="wrow" href="projects/capybarabooom.html">
         <span class="wrow-num">03</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/capybaraboom.webp" alt="" onerror="this.style.display='none'"><span class="ph">◯</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="" onerror="this.style.display='none'"><span class="ph">◯</span></span>
         <span class="wrow-title">Capybara <em>Booom</em></span>
         <span class="wrow-tags">Exhibitions · IP system</span>
         <span class="wrow-year">2024—26</span>
@@ -830,7 +831,7 @@
       </a>
       <a class="wrow" href="projects/pole.html">
         <span class="wrow-num">04</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/pole.webp" alt="" onerror="this.style.display='none'"><span class="ph">▲</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="" onerror="this.style.display='none'"><span class="ph">▲</span></span>
         <span class="wrow-title">POLE<em>.</em></span>
         <span class="wrow-tags">Theater · Media artist</span>
         <span class="wrow-year">2021</span>
@@ -838,7 +839,7 @@
       </a>
       <a class="wrow" href="projects/kandid.html">
         <span class="wrow-num">05</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/kandid.webp" alt="" onerror="this.style.display='none'"><span class="ph">K</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="" onerror="this.style.display='none'"><span class="ph">K</span></span>
         <span class="wrow-title">Кандид<em>.</em></span>
         <span class="wrow-tags">Theater · Video design</span>
         <span class="wrow-year">2016</span>
@@ -846,7 +847,7 @@
       </a>
       <a class="wrow" href="projects/baal.html">
         <span class="wrow-num">06</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/baal.webp" alt="" onerror="this.style.display='none'"><span class="ph">B</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="" onerror="this.style.display='none'"><span class="ph">B</span></span>
         <span class="wrow-title">BAAL<em>.</em></span>
         <span class="wrow-tags">Theater · Media artist</span>
         <span class="wrow-year">2019</span>
@@ -854,7 +855,7 @@
       </a>
       <a class="wrow" href="projects/souzmultpark.html">
         <span class="wrow-num">07</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/souzmultpark.webp" alt="" onerror="this.style.display='none'"><span class="ph">✦</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="" onerror="this.style.display='none'"><span class="ph">✦</span></span>
         <span class="wrow-title">Souzmult<em>park</em></span>
         <span class="wrow-tags">Interactive parks</span>
         <span class="wrow-year">2020—23</span>
@@ -862,7 +863,7 @@
       </a>
       <a class="wrow" href="projects/wayofwater.html">
         <span class="wrow-num">08</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/wayofwater.webp" alt="" onerror="this.style.display='none'"><span class="ph">~</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="" onerror="this.style.display='none'"><span class="ph">~</span></span>
         <span class="wrow-title">Way of <em>Water</em></span>
         <span class="wrow-tags">Exhibitions · Experience design</span>
         <span class="wrow-year">2022—24</span>
@@ -870,7 +871,7 @@
       </a>
       <a class="wrow" href="projects/lightworks.html">
         <span class="wrow-num">09</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/lightworks.webp" alt="" onerror="this.style.display='none'"><span class="ph">◇</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/lightworks.webp" alt="" onerror="this.style.display='none'"><span class="ph">◇</span></span>
         <span class="wrow-title">Light<em>works</em></span>
         <span class="wrow-tags">Creative · Visual programming</span>
         <span class="wrow-year">2014—17</span>
@@ -878,7 +879,7 @@
       </a>
       <a class="wrow" href="projects/prosvetitel.html">
         <span class="wrow-num">10</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/prosvetitel.webp" alt="" onerror="this.style.display='none'"><span class="ph">✶</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="" onerror="this.style.display='none'"><span class="ph">✶</span></span>
         <span class="wrow-title">Prosvetitel</span>
         <span class="wrow-tags">Festivals · Awards</span>
         <span class="wrow-year">2018</span>
@@ -886,7 +887,7 @@
       </a>
       <a class="wrow" href="projects/moskvaruim.html">
         <span class="wrow-num">11</span>
-        <span class="wrow-thumb"><img src="assets/preview_projects/moskvaruim.webp" alt="" onerror="this.style.display='none'"><span class="ph">◉</span></span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/moskvaruim.webp" alt="" onerror="this.style.display='none'"><span class="ph">◉</span></span>
         <span class="wrow-title">Рыбов <em>показываем</em></span>
         <span class="wrow-tags">Advertising · Art direction · 360°</span>
         <span class="wrow-year">2024</span>
@@ -898,71 +899,71 @@
     <div class="works-grid">
       <!-- Линия 1 -->
       <a class="wcard s7" href="projects/nebula.html">
-        <div class="vis"><img src="assets/preview_projects/nebula.webp" alt="" onerror="this.style.display='none'"><div class="vph">Nebula</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="" onerror="this.style.display='none'"><div class="vph">Nebula</div></div>
         <div class="wcard-top"><span class="tag">● Арт-инсталляция</span><span>01 / 11</span></div>
         <h3 class="wcard-title-over">Neb<span class="mark">ula</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Exhibitions · Experience design</p><span class="wcard-go">↗</span></div>
       </a>
       <a class="wcard s5" href="projects/cymatic.html">
-        <div class="vis"><img src="assets/preview_projects/cymatic.webp" alt="" onerror="this.style.display='none'"><div class="vph">Mapping</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/cymatic.webp" alt="" onerror="this.style.display='none'"><div class="vph">Mapping</div></div>
         <div class="wcard-top"><span class="tag">● Festival</span><span>02 / 11</span></div>
         <h3 class="wcard-title-over">Mapping</h3>
         <div class="wcard-meta"><p class="wcard-cat">Projection mapping · 2018—22</p><span class="wcard-go">↗</span></div>
       </a>
       <!-- Линия 2 — capybara + moskvaruim -->
       <a class="wcard s8" href="projects/capybarabooom.html">
-        <div class="vis"><img src="assets/preview_projects/capybaraboom.webp" alt="" onerror="this.style.display='none'"><div class="vph">Capybara Booom</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="" onerror="this.style.display='none'"><div class="vph">Capybara Booom</div></div>
         <div class="wcard-top"><span class="tag">● Pop-IP · Interactive exhibition</span><span>03 / 11</span></div>
         <h3 class="wcard-title-over">Capybara <span class="mark">Booom</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Exhibitions · IP system · 30 people</p><span class="wcard-go">↗</span></div>
       </a>
       <a class="wcard s4" href="projects/moskvaruim.html">
-        <div class="vis"><img src="assets/preview_projects/moskvaruim.webp" alt="" onerror="this.style.display='none'"><div class="vph">Рыбов показываем</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/moskvaruim.webp" alt="" onerror="this.style.display='none'"><div class="vph">Рыбов показываем</div></div>
         <div class="wcard-top"><span class="tag">● Advertising 360°</span><span>04 / 11</span></div>
         <h3 class="wcard-title-over">Рыбов <span class="mark">показываем</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Реклама · Art direction · 2024</p><span class="wcard-go">↗</span></div>
       </a>
       <!-- Линия 3 — wayofwater + kandid без пустот -->
       <a class="wcard s6" href="projects/wayofwater.html">
-        <div class="vis"><img src="assets/preview_projects/wayofwater.webp" alt="" onerror="this.style.display='none'"><div class="vph">Way of Water</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="" onerror="this.style.display='none'"><div class="vph">Way of Water</div></div>
         <div class="wcard-top"><span class="tag">● Exhibition</span><span>05 / 11</span></div>
         <h3 class="wcard-title-over">Way of <span class="mark">Water</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Experience design · 2022—24</p><span class="wcard-go">↗</span></div>
       </a>
       <a class="wcard s6" href="projects/kandid.html">
-        <div class="vis"><img src="assets/preview_projects/kandid.webp" alt="" onerror="this.style.display='none'"><div class="vph">Кандид</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="" onerror="this.style.display='none'"><div class="vph">Кандид</div></div>
         <div class="wcard-top"><span class="tag">● Theater</span><span>06 / 11</span></div>
         <h3 class="wcard-title-over">Кан<span class="mark">дид</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Video design · 2016</p><span class="wcard-go">↗</span></div>
       </a>
       <!-- Линия 4 -->
       <a class="wcard s4" href="projects/pole.html">
-        <div class="vis"><img src="assets/preview_projects/pole.webp" alt="" onerror="this.style.display='none'"><div class="vph">POLE</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="" onerror="this.style.display='none'"><div class="vph">POLE</div></div>
         <div class="wcard-top"><span class="tag">● Theater</span><span>07 / 11</span></div>
         <h3 class="wcard-title-over">POLE<span class="mark">.</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Media artist · 2021</p><span class="wcard-go">↗</span></div>
       </a>
       <a class="wcard s4" href="projects/baal.html">
-        <div class="vis"><img src="assets/preview_projects/baal.webp" alt="" onerror="this.style.display='none'"><div class="vph">BAAL</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="" onerror="this.style.display='none'"><div class="vph">BAAL</div></div>
         <div class="wcard-top"><span class="tag">● Theater</span><span>08 / 11</span></div>
         <h3 class="wcard-title-over">BAAL<span class="mark">.</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Media artist · 2019</p><span class="wcard-go">↗</span></div>
       </a>
       <a class="wcard s4" href="projects/souzmultpark.html">
-        <div class="vis"><img src="assets/preview_projects/souzmultpark.webp" alt="" onerror="this.style.display='none'"><div class="vph">Souzmultpark</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="" onerror="this.style.display='none'"><div class="vph">Souzmultpark</div></div>
         <div class="wcard-top"><span class="tag">● Interactive parks</span><span>09 / 11</span></div>
         <h3 class="wcard-title-over">Souzmult<span class="mark">park</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Interactive · Multi-zone · 2020—23</p><span class="wcard-go">↗</span></div>
       </a>
       <!-- Линия 5 -->
       <a class="wcard s6" href="projects/lightworks.html">
-        <div class="vis"><img src="assets/preview_projects/lightworks.webp" alt="" onerror="this.style.display='none'"><div class="vph">Lightworks</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/lightworks.webp" alt="" onerror="this.style.display='none'"><div class="vph">Lightworks</div></div>
         <div class="wcard-top"><span class="tag">● Creative coding</span><span>10 / 11</span></div>
         <h3 class="wcard-title-over">Light<span class="mark">works</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Visual programming · 2014—17</p><span class="wcard-go">↗</span></div>
       </a>
       <a class="wcard s6" href="projects/prosvetitel.html">
-        <div class="vis"><img src="assets/preview_projects/prosvetitel.webp" alt="" onerror="this.style.display='none'"><div class="vph">Prosvetitel</div></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="" onerror="this.style.display='none'"><div class="vph">Prosvetitel</div></div>
         <div class="wcard-top"><span class="tag">● Festivals · Awards</span><span>11 / 11</span></div>
         <h3 class="wcard-title-over">Просве<span class="mark">титель</span></h3>
         <div class="wcard-meta"><p class="wcard-cat">Festivals · Awards · 2018</p><span class="wcard-go">↗</span></div>
@@ -1009,8 +1010,7 @@
         <a class="btn btn-dark" href="assets/resume.pdf" download>CV <span class="arrow">↓</span></a>
       </div>
 
-      <div class="timeline reveal">
-        <a class="titem" href="#">
+      <div class="timeline reveal"><a class="titem" href="#">
           <span class="tyear">2024—н.в.</span>
           <div>
             <h3 class="ttitle">Москвариум <span class="mark">/</span> Creative Director</h3>
@@ -1038,6 +1038,15 @@
           <span class="tarrow">↗</span>
         </a>
         <a class="titem" href="#">
+          <span class="tyear">2017—21</span>
+          <div>
+            <h3 class="ttitle">Конференции <span class="mark">/</span> Лекции</h3>
+            <span class="trole">Speaker</span>
+            <p class="tdesc">Лекции на фестивалях Intervals Education, EFEST 2021, фестиваль «Круг света». Темы - experience design, интерактивные среды, сторителлинг и phygital-проекты.</p>
+          </div>
+          <span class="tarrow">↗</span>
+        </a>
+      <a class="titem" href="#">
           <span class="tyear">2014—17</span>
           <div>
             <h3 class="ttitle">Медиаарт <span class="mark">/</span> Театр · Маппинг</h3>
@@ -1064,16 +1073,7 @@
           </div>
           <span class="tarrow">↗</span>
         </a>
-        <a class="titem" href="#">
-          <span class="tyear">2017—21</span>
-          <div>
-            <h3 class="ttitle">Конференции <span class="mark">/</span> Лекции</h3>
-            <span class="trole">Speaker</span>
-            <p class="tdesc">Лекции на фестивалях Intervals Education, EFEST 2021, фестиваль «Круг света». Темы - experience design, интерактивные среды, сторителлинг и phygital-проекты.</p>
-          </div>
-          <span class="tarrow">↗</span>
-        </a>
-      </div>
+        </div>
     </div>
   </div>
 </section>

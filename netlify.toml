@@ -16,6 +16,24 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 
+# HTML-страницы: браузер кеширует 10 минут, при устаревании отдаёт старую
+# версию пока грузит новую в фоне (до 1 часа)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=600, stale-while-revalidate=3600"
+
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=600, stale-while-revalidate=3600"
+
+# JS-файлы: долгий кеш, меняются редко
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+
 [[headers]]
   for = "/assets/*"
   [headers.values]
