@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Phygital пространства, мультимедийные выставки, иммерсивные шоу. 10+ лет, 30+ проектов.">
 <meta name="twitter:image" content="https://samarakovskaya.art/assets/mememe_new.webp">
 
-<link rel="preload" href="assets/mememe_new.webp" as="image">
+<link rel="preload" href="assets/hero-poster.webp" as="image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://player.vimeo.com" crossorigin>
@@ -214,14 +214,19 @@
   }
 
   /* fullscreen video bg */
-  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--graphite)}
+  /* постер = первый кадр шоурила, виден сразу; Vimeo проявляется поверх при старте */
+  .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden;background:var(--graphite) url("assets/hero-poster.webp") center/cover no-repeat}
   .hero-bg iframe{
     position:absolute;top:50%;left:50%;
     width:177.78vh;height:56.25vw;
     min-width:100%;min-height:100%;
     transform:translate(-50%,-50%);
     pointer-events:none;border:0;
+    opacity:0;transition:opacity 1s ease;
   }
+  /* iframe скрыт пока Vimeo не начнёт реально проигрывать —
+     прячем спиннер Vimeo; если видео не догрузится, остаётся чистый тёмный hero */
+  .hero-bg.is-ready iframe{opacity:1}
   .hero-vid-overlay{
     position:absolute;inset:0;z-index:1;
     background:rgba(10,0,30,.35);
@@ -1279,6 +1284,7 @@
     var btn = document.getElementById('soundToggle');
     var iframe = document.getElementById('heroReel');
     var hero = document.getElementById('hero');
+    var heroBg = document.querySelector('.hero-bg');
     if(!btn || !iframe) return;
     var muted = true;
     var player = null;
@@ -1302,12 +1308,20 @@
       btn.classList.add('is-muted');
     }
 
+    function revealVideo(){
+      if(heroBg && !heroBg.classList.contains('is-ready')) heroBg.classList.add('is-ready');
+    }
+
     function initVimeo(){
       if(typeof Vimeo === 'undefined'){ setTimeout(initVimeo, 200); return; }
       player = new Vimeo.Player(iframe);
       player.ready().then(function(){
         player.setMuted(true);
       }).catch(function(e){ console.warn('Vimeo init error:', e); });
+      // показываем фон только когда видео реально пошло — без видимого спиннера Vimeo
+      player.on('play', revealVideo);
+      player.on('playing', revealVideo);
+      player.on('timeupdate', revealVideo);
     }
     initVimeo();
 
