@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Рыбов показываем · Таня Самараковская</title>
+<meta name="description" content="«Рыбов показываем» — рекламная кампания 360° для Москвариума: арт-дирекшен и продакшен, 2024.">
+<link rel="canonical" href="https://samarakovskaya.art/projects/moskvaruim.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
@@ -552,20 +554,20 @@
 <div class="reveal">
   <div class="vid-row">
     <div class="vid-item">
-      <video autoplay muted loop playsinline>
-        <source src="../assets/10%20moskvaruim/video/Mosc_book4_animation_2.mp4" type="video/mp4">
+      <video muted loop playsinline preload="none" data-lazyvideo>
+        <source data-src="../assets/10%20moskvaruim/video/Mosc_book4_animation_2.mp4" type="video/mp4">
       </video>
       <div class="vid-cap">Анимация разворота · 01</div>
     </div>
     <div class="vid-item">
-      <video autoplay muted loop playsinline>
-        <source src="../assets/10%20moskvaruim/video/Mosc_book6_animation.mp4" type="video/mp4">
+      <video muted loop playsinline preload="none" data-lazyvideo>
+        <source data-src="../assets/10%20moskvaruim/video/Mosc_book6_animation.mp4" type="video/mp4">
       </video>
       <div class="vid-cap">Анимация разворота · 02</div>
     </div>
     <div class="vid-item">
-      <video autoplay muted loop playsinline>
-        <source src="../assets/10%20moskvaruim/video/Mosc_book10_animation.mp4" type="video/mp4">
+      <video muted loop playsinline preload="none" data-lazyvideo>
+        <source data-src="../assets/10%20moskvaruim/video/Mosc_book10_animation.mp4" type="video/mp4">
       </video>
       <div class="vid-cap">Анимация разворота · 03</div>
     </div>
@@ -667,8 +669,8 @@
 
       <!-- Вертикальное CG-видео, spans 2 rows -->
       <figure class="gi tall">
-        <video autoplay muted loop playsinline>
-          <source src="../assets/10%20moskvaruim/video/AR_octoroof%20sound%20plus.mp4" type="video/mp4">
+        <video muted loop playsinline preload="none" data-lazyvideo>
+          <source data-src="../assets/10%20moskvaruim/video/AR_octoroof%20sound%20plus.mp4" type="video/mp4">
         </video>
       </figure>
 
@@ -895,6 +897,29 @@
       ? showImg((currentIdx + 1) % galImgs.length, 1)
       : showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1);
   });
+</script>
+<script>
+  // Lazy-load heavy book/AR videos: load + play only near viewport, pause when off-screen
+  (function(){
+    var vids = document.querySelectorAll('video[data-lazyvideo]');
+    if(!vids.length) return;
+    function load(v){
+      if(!v.dataset.loaded){
+        v.dataset.loaded = '1';
+        v.querySelectorAll('source[data-src]').forEach(function(s){ s.src = s.dataset.src; });
+        v.load();
+      }
+      var p = v.play(); if(p && p.catch) p.catch(function(){});
+    }
+    if(!('IntersectionObserver' in window)){ vids.forEach(load); return; }
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting) load(e.target);
+        else if(e.target.dataset.loaded) e.target.pause();
+      });
+    }, {rootMargin:'250px'});
+    vids.forEach(function(v){ io.observe(v); });
+  })();
 </script>
 </body>
 </html>

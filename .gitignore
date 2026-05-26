@@ -50,6 +50,9 @@ assets/nebula/process/slides/
 # Moskvaruim — неиспользуемое видео
 assets/10 moskvaruim/video/MSQ_10.mp4
 
+# Moskvaruim — тяжёлые PNG-превью разворотов (на сайте используются webp, ~55 МБ мёртвого веса)
+assets/10 moskvaruim/photo/Preview book/
+
 # Capybara — PNG-оригиналы персонажей (сайт использует webp-версии)
 assets/capybarabooom/characters/*.png
 assets/capybarabooom/characters/cross_characters/

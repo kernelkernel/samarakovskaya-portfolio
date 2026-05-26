@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Путь воды — Case · Tanya Samarakovskaya</title>
+<meta name="description" content="«Путь воды» — мультимедийная выставка: experience design от концепции до запуска. Москвариум, 2022—2024.">
+<link rel="canonical" href="https://samarakovskaya.art/projects/wayofwater.html">
 <meta property="og:title" content="Путь воды — Tanya Samarakovskaya">
 <meta property="og:description" content="Мультимедийная семейная выставка с элементами квеста. 410 м² · 19 инсталляций · 4 зоны · RFID-квест · Москвариум, ВДНХ">
 <meta property="og:image" content="assets/preview.webp">
@@ -530,6 +532,73 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
 .pi-char-vis{display:flex;align-items:center;justify-content:center;padding:20px 14px;min-height:180px;background:rgba(255,255,255,.025)}
 .pi-char-vis img{max-height:170px;width:auto;max-width:100%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.34,1.4,.64,1)}
 .pi:hover .pi-char-vis img{transform:translateY(-8px) scale(1.05)}
+/* === PROCESS-GRID (dark adaptation) === */
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px}
+.proc-card{border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;background:rgba(255,255,255,.04);transition:transform .3s,background .25s}
+.proc-card:hover{transform:translateY(-4px);background:rgba(255,255,255,.07)}
+.proc-card.wide{grid-column:span 2}
+.proc-img{position:relative;aspect-ratio:16/9;overflow:hidden;background:rgba(0,0,0,.35);border-bottom:1px solid rgba(255,255,255,.08)}
+.proc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s}
+.proc-card:hover .proc-img img{transform:scale(1.04)}
+.proc-info{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px}
+.proc-tag{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:rgba(62,197,232,.7)}
+.proc-tag::before{content:"[*] ";color:var(--wave);font-weight:500}
+.proc-info h4{font-family:var(--sans);font-size:17px;font-weight:500;letter-spacing:-.02em;line-height:1.15;margin-top:4px;color:rgba(255,255,255,.9)}
+.proc-info p{font-size:13px;line-height:1.55;color:rgba(255,255,255,.55)}
+@media(max-width:1100px){.process-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.process-grid{grid-template-columns:1fr}.proc-card.wide{grid-column:span 1}}
+/* === PROCESS-FLOW (full-width gallery) === */
+.process-flow{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin:40px 0 56px;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:0 24px;box-sizing:border-box}
+.pf-card{position:relative;border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden;background:rgba(255,255,255,.04);cursor:zoom-in;transition:transform .35s,border-color .25s,box-shadow .35s;display:flex;flex-direction:column;margin:0}
+.pf-card:hover{transform:translateY(-5px);border-color:var(--wave);box-shadow:0 18px 40px rgba(0,0,0,.4)}
+.pf-card.s-6{grid-column:span 6}.pf-card.s-4{grid-column:span 4}.pf-card.s-3{grid-column:span 3}.pf-card.s-8{grid-column:span 8}.pf-card.s-12{grid-column:span 12}
+.pf-img{position:relative;overflow:hidden;background:rgba(0,0,0,.4);display:block;line-height:0}
+.pf-img img{width:100%;height:auto;display:block;transition:transform .65s;max-height:72vh;object-fit:cover}
+.pf-card:hover .pf-img img{transform:scale(1.02)}
+.pf-step{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;background:rgba(8,36,59,.9);color:rgba(199,232,239,.9);padding:6px 12px;border-radius:99px;z-index:2;border:1px solid rgba(62,197,232,.25)}
+.pf-zoom{position:absolute;bottom:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(199,232,239,.9);color:var(--ink);display:grid;place-items:center;font-size:14px;z-index:2;border:1px solid rgba(255,255,255,.3);transition:background .25s,transform .35s}
+.pf-card:hover .pf-zoom{background:var(--wave);transform:scale(1.1)}
+.pf-cap{padding:16px 20px 18px;display:flex;flex-direction:column;gap:5px;background:var(--deep-2);border-top:1px solid rgba(255,255,255,.08)}
+.pf-cap b{font-family:var(--sans);font-size:16px;font-weight:500;letter-spacing:-.015em;line-height:1.2;color:rgba(255,255,255,.9)}
+.pf-cap span{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:rgba(62,197,232,.65);line-height:1.45}
+@media(max-width:900px){.process-flow{grid-template-columns:repeat(6,1fr);padding:0 16px}.pf-card.s-6,.pf-card.s-8,.pf-card.s-12{grid-column:span 6}.pf-card.s-4,.pf-card.s-3{grid-column:span 3}}
+@media(max-width:560px){.process-flow{grid-template-columns:1fr;gap:10px;padding:0 16px}.pf-card.s-6,.pf-card.s-4,.pf-card.s-3,.pf-card.s-8,.pf-card.s-12{grid-column:span 1}}
+/* === VIDEO CARD in process-flow === */
+.pf-video{cursor:default}
+.pf-video-inner{position:relative;overflow:hidden;background:#000;line-height:0;aspect-ratio:16/9;border-radius:16px 16px 0 0}
+.pf-video-poster{width:100%;height:100%;object-fit:cover;display:block;position:absolute;top:0;left:0;transition:opacity .5s;z-index:1}
+.pf-video-poster.hidden{opacity:0;pointer-events:none}
+.pf-video-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:3;cursor:pointer;transition:opacity .3s;background:rgba(0,0,0,.15)}
+.pf-video-play svg{width:88px;height:88px;filter:drop-shadow(0 6px 24px rgba(0,0,0,.6));transition:transform .3s}
+.pf-video-play:hover svg{transform:scale(1.1)}
+.pf-video-play.hidden{opacity:0;pointer-events:none}
+.pf-video-iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;opacity:0;transition:opacity .5s;z-index:2}
+.pf-video-iframe.active{opacity:1}
+/* === LIGHTBOX (dark theme adaptation) === */
+.lightbox{position:fixed;inset:0;background:rgba(6,6,6,.96);display:none;z-index:9999;align-items:stretch;justify-content:stretch;padding:0;cursor:default;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.lightbox.open{display:flex}
+.lightbox-stage{position:relative;flex:1;min-width:0;min-height:0;display:flex;align-items:center;justify-content:center;padding:60px 70px;overflow:hidden;box-sizing:border-box}
+.lightbox-imgwrap{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:10px;cursor:zoom-in}
+.lightbox-imgwrap.zoomed{cursor:grab;overflow:auto;align-items:flex-start;justify-content:flex-start}
+.lightbox-imgwrap.zoomed:active{cursor:grabbing}
+.lightbox-img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;transform-origin:center center;transition:transform .35s cubic-bezier(.2,.7,.25,1);user-select:none;-webkit-user-drag:none}
+.lightbox-imgwrap.zoomed .lightbox-img{transform:scale(2);transform-origin:top left;max-width:none;max-height:none}
+.lightbox-close{position:fixed;top:20px;right:20px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(20,20,20,.85);color:#fff;font-size:22px;display:grid;place-items:center;cursor:pointer;z-index:10001;transition:all .25s;font-family:var(--sans);font-weight:300}
+.lightbox-close:hover{background:var(--wave);color:var(--ink);border-color:var(--wave);transform:rotate(90deg)}
+.lightbox-zoom-btn{position:fixed;top:20px;right:78px;height:46px;padding:0 16px;border-radius:99px;border:1px solid rgba(255,255,255,.3);background:rgba(20,20,20,.85);color:#fff;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;cursor:pointer;z-index:10001;transition:all .25s;display:flex;align-items:center;gap:8px}
+.lightbox-zoom-btn:hover{background:var(--wave);color:var(--ink);border-color:var(--wave)}
+.lightbox-zoom-btn[hidden]{display:none}
+.lightbox-nav{position:fixed;top:50%;width:54px;height:54px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:rgba(20,20,20,.7);color:#fff;font-size:22px;display:grid;place-items:center;cursor:pointer;z-index:10001;transition:all .25s;transform:translateY(-50%);font-family:var(--sans);font-weight:300}
+.lightbox-nav:hover{background:var(--wave);color:var(--ink);border-color:var(--wave)}
+.lightbox-nav.prev{left:18px}
+.lightbox-nav.next{right:24px}
+.lightbox-nav[hidden]{display:none}
+.lightbox-counter{position:fixed;bottom:24px;left:30px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.65);background:rgba(20,20,20,.7);padding:8px 14px;border-radius:99px;z-index:10001}
+.lightbox-counter[hidden]{display:none}
+.lightbox-hint{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,.45);background:rgba(20,20,20,.6);padding:8px 14px;border-radius:99px;z-index:10000;pointer-events:none}
+/* === CHAR PAIR BLOCK === */
+.char-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 40px}
+@media(max-width:600px){.char-pair{grid-template-columns:1fr}}
 /* legacy — keep for older sections still using these */
 .proc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
 @media(max-width:880px){.proc-grid{grid-template-columns:1fr}}
@@ -612,7 +681,7 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
 /* Solutions — dark themed */
 .solutions{background:rgba(255,255,255,.03);padding:32px 44px;border:1px solid rgba(255,255,255,.07);border-top:0;margin-top:0}
 @media(max-width:780px){.solutions{padding:28px 22px}}
-.solutions-h{font-family:var(--display);font-style:italic;font-size:clamp(20px,2.2vw,28px);color:rgba(255,255,255,.7);margin-bottom:20px;letter-spacing:-.015em}
+.solutions-h{font-family:var(--display);font-size:clamp(20px,2.2vw,28px);color:rgba(255,255,255,.7);margin-bottom:20px;letter-spacing:-.015em}
 .solutions-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(255,255,255,.07)}
 @media(max-width:780px){.solutions-grid{grid-template-columns:1fr}}
 .sol{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06);display:flex;gap:14px;align-items:flex-start}
@@ -630,7 +699,7 @@ body.dark-rail .rail-st.active .ring{background:var(--wave);border-color:var(--w
 @media(max-width:780px){.role-stack{padding:40px 22px}}
 .role-stack-head{display:grid;grid-template-columns:1fr auto;align-items:start;margin-bottom:48px;gap:20px;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:32px}
 @media(max-width:780px){.role-stack-head{grid-template-columns:1fr}}
-.role-stack-h{font-family:var(--display);font-style:italic;font-size:clamp(36px,5vw,72px);color:#fff;letter-spacing:-.03em;line-height:.88}
+.role-stack-h{font-family:var(--display);font-size:clamp(36px,5vw,72px);color:#fff;letter-spacing:-.03em;line-height:.88}
 .role-stack-sub{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.3);text-align:right;line-height:1.8;padding-top:8px}
 .role-stack-sub b{color:rgba(255,255,255,.7);display:block}
 .role-row{display:grid;grid-template-columns:56px 1fr 1.6fr;gap:28px 40px;align-items:start;padding:22px 0;border-top:1px solid rgba(255,255,255,.07);transition:border-color .25s;position:relative}
@@ -902,7 +971,7 @@ img.broken{visibility:hidden}
 <section class="sec" id="zone-intro">
   <div class="chapter lite reveal">
     <span class="ch-left"><span class="ch-num">01</span> О проекте</span>
-    <h2 class="ch-title">Как влюбить<br>в <em>воду</em></h2>
+    <h2 class="ch-title">Как влюбить<br>в воду</h2>
     <span class="ch-right">Edutainment<br>Семейная аудитория<br><b>Москвариум · ВДНХ</b></span>
   </div>
 
@@ -933,7 +1002,7 @@ img.broken{visibility:hidden}
 
       <div class="hook reveal">
         <div class="hook-label">↳ Почему вода — сложная тема</div>
-        <p class="hook-text">Мы пьём воду, моемся, стираем — и почти не замечаем. Между тем это <em>единственное вещество на планете</em>, без которого невозможна ни одна форма жизни. Наша задача — сделать это <em>видимым и ощутимым</em>.</p>
+        <p class="hook-text">Мы пьём воду, моемся, стираем — и почти не замечаем. Между тем это единственное вещество на планете, без которого невозможна ни одна форма жизни. Наша задача — сделать это видимым и ощутимым.</p>
       </div>
     </div>
   </div>
@@ -943,7 +1012,7 @@ img.broken{visibility:hidden}
 <section class="sec paper2">
   <div class="chapter lite reveal">
     <span class="ch-left"><span class="ch-num">02</span> Персонажи</span>
-    <h2 class="ch-title">Три <em>состояния</em></h2>
+    <h2 class="ch-title">Три состояния</h2>
     <span class="ch-right">Жидкое<br>Твёрдое · Газообразное<br><b>Watty · Icey · Hotty</b></span>
   </div>
 
@@ -979,7 +1048,7 @@ img.broken{visibility:hidden}
 <section class="sec">
   <div class="chapter lite reveal">
     <span class="ch-left"><span class="ch-num">03</span> Концепция</span>
-    <h2 class="ch-title"><em>Как</em> это устроено</h2>
+    <h2 class="ch-title">Как это устроено</h2>
     <span class="ch-right">Связный маршрут<br>Сбор капель<br><b>Edutainment</b></span>
   </div>
 
@@ -1076,16 +1145,16 @@ img.broken{visibility:hidden}
 <section class="sec dark">
   <div class="chapter reveal" style="border-color:rgba(255,255,255,.12);opacity:1">
     <span class="ch-left"><span class="ch-num">04</span> Пространство</span>
-    <h2 class="ch-title">Вид <em>сверху</em></h2>
+    <h2 class="ch-title">Вид сверху</h2>
     <span class="ch-right">Проекционная система<br>3D-схема<br><b>Концептуальная</b></span>
   </div>
   <div class="plan-grid reveal">
     <div class="plan-img">
-      <img loading="lazy" decoding="async" src="../assets/wayofwater/process/install-scheme-3d.webp" alt="Схема">
+      <img loading="lazy" decoding="async" src="../assets/wayofwater/process/archive/install-scheme-3d.webp" alt="Схема">
       <div class="plan-img-cap">Проекционный зал · вид сверху · 3D-схема</div>
     </div>
     <div class="plan-img">
-      <img loading="lazy" decoding="async" src="../assets/wayofwater/process/install-scheme-3d-b.webp" alt="Схема">
+      <img loading="lazy" decoding="async" src="../assets/wayofwater/process/archive/install-scheme-3d-b.webp" alt="Схема">
       <div class="plan-img-cap">Зал с посетителем · угол монтажа</div>
     </div>
   </div>
@@ -1439,7 +1508,7 @@ img.broken{visibility:hidden}
 <section class="sec paper2" id="zone-quest">
   <div class="chapter lite reveal">
     <span class="ch-left"><span class="ch-num">05</span> Квест</span>
-    <h2 class="ch-title"><em>Собери</em> капли</h2>
+    <h2 class="ch-title">Собери капли</h2>
     <span class="ch-right">RFID-браслет<br>19 точек сбора<br><b>Дух Водопада</b></span>
   </div>
 
@@ -1503,122 +1572,203 @@ img.broken{visibility:hidden}
 </section>
 
 <!-- ============== PROCESS ============== -->
-<section class="sec dark">
+<section class="sec dark" id="zone-process">
   <div class="chapter reveal" style="border-color:rgba(255,255,255,.12);opacity:1">
     <span class="ch-left"><span class="ch-num">06</span> Процесс</span>
-    <h2 class="ch-title">Как это <em>создавалось</em></h2>
+    <h2 class="ch-title">Как это создавалось</h2>
     <span class="ch-right">От брифа<br>до финала<br><b>Full cycle</b></span>
   </div>
 
-  <!-- Инсталляционная схема -->
-  <div class="proc-label reveal"><span>Пространство · инсталляционная схема</span><span class="small">N° 06.1</span></div>
-  <div class="pgal reveal">
-    <div class="pi wide">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/install-dev-process.webp" alt="5 стадий разработки инсталляции" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Разработка · pipeline</div><div class="pi-title">5 стадий — от идеи до монтажа</div></div>
+  <!-- Рабочие материалы: скриншоты процесса -->
+  <div class="proc-label reveal"><span>Рабочие материалы · скриншоты процесса</span><span class="small">N° 06.1</span></div>
+  <div class="process-flow reveal">
+
+    <!-- ROW 1: 2 (s-6 + s-6) -->
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/start-creation.webp">
+      <div class="pf-img">
+        <span class="pf-step">01 · старт</span>
+        <img src="../assets/wayofwater/process/start-creation.webp" alt="Начало разработки" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Начало разработки</b><span>Первые рабочие схемы и доски</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/wireframe-tec.webp">
+      <div class="pf-img">
+        <span class="pf-step">02 · вайрфрейм</span>
+        <img src="../assets/wayofwater/process/wireframe-tec.webp" alt="Вайрфрейм зала ТЭЦ" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Вайрфрейм зала ТЭЦ</b><span>Схема размещения инсталляций</span></figcaption>
+    </figure>
+
+    <!-- ROW 2: 1 (s-12) -->
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/river1.webp">
+      <div class="pf-img">
+        <span class="pf-step">03 · панорама</span>
+        <img src="../assets/wayofwater/process/river1.webp" alt="Панорамная раскладка зоны Река" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Полная раскладка зоны Река</b><span>Панорамный разворот · сценарий взаимодействия</span></figcaption>
+    </figure>
+
+    <!-- ROW 3: 1 видео (s-12) -->
+    <div class="pf-card pf-video s-12">
+      <div class="pf-video-inner">
+        <img class="pf-video-poster" id="processVideoPoster" src="../assets/wayofwater/preview.webp" alt="Видео проекта">
+        <div class="pf-video-play" id="processVideoPlay">
+          <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="39" stroke="rgba(255,255,255,.3)" stroke-width="1.5"/>
+            <circle cx="40" cy="40" r="39" fill="rgba(62,197,232,.12)"/>
+            <polygon points="32,22 60,40 32,58" fill="#fff"/>
+          </svg>
+        </div>
+        <iframe class="pf-video-iframe" id="processVideoIframe"
+          src="" allowfullscreen allow="autoplay; encrypted-media" loading="lazy" title="Путь воды — видео проекта"></iframe>
+      </div>
+      <figcaption class="pf-cap"><b>Видео проекта</b><span>Атмосфера и итоговая экспозиция</span></figcaption>
     </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/install-scheme-river.webp" alt="Схема реки" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Зона Природа · схема</div><div class="pi-title">Интерактивный стол-река</div></div>
-    </div>
-  </div>
-  <div class="pgal reveal">
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/install-scheme-01.webp" alt="Проекционная схема" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Проекции · разметка</div><div class="pi-title">Схема мультимедиа</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/install-scheme-3d.webp" alt="3D схема" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">3D · вид сверху</div><div class="pi-title">Аксонометрия зала</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/install-scheme-3d-b.webp" alt="3D схема B" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">3D · угол монтажа</div><div class="pi-title">Зал с посетителем</div></div>
-    </div>
+
+    <!-- ROW 4: 2 (s-6 + s-6) -->
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/ges.webp">
+      <div class="pf-img">
+        <span class="pf-step">04 · интерфейс</span>
+        <img src="../assets/wayofwater/process/ges.webp" alt="Сценарная схема" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Сценарная схема</b><span>Логика переходов · структура маршрута</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/river2.webp">
+      <div class="pf-img">
+        <span class="pf-step">05 · зона Природа</span>
+        <img src="../assets/wayofwater/process/river2.webp" alt="Разработка зоны Река" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Зона Природа</b><span>Разработка речного интерактива</span></figcaption>
+    </figure>
+
   </div>
 
-  <!-- Разработка инсталляций -->
-  <div class="proc-label reveal"><span>Инсталляции · реализация</span><span class="small">N° 06.2</span></div>
-  <div class="pgal reveal">
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/photo/webp/wow-nature_river-06.webp" alt="Река в зале" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Зона A · Природа</div><div class="pi-title">Интерактивная река</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/photo/webp/wow-nature_circle-01.webp" alt="Круговорот" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Зона A · Природа</div><div class="pi-title">Круговорот воды</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/photo/webp/wow-city-02.webp" alt="Город" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Зона B · Город</div><div class="pi-title">Городской маршрут</div></div>
-    </div>
-  </div>
-  <div class="pgal reveal">
-    <div class="pi wide">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/proj-before-after.webp" alt="До и после" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Проекция · до / после</div><div class="pi-title">Схема проекционного покрытия</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/photo/webp/wow-arktika-03.webp" alt="Арктика" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Зона D · Арктика</div><div class="pi-title">Финальная инсталляция</div></div>
-    </div>
+  <!-- Капли — единственный элемент из архива -->
+  <div class="process-flow reveal" style="margin-top:0;margin-bottom:0">
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/circle.webp">
+      <div class="pf-img">
+        <span class="pf-step">06 · анимация</span>
+        <img src="../assets/wayofwater/process/circle.webp" alt="Анимация капель" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Анимация капель</b><span>Motion-разработка · поведение элементов</span></figcaption>
+    </figure>
   </div>
 
-  <div class="proc-label reveal"><span>Персонажи · Pipeline создания</span><span class="small">N° 06.3</span></div>
+  <!-- Персонажи и анимация: папка Пришел -->
+  <div class="proc-label reveal"><span>Персонажи и анимация · Пришел</span><span class="small">N° 06.2</span></div>
+  <div class="process-flow reveal">
 
-  <div class="pgal reveal">
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/char-design-brief.webp" alt="Бриф" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Этап 01 · Бриф</div><div class="pi-title">Задание на персонажей</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/char-direction.webp" alt="Направление" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Этап 02 · Направление</div><div class="pi-title">Первое направление</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/char-concepts-sheet.webp" alt="Концепты" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Этап 03 · Концепты</div><div class="pi-title">Концепт-листы Watty и Icey</div></div>
-    </div>
+    <!-- ROW 1: 2 (s-6 + s-6) -->
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/prish-01-sketch.webp">
+      <div class="pf-img">
+        <span class="pf-step">· скетч</span>
+        <img src="../assets/wayofwater/process/prish-01-sketch.webp" alt="Скетч персонажа" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Первые скетчи</b><span>Поиск образа · голова персонажа</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/prish-03-sketch-full.webp">
+      <div class="pf-img">
+        <span class="pf-step">· скетч фигура</span>
+        <img src="../assets/wayofwater/process/prish-03-sketch-full.webp" alt="Скетч фигуры" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Полная фигура</b><span>Поиск пропорций и силуэта</span></figcaption>
+    </figure>
+
+    <!-- ROW 2: 1 (s-12) -->
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/prish-32-screen.webp">
+      <div class="pf-img">
+        <span class="pf-step">· рабочий процесс</span>
+        <img src="../assets/wayofwater/process/prish-32-screen.webp" alt="Рабочий экран" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Рабочий экран · комментарии команды</b><span>Процесс согласования и правок</span></figcaption>
+    </figure>
+
+    <!-- ROW 3: 1 (s-12) -->
+    <figure class="pf-card s-12" data-src="../assets/wayofwater/process/prish-13-render.webp">
+      <div class="pf-img">
+        <span class="pf-step">· рендер</span>
+        <img src="../assets/wayofwater/process/prish-13-render.webp" alt="Комбинированный рендер" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Комбинированный рендер</b><span>Персонаж в контексте проекции</span></figcaption>
+    </figure>
+
+    <!-- ROW 4: 2 (s-6 + s-6) -->
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/prish-05-concept.webp">
+      <div class="pf-img">
+        <span class="pf-step">· концепт</span>
+        <img src="../assets/wayofwater/process/prish-05-concept.webp" alt="Концепт" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Концепт · синяя версия</b><span>Цветовое решение персонажа</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/prish-09-color.webp">
+      <div class="pf-img">
+        <span class="pf-step">· цвет</span>
+        <img src="../assets/wayofwater/process/prish-09-color.webp" alt="Цветовые варианты" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Цветовые варианты</b><span>Поиск финальной палитры</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/prish-21-3d.webp">
+      <div class="pf-img">
+        <span class="pf-step">· 3D</span>
+        <img src="../assets/wayofwater/process/prish-21-3d.webp" alt="3D-моделирование" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>3D-моделирование</b><span>Цифровая модель персонажа</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/prish-25-photo.webp">
+      <div class="pf-img">
+        <span class="pf-step">· фото-тест</span>
+        <img src="../assets/wayofwater/process/prish-25-photo.webp" alt="Фото-тест" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Фото-тест</b><span>Персонаж в реальной съёмке</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/prish-34-waterfall.webp">
+      <div class="pf-img">
+        <span class="pf-step">· водопад v05</span>
+        <img src="../assets/wayofwater/process/prish-34-waterfall.webp" alt="Дизайн водопада" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Водопад · версия 05</b><span>Эволюция дизайна анимации</span></figcaption>
+    </figure>
+
+    <figure class="pf-card s-6" data-src="../assets/wayofwater/process/prish-35-latest.webp">
+      <div class="pf-img">
+        <span class="pf-step">· финал</span>
+        <img src="../assets/wayofwater/process/prish-35-latest.webp" alt="Финальный дизайн" loading="lazy">
+        <span class="pf-zoom">⤢</span>
+      </div>
+      <figcaption class="pf-cap"><b>Финальный дизайн · 2026</b><span>Актуальная версия персонажа</span></figcaption>
+    </figure>
+
   </div>
 
-  <!-- char sketches — 4-col grid -->
-  <div class="pgal cols4 reveal">
-    <div class="pi">
-      <div class="pi-char-vis"><img decoding="async" src="../assets/wayofwater/process/char-watty-sketch.webp" alt="Watty скетч" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Watty · Скетч</div><div class="pi-title">Первый скетч</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-char-vis"><img decoding="async" src="../assets/wayofwater/process/char-watty-variations.webp" alt="Watty форма" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Watty · Форма</div><div class="pi-title">Три вариации тела</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-char-vis"><img decoding="async" src="../assets/wayofwater/process/char-icey-sketch.webp" alt="Icey скетч" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Icey · Скетч</div><div class="pi-title">Первый скетч</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-char-vis"><img decoding="async" src="../assets/wayofwater/process/char-icey-v2.webp" alt="Icey v2" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Icey · Доработка</div><div class="pi-title">Версия 2</div></div>
-    </div>
-  </div>
-
-  <!-- char 3D finals — 2-col -->
-  <div class="pgal cols2 reveal" style="margin-top:8px">
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/char-watty-3d.webp" alt="Watty 3D" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Watty · Финальный рендер</div><div class="pi-title">Watty — в 3D</div></div>
-    </div>
-    <div class="pi">
-      <div class="pi-vis"><img decoding="async" src="../assets/wayofwater/process/char-icey-3d.webp" alt="Icey 3D" loading="lazy"></div>
-      <div class="pi-cap"><div class="pi-tag">Icey · Финальный рендер</div><div class="pi-title">Icey — в 3D</div></div>
-    </div>
-  </div>
 </section>
 
 <!-- ============== ROLE / DELIVERABLES ============== -->
 <section class="sec dark" id="zone-end">
   <div class="chapter reveal" style="border-color:rgba(255,255,255,.12);opacity:1">
     <span class="ch-left"><span class="ch-num">07</span> Роль и масштаб</span>
-    <h2 class="ch-title">Что <em>сделано</em></h2>
+    <h2 class="ch-title">Что сделано</h2>
     <span class="ch-right">CD · Арт-дирекшен<br>Сценография<br><b>Full cycle</b></span>
   </div>
 
@@ -1851,6 +2001,23 @@ img.broken{visibility:hidden}
   <a class="foot-back" href="../index.html"><span class="ar">←</span> Вернуться к портфолио</a>
 </footer>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+  <div class="lightbox-stage">
+    <div class="lightbox-imgwrap" id="lightboxImgWrap">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    </div>
+  </div>
+  <button class="lightbox-zoom-btn" id="lightboxZoom" type="button" aria-label="Увеличить">
+    <span id="lightboxZoomLabel">⤢ 2×</span>
+  </button>
+  <button class="lightbox-close" id="lightboxClose" aria-label="Закрыть">×</button>
+  <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Предыдущее фото" hidden>‹</button>
+  <button class="lightbox-nav next" id="lightboxNext" aria-label="Следующее фото" hidden>›</button>
+  <span class="lightbox-counter" id="lightboxCounter" hidden>01 / 01</span>
+  <div class="lightbox-hint">esc — закрыть · ← → — листать · клик по фото — zoom</div>
+</div>
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 /* ===== Image fallback ===== */
 document.querySelectorAll('img').forEach(img=>{
@@ -1955,6 +2122,97 @@ window.addEventListener('scroll',update,{passive:true});
 window.addEventListener('resize',()=>{positionStations();update()});
 window.addEventListener('load',()=>{positionStations();update()});
 positionStations();update();
+
+/* ===== PROCESS VIDEO ===== */
+(function(){
+  const playBtn = document.getElementById('processVideoPlay');
+  if(!playBtn) return;
+  playBtn.addEventListener('click', () => {
+    const iframe = document.getElementById('processVideoIframe');
+    const poster = document.getElementById('processVideoPoster');
+    iframe.src = 'https://www.youtube.com/embed/jnXBmeKDf_w?autoplay=1&rel=0&color=white';
+    iframe.classList.add('active');
+    poster.classList.add('hidden');
+    playBtn.classList.add('hidden');
+  });
+})();
+
+/* ===== LIGHTBOX ===== */
+(function(){
+  const lb = document.getElementById('lightbox');
+  const lbWrap = document.getElementById('lightboxImgWrap');
+  const lbImg = document.getElementById('lightboxImg');
+  const lbClose = document.getElementById('lightboxClose');
+  const lbZoom = document.getElementById('lightboxZoom');
+  const lbZoomLabel = document.getElementById('lightboxZoomLabel');
+  const lbPrev = document.getElementById('lightboxPrev');
+  const lbNext = document.getElementById('lightboxNext');
+  const lbCounter = document.getElementById('lightboxCounter');
+  if(!lb || !lbImg) return;
+
+  let group = [];
+  let cursor = 0;
+  let zoomed = false;
+
+  function applyItem(){
+    const item = group[cursor];
+    if(!item) return;
+    lbImg.src = item.src;
+    lbImg.alt = item.alt || '';
+    const showNav = group.length > 1;
+    lbPrev.hidden = !showNav;
+    lbNext.hidden = !showNav;
+    lbCounter.hidden = !showNav;
+    if(showNav) lbCounter.textContent = String(cursor+1).padStart(2,'0') + ' / ' + String(group.length).padStart(2,'0');
+    setZoom(false);
+  }
+
+  function setZoom(state){
+    zoomed = state;
+    lbWrap.classList.toggle('zoomed', zoomed);
+    lbZoomLabel.textContent = zoomed ? '⤡ 1×' : '⤢ 2×';
+  }
+
+  function open(items, index){
+    group = items; cursor = index || 0;
+    applyItem();
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    setZoom(false);
+    setTimeout(() => { if(!lb.classList.contains('open')) lbImg.src = ''; }, 250);
+  }
+  function navigate(dir){
+    if(group.length < 2) return;
+    cursor = (cursor + dir + group.length) % group.length;
+    applyItem();
+  }
+
+  // Собрать все pf-card[data-src] в порядке DOM как одну группу
+  const allCards = Array.from(document.querySelectorAll('.pf-card[data-src]'));
+  allCards.forEach((el, i) => {
+    el.addEventListener('click', () => {
+      const items = allCards.map(c => ({src: c.dataset.src, alt: c.querySelector('img') ? c.querySelector('img').alt : ''}));
+      open(items, i);
+    });
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', () => navigate(-1));
+  lbNext.addEventListener('click', () => navigate(1));
+  lbZoom.addEventListener('click', e => { e.stopPropagation(); setZoom(!zoomed); });
+  lbWrap.addEventListener('click', e => { if(e.target === lbImg || e.target === lbWrap) setZoom(!zoomed); });
+  lb.addEventListener('click', e => { if(e.target === lb || e.target.classList.contains('lightbox-stage')) close(); });
+  window.addEventListener('keydown', e => {
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') navigate(-1);
+    if(e.key === 'ArrowRight') navigate(1);
+  });
+})();
 </script>
 </body>
 </html>
