@@ -3,15 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Просветитель · Case — Таня Самараковская</title>
-<meta name="description" content="Премия «Просветитель» — фестиваль и наградная церемония: видеоконтент и сценография, 2018. Кейс Тани Самараковской.">
+<title>Просветитель · Таня Самараковская</title>
+<meta name="description" content="Премия «Просветитель» — 10-летие: лазерное шоу-открытие, CG-контент и мультимедийная церемония. Кейс Тани Самараковской, 2018.">
+<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/projects/prosvetitel.html">
+<meta property="og:title" content="Просветитель · Таня Самараковская">
+<meta property="og:description" content="Премия «Просветитель» — 10-летие: лазерное шоу-открытие, CG-контент и мультимедийная церемония. Кейс Тани Самараковской, 2018.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/prosvetitel/preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Просветитель · Таня Самараковская">
+<meta name="twitter:description" content="Премия «Просветитель» — 10-летие: лазерное шоу-открытие, CG-контент и мультимедийная церемония. Кейс Тани Самараковской, 2018.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/prosvetitel/preview.webp">
 <link rel="canonical" href="https://samarakovskaya.art/projects/prosvetitel.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
+    --graphite:#000000;--graphite-2:#0E0E10;--graphite-3:#17171A;
     --cream:#F1ECDD;--cream-2:#E8E2CF;--cream-3:#DBD3B9;
     --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
     --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
@@ -28,21 +40,33 @@
   button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   img{display:block;max-width:100%}
   body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
   .ph{position:relative;background:var(--graphite-2);overflow:hidden}
   .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
   .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
 
   /* TOP NAV */
   .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
-  .nav-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
-  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone)}
+  .nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(0,0,0,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone);white-space:nowrap}
   .back::before{content:"←";color:var(--lime);font-size:14px}
-  .breadcrumb{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-2);text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:10px}
-  .breadcrumb .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:blink 1.4s steps(1) infinite}
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
-  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
   .nav-cta::after{content:"↗"}
-  @media(max-width:780px){.breadcrumb span:not(.dot){display:none}}
+
+  /* MAGNETIC NAV */
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{
+    display:inline-flex;align-items:center;
+    padding:7px 13px;border-radius:999px;
+    font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;
+    color:var(--bone-3);
+    transition:background .2s,color .2s;
+    cursor:pointer;white-space:nowrap;will-change:transform;
+    text-decoration:none;
+  }
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
 
   .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
 
@@ -53,25 +77,44 @@
   .pill.solid::before{background:var(--ink);box-shadow:none}
   .pill.outline{background:transparent}
 
-  /* HERO */
+  /* Big outlined circle button */
+  .circle-btn{
+    display:inline-grid;place-items:center;
+    width:88px;height:88px;border-radius:50%;
+    border:1.5px solid currentColor;font-size:34px;line-height:1;
+    transition:background .25s,color .25s,transform .25s;
+    cursor:pointer;flex-shrink:0;
+  }
+  .circle-btn.bone{color:var(--bone);border-color:var(--bone-2)}
+  .circle-btn.bone:hover{background:var(--bone);color:var(--ink)}
+  .circle-btn.sm{width:56px;height:56px;font-size:22px}
+
+  /* TEXT TREATMENTS */
+  .word-pill{position:relative;display:inline-block;color:var(--graphite);padding:0 .14em;z-index:1}
+  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
+  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+  .word-block{background:var(--lime);color:var(--ink);padding:0 .14em}
+
+  /* HERO — centered */
   .hero{position:relative;min-height:100svh;overflow:hidden;padding:120px 0 40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
-  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.38}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.34}
   .hero-bg .ph{position:absolute;inset:0}
   .hero-bg img{filter:contrast(1.05) saturate(.85)}
   .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 78%),linear-gradient(180deg,var(--graphite) 0%,transparent 25%,transparent 60%,var(--graphite) 100%)}
 
-  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
-  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
   .hero-meta-row .pill:nth-child(1){transform:rotate(-1deg)}
   .hero-meta-row .pill:nth-child(2){transform:rotate(.8deg);margin-top:4px}
 
-  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
   .hero-h1{font-weight:700;font-size:clamp(48px,11vw,180px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;color:var(--bone)}
   .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
   .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime);letter-spacing:-.08em}
   .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
   .hero-h1 .syl.s3:hover{text-decoration:underline;text-decoration-color:var(--lime);text-decoration-thickness:8px;text-underline-offset:8px;letter-spacing:.04em}
-  .hero-sub{font-weight:500;font-size:clamp(18px,2vw,28px);line-height:1.1;letter-spacing:-.02em;color:var(--bone-2);max-width:38ch;text-wrap:balance;margin-top:8px}
+  .hero-sub{font-weight:500;font-size:clamp(18px,2vw,28px);line-height:1.15;letter-spacing:-.02em;color:var(--bone-2);max-width:40ch;text-wrap:balance;margin:8px auto 0}
   .hero-sub b{color:var(--bone);font-weight:700}
 
   .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
@@ -93,84 +136,65 @@
   .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
   .sec.on-cream .sec-head{border-color:var(--line-l)}
   @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
-  .sec-num{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
-  .sec.on-cream .sec-num{color:var(--ink-3)}
-  .sec-num::before{content:"✦";color:var(--lime);font-size:14px}
-  .sec-h{font-weight:700;font-size:clamp(48px,8.5vw,128px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
+  .sec-label::before{content:"✦";color:var(--lime);font-size:12px}
+  .sec.on-cream .sec-label{color:var(--ink-3)}
   .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
   .sec.on-cream .sec-side{color:var(--ink-2)}
   .sec-side b{font-weight:700;color:var(--bone)}
   .sec.on-cream .sec-side b{color:var(--ink)}
+  .sec-h{font-weight:700;font-size:clamp(48px,8.5vw,128px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
 
-  /* CONCEPT */
-  .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--ink);background:var(--cream)}
+  /* CONCEPT (cream) — no borders */
+  .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream)}
   @media(max-width:900px){.concept{grid-template-columns:1fr}}
-  .concept-img{position:relative;min-height:60vh;border-right:1px solid var(--ink)}
-  @media(max-width:900px){.concept-img{border-right:0;border-bottom:1px solid var(--ink)}}
+  .concept-img{position:relative;min-height:48vh}
+  @media(max-width:900px){.concept-img{min-height:320px}}
   .concept-img .ph{position:absolute;inset:0}
-  .concept-img-over{position:absolute;left:18px;bottom:18px;z-index:3;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(48px,7vw,108px);letter-spacing:-.045em;line-height:.85;color:var(--cream);mix-blend-mode:difference;text-transform:uppercase}
-  .concept-img-tag{position:absolute;top:18px;left:18px;background:var(--lime);color:var(--ink);padding:7px 12px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:600;z-index:3}
   .concept-body{padding:48px;display:flex;flex-direction:column;gap:24px}
   @media(max-width:780px){.concept-body{padding:32px 24px}}
-  .concept-lead{font-weight:500;font-size:clamp(24px,3vw,42px);line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
+  .concept-lead{font-weight:500;font-size:clamp(26px,3.2vw,46px);line-height:1.08;letter-spacing:-.025em;text-wrap:balance}
   .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px}
   .concept-text b{color:var(--ink);font-weight:700}
-  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;border-top:1px solid var(--ink);padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
   .concept-meta dt{color:var(--ink-3);margin-bottom:4px}
   .concept-meta dd{color:var(--ink);font-weight:600;font-size:13px}
 
   /* PULL QUOTE */
-  .pullq{position:relative;min-height:80vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
-  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.22}
+  .pullq{position:relative;min-height:90vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.24}
   .pullq-bg .ph{position:absolute;inset:0}
   .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 90%)}
   .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
-  .pullq-tag{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:32px;display:inline-flex;align-items:center;gap:10px}
-  .pullq-tag::before,.pullq-tag::after{content:"";width:36px;height:1px;background:var(--lime)}
-  .pullq-text{font-weight:600;font-size:clamp(28px,5.5vw,84px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
-  .pullq-cite{margin-top:36px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3)}
-  .pullq-cite b{color:var(--lime);font-weight:600}
+  .pullq-text{font-weight:600;font-size:clamp(36px,7vw,108px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
 
-  /* WORD TREATMENTS */
-  .word-pill{position:relative;display:inline-block;color:var(--graphite);padding:0 .14em;z-index:1}
-  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
-  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
-  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
-  .word-block{background:var(--lime);color:var(--ink);padding:0 .14em}
-
-  /* CHAPTERS */
-  .chap{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-d);background:var(--graphite-2);margin-bottom:10px;min-height:60vh}
+  /* CHAPTERS — no borders */
+  .chap{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--graphite-2);margin-bottom:0;min-height:60vh}
   .chap.flip .chap-img{order:2}
-  .chap.full{grid-template-columns:1fr;min-height:80vh;position:relative}
+  .chap.full{grid-template-columns:1fr;min-height:90vh;position:relative}
   @media(max-width:900px){.chap,.chap.flip{grid-template-columns:1fr}.chap.flip .chap-img{order:0}}
-  .chap-img{position:relative;min-height:50vh;overflow:hidden;border-right:1px solid var(--line-d)}
-  .chap.flip .chap-img{border-right:0;border-left:1px solid var(--line-d)}
-  @media(max-width:900px){.chap-img,.chap.flip .chap-img{border:0;border-bottom:1px solid var(--line-d)}}
+  .chap-img{position:relative;min-height:50vh;overflow:hidden}
+  @media(max-width:900px){.chap-img{min-height:300px}}
   .chap-img .ph{position:absolute;inset:0}
   .chap-img img{transition:transform .8s ease}
   .chap-img:hover img{transform:scale(1.04)}
-  .chap-img-tag{position:absolute;top:18px;left:18px;padding:6px 12px;background:var(--lime);color:var(--ink);font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:600;z-index:2;display:inline-flex;align-items:center;gap:8px}
-  .chap-img-tag::before{content:"";width:7px;height:7px;background:var(--ink)}
-  .chap-img-label{position:absolute;left:18px;bottom:14px;z-index:2;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(36px,5.5vw,80px);letter-spacing:-.04em;line-height:.85;color:var(--bone);text-transform:uppercase;mix-blend-mode:difference}
   .chap-body{padding:48px;display:flex;flex-direction:column;gap:20px;justify-content:center}
   @media(max-width:780px){.chap-body{padding:32px 24px}}
-  .chap.full .chap-img{position:absolute;inset:0;min-height:0;border:0}
+  .chap.full .chap-img{position:absolute;inset:0;min-height:0}
   .chap.full .chap-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.88) 100%);z-index:1}
-  .chap.full .chap-body{position:relative;z-index:2;justify-content:flex-end;color:var(--bone);min-height:80vh}
-  .chap-key{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);display:inline-flex;gap:10px;align-items:center}
-  .chap-key::before{content:"";width:10px;height:10px;background:var(--lime);display:inline-block}
-  .chap-title{font-weight:700;font-size:clamp(26px,4.2vw,58px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+  .chap.full .chap-body{position:relative;z-index:2;justify-content:flex-end;color:var(--bone);min-height:90vh}
+  .chap-title{font-weight:700;font-size:clamp(28px,4.6vw,64px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
   .chap-title .mark{color:var(--lime)}
   .chap-body p{font-size:15px;line-height:1.65;color:var(--bone-2);max-width:54ch}
   .chap-body p b{color:var(--bone);font-weight:700}
   .chap.full .chap-body p{color:var(--bone);max-width:64ch}
   .chap.full .chap-body p b{color:var(--lime)}
 
-  /* ROLE STEPS */
-  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  /* ROLE CARDS — numbered steps, no borders */
+  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
   @media(max-width:780px){.role-grid{grid-template-columns:1fr}}
-  .role-card{background:var(--cream-2);border:1px solid var(--ink);padding:28px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;min-height:320px;transition:background .25s,color .25s}
-  .role-card:hover{background:var(--ink);color:var(--bone)}
+  .role-card{background:var(--cream-2);padding:32px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;min-height:320px;transition:background .25s,color .25s}
+  .role-card:hover{background:var(--graphite-3);color:var(--bone)}
   .role-card .num{position:absolute;top:18px;right:24px;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:104px;letter-spacing:-.05em;color:var(--lime);line-height:.85;opacity:.85}
   .role-card .step{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3);display:inline-flex;align-items:center;gap:12px;transition:color .25s}
   .role-card:hover .step{color:var(--lime)}
@@ -183,61 +207,58 @@
   .role-card p b{color:var(--ink);font-weight:700;transition:color .25s}
   .role-card:hover p b{color:var(--bone)}
 
-  /* GALLERY */
-  .gal{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:48px;gap:6px}
-  @media(max-width:780px){.gal{grid-template-columns:repeat(6,1fr);grid-auto-rows:36px}}
-  .gi{position:relative;overflow:hidden;background:var(--graphite-2);cursor:zoom-in;border:1px solid var(--line-d)}
+  /* GALLERY — clean 3-column structured grid */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  @media(max-width:780px){.gal{grid-template-columns:1fr 1fr}}
+  .gi{position:relative;overflow:hidden;background:var(--graphite-2);cursor:zoom-in;aspect-ratio:4/3}
   .gi .ph{position:absolute;inset:0}
-  .gi img{transition:transform .6s ease,filter .4s}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease,filter .4s}
   .gi:hover img{transform:scale(1.05)}
-  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.35) 0%,transparent 30%);opacity:.6;pointer-events:none;transition:opacity .3s}
-  .gi:hover::after{opacity:.2}
-  .gi .idx{position:absolute;top:10px;right:10px;font-family:"JetBrains Mono",monospace;font-size:11px;background:var(--lime);color:var(--ink);padding:3px 8px;z-index:2;letter-spacing:.06em;font-weight:600}
-  .gi .lbl{position:absolute;left:14px;bottom:14px;color:var(--bone);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;z-index:2}
-  .gi .over{position:absolute;left:14px;bottom:38px;z-index:2;font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(32px,4.5vw,64px);letter-spacing:-.04em;line-height:.85;color:var(--bone);text-transform:uppercase;mix-blend-mode:difference;text-wrap:balance;max-width:80%}
-  .g1{grid-column:span 8;grid-row:span 10}
-  .g2{grid-column:span 4;grid-row:span 6}
-  .g3{grid-column:span 4;grid-row:span 4}
-  .g4{grid-column:span 5;grid-row:span 7}
-  .g5{grid-column:span 7;grid-row:span 7}
-  .g6{grid-column:span 12;grid-row:span 9}
-  @media(max-width:780px){
-    .g1,.g2,.g3,.g4,.g5{grid-column:span 6;grid-row:span 5}
-    .g6{grid-column:span 6;grid-row:span 6}
-  }
-  .gcap{background:var(--lime);color:var(--ink);padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;grid-column:span 4;grid-row:span 4}
-  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(32px,4vw,60px);line-height:.85;letter-spacing:-.04em;text-transform:none;color:var(--ink)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+
+  /* Lime text plates in gallery */
+  .gcap{background:var(--lime);color:var(--ink);padding:28px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;aspect-ratio:4/3}
   .gcap.dark{background:var(--graphite-3);color:var(--bone)}
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,56px);line-height:.88;letter-spacing:-.04em;color:var(--ink)}
   .gcap.dark .big{color:var(--lime)}
-  @media(max-width:780px){.gcap{grid-column:span 6;grid-row:span 4}}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2)}
+  .gcap.dark .sub{color:var(--bone-2)}
+  @media(max-width:780px){.gcap{display:none}}
 
-  /* LIGHTBOX */
-  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);cursor:zoom-out;align-items:center;justify-content:center}
+  /* lightbox */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
   .lb.open{display:flex}
-  .lb img{max-width:92vw;max-height:90vh;object-fit:contain}
-  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px}
+  .lb img{max-width:80vw;max-height:86vh;object-fit:contain;user-select:none;transition:opacity .18s ease}
+  .lb img.fade{opacity:0}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px;cursor:pointer;z-index:2}
   .lb-close:hover{color:var(--lime)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--bone-2);padding:16px 22px;cursor:pointer;z-index:2;transition:color .2s;line-height:1}
+  .lb-nav:hover{color:var(--lime)}
+  .lb-prev{left:20px}
+  .lb-next{right:20px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
 
-  /* CREDITS */
+  /* CREDITS (cream) */
   .credits{padding:90px 0;background:var(--cream);color:var(--ink)}
-  .credits-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--ink);padding-bottom:48px;margin-bottom:48px;align-items:end}
+  .credits-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:48px;margin-bottom:48px;align-items:end}
   @media(max-width:900px){.credits-top{grid-template-columns:1fr}}
   .credits-title{font-weight:700;font-size:clamp(48px,8vw,118px);line-height:.9;letter-spacing:-.04em}
   .credits-facts{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end}
   @media(max-width:900px){.credits-facts{justify-content:flex-start}}
   .cred-fact{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center}
-  .cred-fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(26px,3.5vw,48px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .cred-fact strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.5vw,52px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
   .cred-fact strong .mark{color:var(--lime-deep)}
   .credits-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
   @media(max-width:900px){.credits-body{grid-template-columns:1fr}}
-  .cred-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--ink);align-items:baseline}
-  .cred-row:first-child{border-top:1px solid var(--ink)}
+  .cred-row{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--line-l)}
   .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
-  .cred-row dd{font-weight:600;font-size:clamp(15px,1.4vw,19px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .cred-row dd{font-weight:600;font-size:clamp(16px,1.5vw,20px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
   .cred-row dd .mark{color:var(--lime-deep);font-weight:700}
   .cred-row dd .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-3);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
-  .credits-col-right{border-left:1px solid var(--ink);padding-left:36px}
-  @media(max-width:900px){.credits-col-right{border-left:none;padding-left:0}}
+  .credits-col-right{padding-left:36px}
+  @media(max-width:900px){.credits-col-right{padding-left:0}}
 
   /* PROJ NAV */
   .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
@@ -249,7 +270,7 @@
   .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
   .pn-card:hover .bg{opacity:.28}
   .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
-  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(26px,3.5vw,52px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(28px,3.8vw,56px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
   .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
   .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
   .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
@@ -269,15 +290,24 @@
 
 <div class="lb" id="lb">
   <button class="lb-close" id="lbClose">[ESC] закрыть</button>
+  <button class="lb-nav lb-prev" id="lbPrev">←</button>
   <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
 </div>
 
 <!-- TOP NAV -->
 <header class="top">
   <div class="nav-bar">
-    <a class="back" href="../index.html#works">Назад к работам</a>
-    <span class="breadcrumb"><span class="dot"></span><span>Case · Просветитель</span></span>
-    <a class="nav-cta" href="mailto:cactus.cave@gmail.com">Написать</a>
+    <a class="back" href="../index.html#works">Все проекты</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#s-concept" data-section="s-concept">Концепт</a>
+      <a class="mag-pill" href="#s-show" data-section="s-show">Реализация</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video">Видео</a>
+      <a class="mag-pill" href="#s-gallery" data-section="s-gallery">Галерея</a>
+      <a class="mag-pill" href="#s-credits" data-section="s-credits">Команда</a>
+    </nav>
+    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
   </div>
 </header>
 
@@ -292,10 +322,10 @@
   <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
     <div class="hero-meta-row">
       <div class="pills">
-        <span class="pill solid">● case · 2018</span>
+        <span class="pill solid">2018</span>
         <span class="pill">премия просветитель</span>
-        <span class="pill">SUPERVISUALS</span>
-        <span class="pill">Москва</span>
+        <span class="pill">supervisuals</span>
+        <span class="pill">москва</span>
       </div>
       <div class="pills">
         <span class="pill outline">light design</span>
@@ -330,12 +360,12 @@
 </div>
 
 <!-- CONCEPT (cream) -->
-<section class="sec on-cream">
+<section class="sec on-cream" id="s-concept">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">01 / Концепт</span>
+      <span class="sec-label">Концепт</span>
       <h2 class="sec-h"><span class="word-pill">Идея</span> шоу.</h2>
-      <span class="sec-side">2018 · Москва<br><b>Юбилей 10 лет</b></span>
+      <span class="sec-side"><b>Юбилей 10 лет</b><br>2018 · Москва</span>
     </div>
 
     <div class="concept reveal">
@@ -343,8 +373,6 @@
         <div class="ph" data-ph="просветитель · лазеры">
           <img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-laser.webp" alt="">
         </div>
-        <span class="concept-img-tag">● 10 лет</span>
-        <span class="concept-img-over">2008<br>→<br>2018</span>
       </div>
       <div class="concept-body">
         <p class="concept-lead">
@@ -353,7 +381,7 @@
         <div class="concept-text">
           <p>Премия <b>«Просветитель»</b> за лучшую научно-популярную книгу на русском языке была учреждена в 2008 году основателем компании «Вымпелком» <b>Дмитрием Зиминым</b> и Фондом некоммерческих программ «Династия».</p>
           <p>Цель премии — привлечь внимание читателей к просветительскому жанру, поощрить авторов и создать предпосылки для расширения рынка просветительской литературы в России.</p>
-          <p>На юбилейной церемонии перед нами стояли три задачи: <b>яркое лазерное шоу</b> как эффектное открытие — символ десятилетнего пути; <b>стильное представление</b> членов жюри и финалистов через короткие стилизованные видео; <b>архивная нарезка</b> ключевых моментов за 10 лет.</p>
+          <p>У юбилейной церемонии было три задачи: <b>яркое лазерное шоу</b> как эффектное открытие — символ десятилетнего пути; <b>стильное представление</b> членов жюри и финалистов через короткие стилизованные видео; <b>архивная нарезка</b> ключевых моментов за 10 лет.</p>
         </div>
         <dl class="concept-meta">
           <div><dt>Учредитель</dt><dd>Дмитрий Зимин</dd></div>
@@ -365,7 +393,7 @@
   </div>
 </section>
 
-<!-- PULL QUOTE -->
+<!-- PULL QUOTE (graphite) -->
 <section class="pullq">
   <div class="pullq-bg" aria-hidden="true">
     <div class="ph" data-ph="лазерное шоу">
@@ -373,33 +401,26 @@
     </div>
   </div>
   <div class="pullq-inner reveal">
-    <div class="pullq-tag">задача шоу · 2018</div>
     <p class="pullq-text">
       Яркое лазерное шоу как <span class="word-block">эффектное открытие</span> — и символ <span class="word-oval">десятилетнего</span> пути.
     </p>
-    <div class="pullq-cite">● <b>Просветитель</b> · 10 лет · Москва · 2018</div>
   </div>
 </section>
 
-<!-- CHAPTERS (graphite) -->
-<section class="sec on-graphite">
+<!-- REALIZATION (graphite) -->
+<section class="sec on-graphite" id="s-show">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">02 / Реализация</span>
+      <span class="sec-label">Реализация</span>
       <h2 class="sec-h">4 задачи одного <span class="word-pill">шоу</span>.</h2>
       <span class="sec-side"><b>Light Design · CG</b><br>Москва · 2018</span>
     </div>
 
     <article class="chap reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="лазерное шоу открытие">
-          <img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-01.webp" alt="">
-        </div>
-        <span class="chap-img-tag">01</span>
-        <span class="chap-img-label">Лазеры</span>
+        <div class="ph" data-ph="лазерное шоу открытие"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-01.webp" alt=""></div>
       </div>
       <div class="chap-body">
-        <span class="chap-key">Сценарий · 01</span>
         <h3 class="chap-title">Лазерное шоу как <span class="mark">открытие</span></h3>
         <p>Разработка сценария светового шоу — от драматургии к техническому заданию. <b>100 роботизированных прожекторов</b> синхронизованы в единое зрелище, которое читается как символ десятилетнего пути: рост, движение, свет.</p>
       </div>
@@ -407,13 +428,9 @@
 
     <article class="chap full reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="общий план зала">
-          <img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-06.webp" alt="">
-        </div>
-        <span class="chap-img-tag">02</span>
+        <div class="ph" data-ph="общий план зала"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-06.webp" alt=""></div>
       </div>
       <div class="chap-body">
-        <span class="chap-key">Видео · 02</span>
         <h3 class="chap-title">Портреты <span class="mark">жюри</span> и финалистов</h3>
         <p>Короткие <b>стилизованные видеопредставления</b> для каждого члена жюри и финалиста — разработаны в CG, выполнены в единой визуальной логике церемонии. Задача: передать статус и индивидуальность каждого участника без потери общего ритма шоу.</p>
       </div>
@@ -421,14 +438,9 @@
 
     <article class="chap flip reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="архивная нарезка">
-          <img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-04.webp" alt="">
-        </div>
-        <span class="chap-img-tag">03</span>
-        <span class="chap-img-label">10 лет</span>
+        <div class="ph" data-ph="архивная нарезка"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-04.webp" alt=""></div>
       </div>
       <div class="chap-body">
-        <span class="chap-key">Архив · 03</span>
         <h3 class="chap-title">Архивная <span class="mark">нарезка</span></h3>
         <p>Ключевые моменты за 10 лет существования премии — смонтированы в единый нарратив. <b>Работа с архивными материалами</b>: отбор, ресайз, цветокоррекция, интеграция в CG-среду. Эмоциональная точка шоу.</p>
       </div>
@@ -436,14 +448,9 @@
 
     <article class="chap reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="схема зала и прожекторы">
-          <img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-plan.webp" alt="">
-        </div>
-        <span class="chap-img-tag">04</span>
-        <span class="chap-img-label">Realtime</span>
+        <div class="ph" data-ph="схема зала и прожекторы"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-plan.webp" alt=""></div>
       </div>
       <div class="chap-body">
-        <span class="chap-key">Программирование · 04</span>
         <h3 class="chap-title">Realtime-<span class="mark">контроль</span></h3>
         <p>Программирование световых приборов и управление шоу в реальном времени на церемонии. <b>TouchDesigner</b> для генеративного управления, <b>Cinema 4D</b> для предвизуализации и CG-контента, <b>100 Head&amp;Beams</b> в зале.</p>
       </div>
@@ -455,8 +462,8 @@
 <section class="sec on-cream">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">03 / My role</span>
-      <h2 class="sec-h">Моя <span class="word-pill">роль</span>.</h2>
+      <span class="sec-label">Роль в проекте</span>
+      <h2 class="sec-h">Роль <span class="word-pill">в проекте</span>.</h2>
       <span class="sec-side"><b>Light · CG · Realtime</b><br>SUPERVISUALS</span>
     </div>
 
@@ -490,80 +497,94 @@
 </section>
 
 <!-- VIDEO -->
-<section class="sec on-graphite" id="zone-video" style="padding-top:72px;padding-bottom:72px">
+<section class="sec on-graphite" id="s-video" style="padding-top:72px;padding-bottom:72px">
   <div class="wrap">
     <div class="sec-head reveal" style="margin-bottom:32px">
-      <span class="sec-num">03b / Видео</span>
-      <h2 class="sec-h">Смотреть <em>шоу</em>.</h2>
+      <span class="sec-label">Видео</span>
+      <h2 class="sec-h">Смотреть <span class="word-pill">шоу</span>.</h2>
       <span class="sec-side">YouTube · Documentation</span>
     </div>
     <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px"
       onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/EIN5VqVbIBA?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
-      <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/EIN5VqVbIBA/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/EIN5VqVbIBA/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s" alt="Просветитель видео">
+      <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/EIN5VqVbIBA/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/EIN5VqVbIBA/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;display:block" alt="Просветитель видео">
       <div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
-        <div style="width:80px;height:80px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:28px;color:var(--ink);transition:transform .3s">▶</div>
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:28px;color:var(--ink)">▶</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY (graphite) -->
-<section class="sec on-graphite">
+<section class="sec on-graphite" id="s-gallery">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">04 / Gallery</span>
-      <h2 class="sec-h">6 <span class="word-pill">кадров</span><br>церемонии.</h2>
+      <span class="sec-label">Галерея</span>
+      <h2 class="sec-h">Галерея.</h2>
       <span class="sec-side"><b>фото с церемонии</b><br>Москва · 2018</span>
     </div>
 
     <div class="gal reveal">
-      <figure class="gi g1">
+
+      <figure class="gi">
         <div class="ph" data-ph="шоу-открытие"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-01.webp" alt=""></div>
-        <span class="idx">01</span>
-        <span class="over">Шоу-<br>открытие</span>
-        <span class="lbl">light show · opening</span>
       </figure>
-      <figure class="gi g2">
-        <div class="ph" data-ph="зал"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-02.webp" alt=""></div>
-        <span class="idx">02</span>
-        <span class="lbl">hall · beams</span>
-      </figure>
-      <div class="gcap dark">
-        <div class="big">100+<br>Beams</div>
-        <div>● 2018<br>Москва<b>SUPERVISUALS</b></div>
-      </div>
-      <figure class="gi g3">
+
+      <figure class="gi">
         <div class="ph" data-ph="лазеры в зале"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-03.webp" alt=""></div>
-        <span class="idx">03</span>
-        <span class="lbl">laser · grid</span>
       </figure>
-      <figure class="gi g4">
+
+      <div class="gcap">
+        <div class="big">100+<br>Beams</div>
+        <div class="sub">роботизированных прожекторов</div>
+      </div>
+
+      <div class="gcap dark">
+        <div class="big">10 лет<br>пути</div>
+        <div class="sub">2008 → 2018</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="зал"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-02.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
         <div class="ph" data-ph="кадр церемонии"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-04.webp" alt=""></div>
-        <span class="idx">04</span>
-        <span class="lbl">ceremony · frame</span>
       </figure>
-      <figure class="gi g5">
-        <div class="ph" data-ph="кадр церемонии 2"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-05.webp" alt=""></div>
-        <span class="idx">05</span>
-        <span class="over">10 лет</span>
-        <span class="lbl">anniversary · moment</span>
+
+      <figure class="gi">
+        <div class="ph" data-ph="юбилей · момент"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-05.webp" alt=""></div>
       </figure>
-      <figure class="gi g6">
+
+      <figure class="gi">
+        <div class="ph" data-ph="лазерное шоу"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-laser.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
         <div class="ph" data-ph="финал шоу"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-06.webp" alt=""></div>
-        <span class="idx">06</span>
-        <span class="over">Финал</span>
-        <span class="lbl">show · finale</span>
       </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="схема зала"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-plan.webp" alt=""></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="лого · 10 лет"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-logo10.webp" alt=""></div>
+      </figure>
+
+      <div class="gcap">
+        <div class="big">Realtime</div>
+        <div class="sub">TouchDesigner · Cinema 4D</div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- CREDITS (cream) -->
-<section class="credits">
+<section class="credits" id="s-credits">
   <div class="wrap">
     <div class="credits-top reveal">
       <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-3);margin-bottom:16px">● Команда</div>
         <h2 class="credits-title">Кто <span class="word-pill">сделал</span> это</h2>
       </div>
       <div class="credits-facts">
@@ -618,21 +639,21 @@
 <!-- PROJ NAV -->
 <nav class="proj-nav" aria-label="Другие проекты">
   <div class="proj-nav-inner">
-    <a class="pn-card" href="souzmultpark.html">
-      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/souzmultpark.webp" alt="" aria-hidden="true">
-      <span class="pn-dir"><span style="display:inline-block;margin-bottom:14px;font-size:20px">←</span><br>Предыдущий</span>
-      <span class="pn-name">Союзмультпарк</span>
-      <span class="pn-sub">Experience · 2019</span>
+    <a class="pn-card" href="wayofwater.html">
+      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/wayofwater.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">←</span><br>Предыдущий</span>
+      <span class="pn-name">Путь воды</span>
+      <span class="pn-sub">Exhibitions · Experience design · 2022—24</span>
     </a>
-    <a class="pn-contact" href="mailto:cactus.cave@gmail.com">
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
       <span class="pn-contact-label">Есть проект?</span>
       <span class="pn-btn">Написать ↗</span>
     </a>
-    <a class="pn-card" href="cymatic.html" style="text-align:right">
-      <img loading="lazy" decoding="async" class="bg" src="../assets/cymatic/preview.webp" alt="" aria-hidden="true">
-      <span class="pn-dir"><span style="display:inline-block;margin-bottom:14px;font-size:20px">→</span><br>Следующий</span>
-      <span class="pn-name">Cymatic</span>
-      <span class="pn-sub">Projection Mapping · Большой театр</span>
+    <a class="pn-card" href="moskvaruim.html" style="text-align:right">
+      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/moskvaruim.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">→</span><br>Следующий</span>
+      <span class="pn-name">Рыбов показываем</span>
+      <span class="pn-sub">Advertising · 360° · 2024</span>
     </a>
   </div>
 </nav>
@@ -648,18 +669,100 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}), {threshold:.08});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg');
-  document.querySelectorAll('.gi img').forEach(img => {
-    img.addEventListener('click', () => {
-      if(!img.src) return;
-      lbImg.src = img.src; lbImg.alt = img.alt;
-      lb.classList.add('open'); document.body.style.overflow = 'hidden';
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-  function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
-  lb.addEventListener('click', e => { if(e.target === lb) closeLb(); });
+
+  /* ACTIVE PILL on scroll */
+  const sectionIds = ['s-concept','s-show','s-video','s-gallery','s-credits'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const active = pillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  const galImgs = Array.from(document.querySelectorAll('.gi img'));
+  let currentIdx = 0;
+
+  function showImg(idx, dir = 0) {
+    const img = galImgs[idx];
+    if (!img || !img.src) return;
+    if (dir !== 0) {
+      lbImg.classList.add('fade');
+      setTimeout(() => {
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbImg.classList.remove('fade');
+      }, 160);
+    } else {
+      lbImg.src = img.src;
+      lbImg.alt = img.alt;
+    }
+    currentIdx = idx;
+    lbCounter.textContent = (idx + 1) + ' / ' + galImgs.length;
+  }
+
+  function openLb(idx) {
+    showImg(idx, 0);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  function prev() { showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1); }
+  function next() { showImg((currentIdx + 1) % galImgs.length, 1); }
+
+  galImgs.forEach((img, i) => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => openLb(i));
+  });
+
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
   document.getElementById('lbClose').addEventListener('click', closeLb);
-  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLb(); });
+  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); prev(); });
+  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); next(); });
+
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+
+  // swipe support
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e => {
+    const dx = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+  });
 </script>
 </body>
 </html>

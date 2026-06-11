@@ -5,18 +5,29 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Capybarabooom — Case Study · Tanya Samarakovskaya</title>
 <meta name="description" content="Капибарабууум — интерактивная выставка и IP-система: концепция, арт-дирекшен, персонажи. Москвариум, 2024—2026.">
+<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/projects/capybarabooom.html">
+<meta property="og:title" content="Capybarabooom — Case Study · Tanya Samarakovskaya">
+<meta property="og:description" content="Капибарабууум — интерактивная выставка и IP-система: концепция, арт-дирекшен, персонажи. Москвариум, 2024—2026.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/capybarabooom/preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Capybarabooom — Case Study · Tanya Samarakovskaya">
+<meta name="twitter:description" content="Капибарабууум — интерактивная выставка и IP-система: концепция, арт-дирекшен, персонажи. Москвариум, 2024—2026.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/capybarabooom/preview.webp">
 <link rel="canonical" href="https://samarakovskaya.art/projects/capybarabooom.html">
-<meta property="og:image" content="../assets/capybarabooom/preview.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg:#f3efe6;--bg-2:#ebe6d8;
     --graphite:#121212;--ink:#121212;--ink-2:#3a3a3a;--ink-3:#7a7a73;
     --lime:#c8ff2e;--orange:#ff5a2b;
     --mono:"JetBrains Mono",ui-monospace,monospace;
-    --sans:"Space Grotesk",sans-serif;--serif:"Instrument Serif",Georgia,serif;
+    --sans:"Space Grotesk",sans-serif;--serif:"Bricolage Grotesque",sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -55,8 +66,8 @@
   /* HERO */
   .hero{padding:120px 24px 40px;min-height:100vh;display:flex;flex-direction:column;background:var(--graphite);color:var(--bg);position:relative;overflow:hidden}
   .hero-kv-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-  .hero-kv-bg img{width:100%;height:100%;object-fit:contain;object-position:center top;opacity:.55;display:block;filter:saturate(1.4) brightness(1.08) contrast(1.04)}
-  .hero-meta{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(243,239,230,.6);gap:24px;flex-wrap:wrap;margin-bottom:auto;padding-top:8px}
+  .hero-kv-bg img{width:100%;height:100%;object-fit:cover;object-position:center center;opacity:.45;display:block;filter:saturate(1.2) brightness(1.0) contrast(1.06)}
+  .hero-meta{position:relative;z-index:2;display:flex;justify-content:center;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(243,239,230,.6);gap:24px;flex-wrap:wrap;margin-bottom:auto;padding-top:8px}
   .hero-meta b{color:var(--bg);font-weight:500;display:block}
   .hero-meta em{font-family:var(--serif);font-style:italic;text-transform:none;color:rgba(243,239,230,.4);font-size:13px}
   .hero-h{font-family:var(--sans);font-weight:500;font-size:clamp(64px,16vw,300px);line-height:.82;letter-spacing:-.06em;margin:8vh 0 4vh;text-align:center;position:relative;z-index:2}
@@ -145,6 +156,8 @@
   .why-num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6;display:flex;justify-content:space-between}
   .why-num .star{color:var(--lime);animation:spinFast 5s linear infinite;opacity:1}
   .why-cell:hover .why-num .star{color:var(--ink)}
+  .why-cell:hover .why-h em{color:var(--ink)!important}
+  .why-cell:hover .why-d{color:var(--ink);opacity:.85}
   .why-h{font-family:var(--sans);font-size:22px;font-weight:500;letter-spacing:-.02em;line-height:1.1}
   .why-h em{font-family:var(--serif);font-style:italic;font-weight:400}
   .why-d{font-size:13px;line-height:1.5;opacity:.7}
@@ -155,8 +168,8 @@
   .map-sec-head h2{font-family:var(--sans);font-weight:500;font-size:clamp(32px,5vw,72px);line-height:.95;letter-spacing:-.04em}
   .map-sec-head h2 em{font-family:var(--serif);font-style:italic;font-weight:400}
   .map-sec-head p{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.6;line-height:1.7;text-align:right}
-  .map-img-wrap{border-radius:24px;overflow:hidden;border:1px solid rgba(18,18,18,.1)}
-  .map-img-wrap img{width:100%;display:block}
+  .map-img-wrap{border-radius:24px;overflow:visible;border:1px solid rgba(18,18,18,.1)}
+  .map-img-wrap img{width:100%;display:block;border-radius:22px}
 
   /* VIDEO */
   .video-frame{aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:var(--graphite);border:1px solid var(--ink);position:relative;cursor:pointer}
@@ -314,7 +327,7 @@
   .pnav-inner{position:relative;z-index:2;display:flex;flex-direction:column;gap:6px}
   .pnav-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink);opacity:.62;display:inline-flex;align-items:center;gap:8px}
   .pnav-cell.next .pnav-label{justify-content:flex-end}
-  .pnav-h{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(40px,5.6vw,84px);letter-spacing:-.025em;line-height:.95;color:var(--ink);margin-top:8px}
+  .pnav-h{font-family:var(--sans);font-style:normal;font-weight:500;font-size:clamp(36px,5.2vw,78px);letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-top:8px}
   .pnav-meta{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(18,18,18,.55);margin-top:14px}
   .pnav-center{background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:48px 32px;border-left:1px solid var(--ink);border-right:1px solid var(--ink);position:relative;z-index:3}
   .pnav-center-label{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.16em;color:var(--ink);opacity:.6}
@@ -375,7 +388,7 @@
   }
 
   /* === НОВАЯ ВЁРСТКА ЗОН — кинематографично === */
-  .zones-wrap{display:flex;flex-direction:column;gap:0;border-top:1px solid currentColor;padding-top:0;margin-top:8px}
+  .zones-wrap{display:flex;flex-direction:column;gap:0;padding-top:0;margin-top:8px}
   .zone-card{display:flex;flex-direction:column;gap:28px;padding:64px 0;border-bottom:1px solid rgba(18,18,18,.12)}
   .sec.dark .zone-card{border-bottom-color:rgba(243,239,230,.12)}
   .zone-card:last-child{border-bottom:0;padding-bottom:8px}
@@ -410,8 +423,8 @@
   .zone-thumb:hover{transform:translateY(-4px);border-color:#FFC92A;box-shadow:0 0 0 1px #FFC92A inset}
   .zone-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .55s}
   .zone-thumb:hover img{transform:scale(1.07)}
-  .zone-thumb-cap{position:absolute;inset:auto 0 0 0;padding:18px 18px 16px;display:flex;flex-direction:column;gap:4px;background:linear-gradient(to top,rgba(0,0,0,.92) 30%,rgba(0,0,0,.55) 70%,transparent 100%);color:var(--bg);transition:padding .3s;pointer-events:none}
-  .zone-thumb:hover .zone-thumb-cap{padding-bottom:22px}
+  .zone-thumb-cap{position:absolute;inset:auto 8px 10px 8px;padding:10px 14px;display:flex;flex-direction:column;gap:3px;background:rgba(13,13,13,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:var(--bg);border-radius:10px;transition:inset .3s;pointer-events:none}
+  .zone-thumb:hover .zone-thumb-cap{inset:auto 8px 14px 8px}
   .zone-thumb-name{font-family:var(--sans);font-size:16px;font-weight:500;letter-spacing:-.015em;line-height:1.2}
   .zone-thumb-desc{font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;line-height:1.5;opacity:.78;margin-top:2px}
   .zone-thumb-zoom{position:absolute;top:14px;right:14px;width:34px;height:34px;border-radius:50%;background:rgba(243,239,230,.92);color:var(--ink);display:grid;place-items:center;font-family:var(--mono);font-size:14px;z-index:3;border:1px solid var(--ink);transition:background .25s,transform .35s;opacity:0;transform:scale(.7)}
@@ -527,7 +540,7 @@
   /* === НОВЫЕ ПРОЦЕССНЫЕ МАТЕРИАЛЫ — FULL-BLEED крупная сетка === */
   .process-flow{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin:48px 0 64px;width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:0 24px;box-sizing:border-box}
   .pf-card{position:relative;border:1px solid var(--ink);border-radius:20px;overflow:hidden;background:var(--bg-2);cursor:zoom-in;transition:transform .35s,border-color .25s,box-shadow .35s;display:flex;flex-direction:column;margin:0}
-  .pf-card:hover{transform:translateY(-6px);border-color:var(--orange);box-shadow:0 18px 40px rgba(0,0,0,.12)}
+  .pf-card:hover{transform:translateY(-6px);border-color:var(--lime);box-shadow:0 18px 40px rgba(0,0,0,.12)}
   .pf-card.s-6{grid-column:span 6}
   .pf-card.s-4{grid-column:span 4}
   .pf-card.s-3{grid-column:span 3}
@@ -639,7 +652,7 @@
 <div class="cur-ring" id="curRing"></div>
 
 <header class="top">
-  <a class="back" href="../index.html#works"><span class="ar">←</span> Back to works</a>
+  <a class="back" href="../index.html#works"><span class="ar">←</span> Все проекты</a>
   <span class="top-mid"><span class="live"></span><b>Case</b> · 03 / 10</span>
   <a class="visit" href="https://capybarabooom.ru" target="_blank" rel="noopener">Visit site ↗</a>
 </header>
@@ -732,7 +745,7 @@
         <dt>Audience</dt><dd>Family · Gen Z</dd>
         <dt>Footprint</dt><dd>500 м² / 7 зон</dd>
         <dt>Visit time</dt><dd>~ 90 минут</dd>
-        <dt>Mechanics</dt><dd>Quest · Capicoins · AR</dd>
+        <dt>Mechanics</dt><dd>Quest · Capicoins · Интерактив</dd>
         <dt>Style</dt><dd>Kawaii · Japanese pop</dd>
       </dl>
     </aside>
@@ -792,7 +805,7 @@
 <section class="sec dark">
   <div class="sec-head reveal">
     <span class="sec-tag"><span class="num">03</span><span class="star">✦</span> Почему это работает</span>
-    <h2 class="sec-h">Шесть точек<br><em>притяжения</em><span style="color:var(--lime)">.</span></h2>
+    <h2 class="sec-h">Почему это<br><em>работает</em><span style="color:var(--lime)">.</span></h2>
     <span class="sec-side"><b>Experience pillars</b><br>что уносит<br>посетитель</span>
   </div>
   <div class="why reveal">
@@ -814,7 +827,7 @@
     <div class="why-cell">
       <div class="why-num"><span>04 / Phygital</span><span class="star">✦</span></div>
       <h3 class="why-h"><em>Phygital</em>-экосистема</h3>
-      <p class="why-d">AR, цифровые подарки, онлайн-активации — опыт продолжается за пределами площадки.</p>
+      <p class="why-d">Цифровые подарки, онлайн-активации — опыт продолжается за пределами площадки.</p>
     </div>
     <div class="why-cell">
       <div class="why-num"><span>05 / Edutainment</span><span class="star">✦</span></div>
@@ -837,27 +850,105 @@
   </div>
   <div class="gal-marquee" id="gallery-marquee">
     <div class="gal-row" data-row="1">
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/406a0086.webp" alt="Общий план" loading="lazy"><span class="gt-num">01</span><span class="gt-lbl">General view</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya3.webp" alt="Онбординг" loading="lazy"><span class="gt-num">02</span><span class="gt-lbl">Onboarding</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius5.webp" alt="Капибариус" loading="lazy"><span class="gt-num">03</span><span class="gt-lbl">Capybarius zone</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius4.webp" alt="Kapi Food" loading="lazy"><span class="gt-num">04</span><span class="gt-lbl">Kapi Food</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro.webp" alt="КапиБро" loading="lazy"><span class="gt-num">05</span><span class="gt-lbl">CapyBro</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen.webp" alt="Zen" loading="lazy"><span class="gt-num">06</span><span class="gt-lbl">Zen zone</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool.webp" alt="Pool" loading="lazy"><span class="gt-num">07</span><span class="gt-lbl">Orange pool</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/8-shop.webp" alt="Merch" loading="lazy"><span class="gt-num">08</span><span class="gt-lbl">Merch line</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/0-capyhall.webp" alt="CapyHall" loading="lazy"><span class="gt-num">01</span><span class="gt-lbl">CapyHall · вход</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya2.webp" alt="Зона капибаризации" loading="lazy"><span class="gt-num">02</span><span class="gt-lbl">Зона 1 · Капибаризация</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius3.webp" alt="Капибариус" loading="lazy"><span class="gt-num">03</span><span class="gt-lbl">Зона 2 · Капибариус</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour.webp" alt="Амазонка 360°" loading="lazy"><span class="gt-num">04</span><span class="gt-lbl">Зона 3 · Амазонка</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro2.webp" alt="КапиБро" loading="lazy"><span class="gt-num">05</span><span class="gt-lbl">Зона 4 · КапиБро</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen2.webp" alt="Капибара-сан" loading="lazy"><span class="gt-num">06</span><span class="gt-lbl">Зона 5 · Zen</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance.webp" alt="КапиБой" loading="lazy"><span class="gt-num">07</span><span class="gt-lbl">Зона 6 · КапиБой</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool2.webp" alt="Мандариновый бууум" loading="lazy"><span class="gt-num">08</span><span class="gt-lbl">Зона 7 · Мандарины</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/8-shop.webp" alt="Мерч" loading="lazy"><span class="gt-num">09</span><span class="gt-lbl">Магазин · мерч</span></figure>
     </div>
-    <div class="gal-row" data-row="2" style="margin-left:-120px">
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/406a9842.webp" alt="Открытие" loading="lazy"><span class="gt-num">09</span><span class="gt-lbl">Opening night</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/0-capyhall.webp" alt="CapyHall" loading="lazy"><span class="gt-num">10</span><span class="gt-lbl">CapyHall</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour2.webp" alt="360°" loading="lazy"><span class="gt-num">11</span><span class="gt-lbl">360° Amazon</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius7.webp" alt="Маршрут" loading="lazy"><span class="gt-num">12</span><span class="gt-lbl">Wayfinding</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro4.webp" alt="Sport arena" loading="lazy"><span class="gt-num">13</span><span class="gt-lbl">Sport arena</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance2-new.webp" alt="Arcade" loading="lazy"><span class="gt-num">14</span><span class="gt-lbl">Capy arcade</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool3.webp" alt="Photozone" loading="lazy"><span class="gt-num">15</span><span class="gt-lbl">Photozone</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="AR" loading="lazy"><span class="gt-num">16</span><span class="gt-lbl">AR onboarding</span></figure>
+    <div class="gal-row" data-row="2" style="margin-left:-140px">
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/406a0086.webp" alt="Общий план" loading="lazy"><span class="gt-num">10</span><span class="gt-lbl">Общий вид</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/406a9842.webp" alt="Открытие" loading="lazy"><span class="gt-num">11</span><span class="gt-lbl">Открытие</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya3.webp" alt="Онбординг" loading="lazy"><span class="gt-num">12</span><span class="gt-lbl">Зона 1 · Онбординг</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius1.webp" alt="Capy quiz" loading="lazy"><span class="gt-num">13</span><span class="gt-lbl">Зона 2 · Capy Quiz</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour2.webp" alt="360° панорама" loading="lazy"><span class="gt-num">14</span><span class="gt-lbl">Зона 3 · 360°</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro4.webp" alt="Sport arena" loading="lazy"><span class="gt-num">15</span><span class="gt-lbl">Зона 4 · Sport arena</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen3.webp" alt="Точка тишины" loading="lazy"><span class="gt-num">16</span><span class="gt-lbl">Зона 5 · Тишина</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance2-new.webp" alt="Arcade" loading="lazy"><span class="gt-num">17</span><span class="gt-lbl">Зона 6 · Arcade</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool3.webp" alt="Фотозона" loading="lazy"><span class="gt-num">18</span><span class="gt-lbl">Зона 7 · Фотозона</span></figure>
     </div>
   </div>
 </section>
+
+<!-- MAP -->
+<section class="map-sec" id="map">
+  <div class="map-sec-head reveal">
+    <h2>Карта <em>выставки</em><span style="color:var(--ink)">.</span></h2>
+    <p><b>7 зон</b><br>один маршрут · ~90 минут<br><span style="opacity:.5">наведи на апельсин →</span></p>
+  </div>
+  <div class="map-img-wrap reveal">
+    <img src="../assets/capybarabooom/photo/webp/map-exhibition.webp" alt="Карта выставки · 7 зон" loading="lazy">
+
+    <a class="map-pin" href="#zone-1" data-zone="1" style="--x:52%;--y:32%" aria-label="Зона 1 · Капибаризация">
+      <span class="pin-mark">1</span>
+      <span class="pin-popup">
+        <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="">
+        <span class="pin-popup-name">Зона капибаризации</span>
+        <span class="pin-popup-desc">Интерактивный онбординг · стартовые Capicoins</span>
+      </span>
+    </a>
+
+    <a class="map-pin" href="#zone-2" data-zone="2" style="--x:36%;--y:32%" aria-label="Зона 2 · Капибариус">
+      <span class="pin-mark">2</span>
+      <span class="pin-popup">
+        <img src="../assets/capybarabooom/photo/webp/2-capybarius1.webp" alt="">
+        <span class="pin-popup-name">Зона Капибариус</span>
+        <span class="pin-popup-desc">Edutainment · Capy or No Capy</span>
+      </span>
+    </a>
+
+    <a class="map-pin" href="#zone-3" data-zone="3" style="--x:38%;--y:51%" aria-label="Зона 3 · Амазонка">
+      <span class="pin-mark">3</span>
+      <span class="pin-popup">
+        <img src="../assets/capybarabooom/photo/webp/3-capytour2.webp" alt="">
+        <span class="pin-popup-name">Зона Амазонки</span>
+        <span class="pin-popup-desc">360° панорама · roller coaster</span>
+      </span>
+    </a>
+
+    <a class="map-pin" href="#zone-4" data-zone="4" style="--x:31%;--y:68%" aria-label="Зона 4 · КапиБро">
+      <span class="pin-mark">4</span>
+      <span class="pin-popup">
+        <img src="../assets/capybarabooom/photo/webp/4-capybro.webp" alt="">
+        <span class="pin-popup-name">Зона КапиБро</span>
+        <span class="pin-popup-desc">Sport · штанга-бамбук · LED</span>
+      </span>
+    </a>
+
+    <a class="map-pin" href="#zone-5" data-zone="5" style="--x:50%;--y:68%" aria-label="Зона 5 · Капибара-сан">
+      <span class="pin-mark">5</span>
+      <span class="pin-popup">
+        <img src="../assets/capybarabooom/photo/webp/5-capyzen.webp" alt="">
+        <span class="pin-popup-name">Капибара-сан</span>
+        <span class="pin-popup-desc">Zen · зеркало · лотос</span>
+      </span>
+    </a>
+
+    <a class="map-pin" href="#zone-6" data-zone="6" style="--x:62%;--y:67%" aria-label="Зона 6 · КапиБой">
+      <span class="pin-mark">6</span>
+      <span class="pin-popup">
+        <img src="../assets/capybarabooom/photo/webp/6-capydance.webp" alt="">
+        <span class="pin-popup-name">Зона КапиБой</span>
+        <span class="pin-popup-desc">Arcade · karaoke · LED-пол</span>
+      </span>
+    </a>
+
+    <a class="map-pin" href="#zone-7" data-zone="7" style="--x:68%;--y:51%" aria-label="Зона 7 · Мандариновый бууум">
+      <span class="pin-mark">7</span>
+      <span class="pin-popup">
+        <img src="../assets/capybarabooom/photo/webp/7-orange-pool.webp" alt="">
+        <span class="pin-popup-name">Мандариновый бууум</span>
+        <span class="pin-popup-desc">10 000 шаров · фотофинал</span>
+      </span>
+    </a>
+
+  </div>
+</section>
+
 
 <!-- ZONES -->
 <section class="sec" id="zones">
@@ -873,20 +964,20 @@
       <header class="zone-head">
         <div class="zone-num-big">01</div>
         <div class="zone-meta">
-          <span class="zone-tag-new">Intro · AR</span>
+          <span class="zone-tag-new">Intro · Интерактив</span>
           <h3 class="zone-h-new">Зона <em>капибаризации</em></h3>
-          <p class="zone-d-new">AR-онбординг: каждый создаёт своего персонажа и получает стартовые Capicoins. Маршрут начинается — и уже не отпускает.</p>
+          <p class="zone-d-new">Интерактивный онбординг: каждый создаёт своего персонажа и получает стартовые Capicoins. Маршрут начинается — и уже не отпускает.</p>
         </div>
       </header>
       <div class="zone-hero-new">
         <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya2.webp" alt="Зона капибаризации" loading="lazy" decoding="async">
-        <span class="lbl-new">[*] Onboarding · AR</span>
+        <span class="lbl-new">[*] Онбординг · Интерактив</span>
       </div>
       <div class="zone-grid-new">
         <figure class="zone-thumb" data-pin-x="30%" data-pin-y="55%">
-          <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="AR" loading="lazy">
+          <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="Онбординг" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">AR-капибаризация</span>
+            <span class="zone-thumb-name">Капибаризация</span>
             <span class="zone-thumb-desc">Интерактивная установка · создание персонажа · стартовые Capicoins</span>
           </figcaption>
         </figure>
@@ -978,13 +1069,6 @@
           <figcaption class="zone-thumb-cap">
             <span class="zone-thumb-name">Путешествие · интерактив</span>
             <span class="zone-thumb-desc">Выбор маршрута · обитатели джунглей · кинематографика без кресел</span>
-          </figcaption>
-        </figure>
-        <figure class="zone-thumb" data-pin-x="70%" data-pin-y="50%">
-          <img src="../assets/capybarabooom/photo/webp/3-capytour2.webp" alt="Панорама" loading="lazy">
-          <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">360° Панорамный экран</span>
-            <span class="zone-thumb-desc">Полное погружение в круговом пространстве</span>
           </figcaption>
         </figure>
       </div>
@@ -1135,7 +1219,7 @@
 <section class="sec dark" id="cast">
   <div class="sec-head reveal">
     <span class="sec-tag"><span class="num">05</span><span class="star">✦</span> Cast &amp; character design</span>
-    <h2 class="sec-h">От эскиза<br>к <em>финалу</em><span style="color:var(--lime)">.</span></h2>
+    <h2 class="sec-h">От эскиза.<br><em>К запуску</em><span style="color:var(--lime)">.</span></h2>
     <span class="sec-side"><b>IP system</b><br>десятки итераций<br>4 капибары · мерч</span>
   </div>
 
@@ -1268,81 +1352,6 @@
     <div class="cross-empty">13</div>
     <div class="cross-empty">14</div>
     <div class="cross-empty">15</div>
-  </div>
-</section>
-
-<!-- MAP -->
-<section class="map-sec" id="map">
-  <div class="map-sec-head reveal">
-    <h2>Карта <em>выставки</em><span style="color:var(--ink)">.</span></h2>
-    <p><b>7 зон</b><br>один маршрут · ~90 минут<br><span style="opacity:.5">наведи на апельсин →</span></p>
-  </div>
-  <div class="map-img-wrap reveal">
-    <img src="../assets/capybarabooom/photo/webp/map-exhibition.webp" alt="Карта выставки · 7 зон" loading="lazy">
-
-    <a class="map-pin" href="#zone-1" data-zone="1" style="--x:52%;--y:32%" aria-label="Зона 1 · Капибаризация">
-      <span class="pin-mark">1</span>
-      <span class="pin-popup">
-        <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="">
-        <span class="pin-popup-name">Зона капибаризации</span>
-        <span class="pin-popup-desc">AR-онбординг · стартовые Capicoins</span>
-      </span>
-    </a>
-
-    <a class="map-pin" href="#zone-2" data-zone="2" style="--x:36%;--y:32%" aria-label="Зона 2 · Капибариус">
-      <span class="pin-mark">2</span>
-      <span class="pin-popup">
-        <img src="../assets/capybarabooom/photo/webp/2-capybarius1.webp" alt="">
-        <span class="pin-popup-name">Зона Капибариус</span>
-        <span class="pin-popup-desc">Edutainment · Capy or No Capy</span>
-      </span>
-    </a>
-
-    <a class="map-pin" href="#zone-3" data-zone="3" style="--x:38%;--y:51%" aria-label="Зона 3 · Амазонка">
-      <span class="pin-mark">3</span>
-      <span class="pin-popup">
-        <img src="../assets/capybarabooom/photo/webp/3-capytour2.webp" alt="">
-        <span class="pin-popup-name">Зона Амазонки</span>
-        <span class="pin-popup-desc">360° панорама · roller coaster</span>
-      </span>
-    </a>
-
-    <a class="map-pin" href="#zone-4" data-zone="4" style="--x:31%;--y:68%" aria-label="Зона 4 · КапиБро">
-      <span class="pin-mark">4</span>
-      <span class="pin-popup">
-        <img src="../assets/capybarabooom/photo/webp/4-capybro.webp" alt="">
-        <span class="pin-popup-name">Зона КапиБро</span>
-        <span class="pin-popup-desc">Sport · штанга-бамбук · LED</span>
-      </span>
-    </a>
-
-    <a class="map-pin" href="#zone-5" data-zone="5" style="--x:50%;--y:68%" aria-label="Зона 5 · Капибара-сан">
-      <span class="pin-mark">5</span>
-      <span class="pin-popup">
-        <img src="../assets/capybarabooom/photo/webp/5-capyzen.webp" alt="">
-        <span class="pin-popup-name">Капибара-сан</span>
-        <span class="pin-popup-desc">Zen · зеркало · лотос</span>
-      </span>
-    </a>
-
-    <a class="map-pin" href="#zone-6" data-zone="6" style="--x:62%;--y:67%" aria-label="Зона 6 · КапиБой">
-      <span class="pin-mark">6</span>
-      <span class="pin-popup">
-        <img src="../assets/capybarabooom/photo/webp/6-capydance.webp" alt="">
-        <span class="pin-popup-name">Зона КапиБой</span>
-        <span class="pin-popup-desc">Arcade · karaoke · LED-пол</span>
-      </span>
-    </a>
-
-    <a class="map-pin" href="#zone-7" data-zone="7" style="--x:68%;--y:51%" aria-label="Зона 7 · Мандариновый бууум">
-      <span class="pin-mark">7</span>
-      <span class="pin-popup">
-        <img src="../assets/capybarabooom/photo/webp/7-orange-pool.webp" alt="">
-        <span class="pin-popup-name">Мандариновый бууум</span>
-        <span class="pin-popup-desc">10 000 шаров · фотофинал</span>
-      </span>
-    </a>
-
   </div>
 </section>
 
@@ -1558,7 +1567,7 @@
   <div class="sec-head reveal">
     <span class="sec-tag"><span class="num">07</span><span class="star">✦</span> Quest</span>
     <h2 class="sec-h">Закапибарься<br><em>по полной</em><span style="color:var(--graphite)">.</span></h2>
-    <span class="sec-side"><b>Quest mechanics</b><br>Capicoins · AR<br>· турнирная таблица</span>
+    <span class="sec-side"><b>Quest mechanics</b><br>Capicoins<br>· турнирная таблица</span>
   </div>
   <div class="quest reveal">
     <div class="quest-half dark">
@@ -1568,7 +1577,7 @@
       <div class="quest-steps">
         <div class="quest-step">
           <span class="quest-step-num">01</span>
-          <div class="quest-step-text"><b>AR-капибаризация на входе</b> — создай персонажа и получи стартовый бонус</div>
+          <div class="quest-step-text"><b>Интерактивная капибаризация на входе</b> — создай персонажа и получи стартовый бонус</div>
         </div>
         <div class="quest-step">
           <span class="quest-step-num">02</span>
@@ -1703,12 +1712,8 @@
   <div class="quote-bg" aria-hidden="true"></div>
   <div class="quote-inner reveal">
     <p class="quote-text">
-      Если посетителю <span class="qword-oval">нечего рассказать</span> дома — мы плохо <span class="qword-mark">поработали</span>.
+      Классный проект — это когда посетителю есть что <span class="qword-oval" id="qword-anim">рассказать</span> с собой.
     </p>
-    <div class="quote-cite">
-      <span class="dot"></span>
-      <span>Tanya Samarakovskaya · Creative Director · Capybarabooom · 2024</span>
-    </div>
   </div>
 </section>
 
@@ -1723,7 +1728,7 @@
     <div class="deliv-cell"><div><h4>Креативная <em>концепция</em></h4><p>Драматургия маршрута, IP-система, философия «не парься», ToV и tone of play.</p></div><span class="num">01</span></div>
     <div class="deliv-cell"><div><h4>Арт-<em>дирекшен</em> &amp; key visual</h4><p>4 персонажа, kawaii-стилистика, цветовая система, типографика, мерч-линейка.</p></div><span class="num">02</span></div>
     <div class="deliv-cell"><div><h4>Зонирование &amp; <em>сценография</em></h4><p>7 зон, visitor journey на 90 мин, 10+ инсталляций, тех-задания подрядчикам.</p></div><span class="num">03</span></div>
-    <div class="deliv-cell"><div><h4>Game <em>mechanics</em> · Capicoins</h4><p>Внутренняя валюта, квестовая структура, AR-капибаризация, «Capy or No Capy».</p></div><span class="num">04</span></div>
+    <div class="deliv-cell"><div><h4>Game <em>mechanics</em> · Capicoins</h4><p>Внутренняя валюта, квестовая структура, Интерактивная капибаризация, «Capy or No Capy».</p></div><span class="num">04</span></div>
     <div class="deliv-cell"><div><h4>Phygital <em>экосистема</em></h4><p>Сайт capybarabooom.ru, цифровые подарки, онлайн-активации, after-visit механики.</p></div><span class="num">05</span></div>
     <div class="deliv-cell"><div><h4>Продюси<em>рование</em></h4><p>Команда, бюджет, площадка, подрядчики, монтаж, открытие, тур — 14 месяцев.</p></div><span class="num">06</span></div>
   </div>
@@ -1732,9 +1737,9 @@
 <!-- PRODUCTION -->
 <section class="sec dark">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">10</span><span class="star">✦</span> Production</span>
+    <span class="sec-tag"><span class="num">10</span><span class="star">✦</span> Команда</span>
     <h2 class="sec-h">Кто <em>сделал</em><br>это<span style="color:var(--lime)">.</span></h2>
-    <span class="sec-side"><b>Credits &amp; specs</b><br>команда · сроки<br>· технологии</span>
+    <span class="sec-side"><b>Credits</b><br>команда · сроки<br>· технологии</span>
   </div>
   <div class="prod reveal">
     <aside class="prod-aside">
@@ -1748,7 +1753,7 @@
       <div class="prod-row"><dt>Producing</dt><dd>Tanya <em>Samarakovskaya</em><span class="role">Полный цикл · бюджет · команда · релиз</span></dd></div>
       <div class="prod-row"><dt>Experience Design</dt><dd>Studio <em>team</em><span class="role">Сценография, зонирование, маршрут</span></dd></div>
       <div class="prod-row"><dt>Character &amp; IP</dt><dd>Illustration <em>team</em><span class="role">4 капибары · мерч-линейка · 2D/3D</span></dd></div>
-      <div class="prod-row"><dt>Game Mechanics</dt><dd>Capicoins <em>system</em><span class="role">Валюта · AR-капибаризация · Capy or No Capy</span></dd></div>
+      <div class="prod-row"><dt>Game Mechanics</dt><dd>Capicoins <em>system</em><span class="role">Валюта · Интерактивная капибаризация · Capy or No Capy</span></dd></div>
       <div class="prod-row"><dt>Tech / AV</dt><dd>Multimedia <em>contractors</em><span class="role">Проекции · LED · 360° · звук</span></dd></div>
       <div class="prod-row"><dt>Phygital / Web</dt><dd>capybarabooom.ru<span class="role">Сайт · цифровые подарки · онлайн-активации</span></dd></div>
       <div class="prod-row"><dt>Status</dt><dd>Shipped — в <em>туре</em><span class="role">Москва → региональные площадки · 2024–2026</span></dd></div>
@@ -1763,16 +1768,16 @@
       <span class="pnav-bg" style="background-image:url('../assets/preview_projects/cymatic.webp')"></span>
       <div class="pnav-inner">
         <span class="pnav-label">← 02 · Предыдущий</span>
-        <h3 class="pnav-h">Mapping Festival</h3>
+        <h3 class="pnav-h">Круг света</h3>
         <span class="pnav-meta">Festivals · Projection mapping · 2018—22</span>
       </div>
     </a>
     <div class="pnav-center">
       <span class="pnav-center-label">Есть проект?</span>
-      <a class="pnav-cta-btn" href="mailto:cactus.cave@gmail.com">Написать <span class="ar">↗</span></a>
+      <a class="pnav-cta-btn" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать <span class="ar">↗</span></a>
       <div class="pnav-extras">
         <a href="https://capybarabooom.ru" target="_blank" rel="noopener">Сайт проекта ↗</a>
-        <a href="../index.html#works">Все работы ↗</a>
+        <a href="../index.html#works">Все проекты ↗</a>
       </div>
     </div>
     <a class="pnav-cell next" href="pole.html">
@@ -2074,6 +2079,31 @@
     window.addEventListener('scroll', onScroll, {passive:true});
     window.addEventListener('resize', onScroll);
     update();
+  })();
+
+  // Анимация слова в цитате: рассказать → показать → забрать → поиграть → ...
+  (function(){
+    const el = document.getElementById('qword-anim');
+    if(!el) return;
+    const words = ['рассказать', 'показать', 'забрать', 'поиграть', 'вспомнить', 'сфотографировать', 'поделиться'];
+    let i = 0;
+    el.style.transition = 'opacity 0.3s, transform 0.3s';
+    function next(){
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(-8px)';
+      setTimeout(()=>{
+        i = (i + 1) % words.length;
+        el.textContent = words[i];
+        el.style.transform = 'translateY(6px)';
+        requestAnimationFrame(()=>{
+          requestAnimationFrame(()=>{
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          });
+        });
+      }, 320);
+    }
+    setInterval(next, 2800);
   })();
 </script>
 </body>

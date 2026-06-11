@@ -48,10 +48,10 @@ assets/nebula/process/effect-05.gif
 assets/nebula/process/slides/
 
 # Moskvaruim — неиспользуемое видео
-assets/10 moskvaruim/video/MSQ_10.mp4
+assets/msq_10let/video/MSQ_10.mp4
 
 # Moskvaruim — тяжёлые PNG-превью разворотов (на сайте используются webp, ~55 МБ мёртвого веса)
-assets/10 moskvaruim/photo/Preview book/
+assets/msq_10let/photo/Preview book/
 
 # Capybara — PNG-оригиналы персонажей (сайт использует webp-версии)
 assets/capybarabooom/characters/*.png
@@ -65,3 +65,6 @@ assets/wayofwater/characters/Salty_new.png
 
 # Baal — неиспользуемые исходники
 assets/baal/photo/jpg/
+
+# Перенесённые оригиналы видео (не для сайта)
+assets/msq_10let/video/_originals/

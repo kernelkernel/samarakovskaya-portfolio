@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Случайное знакомство · Таня Самараковская</title>
 <meta name="description" content="«Случайное знакомство» — проект с AR, картами и видеопродакшеном для Тройки, 2023. Кейс Тани Самараковской.">
+<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/projects/troyka-lovemeet.html">
+<meta property="og:title" content="Случайное знакомство · Таня Самараковская">
+<meta property="og:description" content="«Случайное знакомство» — проект с AR, картами и видеопродакшеном для Тройки, 2023. Кейс Тани Самараковской.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/preview_projects/troyka-lovemeet.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Случайное знакомство · Таня Самараковская">
+<meta name="twitter:description" content="«Случайное знакомство» — проект с AR, картами и видеопродакшеном для Тройки, 2023. Кейс Тани Самараковской.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/preview_projects/troyka-lovemeet.webp">
 <link rel="canonical" href="https://samarakovskaya.art/projects/troyka-lovemeet.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +24,13 @@
 <style>
   :root{
     --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
-    --cream:#F1ECDD;--cream-2:#E8E2CF;--cream-3:#DBD3B9;
+    --cream:#F7F3E6;--cream-2:#EFE9D6;--cream-3:#DBD3B9;
     --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
     --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
-    --lime:#C8FF2E;--lime-deep:#A8DD15;
+    /* bespoke-акцент кейса: тёплый оранжевый «Тройки» — ночная съёмка, городской свет */
+    --lime:#F07A2E;--lime-deep:#C85A1E;
+    /* акценты из палитры карт «Тройка» */
+    --card-orange:#E8702A;--card-teal:#1F9E8F;--card-blue:#2E6FB0;
     --line-d:rgba(241,236,221,.10);--line-d2:rgba(241,236,221,.18);
     --line-l:rgba(22,22,26,.12);--line-l2:rgba(22,22,26,.22);
   }
@@ -74,20 +89,20 @@
   .hero-bg img{filter:contrast(1.05) saturate(.85)}
   .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 78%),linear-gradient(180deg,var(--graphite) 0%,transparent 25%,transparent 60%,var(--graphite) 100%)}
 
-  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:24px}
   .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
 
-  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
   .hero-h1{font-weight:700;font-size:clamp(52px,12vw,190px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;color:var(--bone)}
   .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
   .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime);letter-spacing:-.08em}
   .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
-  .hero-sub{font-weight:500;font-size:clamp(17px,1.8vw,26px);line-height:1.18;letter-spacing:-.02em;color:var(--bone-2);max-width:40ch;text-wrap:balance;margin-top:8px}
+  .hero-sub{font-weight:500;font-size:clamp(17px,1.8vw,26px);line-height:1.18;letter-spacing:-.02em;color:var(--bone-2);max-width:40ch;text-wrap:balance;margin:8px auto 0}
   .hero-sub b{color:var(--bone);font-weight:700}
 
   .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
   @media(max-width:780px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
-  .hero-fact{display:flex;flex-direction:column;gap:6px}
+  .hero-fact{display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
   .hero-fact b{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
   .hero-fact span{font-weight:600;font-size:clamp(13px,1.3vw,16px);color:var(--bone);letter-spacing:-.005em;line-height:1.25}
 
@@ -138,6 +153,29 @@
   .concept-hook em{font-style:normal;color:var(--ink-3);font-weight:500}
   .concept-wide .concept-body{padding:52px 48px 48px;gap:28px}
   @media(max-width:780px){.concept-wide .concept-body{padding:36px 24px 32px}}
+
+  /* CARD TRIPTYCH — три карты «Тройка» */
+  .cards-trip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--graphite)}
+  @media(max-width:780px){.cards-trip{grid-template-columns:1fr}}
+  .card-cell{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:zoom-in;background:var(--graphite-2)}
+  .card-cell img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+  .card-cell:hover img{transform:scale(1.06)}
+  .card-cell::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 42%);opacity:.85;transition:opacity .35s;pointer-events:none}
+  .card-cell:hover::after{opacity:.45}
+  .card-tag{position:absolute;left:18px;bottom:16px;z-index:2;display:flex;flex-direction:column;gap:3px;pointer-events:none}
+  .card-tag b{font-weight:700;font-size:clamp(18px,2vw,26px);letter-spacing:-.02em;color:var(--bone);line-height:1}
+  .card-tag span{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+  .card-cell.c-orange .card-tag span{color:#F6B98E}
+  .card-cell.c-teal .card-tag span{color:#7DD8CC}
+  .card-cell.c-blue .card-tag span{color:#9CC4E8}
+  .card-cell .ar-chip{position:absolute;top:14px;right:14px;z-index:2;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--lime);padding:5px 9px;border-radius:999px;font-weight:600;opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s}
+  .card-cell:hover .ar-chip{opacity:1;transform:none}
+
+  /* editorial-полировка cream */
+  .sec.on-cream .word-pill{color:var(--cream)}
+  .sec.on-cream .sec-h{letter-spacing:-.05em}
+  .concept-wide.bright{background:#FBF7EC;box-shadow:0 1px 0 var(--line-l) inset}
+  .concept-wide.bright .concept-body{border-top:3px solid var(--card-orange)}
 
   /* PULL QUOTE */
   .pullq{position:relative;min-height:80vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
@@ -273,6 +311,21 @@
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
   .reveal.in{opacity:1;transform:none}
+  /* staggered cascade — children reveal one by one */
+  .stagger>*{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1)}
+  .stagger.in>*{opacity:1;transform:none}
+  .reveal.stagger{transform:none}
+  /* hero entrance — one orchestrated load */
+  @media (prefers-reduced-motion:no-preference){
+    .hero-meta-row,.hero-title,.hero-foot{opacity:0;transform:translateY(26px);animation:lmRise .9s cubic-bezier(.2,.7,.2,1) forwards}
+    .hero-title{animation-delay:.14s}
+    .hero-foot{animation-delay:.32s}
+  }
+  @keyframes lmRise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .reveal,.stagger>*{opacity:1!important;transform:none!important;transition:none}
+    .hero-meta-row,.hero-title,.hero-foot{opacity:1!important;transform:none!important;animation:none!important}
+  }
 </style>
 </head>
 <body>
@@ -288,7 +341,7 @@
 <!-- TOP NAV -->
 <header class="top">
   <div class="nav-bar">
-    <a class="back" href="../index.html#works">Назад к работам</a>
+    <a class="back" href="../index.html#works">Все проекты</a>
     <nav class="mag-nav" id="magNav">
       <a class="mag-pill" href="#s-concept" data-section="s-concept">Проект</a>
       <a class="mag-pill" href="#s-treatment" data-section="s-treatment">Сюжет</a>
@@ -296,7 +349,7 @@
       <a class="mag-pill" href="#s-video" data-section="s-video">Ролик</a>
       <a class="mag-pill" href="#s-results" data-section="s-results">Результат</a>
     </nav>
-    <a class="nav-cta" href="mailto:cactus.cave@gmail.com">Написать</a>
+    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
   </div>
 </header>
 
@@ -358,13 +411,8 @@
       <span class="sec-side"><b>Москвариум × Дептранс</b><br>Первый выпуск</span>
     </div>
 
-    <div class="concept-wide reveal">
-      <div class="concept-img-wide">
-        <div class="ph" data-ph="три карты тройка · дизайн персонажей">
-          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-01-hero.webp" alt="Три лимитированные карты Тройка — Москвариум">
-        </div>
-      </div>
-      <div class="concept-body">
+    <div class="concept-wide bright reveal">
+      <div class="concept-body" style="padding-bottom:40px">
         <p class="concept-hook">
           В московском метро — <span class="word-block">7 миллионов</span> пассажиров ежедневно.<br>
           А что если транспортная карта поможет встретить того единственного?
@@ -372,6 +420,28 @@
         <p class="concept-lead">
           Москвариум и Дептранс Москвы выпускают первую лимитированную серию брендированных карт «Тройка» — <span class="word-block">с персонажами, которые оживают.</span>
         </p>
+      </div>
+
+      <!-- ТРИПТИХ: три карты, три героя -->
+      <div class="cards-trip reveal stagger">
+        <figure class="card-cell c-orange">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-19-char-capy.webp" alt="Карта «Тройка» с капибарой — дополненная реальность">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Капибара</b><span>прыгает</span></figcaption>
+        </figure>
+        <figure class="card-cell c-blue">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="Карта «Тройка» с морским львом — дополненная реальность">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Морской лев</b><span>плавает в воздухе</span></figcaption>
+        </figure>
+        <figure class="card-cell c-teal">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-21-char-otter.webp" alt="Карта «Тройка» с выдрой — дополненная реальность">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Выдра</b><span>ныряет</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="concept-body" style="padding-top:40px">
         <div class="concept-text">
           <p>Три карты, три героя: <b>капибары, выдры и морские львы</b> — самые популярные обитатели Москвариума. Авторские иллюстрации в эстетике Уэса Андерсона: яркие цвета, фронтальная выверенность, эпатажные аксессуары. Близко к «Бесподобному мистеру Фоксу».</p>
           <p>На каждой карте — QR-код. Навёл камеру — и рядом появляется виртуальный обитатель с <b>собственным характером</b>. Морские львы плавают в воздухе, выдры ныряют, капибары прыгают. У каждого — авторская музыкальная тема.</p>
@@ -391,8 +461,8 @@
 <section class="sec on-graphite" style="padding-top:0;padding-bottom:0">
   <article class="chap reveal">
     <div class="chap-img">
-      <div class="ph" data-ph="дополненная реальность в метро">
-        <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-08-ar-metro.webp" alt="">
+      <div class="ph" data-ph="AR-карта оживает в руке · метро">
+        <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-25-shot-04.webp" alt="Сканирование карты «Тройка» — AR-животное появляется в вагоне метро">
       </div>
     </div>
     <div class="chap-body">
@@ -405,8 +475,8 @@
 <!-- PULL QUOTE 1 -->
 <section class="pullq">
   <div class="pullq-bg" aria-hidden="true">
-    <div class="ph" data-ph="съёмка в метро · атмосфера">
-      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-05-crew.webp" alt="">
+    <div class="ph" data-ph="treatment-обложка · лис в духе Уэса Андерсона">
+      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-06-treatment-cover.webp" alt="">
     </div>
   </div>
   <div class="pullq-inner reveal">
@@ -427,8 +497,8 @@
 
     <div class="concept reveal" style="margin-bottom:0">
       <div class="concept-img">
-        <div class="ph" data-ph="сюжет · метро · герой один">
-          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-10-story.webp" alt="">
+        <div class="ph" data-ph="герой один в вагоне метро">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-24-shot-03.webp" alt="Главный герой один в вагоне метро — кадр из ролика">
         </div>
       </div>
       <div class="concept-body">
@@ -495,8 +565,8 @@
 
     <article class="chap reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="подход и стилистика съёмки">
-          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-13-approach.webp" alt="">
+        <div class="ph" data-ph="симметричная композиция · кадр из ролика">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-04-film.webp" alt="Симметричный кадр из ролика — дама в красном с минипигом в вагоне метро">
         </div>
       </div>
       <div class="chap-body">
@@ -519,8 +589,8 @@
 
     <article class="chap full reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="актёры · костюмы · кастинг">
-          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-12-costumes.webp" alt="">
+        <div class="ph" data-ph="ночная съёмка · закрытый вагон метро">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-26-shot-05.webp" alt="Съёмочная группа в закрытом вагоне московского метро ночью">
         </div>
       </div>
       <div class="chap-body">
@@ -541,7 +611,7 @@
     </div>
   </div>
 
-  <div class="role-grid reveal">
+  <div class="role-grid reveal stagger">
     <div class="role-card">
       <div class="role-photo">
         <div class="ph" data-ph="PPM-бук · кастинг главного героя">
@@ -571,8 +641,8 @@
 <!-- PULL QUOTE 2 -->
 <section class="pullq">
   <div class="pullq-bg" aria-hidden="true">
-    <div class="ph" data-ph="влюблённая пара · цветовые референсы">
-      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-14-color-refs.webp" alt="">
+    <div class="ph" data-ph="кадр из ролика · дама с минипигом">
+      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-02-cards.webp" alt="">
     </div>
   </div>
   <div class="pullq-inner reveal">
@@ -594,82 +664,125 @@
       onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/WIz-aPIjm1Q?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
       <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/WIz-aPIjm1Q/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/WIz-aPIjm1Q/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;display:block" alt="Случайное знакомство · рекламный ролик">
       <div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
-        <div style="width:80px;height:80px;border-radius:50%;background:#C8FF2E;display:grid;place-items:center;font-size:28px;color:#16161A">▶</div>
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:28px;color:#16161A">▶</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- GALLERY (graphite) -->
-<section class="sec on-graphite" id="s-gallery" style="padding-top:0">
+<section class="sec on-graphite" id="s-gallery" style="padding-top:90px">
   <div class="wrap">
-    <div class="gal reveal">
+    <div class="sec-head reveal">
+      <span class="sec-label">Галерея</span>
+      <h2 class="sec-h">Архив <span class="word-pill">проекта</span>.</h2>
+      <span class="sec-side"><b>Карты · документы · кадры</b><br>treatment · PPM · ролик</span>
+    </div>
+
+    <div class="gal reveal stagger">
+
+      <!-- КАРТЫ -->
+      <div class="gcap">
+        <div class="big">Карты</div>
+        <div class="sub">лимит. серия · 3 героя</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="карта · капибара (AR-рендер)"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-19-char-capy.webp" alt="Карта «Тройка» — Капибара, AR-рендер"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="карта · морской лев (AR-рендер)"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="Карта «Тройка» — Морской лев, AR-рендер"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="карта · выдра (AR-рендер)"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-21-char-otter.webp" alt="Карта «Тройка» — Выдра, AR-рендер"></div>
+      </figure>
 
       <figure class="gi wide">
-        <div class="ph" data-ph="treatment cover · Fantastic Mr. Fox"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-06-treatment-cover.webp" alt="Treatment — Москвариум + Тройка"></div>
+        <div class="ph" data-ph="treatment · обложка (Fantastic Mr. Fox)"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-06-treatment-cover.webp" alt="Treatment — обложка «Москвариум + Тройка»"></div>
       </figure>
 
+      <figure class="gi">
+        <div class="ph" data-ph="макет PPM · три карты"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-11-ppm-title.webp" alt="PPM-бук — титул с тремя картами"></div>
+      </figure>
+
+      <!-- ДОКУМЕНТЫ -->
       <div class="gcap">
-        <div class="big">Treatment</div>
-        <div class="sub">Visdev · Concept</div>
+        <div class="big">Доку-<br>менты</div>
+        <div class="sub">treatment · PPM · ТЗ</div>
       </div>
 
       <figure class="gi">
-        <div class="ph" data-ph="три карты тройка · дизайн персонажей"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-07-cards-intro.webp" alt="Карты Тройка — три дизайна"></div>
+        <div class="ph" data-ph="слайд · интро серии"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-07-cards-intro.webp" alt="Слайд — интро лимитированной серии карт"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="дополненная реальность · QR-коды"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-08-ar-metro.webp" alt="AR в метро"></div>
+        <div class="ph" data-ph="слайд · дополненная реальность, QR"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-08-ar-metro.webp" alt="Слайд — механика дополненной реальности и QR"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="подход съёмки · Уэс Андерсон"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-13-approach.webp" alt="Подход к съёмке"></div>
+        <div class="ph" data-ph="слайд · ТЗ на съёмку в вагоне"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-09-metro-tz.webp" alt="Слайд — ТЗ на съёмку в вагоне метро"></div>
       </figure>
 
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · подход и стилистика"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-13-approach.webp" alt="Слайд — подход и стилистика съёмки"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="цветовые референсы · fashion editorial"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-14-color-refs.webp" alt="Цветовые референсы — fashion editorial"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · референсы мужских костюмов"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-12-costumes.webp" alt="Слайд — референсы мужских костюмов"></div>
+      </figure>
+
+      <!-- СЮЖЕТ -->
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · сюжет: герой один"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-10-story.webp" alt="Слайд — сюжет 1: герой один в вагоне"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · сюжет: знакомство на ВДНХ"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-15-story2.webp" alt="Слайд — сюжет: знакомство в парке ВДНХ"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · сюжет: финал в Москвариуме"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-16-story3.webp" alt="Слайд — сюжет: финал в Москвариуме"></div>
+      </figure>
+
+      <!-- КАСТИНГ -->
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · кастинг главного героя"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-17-casting.webp" alt="Слайд — кастинг главного героя"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · кастинг эпизод «Пара 2»"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-18-casting2.webp" alt="Слайд — кастинг, эпизод «Пара 2»"></div>
+      </figure>
+
+      <!-- КАДРЫ И БЭКСТЕЙДЖ -->
       <div class="gcap">
-        <div class="big">5 ч.<br>в вагоне</div>
-        <div class="sub">ночная съёмка · закрытый вагон</div>
+        <div class="big">Кадры<br>и сет</div>
+        <div class="sub">ролик · бэкстейдж</div>
       </div>
 
       <figure class="gi">
-        <div class="ph" data-ph="цветовые референсы · editorial fashion"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-14-color-refs.webp" alt="Цветовые референсы"></div>
+        <div class="ph" data-ph="кадр · герой в вагоне метро"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-24-shot-03.webp" alt="Кадр из ролика — герой в вагоне метро" style="object-position:center 15%"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="ТЗ на съёмку в вагоне метро"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-09-metro-tz.webp" alt="ТЗ на съёмку в метро"></div>
+        <div class="ph" data-ph="кадр · AR-карта в руке"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-25-shot-04.webp" alt="Кадр из ролика — AR-карта в руке" style="object-position:center 15%"></div>
+      </figure>
+
+      <figure class="gi wide">
+        <div class="ph" data-ph="бэкстейдж · закрытый вагон метро"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-26-shot-05.webp" alt="Бэкстейдж — съёмка в закрытом вагоне метро"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="сюжет · герой в метро один"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-10-story.webp" alt="Сюжет — герой в метро"></div>
+        <div class="ph" data-ph="бэкстейдж · сет с зеленью"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-22-shot-01.webp" alt="Бэкстейдж — съёмочный сет с зеленью"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="сюжет · ВДНХ · знакомство"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-15-story2.webp" alt="Сюжет — парк ВДНХ"></div>
-      </figure>
-
-      <figure class="gi">
-        <div class="ph" data-ph="сюжет · москвариум · финал"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-16-story3.webp" alt="Сюжет — финал в Москвариуме"></div>
-      </figure>
-
-      <figure class="gi">
-        <div class="ph" data-ph="PPM · кастинг · главный герой"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-17-casting.webp" alt="Кастинг — главный герой"></div>
-      </figure>
-
-      <div class="gcap">
-        <div class="big">PPM-<br>бук</div>
-        <div class="sub">кастинг · костюмы · эпизоды</div>
-      </div>
-
-      <figure class="gi">
-        <div class="ph" data-ph="PPM · кастинг · героиня"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-18-casting2.webp" alt="Кастинг — героиня"></div>
-      </figure>
-
-      <figure class="gi">
-        <div class="ph" data-ph="PPM · обложка с картами"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-11-ppm-title.webp" alt="PPM-бук — обложка"></div>
-      </figure>
-
-      <figure class="gi">
-        <div class="ph" data-ph="референсы мужских костюмов"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-12-costumes.webp" alt="Референсы костюмов"></div>
+        <div class="ph" data-ph="бэкстейдж · оператор на площадке"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-23-shot-02.webp" alt="Бэкстейдж — оператор на площадке"></div>
       </figure>
 
     </div>
@@ -726,8 +839,8 @@
 <!-- PULL QUOTE 3 -->
 <section class="pullq" style="min-height:60vh">
   <div class="pullq-bg" aria-hidden="true">
-    <div class="ph" data-ph="атмосфера · финальный кадр">
-      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-04-film.webp" alt="">
+    <div class="ph" data-ph="рендер карты · морской лев в AR">
+      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="">
     </div>
   </div>
   <div class="pullq-inner reveal">
@@ -740,21 +853,21 @@
 <!-- PROJ NAV -->
 <nav class="proj-nav" aria-label="Другие проекты">
   <div class="proj-nav-inner">
-    <a class="pn-card" href="cymatic.html">
-      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/cymatic.webp" alt="" aria-hidden="true">
+    <a class="pn-card" href="moskvaruim.html">
+      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/moskvaruim.webp" alt="" aria-hidden="true">
       <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">←</span><br>Предыдущий</span>
-      <span class="pn-name">Cymatic</span>
-      <span class="pn-sub">Multimedia · 2022</span>
+      <span class="pn-name">Рыбов показываем</span>
+      <span class="pn-sub">Advertising · 360° · 2024</span>
     </a>
-    <a class="pn-contact" href="mailto:cactus.cave@gmail.com">
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
       <span class="pn-contact-label">Есть проект?</span>
       <span class="pn-btn">Написать ↗</span>
     </a>
-    <a class="pn-card" href="pole.html" style="text-align:right">
-      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/pole.webp" alt="" aria-hidden="true">
+    <a class="pn-card" href="clean-ocean.html" style="text-align:right">
+      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/clean-ocean.webp" alt="" aria-hidden="true">
       <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">→</span><br>Следующий</span>
-      <span class="pn-name">Поле</span>
-      <span class="pn-sub">Installation · 2021</span>
+      <span class="pn-name">С океаном начистоту</span>
+      <span class="pn-sub">WebAR · Quest · 2026</span>
     </a>
   </div>
 </nav>
@@ -767,8 +880,17 @@
 </footer>
 
 <script>
-  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}), {threshold:.08});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){
+      const t = e.target;
+      t.classList.add('in');
+      if(t.classList.contains('stagger')){
+        Array.from(t.children).forEach((c,i) => { c.style.transitionDelay = (i*55)+'ms'; });
+      }
+      io.unobserve(t);
+    }
+  }), {threshold:.08});
+  document.querySelectorAll('.reveal,.stagger').forEach(el => io.observe(el));
 
   document.querySelectorAll('.mag-pill').forEach(pill => {
     pill.addEventListener('mousemove', e => {
@@ -802,7 +924,7 @@
   const lb = document.getElementById('lb');
   const lbImg = document.getElementById('lbImg');
   const lbCounter = document.getElementById('lbCounter');
-  const galImgs = Array.from(document.querySelectorAll('.gi img'));
+  const galImgs = Array.from(document.querySelectorAll('.card-cell img, .gi img'));
   let currentIdx = 0;
 
   function showImg(idx, dir = 0) {
