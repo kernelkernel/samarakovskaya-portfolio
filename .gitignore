@@ -31,7 +31,9 @@ assets/**/*.docx
 assets/**/*.pptx
 
 # Концепт-материалы (внутренние)
-assets/*/concept/
+assets/*/concept/*
+# Исключение: этот concept-файл используется на странице clean-ocean
+!assets/msq_clean-ocean/concept/clean-ocean-route-map-nobg.webp
 
 # Карты фотослотов (внутренние)
 assets/**/*.md

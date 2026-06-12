@@ -5,12 +5,24 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lightworks — Case · Tanya Samarakovskaya</title>
 <meta name="description" content="Lightworks — интерактивный урбан-проект: свет как замена вандализму. Инсталляция и визуальное программирование. Кейс Тани Самараковской.">
+<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/projects/lightworks.html">
+<meta property="og:title" content="Lightworks — Case · Tanya Samarakovskaya">
+<meta property="og:description" content="Lightworks — интерактивный урбан-проект: свет как замена вандализму. Инсталляция и визуальное программирование. Кейс Тани Самараковской.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/lightworks/preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lightworks — Case · Tanya Samarakovskaya">
+<meta name="twitter:description" content="Lightworks — интерактивный урбан-проект: свет как замена вандализму. Инсталляция и визуальное программирование. Кейс Тани Самараковской.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/lightworks/preview.webp">
 <link rel="canonical" href="https://samarakovskaya.art/projects/lightworks.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#060608;--bg-2:#0e0b0a;--bg-3:#151009;--ink:#f0e8dc;--ink-2:rgba(240,232,220,.68);--ink-3:rgba(240,232,220,.38);--accent:#c8a00a;--glow:rgba(200,160,10,.18);--glow-s:rgba(200,160,10,.08);--border:rgba(180,180,180,.13);--border-s:rgba(180,180,180,.07);--mono:"JetBrains Mono",ui-monospace,monospace;--sans:"Space Grotesk",sans-serif;--serif:"Instrument Serif",Georgia,serif;--fr:"Cormorant Garamond",Georgia,serif;}
+:root{--bg:#060608;--bg-2:#0e0b0a;--bg-3:#151009;--ink:#f0e8dc;--ink-2:rgba(240,232,220,.68);--ink-3:rgba(240,232,220,.38);--accent:#c8a00a;--glow:rgba(200,160,10,.18);--glow-s:rgba(200,160,10,.08);--border:rgba(180,180,180,.13);--border-s:rgba(180,180,180,.07);--mono:"JetBrains Mono",ui-monospace,monospace;--sans:"Space Grotesk",sans-serif;--serif:"Bricolage Grotesque",sans-serif;--fr:"Bricolage Grotesque",sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
@@ -39,11 +51,11 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.5;filter:saturate(0.7)}
 .hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,9,.2) 0%,rgba(9,9,9,.1) 40%,rgba(9,9,9,.85) 80%,var(--bg) 100%)}
 .hero-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:40%;background:radial-gradient(ellipse at bottom,var(--glow) 0%,transparent 70%);pointer-events:none}
-.hero-body{position:relative;z-index:2;padding:0 24px 56px}
+.hero-body{position:relative;z-index:2;padding:0 24px 56px;display:flex;flex-direction:column;align-items:center;text-align:center}
 .hero-kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3);margin-bottom:16px}
 .hero-h{font-family:var(--sans);font-weight:600;font-size:clamp(72px,18vw,260px);line-height:.85;letter-spacing:-.04em;color:#fff;text-shadow:0 0 120px var(--glow)}
 .hero-sub{font-family:var(--fr);font-style:italic;font-size:clamp(18px,2vw,28px);color:var(--ink-2);margin-top:20px;letter-spacing:-.01em}
-.hero-meta-row{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap}
+.hero-meta-row{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap;justify-content:center}
 .hero-fact{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);line-height:1.7}
 .hero-fact b{color:var(--ink);font-weight:500;display:block;margin-top:2px}
 .ticker{border-block:1px solid var(--glow);overflow:hidden;background:var(--accent);color:#fff;padding:14px 0}
@@ -133,7 +145,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
 <nav class="top">
-  <a class="back" href="../index.html"><span class="ar">←</span> Портфолио</a>
+  <a class="back" href="../index.html#works"><span class="ar">←</span> Все проекты</a>
   <div class="top-mid"><span class="live"></span>Lightworks · Case study</div>
 </nav>
 <section class="hero" id="zone-hero">
@@ -280,7 +292,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
   <div class="cta-label">Другие проекты</div>
   <h2 class="cta-h">Есть идея,<br>которую нужно<br><em>воплотить?</em></h2>
   <div class="cta-links">
-    <a class="cta-btn primary" href="mailto:tsamarakovskaya@gmail.com">Написать ↗</a>
+    <a class="cta-btn primary" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать ↗</a>
     <a class="cta-btn outline" href="../index.html#works">Все проекты</a>
   </div>
 </section>

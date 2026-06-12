@@ -148,11 +148,11 @@
   .sec-h{font-weight:700;font-size:clamp(44px,8vw,120px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
   .sec-h .em{color:var(--lime)}
 
-  /* ROUTE MAP — single navy frame matching the map, with text */
-  .map-blue{background:linear-gradient(150deg,#1c3c5e 0%,#0c1f33 100%);border-radius:26px;overflow:hidden;padding:30px 40px;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:30px;align-items:center}
-  @media(max-width:900px){.map-blue{grid-template-columns:1fr;padding:24px}}
+  /* ROUTE MAP — transparent plan (no background), with text */
+  .map-blue{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:48px;align-items:center}
+  @media(max-width:900px){.map-blue{grid-template-columns:1fr;gap:28px}}
   .map-blue-img{position:relative}
-  .map-blue-img img{width:100%;height:auto;display:block}
+  .map-blue-img img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
 
   /* VIDEO placeholder */
   .video-frame{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:var(--blue-deep);border:1px solid var(--line-d2);display:flex;align-items:center;justify-content:center;cursor:pointer}
@@ -189,6 +189,21 @@
   .mask-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(17px,1.5vw,22px);letter-spacing:-.02em;color:var(--bone);line-height:1}
   .mask-zone{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--bone-3);margin-top:6px;line-height:1.4}
   .mask-poll{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--bone-2);margin-top:3px;line-height:1.4}
+
+  /* SCREENS — sequential UI flow, horizontal scroll-snap lane */
+  .screens-lane{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 24px 26px;margin:0 -24px;-webkit-overflow-scrolling:touch;scrollbar-width:thin;scrollbar-color:var(--line-d2) transparent}
+  .screens-lane::-webkit-scrollbar{height:6px}
+  .screens-lane::-webkit-scrollbar-track{background:transparent}
+  .screens-lane::-webkit-scrollbar-thumb{background:var(--line-d2);border-radius:99px}
+  .screen{flex:0 0 auto;width:clamp(196px,40vw,260px);scroll-snap-align:start}
+  .screen-frame{position:relative;border-radius:26px;overflow:hidden;background:#0a1722;border:1px solid var(--line-d2);box-shadow:0 24px 52px rgba(0,0,0,.5);aspect-ratio:1080/1830;cursor:zoom-in}
+  .screen-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+  .screen:hover .screen-frame img{transform:scale(1.04)}
+  .screen-cap{display:flex;align-items:baseline;gap:9px;margin-top:14px}
+  .screen-num{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--lime);letter-spacing:.06em;flex-shrink:0}
+  .screen-label{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--bone-3);line-height:1.4}
+  .screens-hint{display:flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);margin-top:18px}
+  .screens-hint::before{content:"";width:26px;height:1px;background:var(--line-d2)}
 
   /* GALLERY */
   .gal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
@@ -287,6 +302,7 @@
       <a class="mag-pill" href="#s-about" data-section="s-about">Проект</a>
       <a class="mag-pill" href="#s-route" data-section="s-route">Маршрут</a>
       <a class="mag-pill" href="#s-how" data-section="s-how">Как играть</a>
+      <a class="mag-pill" href="#s-screens" data-section="s-screens">Экраны</a>
       <a class="mag-pill" href="#s-mascots" data-section="s-mascots">Персонажи</a>
       <a class="mag-pill" href="#s-credits" data-section="s-credits">Команда</a>
     </nav>
@@ -391,7 +407,7 @@
     </div>
     <h2 class="sec-h reveal" style="margin-bottom:48px">Эдьютеймент-квест.<br><span class="em">10 локаций</span>.</h2>
     <div class="map-blue reveal">
-      <div class="map-blue-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/concept/clean-ocean-route-map.webp" alt="Схема экспозиции Москвариума с девятью игровыми локациями"></div>
+      <div class="map-blue-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/concept/clean-ocean-route-map-nobg.webp" alt="Схема экспозиции Москвариума с игровыми локациями маршрута"></div>
       <div class="map-blue-body">
         <h3>Сканируй QR. Играй. Очищай.</h3>
         <p>Точки расставлены по реальному пути Москвариума, чтобы цифровой слой усиливал прогулку. Девять локаций с AR-игрой и точка с эко-чек-листом. Посетитель проходит короткую миссию там, где и так интересно, и идёт дальше. <b>Кит в большом морском аквариуме закрывает маршрут</b> и собирает кодовое слово экоспасателя.</p>
@@ -459,11 +475,36 @@
   </div>
 </section>
 
+<!-- SCREENS -->
+<section class="sec on-graphite" id="s-screens">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">03 / Экраны</span>
+      <div></div>
+      <div class="sec-side">интерфейс<br><b>квеста</b></div>
+    </div>
+    <h2 class="sec-h reveal" style="margin-bottom:48px;font-size:clamp(34px,5.2vw,76px)">Путь игрока <span class="em">от старта до награды</span>.</h2>
+    <div class="screens-lane reveal">
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-01-zagruzka.webp" alt="Экран загрузки квеста «С океаном начистоту»"></div><div class="screen-cap"><span class="screen-num">01</span><span class="screen-label">Заставка</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-02-privetstvie.webp" alt="Экран приветствия персонажа"></div><div class="screen-cap"><span class="screen-num">02</span><span class="screen-label">Приветствие героя</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-03-onbording.webp" alt="Экран знакомства с проблемой"></div><div class="screen-cap"><span class="screen-num">03</span><span class="screen-label">Онбординг</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-04-igra.webp" alt="Экран геймплея: очистка воды"></div><div class="screen-cap"><span class="screen-num">04</span><span class="screen-label">Геймплей · очистка</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-05-skat-sovet.webp" alt="Экран совета от персонажа"></div><div class="screen-cap"><span class="screen-num">05</span><span class="screen-label">Совет ската</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-06-sovet.webp" alt="Экран практического совета"></div><div class="screen-cap"><span class="screen-num">06</span><span class="screen-label">Практический совет</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-07-neony-fakt.webp" alt="Экран факта и собранной буквы кодового слова"></div><div class="screen-cap"><span class="screen-num">07</span><span class="screen-label">Факт и буква</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-08-kit-final.webp" alt="Экран продолжения очистки"></div><div class="screen-cap"><span class="screen-num">08</span><span class="screen-label">Очистка дальше</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-09-dostizhenie.webp" alt="Экран награды «Друг океанов»"></div><div class="screen-cap"><span class="screen-num">09</span><span class="screen-label">Награда</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-10-hirurg-final.webp" alt="Финальный экран благодарности"></div><div class="screen-cap"><span class="screen-num">10</span><span class="screen-label">Финал</span></div></div>
+    </div>
+    <div class="screens-hint">листай вправо · 10 экранов</div>
+  </div>
+</section>
+
 <!-- MASCOTS -->
 <section class="sec on-graphite" id="s-mascots">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">03 / Персонажи</span>
+      <span class="sec-label">04 / Персонажи</span>
       <div></div>
       <div class="sec-side">у каждой локации<br><b>свой герой</b></div>
     </div>
@@ -487,18 +528,18 @@
 <section class="sec on-graphite" id="s-gallery" style="padding-top:30px">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">04 / В экспозиции</span>
+      <span class="sec-label">05 / В экспозиции</span>
       <div></div>
       <div class="sec-side">реальное<br><b>прохождение</b></div>
     </div>
   </div>
   <div class="gal">
-    <div class="gi"><div class="ph" data-ph="скан"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-02.webp" alt="Ребёнок сканирует аквариум"></div></div>
-    <div class="gi"><div class="ph" data-ph="с мамой"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-11.webp" alt="Мама и ребёнок проходят миссию у кораллового аквариума"></div></div>
+    <div class="gi"><div class="ph" data-ph="портрет"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-16.webp" alt="Мальчик с телефоном у тоннельного аквариума"></div></div>
+    <div class="gi"><div class="ph" data-ph="экран приложения"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-06.webp" alt="Экран WebAR-квеста на телефоне у аквариума"></div></div>
     <div class="gcap"><div class="big">Десять локаций, одно кодовое слово</div><div class="sub">webar · без установки приложения</div></div>
-    <div class="gi"><div class="ph" data-ph="AR-сцена"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-12.webp" alt="AR-сцена поверх аквариума"></div></div>
-    <div class="gi"><div class="ph" data-ph="вместе со взрослым"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-05.webp" alt="Взрослый помогает ребёнку пройти AR-миссию"></div></div>
-    <div class="gi"><div class="ph" data-ph="у аквариума"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-16.webp" alt="Ребёнок с телефоном у аквариума"></div></div>
+    <div class="gi"><div class="ph" data-ph="скаты"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-01.webp" alt="Мальчик сканирует синий аквариум со скатами, AR-мусор на экране"></div></div>
+    <div class="gi"><div class="ph" data-ph="вместе"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-10.webp" alt="Двое детей проходят AR-миссию у аквариума"></div></div>
+    <div class="gi"><div class="ph" data-ph="AR-мусор"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-12.webp" alt="AR-загрязнение поверх аквариума: бутылка и QR-код"></div></div>
   </div>
 </section>
 
@@ -517,10 +558,10 @@
     <div class="credits-body">
       <dl class="credits-col-left">
         <div class="cred-row"><dt>Проект</dt><dd>Москвариум</dd></div>
-        <div class="cred-row"><dt>Креативное руководство</dt><dd>Татьяна Самараковская</dd></div>
-        <div class="cred-row"><dt>Команда проекта</dt><dd>12 человек</dd></div>
-        <div class="cred-row"><dt>Агентство</dt><dd>BBDO</dd></div>
-        <div class="cred-row"><dt>Продакшн</dt><dd>likeVR</dd></div>
+        <div class="cred-row"><dt>Креативное руководство</dt><dd>Татьяна Самараковская · креативный директор Москвариума</dd></div>
+        <div class="cred-row"><dt>Команда Москвариума</dt><dd>12 человек</dd></div>
+        <div class="cred-row"><dt>Партнёр (агентство)</dt><dd>BBDO</dd></div>
+        <div class="cred-row"><dt>Подрядчик (продакшн)</dt><dd>likeVR</dd></div>
         <div class="cred-row"><dt>Формат · старт</dt><dd>WebAR-квест · 8 июня 2026</dd></div>
       </dl>
       <div class="credits-col-right">
@@ -584,13 +625,13 @@
     p.addEventListener('mouseleave',()=>p.style.transform='');
     p.addEventListener('click',e=>{e.preventDefault();const t=document.getElementById(p.dataset.section);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});
   });
-  const ids=['s-about','s-route','s-how','s-mascots','s-credits'],pm={};
+  const ids=['s-about','s-route','s-how','s-screens','s-mascots','s-credits'],pm={};
   document.querySelectorAll('.mag-pill').forEach(p=>pm[p.dataset.section]=p);
   const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(pm).forEach(p=>p.classList.remove('active'));const a=pm[e.target.id];if(a)a.classList.add('active');}}),{threshold:.25});
   ids.forEach(id=>{const el=document.getElementById(id);if(el)so.observe(el);});
 
   const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbC=document.getElementById('lbCounter');
-  const imgs=Array.from(document.querySelectorAll('.mask img, .gi img'));let idx=0;
+  const imgs=Array.from(document.querySelectorAll('.screen-frame img, .mask img, .gi img'));let idx=0;
   function show(i,d=0){const im=imgs[i];if(!im)return;if(d){lbImg.classList.add('fade');setTimeout(()=>{lbImg.src=im.src;lbImg.alt=im.alt;lbImg.classList.remove('fade');},150);}else{lbImg.src=im.src;lbImg.alt=im.alt;}idx=i;lbC.textContent=(i+1)+' / '+imgs.length;}
   function open(i){show(i,0);lb.classList.add('open');document.body.style.overflow='hidden';}
   function close(){lb.classList.remove('open');document.body.style.overflow='';lbImg.src='';}
