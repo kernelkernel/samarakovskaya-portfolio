@@ -1,0 +1,962 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Случайное знакомство · Таня Самараковская</title>
+<meta name="description" content="«Случайное знакомство» — проект Москвариума × Дептранс Москвы: AR-карты «Тройка» и видеопродакшен, 2023. Кейс Тани Самараковской.">
+<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/projects/troyka-lovemeet.html">
+<meta property="og:title" content="Случайное знакомство · Таня Самараковская">
+<meta property="og:description" content="«Случайное знакомство» — проект Москвариума × Дептранс Москвы: AR-карты «Тройка» и видеопродакшен, 2023. Кейс Тани Самараковской.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/preview_projects/troyka-lovemeet.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Случайное знакомство · Таня Самараковская">
+<meta name="twitter:description" content="«Случайное знакомство» — проект Москвариума × Дептранс Москвы: AR-карты «Тройка» и видеопродакшен, 2023. Кейс Тани Самараковской.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/preview_projects/troyka-lovemeet.webp">
+<link rel="canonical" href="https://samarakovskaya.art/projects/troyka-lovemeet.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
+    --cream:#F7F3E6;--cream-2:#EFE9D6;--cream-3:#DBD3B9;
+    --ink:#16161A;--ink-2:#3A3A40;--ink-3:#7A766B;
+    --bone:#F1ECDD;--bone-2:#A8A39A;--bone-3:#6E6960;
+    /* bespoke-акцент кейса: тёплый оранжевый «Тройки» — ночная съёмка, городской свет */
+    --lime:#F07A2E;--lime-deep:#C85A1E;
+    /* акценты из палитры карт «Тройка» */
+    --card-orange:#E8702A;--card-teal:#1F9E8F;--card-blue:#2E6FB0;
+    --line-d:rgba(241,236,221,.10);--line-d2:rgba(241,236,221,.18);
+    --line-l:rgba(22,22,26,.12);--line-l2:rgba(22,22,26,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  html,body{background:var(--graphite);color:var(--bone);font-family:"Space Grotesk","Helvetica Neue",sans-serif;-webkit-font-smoothing:antialiased}
+  body{overflow-x:hidden;min-height:100svh}
+  ::selection{background:var(--lime);color:var(--ink)}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+  img{display:block;max-width:100%}
+  body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+  .ph{position:relative;background:var(--graphite-2);overflow:hidden}
+  .ph::before{content:attr(data-ph);position:absolute;inset:0;display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);padding:18px;text-align:center;z-index:0;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0 8px,transparent 8px 16px)}
+  .ph img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;display:block}
+
+  /* TOP NAV */
+  .top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+  .nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
+  .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone);white-space:nowrap}
+  .back::before{content:"←";color:var(--lime);font-size:14px}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
+  .nav-cta::after{content:"↗"}
+
+  /* MAGNETIC NAV */
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
+
+  .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
+
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:var(--graphite-2);border:1px solid var(--line-d);border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:var(--bone)}
+  .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime)}
+  .pill.solid{background:var(--lime);color:var(--ink);border-color:transparent;font-weight:600}
+  .pill.solid::before{background:var(--ink);box-shadow:none}
+  .pill.outline{background:transparent}
+
+  .circle-btn{display:inline-grid;place-items:center;width:88px;height:88px;border-radius:50%;border:1.5px solid currentColor;font-size:34px;line-height:1;transition:background .25s,color .25s,transform .25s;cursor:pointer;flex-shrink:0}
+  .circle-btn.bone{color:var(--bone);border-color:var(--bone-2)}
+  .circle-btn.bone:hover{background:var(--bone);color:var(--ink)}
+  .circle-btn.sm{width:56px;height:56px;font-size:22px}
+
+  .word-pill{position:relative;display:inline-block;color:var(--graphite);padding:0 .14em;z-index:1}
+  .word-pill::before{content:"";position:absolute;inset:.08em -.04em .14em -.04em;background:var(--lime);border-radius:999px;z-index:-1}
+  .word-oval{position:relative;display:inline-block;padding:0 .14em;z-index:1;white-space:nowrap}
+  .word-oval::before{content:"";position:absolute;inset:-.06em -.04em -.04em -.04em;border-radius:999px;border:3px solid var(--lime);transform:rotate(-2.5deg) skewX(-2deg);z-index:-1}
+  .word-block{background:var(--lime);color:var(--ink);padding:0 .14em}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;overflow:hidden;padding:120px 0 40px;display:flex;flex-direction:column;justify-content:space-between;gap:36px}
+  .hero-bg{position:absolute;inset:0;z-index:0;opacity:.35}
+  .hero-bg .ph{position:absolute;inset:0}
+  .hero-bg img{filter:contrast(1.05) saturate(.85)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 70% at 50% 30%,transparent 0%,var(--graphite) 78%),linear-gradient(180deg,var(--graphite) 0%,transparent 25%,transparent 60%,var(--graphite) 100%)}
+
+  .hero-meta-row{position:relative;z-index:2;display:flex;justify-content:center;flex-wrap:wrap;gap:24px}
+  .hero-meta-row .pills{display:flex;flex-wrap:wrap;gap:8px}
+
+  .hero-title{position:relative;z-index:2;display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+  .hero-h1{font-weight:700;font-size:clamp(52px,12vw,190px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase;color:var(--bone)}
+  .hero-h1 .syl{display:inline-block;transition:font-family .08s,font-weight .08s,color .08s,letter-spacing .08s,background .15s,padding .15s}
+  .hero-h1 .syl.s1:hover{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;color:var(--lime);letter-spacing:-.08em}
+  .hero-h1 .syl.s2:hover{font-family:"JetBrains Mono",monospace;font-weight:700;background:var(--lime);color:var(--ink);padding:0 .04em}
+  .hero-sub{font-weight:500;font-size:clamp(17px,1.8vw,26px);line-height:1.18;letter-spacing:-.02em;color:var(--bone-2);max-width:40ch;text-wrap:balance;margin:8px auto 0}
+  .hero-sub b{color:var(--bone);font-weight:700}
+
+  .hero-foot{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:20px;border-top:1px solid var(--line-d)}
+  @media(max-width:780px){.hero-foot{grid-template-columns:1fr 1fr;gap:16px}}
+  .hero-fact{display:flex;flex-direction:column;gap:6px;align-items:center;text-align:center}
+  .hero-fact b{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.12em;font-weight:600}
+  .hero-fact span{font-weight:600;font-size:clamp(13px,1.3vw,16px);color:var(--bone);letter-spacing:-.005em;line-height:1.25}
+
+  /* MARQUEE */
+  .marq{background:var(--lime);color:var(--ink);overflow:hidden;padding:16px 0}
+  .marq-track{display:flex;gap:32px;width:max-content;animation:scroll 42s linear infinite;font-weight:700;font-size:clamp(18px,2.8vw,40px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
+  .marq-track .dot{display:inline-block;width:.32em;height:.32em;border-radius:50%;background:var(--ink);vertical-align:middle;margin:0 .3em}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* SEC */
+  .sec{padding:90px 0 100px}
+  .sec.on-cream{background:var(--cream);color:var(--ink)}
+  .sec.on-graphite{background:var(--graphite);color:var(--bone)}
+  .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
+  .sec.on-cream .sec-head{border-color:var(--line-l)}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
+  .sec-label::before{content:"✦";color:var(--lime);font-size:12px}
+  .sec.on-cream .sec-label{color:var(--ink-3)}
+  .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
+  .sec.on-cream .sec-side{color:var(--ink-2)}
+  .sec-side b{font-weight:700;color:var(--bone)}
+  .sec.on-cream .sec-side b{color:var(--ink)}
+  .sec-h{font-weight:700;font-size:clamp(48px,8.5vw,128px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+
+  /* CONCEPT (cream) */
+  .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream)}
+  @media(max-width:900px){.concept{grid-template-columns:1fr}}
+  .concept-img{position:relative;min-height:44vh}
+  @media(max-width:900px){.concept-img{min-height:300px}}
+  .concept-img .ph{position:absolute;inset:0}
+  .concept-body{padding:48px;display:flex;flex-direction:column;gap:24px}
+  @media(max-width:780px){.concept-body{padding:32px 24px}}
+  .concept-lead{font-weight:500;font-size:clamp(22px,2.6vw,38px);line-height:1.1;letter-spacing:-.025em;text-wrap:balance}
+  .concept-text{font-size:15px;line-height:1.65;color:var(--ink-2);display:flex;flex-direction:column;gap:14px}
+  .concept-text b{color:var(--ink);font-weight:700}
+  .concept-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:20px;margin-top:auto;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+  .concept-meta dt{color:var(--ink-3);margin-bottom:4px}
+  .concept-meta dd{color:var(--ink);font-weight:600;font-size:13px}
+
+  /* CONCEPT WIDE — горизонтальное фото */
+  .concept-wide{background:var(--cream);display:flex;flex-direction:column;gap:0}
+  .concept-img-wide{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;max-height:72vh}
+  .concept-img-wide .ph{position:absolute;inset:0}
+  .concept-img-wide img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+  .concept-img-wide:hover img{transform:scale(1.03)}
+  .concept-hook{font-weight:700;font-size:clamp(28px,3.8vw,58px);line-height:1.0;letter-spacing:-.035em;color:var(--ink);text-wrap:balance}
+  .concept-hook em{font-style:normal;color:var(--ink-3);font-weight:500}
+  .concept-wide .concept-body{padding:52px 48px 48px;gap:28px}
+  @media(max-width:780px){.concept-wide .concept-body{padding:36px 24px 32px}}
+
+  /* CARD TRIPTYCH — три карты «Тройка» */
+  .cards-trip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--graphite)}
+  @media(max-width:780px){.cards-trip{grid-template-columns:1fr}}
+  .card-cell{position:relative;aspect-ratio:16/10;overflow:hidden;cursor:zoom-in;background:var(--graphite-2)}
+  .card-cell img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+  .card-cell:hover img{transform:scale(1.06)}
+  .card-cell::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55) 0%,transparent 42%);opacity:.85;transition:opacity .35s;pointer-events:none}
+  .card-cell:hover::after{opacity:.45}
+  .card-tag{position:absolute;left:18px;bottom:16px;z-index:2;display:flex;flex-direction:column;gap:3px;pointer-events:none}
+  .card-tag b{font-weight:700;font-size:clamp(18px,2vw,26px);letter-spacing:-.02em;color:var(--bone);line-height:1}
+  .card-tag span{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+  .card-cell.c-orange .card-tag span{color:#F6B98E}
+  .card-cell.c-teal .card-tag span{color:#7DD8CC}
+  .card-cell.c-blue .card-tag span{color:#9CC4E8}
+  .card-cell .ar-chip{position:absolute;top:14px;right:14px;z-index:2;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--lime);padding:5px 9px;border-radius:999px;font-weight:600;opacity:0;transform:translateY(-6px);transition:opacity .3s,transform .3s}
+  .card-cell:hover .ar-chip{opacity:1;transform:none}
+
+  /* editorial-полировка cream */
+  .sec.on-cream .word-pill{color:var(--cream)}
+  .sec.on-cream .sec-h{letter-spacing:-.05em}
+  .concept-wide.bright{background:#FBF7EC;box-shadow:0 1px 0 var(--line-l) inset}
+  .concept-wide.bright .concept-body{border-top:3px solid var(--card-orange)}
+
+  /* PULL QUOTE */
+  .pullq{position:relative;min-height:80vh;display:flex;align-items:center;background:var(--graphite);overflow:hidden}
+  .pullq-bg{position:absolute;inset:0;z-index:0;opacity:.2}
+  .pullq-bg .ph{position:absolute;inset:0}
+  .pullq-bg::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 60% at 50% 50%,transparent 0%,var(--graphite) 90%)}
+  .pullq-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;padding:80px 28px;text-align:center;width:100%}
+  .pullq-text{font-weight:600;font-size:clamp(32px,6.5vw,100px);line-height:.96;letter-spacing:-.04em;text-wrap:balance}
+
+  /* CHAPTERS */
+  .chap{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--graphite-2);min-height:60vh}
+  .chap.flip .chap-img{order:2}
+  .chap.full{grid-template-columns:1fr;min-height:80vh;position:relative}
+  @media(max-width:900px){.chap,.chap.flip{grid-template-columns:1fr}.chap.flip .chap-img{order:0}}
+  .chap-img{position:relative;min-height:50vh;overflow:hidden}
+  @media(max-width:900px){.chap-img{min-height:280px}}
+  .chap-img .ph{position:absolute;inset:0}
+  .chap-img img{transition:transform .8s ease}
+  .chap-img:hover img{transform:scale(1.04)}
+  .chap-body{padding:48px;display:flex;flex-direction:column;gap:20px;justify-content:center}
+  @media(max-width:780px){.chap-body{padding:32px 24px}}
+  .chap.full .chap-img{position:absolute;inset:0;min-height:0}
+  .chap.full .chap-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.92) 100%);z-index:1}
+  .chap.full .chap-body{position:relative;z-index:2;justify-content:flex-end;color:var(--bone);min-height:80vh}
+  .chap-title{font-weight:700;font-size:clamp(26px,4.2vw,58px);line-height:.98;letter-spacing:-.035em;text-wrap:balance}
+  .chap-title .mark{color:var(--lime)}
+  .chap-body p{font-size:15px;line-height:1.65;color:var(--bone-2);max-width:52ch}
+  .chap-body p b{color:var(--bone);font-weight:700}
+  .chap.full .chap-body p{color:rgba(241,236,221,.8);max-width:62ch}
+  .chap.full .chap-body p b{color:var(--lime)}
+
+  /* STORY STEPS — сценарный блок */
+  .story-steps{display:flex;flex-direction:column;gap:0;background:var(--graphite-2);border-top:1px solid var(--line-d)}
+  .step{display:grid;grid-template-columns:72px 1fr;gap:0;min-height:80px;border-bottom:1px solid var(--line-d)}
+  .step:last-child{border-bottom:0}
+  .step-num{padding:24px 20px;font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--lime);letter-spacing:.12em;text-transform:uppercase;border-right:1px solid var(--line-d);display:flex;align-items:flex-start;flex-shrink:0}
+  .step-body{padding:24px 28px;display:flex;flex-direction:column;gap:6px}
+  .step-title{font-weight:700;font-size:clamp(16px,1.8vw,22px);letter-spacing:-.02em;color:var(--bone);line-height:1.1}
+  .step-desc{font-size:14px;line-height:1.6;color:var(--bone-2)}
+  .step-desc b{color:var(--bone);font-weight:600}
+
+  /* ROLE CARDS */
+  .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:780px){.role-grid{grid-template-columns:1fr}}
+  .role-card{background:var(--cream-2);display:flex;flex-direction:column;overflow:hidden;transition:background .25s}
+  .role-card:hover{background:var(--graphite-3)}
+  .role-photo{aspect-ratio:16/9;overflow:hidden;position:relative;flex-shrink:0}
+  .role-photo .ph{position:absolute;inset:0}
+  .role-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease}
+  .role-card:hover .role-photo img{transform:scale(1.04)}
+  .role-text{padding:28px;display:flex;flex-direction:column;gap:14px;flex:1}
+  .role-card:hover .role-text{color:var(--bone)}
+  .role-card h3{font-weight:700;font-size:clamp(20px,2.3vw,28px);line-height:1.02;letter-spacing:-.025em;text-wrap:balance}
+  .role-card h3 .mark{color:var(--lime-deep);transition:color .25s}
+  .role-card:hover h3 .mark{color:var(--lime)}
+  .role-card p{font-size:14px;line-height:1.65;color:var(--ink-2);transition:color .25s}
+  .role-card:hover p{color:var(--bone-2)}
+  .role-card p b{color:var(--ink);font-weight:700;transition:color .25s}
+  .role-card:hover p b{color:var(--bone)}
+
+  /* GALLERY */
+  .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  @media(max-width:780px){.gal{grid-template-columns:1fr 1fr}}
+  .gi{position:relative;overflow:hidden;background:var(--graphite-2);cursor:zoom-in;aspect-ratio:4/3}
+  .gi.wide{grid-column:span 2}
+  .gi.tall{grid-row:span 2;aspect-ratio:auto}
+  @media(max-width:780px){.gi.wide{grid-column:span 1}.gi.tall{grid-row:span 1;aspect-ratio:4/3}}
+  .gi .ph{position:absolute;inset:0}
+  .gi img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+  .gi:hover img{transform:scale(1.05)}
+  .gi::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.3) 0%,transparent 30%);opacity:.5;pointer-events:none;transition:opacity .3s}
+  .gi:hover::after{opacity:.1}
+  .gcap{background:var(--lime);color:var(--ink);padding:28px 24px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;aspect-ratio:4/3}
+  .gcap .big{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(26px,3.2vw,50px);line-height:.88;letter-spacing:-.04em;color:var(--ink)}
+  .gcap .sub{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-2)}
+  @media(max-width:780px){.gcap{display:none}}
+
+  /* lightbox */
+  .lb{display:none;position:fixed;inset:0;z-index:200;background:rgba(0,0,0,.96);align-items:center;justify-content:center}
+  .lb.open{display:flex}
+  .lb img{max-width:80vw;max-height:86vh;object-fit:contain;user-select:none;transition:opacity .18s ease}
+  .lb img.fade{opacity:0}
+  .lb-close{position:absolute;top:20px;right:24px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);padding:8px;cursor:pointer;z-index:2}
+  .lb-close:hover{color:var(--lime)}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);font-family:"JetBrains Mono",monospace;font-size:24px;color:var(--bone-2);padding:16px 22px;cursor:pointer;z-index:2;transition:color .2s;line-height:1}
+  .lb-nav:hover{color:var(--lime)}
+  .lb-prev{left:20px}
+  .lb-next{right:20px}
+  .lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+
+  /* RESULTS (cream) */
+  .results{padding:90px 0;background:var(--cream);color:var(--ink)}
+  .results-top{display:grid;grid-template-columns:1fr 1fr;gap:32px;border-bottom:1px solid var(--line-l);padding-bottom:48px;margin-bottom:48px;align-items:end}
+  @media(max-width:900px){.results-top{grid-template-columns:1fr}}
+  .results-title{font-weight:700;font-size:clamp(48px,8vw,118px);line-height:.9;letter-spacing:-.04em}
+  .results-numbers{display:flex;gap:32px;flex-wrap:wrap;justify-content:flex-end}
+  @media(max-width:900px){.results-numbers{justify-content:flex-start}}
+  .stat-item{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);text-align:center}
+  .stat-item strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.5vw,52px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
+  .stat-item strong .mark{color:var(--lime-deep)}
+  .results-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:900px){.results-body{grid-template-columns:1fr}}
+  .cred-row{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
+  .cred-row:first-child{border-top:1px solid var(--line-l)}
+  .cred-row dt{font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+  .cred-row dd{font-weight:600;font-size:clamp(16px,1.5vw,20px);letter-spacing:-.015em;line-height:1.25;color:var(--ink)}
+  .cred-row dd .mark{color:var(--lime-deep);font-weight:700}
+  .cred-row dd .sub{display:block;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--ink-3);font-weight:400;margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+  .results-col-right{padding-left:36px}
+  @media(max-width:900px){.results-col-right{padding-left:0}}
+
+  /* PROJ NAV */
+  .proj-nav{border-top:1px solid var(--line-d);background:var(--graphite)}
+  .proj-nav-inner{display:grid;grid-template-columns:1fr auto 1fr;max-width:1320px;margin:0 auto}
+  @media(max-width:760px){.proj-nav-inner{grid-template-columns:1fr}}
+  .pn-card{position:relative;overflow:hidden;padding:48px 36px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;transition:background .3s;border-right:1px solid var(--line-d)}
+  .pn-card:last-child{border-right:0;border-left:1px solid var(--line-d)}
+  .pn-card:hover{background:var(--graphite-2)}
+  .pn-card .bg{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;opacity:.14;transition:opacity .4s;filter:saturate(.4)}
+  .pn-card:hover .bg{opacity:.28}
+  .pn-dir{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--bone-3);margin-bottom:8px}
+  .pn-name{position:relative;z-index:1;font-weight:700;font-size:clamp(28px,3.8vw,56px);line-height:1;letter-spacing:-.03em;color:var(--bone)}
+  .pn-sub{position:relative;z-index:1;font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .pn-contact{display:flex;align-items:center;justify-content:center;padding:48px 36px;flex-direction:column;gap:14px}
+  .pn-contact-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3)}
+  .pn-btn{display:inline-flex;align-items:center;gap:10px;background:var(--lime);color:var(--ink);padding:14px 24px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;transition:transform .25s}
+  .pn-contact:hover .pn-btn{transform:translateY(-3px)}
+
+  footer{padding:28px 24px;border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
+  .foot-row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;align-items:center;max-width:1320px;margin:0 auto}
+  .foot-row b{color:var(--bone);font-weight:500}
+  .foot-row a:hover{color:var(--lime)}
+
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+  /* staggered cascade — children reveal one by one */
+  .stagger>*{opacity:0;transform:translateY(16px);transition:opacity .55s cubic-bezier(.2,.7,.2,1),transform .55s cubic-bezier(.2,.7,.2,1)}
+  .stagger.in>*{opacity:1;transform:none}
+  .reveal.stagger{transform:none}
+  /* hero entrance — one orchestrated load */
+  @media (prefers-reduced-motion:no-preference){
+    .hero-meta-row,.hero-title,.hero-foot{opacity:0;transform:translateY(26px);animation:lmRise .9s cubic-bezier(.2,.7,.2,1) forwards}
+    .hero-title{animation-delay:.14s}
+    .hero-foot{animation-delay:.32s}
+  }
+  @keyframes lmRise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .reveal,.stagger>*{opacity:1!important;transform:none!important;transition:none}
+    .hero-meta-row,.hero-title,.hero-foot{opacity:1!important;transform:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<div class="lb" id="lb">
+  <button class="lb-close" id="lbClose">[ESC] закрыть</button>
+  <button class="lb-nav lb-prev" id="lbPrev">←</button>
+  <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
+  <button class="lb-nav lb-next" id="lbNext">→</button>
+  <div class="lb-counter" id="lbCounter"></div>
+</div>
+
+<!-- TOP NAV -->
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works">Все проекты</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#s-concept" data-section="s-concept">Проект</a>
+      <a class="mag-pill" href="#s-treatment" data-section="s-treatment">Сюжет</a>
+      <a class="mag-pill" href="#s-production" data-section="s-production">Продакшн</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video">Ролик</a>
+      <a class="mag-pill" href="#s-results" data-section="s-results">Результат</a>
+    </nav>
+    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="ph" data-ph="Случайное знакомство · Тройка × Москвариум">
+      <img src="../assets/msq_troyka_lovemeet/photo/webp/troyka-preview-hero.webp" alt="" loading="eager" decoding="async">
+    </div>
+  </div>
+
+  <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
+    <div class="hero-meta-row">
+      <div class="pills">
+        <span class="pill">москвариум</span>
+        <span class="pill">дептранс москвы</span>
+      </div>
+      <div class="pills">
+        <span class="pill outline">креативное руководство</span>
+        <span class="pill outline">дизайн карт «Тройка»</span>
+        <span class="pill outline">проекты</span>
+        <span class="pill outline">съёмки</span>
+        <span class="pill outline">art direction</span>
+      </div>
+    </div>
+
+    <div class="hero-title">
+      <h1 class="hero-h1">
+        <span class="syl s1">Случай</span><span class="syl s2">ное</span><br>
+        <span class="syl s1">знаком</span><span class="syl s2">ство</span>
+      </h1>
+      <p class="hero-sub">
+        <b>Рекламный&nbsp;ролик</b> и <b>лимитированная серия карт</b> <span class="word-oval">«Тройка»</span> с&nbsp;дополненной реальностью — от&nbsp;концепции и&nbsp;кастинга до&nbsp;ночных съёмок в&nbsp;закрытом вагоне московского метро.
+      </p>
+    </div>
+
+    <div class="hero-foot">
+      <div class="hero-fact"><b>Формат</b><span>Карты «Тройка» + AR</span></div>
+      <div class="hero-fact"><b>Ролик</b><span>Рекламный ролик в&nbsp;поддержку проекта</span></div>
+      <div class="hero-fact"><b>Проект</b><span>Москвариум × Дептранс Москвы</span></div>
+      <div class="hero-fact"><b>Роль</b><span>Креативный директор Москвариума</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track">
+    <span>10 000 карт за 2 дня <span class="dot"></span> 5 часов в закрытом вагоне метро <span class="dot"></span> Ночные съёмки на ВДНХ <span class="dot"></span> Кастинг · PPM-бук · Treatment <span class="dot"></span> Уэс Андерсон meets московское метро <span class="dot"></span> 1,1 млн охват <span class="dot"></span></span>
+    <span>10 000 карт за 2 дня <span class="dot"></span> 5 часов в закрытом вагоне метро <span class="dot"></span> Ночные съёмки на ВДНХ <span class="dot"></span> Кастинг · PPM-бук · Treatment <span class="dot"></span> Уэс Андерсон meets московское метро <span class="dot"></span> 1,1 млн охват <span class="dot"></span></span>
+  </div>
+</div>
+
+<!-- CONCEPT — КАРТЫ (cream) -->
+<section class="sec on-cream" id="s-concept">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Проект</span>
+      <h2 class="sec-h">7 миллионов человек. <span class="word-pill">Одна</span> встреча.</h2>
+      <span class="sec-side"><b>Москвариум × Дептранс</b><br>Первый выпуск</span>
+    </div>
+
+    <div class="concept-wide bright reveal">
+      <div class="concept-body" style="padding-bottom:40px">
+        <p class="concept-hook">
+          В московском метро — <span class="word-block">7 миллионов</span> пассажиров ежедневно.<br>
+          А что если транспортная карта поможет встретить того единственного?
+        </p>
+        <p class="concept-lead">
+          Москвариум и Дептранс Москвы выпускают первую лимитированную серию брендированных карт «Тройка» — <span class="word-block">с персонажами, которые оживают.</span>
+        </p>
+      </div>
+
+      <!-- ТРИПТИХ: три карты, три героя -->
+      <div class="cards-trip reveal stagger">
+        <figure class="card-cell c-orange">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-19-char-capy.webp" alt="Карта «Тройка» с капибарой — дополненная реальность">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Капибара</b><span>прыгает</span></figcaption>
+        </figure>
+        <figure class="card-cell c-teal">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-21-char-otter.webp" alt="Карта «Тройка» с выдрой — дополненная реальность">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Выдра</b><span>ныряет</span></figcaption>
+        </figure>
+        <figure class="card-cell c-blue">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="Карта «Тройка» с морским львом — дополненная реальность">
+          <span class="ar-chip">AR ↗</span>
+          <figcaption class="card-tag"><b>Морской лев</b><span>плавает в воздухе</span></figcaption>
+        </figure>
+      </div>
+
+      <div class="concept-body" style="padding-top:40px">
+        <div class="concept-text">
+          <p>Три карты, три героя: <b>капибары, выдры и морские львы</b> — самые популярные обитатели Москвариума. Авторские иллюстрации в эстетике Уэса Андерсона: яркие цвета, фронтальная выверенность, эпатажные аксессуары. Близко к «Бесподобному мистеру Фоксу».</p>
+          <p>На каждой карте — QR-код. Навёл камеру — и рядом появляется виртуальный обитатель с <b>собственным характером</b>. Морские львы плавают в воздухе, выдры ныряют, капибары прыгают. У каждого — авторская музыкальная тема.</p>
+          <p>К выпуску снимается рекламный ролик. Карты и ролик — единый объект: одна история, один визуальный язык, одно настроение.</p>
+        </div>
+        <dl class="concept-meta">
+          <div><dt>Проект</dt><dd>Москвариум</dd></div>
+          <div><dt>Соавтор</dt><dd>Дептранс МСК</dd></div>
+          <div><dt>Тираж</dt><dd>10 000 шт.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AR SECTION (graphite) -->
+<section class="sec on-graphite" style="padding-top:0;padding-bottom:0">
+  <article class="chap reveal">
+    <div class="chap-img">
+      <div class="ph" data-ph="капибара в AR появляется в вагоне метро">
+        <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-27-capy-metro.webp" alt="Капибара в дополненной реальности сидит на сиденье вагона метро — кадр из ролика">
+      </div>
+    </div>
+    <div class="chap-body">
+      <h3 class="chap-title">AR: карта <span class="mark">оживает</span> в метро</h3>
+      <p>Три QR-кода — три разных существа. Сканируешь карту с <b>капибарой</b> — она бегает по перрону. Сканируешь <b>выдру</b> — ныряет в воду вокруг тебя. Сканируешь <b>морского льва</b> — плавает в воздухе. Технология дополненной реальности превращает транспортную карту в окно в другой мир — прямо в московском метро.</p>
+    </div>
+  </article>
+</section>
+
+<!-- PULL QUOTE 1 -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="treatment-обложка · лис в духе Уэса Андерсона">
+      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-06-treatment-cover.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      Уэс Андерсон <span class="word-block">meets</span><br>московское метро.
+    </p>
+  </div>
+</section>
+
+<!-- TREATMENT / STORY (cream) -->
+<section class="sec on-cream" id="s-treatment">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Сюжет</span>
+      <h2 class="sec-h">Сюжет <span class="word-pill">ролика</span>.</h2>
+      <span class="sec-side"><b>30 секунд</b><br>«Случайное знакомство»</span>
+    </div>
+
+    <div class="concept reveal" style="margin-bottom:0">
+      <div class="concept-img">
+        <div class="ph" data-ph="герой один в вагоне метро">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-24-shot-03.webp" alt="Главный герой один в вагоне метро — кадр из ролика">
+        </div>
+      </div>
+      <div class="concept-body">
+        <p class="concept-lead">
+          Герой один в вагоне метро, вокруг — все парами. Он достаёт карту, сканирует QR — и реальность меняется.
+        </p>
+        <div class="concept-text">
+          <p>Ролик рассказывает трогательную историю в нескольких эпизодах. Главная линия — одинокий парень в вагоне, где все вокруг держатся за руки. Даже «сварливая женщина с беретом» не одна — она держит на руках <b>миниписок, которого нежно целует в щёку</b>.</p>
+          <p>Герой сканирует карту — и получает своего компаньона: <b>капибару в AR</b>. Они вместе выходят из вагона, оказываются в парке ВДНХ. В парке герой сталкивается с девушкой — у обоих выпадают карты, оба увлечены AR-животными. Герой предлагает обменяться картами.</p>
+          <p>Финал — в <b>Москвариуме</b>. Герои стоят напротив вольера с капибарой. Он достаёт ещё одну карту — с морским львом.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Раскадровка шагами -->
+    <div class="story-steps reveal" style="margin-top:48px;border-radius:0;border:1px solid var(--line-l)">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <div class="step-title">Герой прикладывает карту к турникету ВДНХ</div>
+          <div class="step-desc">Спускается на эскалаторе. Садится в вагон — <b>один среди влюблённых пар</b>. «Дама со свинкой» обнимает своего питомца. Все заняты, кроме него.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <div class="step-title">Достаёт карту «Тройка» и сканирует QR</div>
+          <div class="step-desc">Реальность меняется. В вагоне появляется <b>капибара в дополненной реальности</b> — он больше не один.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <div class="step-title">Герой и капибара выходят в парк ВДНХ</div>
+          <div class="step-desc">Управляя пальцем на экране, ведёт капибару через парк. Увлечённый игрой — <b>сталкивается с девушкой</b>. У обоих выпадают карты на асфальт.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <div class="step-title">Обмен картами</div>
+          <div class="step-desc">Они понимают, что оба играли с AR-животными. <b>Герой пododвигает ей свою карту</b> — она соглашается. Случайное знакомство состоялось.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <div class="step-title">Финал в Москвариуме</div>
+          <div class="step-desc">Герои у вольера с настоящей капибарой. Карты лежат рядом на периле. <b>Он достаёт ещё одну — с морским львом</b>. Смотрят друг на друга.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTION (graphite) -->
+<section class="sec on-graphite" id="s-production">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Продакшн</span>
+      <h2 class="sec-h">Подход <span class="word-pill">и</span> съёмка.</h2>
+      <span class="sec-side"><b>Pre-production</b><br>PPM · Casting · Shoot</span>
+    </div>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="симметричная композиция · кадр из ролика">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-04-film.webp" alt="Симметричный кадр из ролика — дама в красном с минипигом в вагоне метро">
+        </div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Стилистика: <span class="mark">Уэс Андерсон</span></h3>
+        <p>Симметричная композиция, яркая цветовая палитра — как в работах Уэса Андерсона. <b>Камера всегда статична</b>: никаких дрожащих кадров, движений слайдера, резкой панорамы. Активное действие — внутри кадра, а не в движении камеры. Яркие цвета проработаны в локациях, костюмах и реквизите.</p>
+      </div>
+    </article>
+
+    <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="цветовые референсы · editorial fashion">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-14-color-refs.webp" alt="">
+        </div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Костюмы и <span class="mark">реквизит</span></h3>
+        <p>Яркие цвета — главный инструмент: они появляются в деталях костюмов, фактурах, аксессуарах. Для каждого эпизода разработаны <b>отдельные референсы</b>: «Пара 1», «Пара 2», «Близнецы», «Дама со свинкой». Мужские костюмы — в духе fashion editorial: клетчатые пиджаки, широкие брюки, яркие лоферы. Отсылка к коллекциям Gucci.</p>
+      </div>
+    </article>
+
+    <article class="chap full reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="ночная съёмка · закрытый вагон метро">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-26-shot-05.webp" alt="Съёмочная группа в закрытом вагоне московского метро ночью">
+        </div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Пять часов в <span class="mark">закрытом вагоне</span></h3>
+        <p><b>25 августа 2023 года, 20:00–01:00.</b> Пять часов в вагоне, закрытом для пассажиров. Оранжевая ветка, старый дизайн вагона — цветные однотонные сидения, без рекламы. Съёмки в депо или в ночном поезде после закрытия метро. Затем — турникет ВДНХ, выход на перрон. <b>Получить разрешение и организовать съёмку в закрытом вагоне Московского метро — отдельная продюсерская задача.</b></p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- PPM / CASTING (cream) -->
+<section class="sec on-cream" id="s-casting">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">PPM · Кастинг</span>
+      <h2 class="sec-h">Pre-production <span class="word-pill">бук</span>.</h2>
+      <span class="sec-side"><b>PPM-бук · 22.08.2023</b><br>5 эпизодов · кастинг</span>
+    </div>
+  </div>
+
+  <div class="role-grid reveal stagger">
+    <div class="role-card">
+      <div class="role-photo">
+        <div class="ph" data-ph="PPM-бук · кастинг главного героя">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-17-casting.webp" alt="">
+        </div>
+      </div>
+      <div class="role-text">
+        <h3>Кастинг: <span class="mark">5 эпизодов</span></h3>
+        <p>PPM-бук включал кастинг актёров на несколько ролей: главный герой и главная героиня (5+ кандидатур), эпизод <b>«Дама со свинкой»</b>, эпизод <b>«Близнецы»</b>, <b>«Пара 1»</b> и <b>«Пара 2»</b>. Для каждой роли — разные актёры с разными типажами. Все эпизоды населяют один вагон метро, создавая полный мир.</p>
+      </div>
+    </div>
+
+    <div class="role-card">
+      <div class="role-photo">
+        <div class="ph" data-ph="PPM-бук · кастинг героини">
+          <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-18-casting2.webp" alt="">
+        </div>
+      </div>
+      <div class="role-text">
+        <h3>Концепция <span class="mark">костюмов</span></h3>
+        <p>Каждый эпизод — своя цветовая история. Референсы мужского костюма: клетчатые пиджаки, широкие брюки, яркие аксессуары — <b>в духе Gucci и европейского fashion editorial</b>. Костюмы эпизодических пар: насыщенные цвета, нестандартные сочетания. Яркость — главный визуальный инструмент, который работает на единство карт и ролика.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 2 -->
+<section class="pullq">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="кадр из ролика · дама с минипигом">
+      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-02-cards.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      Карта <span class="word-block">«Тройка»</span> как повод познакомиться.
+    </p>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="sec on-graphite" id="s-video" style="padding-top:72px;padding-bottom:72px">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin-bottom:32px">
+      <span class="sec-label">Ролик</span>
+      <span></span>
+      <span class="sec-side">YouTube · BABOOSHKA.PRO</span>
+    </div>
+    <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px"
+      onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/WIz-aPIjm1Q?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
+      <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/WIz-aPIjm1Q/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/WIz-aPIjm1Q/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;display:block" alt="Случайное знакомство · рекламный ролик">
+      <div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-size:28px;color:#16161A">▶</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY (graphite) -->
+<section class="sec on-graphite" id="s-gallery" style="padding-top:90px">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-label">Фотоматериалы</span>
+      <h2 class="sec-h">Галерея <span class="word-pill">проекта</span>.</h2>
+      <span class="sec-side"><b>Карты · кадры · бэкстейдж</b><br>рендеры · съёмка</span>
+    </div>
+
+    <div class="gal reveal stagger">
+
+      <!-- КАРТЫ -->
+      <div class="gcap">
+        <div class="big">Карты</div>
+        <div class="sub">лимит. серия · 3 героя</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="карта · капибара (AR-рендер)"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-19-char-capy.webp" alt="Карта «Тройка» — Капибара, AR-рендер"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="карта · морской лев (AR-рендер)"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="Карта «Тройка» — Морской лев, AR-рендер"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="карта · выдра (AR-рендер)"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-21-char-otter.webp" alt="Карта «Тройка» — Выдра, AR-рендер"></div>
+      </figure>
+
+      <figure class="gi wide">
+        <div class="ph" data-ph="treatment · обложка (Fantastic Mr. Fox)"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-06-treatment-cover.webp" alt="Treatment — обложка «Москвариум + Тройка»"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="макет PPM · три карты"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-11-ppm-title.webp" alt="PPM-бук — титул с тремя картами"></div>
+      </figure>
+
+      <!-- ДОКУМЕНТЫ -->
+      <div class="gcap">
+        <div class="big">Доку-<br>менты</div>
+        <div class="sub">treatment · PPM · ТЗ</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · интро серии"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-07-cards-intro.webp" alt="Слайд — интро лимитированной серии карт"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · дополненная реальность, QR"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-08-ar-metro.webp" alt="Слайд — механика дополненной реальности и QR"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · ТЗ на съёмку в вагоне"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-09-metro-tz.webp" alt="Слайд — ТЗ на съёмку в вагоне метро"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · подход и стилистика"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-13-approach.webp" alt="Слайд — подход и стилистика съёмки"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="цветовые референсы · fashion editorial"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-14-color-refs.webp" alt="Цветовые референсы — fashion editorial"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · референсы мужских костюмов"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-12-costumes.webp" alt="Слайд — референсы мужских костюмов"></div>
+      </figure>
+
+      <!-- СЮЖЕТ -->
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · сюжет: герой один"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-10-story.webp" alt="Слайд — сюжет 1: герой один в вагоне"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · сюжет: знакомство на ВДНХ"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-15-story2.webp" alt="Слайд — сюжет: знакомство в парке ВДНХ"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · сюжет: финал в Москвариуме"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-16-story3.webp" alt="Слайд — сюжет: финал в Москвариуме"></div>
+      </figure>
+
+      <!-- КАСТИНГ -->
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · кастинг главного героя"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-17-casting.webp" alt="Слайд — кастинг главного героя"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="слайд · кастинг эпизод «Пара 2»"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-18-casting2.webp" alt="Слайд — кастинг, эпизод «Пара 2»"></div>
+      </figure>
+
+      <!-- КАДРЫ И БЭКСТЕЙДЖ -->
+      <div class="gcap">
+        <div class="big">Кадры<br>и сет</div>
+        <div class="sub">ролик · бэкстейдж</div>
+      </div>
+
+      <figure class="gi">
+        <div class="ph" data-ph="кадр · герой в вагоне метро"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-24-shot-03.webp" alt="Кадр из ролика — герой в вагоне метро" style="object-position:center 15%"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="кадр · AR-карта в руке"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-25-shot-04.webp" alt="Кадр из ролика — AR-карта в руке" style="object-position:center 15%"></div>
+      </figure>
+
+      <figure class="gi wide">
+        <div class="ph" data-ph="бэкстейдж · закрытый вагон метро"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-26-shot-05.webp" alt="Бэкстейдж — съёмка в закрытом вагоне метро"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="бэкстейдж · сет с зеленью"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-22-shot-01.webp" alt="Бэкстейдж — съёмочный сет с зеленью"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="бэкстейдж · оператор на площадке"><img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-23-shot-02.webp" alt="Бэкстейдж — оператор на площадке"></div>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS (cream) -->
+<section class="results" id="s-results">
+  <div class="wrap">
+    <div class="results-top reveal">
+      <div>
+        <h2 class="results-title">Резуль<span class="word-pill">таты</span></h2>
+      </div>
+      <div class="results-numbers">
+        <div class="stat-item"><strong>10<span class="mark">K</span></strong>карт · 2 дня</div>
+        <div class="stat-item"><strong>530<span class="mark">+</span></strong>публикаций</div>
+        <div class="stat-item"><strong>1,1<span class="mark">M</span></strong>охват</div>
+      </div>
+    </div>
+
+    <div class="results-body reveal">
+      <dl>
+        <div class="cred-row">
+          <dt>Тираж</dt>
+          <dd>10 000 карт — <span class="mark">за 2 дня</span><span class="sub">MOSMETROSHOP · стойки «Живое общение» · Москвариум</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Медиа</dt>
+          <dd>530+ публикаций<span class="sub">СМИ · ТВ · социальные сети</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Видео</dt>
+          <dd>~100 000 просмотров<span class="sub">рекламный ролик · YouTube + соцсети</span></dd>
+        </div>
+      </dl>
+      <dl class="results-col-right">
+        <div class="cred-row">
+          <dt>Охват</dt>
+          <dd>1,1 млн человек<span class="sub">общий охват кампании</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Проект</dt>
+          <dd>Москвариум<span class="sub">соавтор — Департамент транспорта г. Москвы</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Продакшн</dt>
+          <dd>BABOOSHKA.PRO<span class="sub">видеопродакшн ролика</span></dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE 3 -->
+<section class="pullq" style="min-height:60vh">
+  <div class="pullq-bg" aria-hidden="true">
+    <div class="ph" data-ph="рендер карты · морской лев в AR">
+      <img loading="lazy" decoding="async" src="../assets/msq_troyka_lovemeet/photo/webp/troyka-20-char-lion.webp" alt="">
+    </div>
+  </div>
+  <div class="pullq-inner reveal">
+    <p class="pullq-text">
+      Транспортная карта, которую <span class="word-block">хочется</span> сохранить.
+    </p>
+  </div>
+</section>
+
+<!-- PROJ NAV -->
+<nav class="proj-nav" aria-label="Другие проекты">
+  <div class="proj-nav-inner">
+    <a class="pn-card" href="moskvaruim.html">
+      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/moskvaruim.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">←</span><br>Предыдущий</span>
+      <span class="pn-name">Рыбов показываем</span>
+      <span class="pn-sub">Advertising · 360° · 2024</span>
+    </a>
+    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
+      <span class="pn-contact-label">Есть проект?</span>
+      <span class="pn-btn">Написать ↗</span>
+    </a>
+    <a class="pn-card" href="clean-ocean.html" style="text-align:right">
+      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/clean-ocean.webp" alt="" aria-hidden="true">
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">→</span><br>Следующий</span>
+      <span class="pn-name">С океаном начистоту</span>
+      <span class="pn-sub">WebAR · Quest · 2026</span>
+    </a>
+  </div>
+</nav>
+
+<footer>
+  <div class="foot-row">
+    <span>© 2026 · <b>Таня Самараковская</b></span>
+    <span><a href="#top">↑ Наверх</a></span>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){
+      const t = e.target;
+      t.classList.add('in');
+      if(t.classList.contains('stagger')){
+        Array.from(t.children).forEach((c,i) => { c.style.transitionDelay = (i*55)+'ms'; });
+      }
+      io.unobserve(t);
+    }
+  }), {threshold:.08});
+  document.querySelectorAll('.reveal,.stagger').forEach(el => io.observe(el));
+
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  const sectionIds = ['s-concept','s-treatment','s-production','s-video','s-results'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const a = pillMap[entry.target.id];
+        if (a) a.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+
+  const lb = document.getElementById('lb');
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  const galImgs = Array.from(document.querySelectorAll('.card-cell img, .gi img'));
+  let currentIdx = 0;
+
+  function showImg(idx, dir = 0) {
+    const img = galImgs[idx];
+    if (!img || !img.src) return;
+    if (dir !== 0) {
+      lbImg.classList.add('fade');
+      setTimeout(() => { lbImg.src = img.src; lbImg.alt = img.alt; lbImg.classList.remove('fade'); }, 160);
+    } else { lbImg.src = img.src; lbImg.alt = img.alt; }
+    currentIdx = idx;
+    lbCounter.textContent = (idx + 1) + ' / ' + galImgs.length;
+  }
+
+  function openLb(idx) { showImg(idx, 0); lb.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeLb() { lb.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }
+  function prev() { showImg((currentIdx - 1 + galImgs.length) % galImgs.length, -1); }
+  function next() { showImg((currentIdx + 1) % galImgs.length, 1); }
+
+  galImgs.forEach((img, i) => { img.style.cursor = 'zoom-in'; img.addEventListener('click', () => openLb(i)); });
+  lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+  document.getElementById('lbClose').addEventListener('click', closeLb);
+  document.getElementById('lbPrev').addEventListener('click', e => { e.stopPropagation(); prev(); });
+  document.getElementById('lbNext').addEventListener('click', e => { e.stopPropagation(); next(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLb();
+    if (e.key === 'ArrowLeft') prev();
+    if (e.key === 'ArrowRight') next();
+  });
+  let touchStartX = 0;
+  lb.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - touchStartX; if (Math.abs(dx) > 50) dx < 0 ? next() : prev(); });
+</script>
+</body></html>
