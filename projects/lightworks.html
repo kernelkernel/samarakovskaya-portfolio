@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lightworks — Case · Tanya Samarakovskaya</title>
+<meta name="description" content="Lightworks — интерактивный урбан-проект: свет как замена вандализму. Инсталляция и визуальное программирование. Кейс Тани Самараковской.">
+<link rel="icon" type="image/webp" href="../assets/icon.webp">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Tanya Samarakovskaya">
+<meta property="og:url" content="https://samarakovskaya.art/projects/lightworks.html">
+<meta property="og:title" content="Lightworks — Case · Tanya Samarakovskaya">
+<meta property="og:description" content="Lightworks — интерактивный урбан-проект: свет как замена вандализму. Инсталляция и визуальное программирование. Кейс Тани Самараковской.">
+<meta property="og:image" content="https://samarakovskaya.art/assets/lightworks/preview.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lightworks — Case · Tanya Samarakovskaya">
+<meta name="twitter:description" content="Lightworks — интерактивный урбан-проект: свет как замена вандализму. Инсталляция и визуальное программирование. Кейс Тани Самараковской.">
+<meta name="twitter:image" content="https://samarakovskaya.art/assets/lightworks/preview.webp">
+<link rel="canonical" href="https://samarakovskaya.art/projects/lightworks.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#060608;--bg-2:#0e0b0a;--bg-3:#151009;--ink:#f0e8dc;--ink-2:rgba(240,232,220,.68);--ink-3:rgba(240,232,220,.38);--accent:#c8a00a;--glow:rgba(200,160,10,.18);--glow-s:rgba(200,160,10,.08);--border:rgba(180,180,180,.13);--border-s:rgba(180,180,180,.07);--mono:"JetBrains Mono",ui-monospace,monospace;--sans:"Space Grotesk",sans-serif;--serif:"Bricolage Grotesque",sans-serif;--fr:"Bricolage Grotesque",sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+html,body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+body{overflow-x:hidden;cursor:none}
+::selection{background:var(--accent);color:#fff}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;mix-blend-mode:screen;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 0.5  0 0 0 0 0  0 0 0 0.8 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.cur{position:fixed;top:0;left:0;width:12px;height:12px;border-radius:50%;background:var(--accent);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
+.cur.hot{width:56px;height:56px}
+.cur.hot::after{content:"↗";position:absolute;inset:0;display:grid;place-items:center;color:#000;font-family:var(--sans);font-weight:600;font-size:16px}
+.cur-ring{position:fixed;top:0;left:0;width:32px;height:32px;border:1px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:transform .12s linear,opacity .2s;opacity:.5}
+.cur-ring.hot{opacity:0}
+@media(hover:none){body{cursor:auto}.cur,.cur-ring{display:none}a,button{cursor:pointer}}
+.top{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:0 24px;pointer-events:none}
+.top>*{pointer-events:auto}
+.back{display:inline-flex;align-items:center;gap:8px;background:rgba(9,9,9,.85);backdrop-filter:blur(14px);color:var(--ink);border:1px solid var(--border);padding:9px 16px 9px 12px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500;transition:background .2s,color .2s,border-color .2s}
+.back:hover{background:var(--accent);color:#fff;border-color:transparent}
+.back .ar{display:inline-block;transition:transform .2s}
+.back:hover .ar{transform:translateX(-3px)}
+.top-mid{display:inline-flex;align-items:center;gap:8px;background:rgba(9,9,9,.85);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:99px;padding:7px 14px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
+.top-mid .live{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px var(--glow-s);flex-shrink:0;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+@media(max-width:780px){.top-mid{display:none}}
+.hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#000}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.5;filter:saturate(0.7)}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(9,9,9,.2) 0%,rgba(9,9,9,.1) 40%,rgba(9,9,9,.85) 80%,var(--bg) 100%)}
+.hero-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:60%;height:40%;background:radial-gradient(ellipse at bottom,var(--glow) 0%,transparent 70%);pointer-events:none}
+.hero-body{position:relative;z-index:2;padding:0 24px 56px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero-kicker{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.18em;color:var(--ink-3);margin-bottom:16px}
+.hero-h{font-family:var(--sans);font-weight:600;font-size:clamp(72px,18vw,260px);line-height:.85;letter-spacing:-.04em;color:#fff;text-shadow:0 0 120px var(--glow)}
+.hero-sub{font-family:var(--fr);font-style:italic;font-size:clamp(18px,2vw,28px);color:var(--ink-2);margin-top:20px;letter-spacing:-.01em}
+.hero-meta-row{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap;justify-content:center}
+.hero-fact{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);line-height:1.7}
+.hero-fact b{color:var(--ink);font-weight:500;display:block;margin-top:2px}
+.ticker{border-block:1px solid var(--glow);overflow:hidden;background:var(--accent);color:#fff;padding:14px 0}
+.ticker-track{display:flex;gap:40px;width:max-content;animation:ticker-scroll 50s linear infinite;font-family:var(--sans);font-weight:500;font-size:clamp(20px,3vw,40px);letter-spacing:-.02em;line-height:1;white-space:nowrap}
+.ticker-track em{font-family:var(--fr);font-style:italic;font-weight:400;color:rgba(255,255,255,.65)}
+@keyframes ticker-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.sec{padding:96px 24px;border-top:1px solid var(--border-s);position:relative}
+@media(max-width:720px){.sec{padding:60px 20px}}
+.sec.warm{background:rgba(255,255,255,.02)}
+.sec.deep{background:rgba(0,0,0,.3);border-color:rgba(200,160,10,.12)}
+.sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:end;margin-bottom:56px;padding-bottom:22px;border-bottom:1px solid var(--border)}
+@media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+.sec-tag{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3)}
+.sec-tag .num{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid var(--border);font-weight:500;font-size:11px;color:var(--ink-3)}
+.sec-h{font-family:var(--fr);font-weight:400;font-style:italic;font-size:clamp(40px,7vw,108px);line-height:.88;letter-spacing:-.03em;text-align:center;color:var(--ink)}
+.sec-h em{font-style:normal;color:var(--accent)}
+.sec-side{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;text-align:right;line-height:1.75;color:var(--ink-3)}
+.intro{display:grid;grid-template-columns:1fr 1.8fr;gap:80px;align-items:start}
+@media(max-width:900px){.intro{grid-template-columns:1fr;gap:40px}}
+.intro-aside{position:sticky;top:100px;display:flex;flex-direction:column;gap:18px}
+.aside-img{aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:rgba(255,255,255,.04);border:1px solid var(--border-s)}
+.aside-img img{width:100%;height:100%;object-fit:cover}
+.aside-dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-family:var(--mono);font-size:10px}
+.aside-dl dt{text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.aside-dl dd{color:var(--ink-2)}
+.intro-body{display:flex;flex-direction:column;gap:28px}
+.intro-body h3{font-family:var(--fr);font-style:italic;font-size:clamp(22px,3vw,38px);line-height:1.2;letter-spacing:-.02em}
+.intro-text{display:flex;flex-direction:column;gap:16px}
+.intro-text p{font-size:clamp(15px,1.3vw,18px);line-height:1.75;color:var(--ink-2)}
+.hook-block{border-left:2px solid var(--accent);padding:18px 24px;background:var(--glow-s);border-radius:0 12px 12px 0}
+.hook-label{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin-bottom:10px}
+.hook-text{font-family:var(--fr);font-style:italic;font-size:clamp(18px,2vw,26px);color:var(--ink);line-height:1.45}
+.gal-main{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:16px}
+@media(max-width:720px){.gal-main{grid-template-columns:1fr}}
+.g{position:relative;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04)}
+.g.tall{grid-row:1/3}
+.g img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.g:hover img{transform:scale(1.03)}
+.glbl{position:absolute;bottom:12px;left:12px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.7);background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:5px 10px;border-radius:99px}
+.placeholder-img{min-height:200px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.1em}
+.vsystem{max-width:860px;margin:0 auto}
+.vsys-body{font-size:clamp(16px,1.4vw,20px);line-height:1.7;color:var(--ink-2);margin-bottom:40px}
+.vsys-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px}
+.vsys-row{display:flex;gap:14px;align-items:flex-start}
+.vsys-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:6px}
+.vsys-text{font-size:clamp(14px,1.2vw,16px);line-height:1.7;color:var(--ink-2)}
+.vsys-text b{color:var(--ink);font-weight:500}
+.backstage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:720px){.backstage-grid{grid-template-columns:1fr}}
+.bs-item{position:relative;border-radius:12px;overflow:hidden;background:rgba(255,255,255,.04)}
+.bs-item img{width:100%;height:100%;object-fit:cover}
+.bs-lbl{position:absolute;bottom:12px;left:12px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.7);background:rgba(0,0,0,.5);backdrop-filter:blur(8px);padding:5px 10px;border-radius:99px}
+.quote-sec{padding:96px 24px;text-align:center;border-top:1px solid var(--border-s)}
+.quote-mark{font-family:var(--fr);font-size:clamp(60px,10vw,120px);line-height:.5;color:var(--accent);opacity:.4;display:block;margin-bottom:24px}
+.quote-text{font-family:var(--fr);font-style:italic;font-size:clamp(22px,3vw,42px);line-height:1.3;letter-spacing:-.02em;color:var(--ink);max-width:760px;margin:0 auto 20px}
+.quote-attr{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--ink-3)}
+.deliv{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:32px;margin-bottom:64px}
+.deliv-cell{background:rgba(255,255,255,.03);border:1px solid var(--border-s);border-radius:16px;padding:28px 24px}
+.deliv-icon{font-size:28px;margin-bottom:16px}
+.deliv-h{font-family:var(--sans);font-weight:600;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:12px}
+.deliv-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.deliv-list li{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em}
+.deliv-list li::before{content:"— ";color:var(--accent)}
+.credits{display:flex;flex-wrap:wrap;gap:32px 48px;padding-top:32px;border-top:1px solid var(--border-s)}
+.credit-role{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);margin-bottom:4px}
+.credit-name{font-family:var(--sans);font-weight:500;font-size:15px;color:var(--ink)}
+.cta-sec{padding:120px 24px;text-align:center;border-top:1px solid var(--border-s)}
+.cta-label{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-3);margin-bottom:24px}
+.cta-h{font-family:var(--fr);font-weight:400;font-style:italic;font-size:clamp(44px,8vw,120px);line-height:.9;letter-spacing:-.03em;color:var(--ink);margin-bottom:48px}
+.cta-h em{font-style:normal;color:var(--accent)}
+.cta-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:99px;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:500;transition:all .2s}
+.cta-btn.primary{background:var(--ink);color:var(--bg)}
+.cta-btn.primary:hover{background:var(--accent);color:#fff}
+.cta-btn.outline{border:1px solid var(--border);color:var(--ink)}
+.cta-btn.outline:hover{border-color:var(--accent);color:var(--accent)}
+.foot{padding:32px 24px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border-s);font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.foot-back{display:inline-flex;align-items:center;gap:8px;transition:color .2s}
+.foot-back:hover{color:var(--ink)}
+.foot-back .ar{transition:transform .2s}
+.foot-back:hover .ar{transform:translateX(-3px)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.shown{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="ring"></div>
+<nav class="top">
+  <a class="back" href="../index.html#works"><span class="ar">←</span> Все проекты</a>
+  <div class="top-mid"><span class="live"></span>Lightworks · Case study</div>
+</nav>
+<section class="hero" id="zone-hero">
+  <img loading="lazy" decoding="async" class="hero-img" src="../assets/lightworks/preview.webp" alt="Lightworks">
+  <div class="hero-grad"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-body">
+    <div class="hero-kicker">Case study · Interactive installation · Visual programming</div>
+    <h1 class="hero-h">LIGHT·WORKS</h1>
+    <p class="hero-sub">Интерактивный урбан-проект: свет как замена вандализму</p>
+    <div class="hero-meta-row">
+      <div class="hero-fact">Роль<b>Creative Director · Visual programmer</b></div>
+      <div class="hero-fact">Формат<b>Городская инсталляция</b></div>
+      <div class="hero-fact">Технология<b>Light graffiti · Interactive</b></div>
+      <div class="hero-fact">Год<b>2014—2017</b></div>
+    </div>
+  </div>
+</section>
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Lightworks · Свет вместо краски · Городская среда · Adidas · Vandalism Free <em>·</em> Lightworks · Свет вместо краски · Городская среда · Adidas · Vandalism Free <em>·</em></span>
+    <span>Lightworks · Свет вместо краски · Городская среда · Adidas · Vandalism Free <em>·</em> Lightworks · Свет вместо краски · Городская среда · Adidas · Vandalism Free <em>·</em></span>
+  </div>
+</div>
+<section class="sec" id="zone-intro">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">01</span> О проекте</span>
+    <h2 class="sec-h">О <em>проекте</em></h2>
+    <span class="sec-side">Creative · Visual programming</span>
+  </div>
+  <div class="intro reveal">
+    <aside class="intro-aside">
+      <div class="aside-img">
+        <img loading="lazy" decoding="async" src="../assets/lightworks/preview.webp" alt="Lightworks">
+      </div>
+      <dl class="aside-dl">
+        <dt>Проект</dt><dd>Lightworks</dd>
+        <dt>Роль</dt><dd>Creative Director · Visual programmer</dd>
+        <dt>Формат</dt><dd>Городская инсталляция</dd>
+        <dt>Год</dt><dd>2014—2017</dd>
+      </dl>
+    </aside>
+    <div class="intro-body">
+      <h3>Light graffiti как альтернатива вандализму в городской среде</h3>
+      <div class="intro-text">
+        <p>Lightworks — брендовый experiential-проект для Adidas в рамках кампании Vandalism Free. Концепция: дать людям инструмент для самовыражения в городской среде без ущерба для неё — световое граффити как замена краске на стенах.</p>
+        <p>Интерактивная инсталляция позволяла участникам создавать световые рисунки на городских поверхностях. Проект объединял технологию, брендинг и урбан-культуру в единое высказывание.</p>
+      </div>
+      <div class="hook-block reveal">
+        <div class="hook-label">Ключевая идея</div>
+        <p class="hook-text">Вандализм без разрушения. Граффити без краски. Самовыражение без последствий.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sec warm" id="zone-gallery" style="padding-top:80px;padding-bottom:80px">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">02</span> 02 Инсталляция</span>
+    <h2 class="sec-h">В городе</h2>
+    <span class="sec-side">Фото · Видео</span>
+  </div>
+  <div class="gal-main reveal">
+    <div class="g tall" style="min-height:300px">
+      <img loading="lazy" decoding="async" src="../assets/lightworks/preview.webp" alt="Lightworks">
+      <span class="glbl">01 · Lightworks</span>
+    </div>
+    <div class="g" style="min-height:200px">
+      <img loading="lazy" decoding="async" src="../assets/lightworks/preview.webp" alt="Lightworks">
+      <span class="glbl">02 · Детали</span>
+    </div>
+    <div class="g" style="min-height:200px">
+      <img loading="lazy" decoding="async" src="../assets/lightworks/preview.webp" alt="Lightworks">
+      <span class="glbl">03 · Атмосфера</span>
+    </div>
+    <div class="g" style="grid-column:2/4;min-height:200px">
+      <img loading="lazy" decoding="async" src="../assets/lightworks/preview.webp" alt="Lightworks">
+      <span class="glbl">04 · Общий план</span>
+    </div>
+  </div>
+</section>
+<section class="sec deep" id="zone-system">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">03</span> 03 Система</span>
+    <h2 class="sec-h">Механика</h2>
+    <span class="sec-side">Механика · Технология</span>
+  </div>
+  <div class="vsystem reveal">
+    <p class="vsys-body">Система строилась на авторски разработанных инструментах для создания световых рисунков — позволяя каждому участнику стать художником без специальных навыков.</p>
+    <div class="vsys-list">
+      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text"><b>Световые инструменты.</b> Специально разработанные световые инструменты позволяли создавать рисунки разной интенсивности и формы прямо на поверхностях городских объектов.</p></div>
+      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text"><b>Городское пространство.</b> Инсталляция адаптировалась под разные городские локации — стены, заборы, фасады — превращая любую поверхность в холст для световой живописи.</p></div>
+      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text"><b>Контент-система.</b> Все созданные участниками работы фиксировались, создавая архив городского светового граффити и продлевая жизнь проекта за пределы физических показов.</p></div>
+    </div>
+  </div>
+</section>
+<section class="sec" id="zone-backstage" style="padding-top:80px;padding-bottom:80px">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">04</span> Процесс</span>
+    <h2 class="sec-h">За <em>кадром</em></h2>
+    <span class="sec-side">Backstage · Process</span>
+  </div>
+  <div class="backstage-grid reveal">
+    <div class="bs-item" style="aspect-ratio:3/4"><img loading="lazy" decoding="async" src="../assets/lightworks/preview.webp" alt="Backstage"><span class="bs-lbl">Процесс</span></div>
+    <div class="bs-item" style="aspect-ratio:3/4"><img loading="lazy" decoding="async" src="../assets/lightworks/preview.webp" alt="Детали"><span class="bs-lbl">Детали</span></div>
+    <div class="bs-item" style="aspect-ratio:3/4"><img loading="lazy" decoding="async" src="../assets/lightworks/preview.webp" alt="Реализация"><span class="bs-lbl">Реализация</span></div>
+  </div>
+</section>
+<div class="quote-sec">
+  <div style="max-width:820px;margin:0 auto;text-align:center">
+    <span class="quote-mark">"</span>
+    <p class="quote-text">Самовыражение — базовая потребность. Задача — дать для него правильный инструмент.</p>
+    <p class="quote-attr">Tanya Samarakovskaya · Creative Director · Lightworks</p>
+  </div>
+</div>
+<section class="sec" id="zone-credits">
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">05</span> Что сделано</span>
+    <h2 class="sec-h">Полный <em>цикл</em></h2>
+    <span class="sec-side">От идеи до релиза</span>
+  </div>
+  <div class="deliv reveal">
+    <div class="deliv-cell"><div class="deliv-icon">◇</div><h4 class="deliv-h">Концепция</h4><ul class="deliv-list"><li>Идея Vandalism Free</li>
+        <li>Брендовая интеграция</li>
+        <li>Нарратив проекта</li>
+        <li>Experience-дизайн</li></ul></div>
+    <div class="deliv-cell"><div class="deliv-icon">✦</div><h4 class="deliv-h">Технология</h4><ul class="deliv-list"><li>Световые инструменты</li>
+        <li>Визуальное программирование</li>
+        <li>Техническое решение</li>
+        <li>Интерактивная система</li></ul></div>
+    <div class="deliv-cell"><div class="deliv-icon">▲</div><h4 class="deliv-h">Продакшн</h4><ul class="deliv-list"><li>Выбор локаций</li>
+        <li>Монтаж и настройка</li>
+        <li>Операция на показах</li>
+        <li>Документация</li></ul></div>
+    <div class="deliv-cell"><div class="deliv-icon">→</div><h4 class="deliv-h">Коммуникация</h4><ul class="deliv-list"><li>Арт-дирекшен</li>
+        <li>Контент для бренда</li>
+        <li>Медиаматериалы</li>
+        <li>Архив проекта</li></ul></div>
+  </div>
+  <div class="credits reveal"><div><div class="credit-role">Creative Director</div><div class="credit-name">Татьяна Самараковская</div></div>
+    <div><div class="credit-role">Клиент</div><div class="credit-name">Adidas</div></div>
+    <div><div class="credit-role">Период</div><div class="credit-name">2014—2017</div></div></div>
+</section>
+<section class="cta-sec">
+  <div class="cta-label">Другие проекты</div>
+  <h2 class="cta-h">Есть идея,<br>которую нужно<br><em>воплотить?</em></h2>
+  <div class="cta-links">
+    <a class="cta-btn primary" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать ↗</a>
+    <a class="cta-btn outline" href="../index.html#works">Все проекты</a>
+  </div>
+</section>
+<footer class="foot">
+  <span class="foot-copy">© 2026 · Tanya Samarakovskaya · Lightworks</span>
+  <a class="foot-back" href="../index.html"><span class="ar">←</span> Вернуться к портфолио</a>
+</footer>
+<script>
+const cur=document.getElementById('cur'),ring=document.getElementById('ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.classList.add('hot');ring.classList.add('hot')});
+  el.addEventListener('mouseleave',()=>{cur.classList.remove('hot');ring.classList.remove('hot')});
+});
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('shown')});},{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
