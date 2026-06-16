@@ -58,7 +58,7 @@
   .mag-pill.active{color:var(--lime)}
   @media(max-width:900px){.mag-nav{display:none}}
   .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:#fff;padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
-  .nav-cta::after{content:"↗"}
+  .nav-cta::after{content:"↗\FE0E"}
 
   .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
 
@@ -154,12 +154,17 @@
   .map-blue-img{position:relative}
   .map-blue-img img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
 
-  /* VIDEO placeholder */
+  /* VIDEO */
   .video-frame{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:16/9;background:var(--blue-deep);border:1px solid var(--line-d2);display:flex;align-items:center;justify-content:center;cursor:pointer}
-  .video-frame .vbadge{position:absolute;top:18px;left:18px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);background:rgba(0,0,0,.45);padding:6px 12px;border-radius:99px}
-  .video-play{width:88px;height:88px;border-radius:50%;background:var(--grad);display:grid;place-items:center;box-shadow:0 14px 44px rgba(14,76,143,.5);transition:transform .25s}
+  .video-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .video-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,24,46,.18) 0%,rgba(8,24,46,.5) 100%);z-index:1;transition:opacity .25s}
+  .video-frame:hover::after{opacity:.8}
+  .video-frame .vbadge{position:absolute;top:18px;left:18px;z-index:2;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-2);background:rgba(0,0,0,.45);padding:6px 12px;border-radius:99px}
+  .video-play{position:relative;z-index:2;width:88px;height:88px;border-radius:50%;background:var(--grad);display:grid;place-items:center;box-shadow:0 14px 44px rgba(14,76,143,.5);transition:transform .25s}
   .video-frame:hover .video-play{transform:scale(1.08)}
   .video-play svg{width:30px;height:30px;color:#fff;margin-left:5px}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+  .video-frame.is-playing{cursor:default}
   .video-cap{text-align:center;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);margin-top:18px}
   .map-blue-body h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,52px);line-height:.98;letter-spacing:-.035em;color:#fff;margin-bottom:18px}
   .map-blue-body p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.86)}
@@ -363,11 +368,12 @@
       <div></div>
       <div class="sec-side">прохождение<br><b>квеста</b></div>
     </div>
-    <div class="video-frame reveal" id="videoFrame">
-      <span class="vbadge">Скоро</span>
+    <div class="video-frame reveal" id="videoFrame" data-yt="nUlaF-BUMMI" role="button" tabindex="0" aria-label="Смотреть видео — прохождение WebAR-квеста">
+      <img class="video-poster" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-04.webp" alt="Прохождение WebAR-квеста «С океаном начистоту» в Москвариуме" loading="lazy" decoding="async">
+      <span class="vbadge">Прохождение · WebAR</span>
       <div class="video-play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
     </div>
-    <p class="video-cap">Видеоролик скоро появится</p>
+    <p class="video-cap">Нажмите, чтобы посмотреть прохождение квеста</p>
   </div>
 </section>
 
@@ -643,5 +649,17 @@
   document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show((idx-1+imgs.length)%imgs.length,-1);if(e.key==='ArrowRight')show((idx+1)%imgs.length,1);});
   let tx=0;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
   lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)dx<0?show((idx+1)%imgs.length,1):show((idx-1+imgs.length)%imgs.length);});
+
+  // VIDEO — фасад: до клика постер, по клику грузим YouTube
+  (function(){
+    const vf=document.getElementById('videoFrame');if(!vf)return;
+    function play(){
+      const id=vf.dataset.yt;if(!id||vf.classList.contains('is-playing'))return;
+      vf.classList.add('is-playing');
+      vf.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="Прохождение WebAR-квеста «С океаном начистоту»" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    }
+    vf.addEventListener('click',play);
+    vf.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play();}});
+  })();
 </script>
 </body></html>
