@@ -69,16 +69,21 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
 @media(hover:none){body{cursor:auto}.cur,.cur-ring{display:none}a,button{cursor:pointer}}
 
 /* ── nav ── */
-.top{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:0 24px;pointer-events:none}
-.top>*{pointer-events:auto}
-.back{display:inline-flex;align-items:center;gap:8px;background:rgba(7,9,14,.85);backdrop-filter:blur(14px);color:var(--ink);border:1px solid var(--border);padding:9px 16px 9px 12px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500;transition:background .2s,color .2s,border-color .2s}
-.back:hover{background:var(--accent);color:#fff;border-color:transparent}
-.back .ar{display:inline-block;transition:transform .2s}
-.back:hover .ar{transform:translateX(-3px)}
-.top-mid{display:inline-flex;align-items:center;gap:8px;background:rgba(7,9,14,.85);backdrop-filter:blur(14px);border:1px solid var(--border);border-radius:99px;padding:7px 14px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3)}
-.top-mid .live{width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 3px var(--glow-s);flex-shrink:0;animation:pulse 2.4s infinite}
-@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 3px var(--glow-s)}50%{opacity:.4;box-shadow:0 0 0 6px transparent}}
-@media(max-width:780px){.top-mid{display:none}}
+.top{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:60;width:calc(100% - 24px);max-width:1320px}
+.nav-bar{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:8px;background:rgba(7,9,14,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--border);border-radius:999px;padding:7px 8px 7px 18px}
+.back{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);white-space:nowrap;transition:color .2s}
+.back::before{content:"←";color:var(--accent-2);font-size:14px;transition:transform .2s}
+.back:hover{color:var(--accent-2)}
+.back:hover::before{transform:translateX(-3px)}
+.mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+.mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;text-decoration:none}
+.mag-pill:hover{background:rgba(241,236,221,.08);color:var(--ink)}
+.mag-pill.active{color:var(--accent-2)}
+@media(max-width:900px){.mag-nav{display:none}}
+.nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;padding:9px 16px;border-radius:999px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0;transition:background .2s}
+.nav-cta:hover{background:var(--accent-2)}
+.nav-cta::after{content:"↗\FE0E"}
+section[id]{scroll-margin-top:84px}
 
 /* ── hero ── */
 .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#03060a}
@@ -302,10 +307,20 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="ring"></div>
 
-<nav class="top">
-  <a class="back" href="../index.html#works"><span class="ar">←</span> Все проекты</a>
-  <div class="top-mid"><span class="live"></span>Nebula · EFEST 2021</div>
-</nav>
+<header class="top">
+  <div class="nav-bar">
+    <a class="back" href="../index.html#works">Все проекты</a>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#zone-intro" data-section="zone-intro">Концепция</a>
+      <a class="mag-pill" href="#zone-video" data-section="zone-video">Видео</a>
+      <a class="mag-pill" href="#zone-gallery" data-section="zone-gallery">Галерея</a>
+      <a class="mag-pill" href="#zone-sceno" data-section="zone-sceno">Сценография</a>
+      <a class="mag-pill" href="#zone-process" data-section="zone-process">Процесс</a>
+      <a class="mag-pill" href="#zone-credits" data-section="zone-credits">Реализация</a>
+    </nav>
+    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
+  </div>
+</header>
 
 <!-- ══ HERO ══ -->
 <!-- slot: hero-img -->
@@ -313,14 +328,14 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
   <img class="hero-img" src="../assets/nebula/preview.webp" alt="Nebula" loading="eager">
   <div class="hero-glow"></div>
   <div class="hero-body">
-    <div class="hero-kicker">Case study · Иммерсивная инсталляция · Experience design · EFEST 2021</div>
+    <div class="hero-kicker">Иммерсивная инсталляция · дизайн впечатлений</div>
     <h1 class="hero-h">NEBULA</h1>
     <p class="hero-sub">Арт-инсталляция на стыке космической науки и <span class="word-oval">телесного опыта</span></p>
     <div class="hero-meta-row">
-      <div class="hero-fact">Роль<b>Creative Director</b></div>
+      <div class="hero-fact">Роль<b>Креативный директор</b></div>
       <div class="hero-fact">Формат<b>Иммерсивная инсталляция</b></div>
       <div class="hero-fact">Площадка<b>Hello I/O · EFEST</b></div>
-      <div class="hero-fact">Технологии<b>Projection · Depth cameras · Sound</b></div>
+      <div class="hero-fact">Технологии<b>Проекция · глубинные камеры · звук</b></div>
       <div class="hero-fact">Год<b>2021</b></div>
     </div>
   </div>
@@ -329,8 +344,8 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
 <!-- ══ TICKER ══ -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>Nebula · Туманность · Взрыв сверхновой · Свет как материя <em>·</em> Образование туманности · Внутри туманности · Макрокосм <em>·</em> 12 проекторов · Depth cameras · Пространственный звук <em>·</em></span>
-    <span>Nebula · Туманность · Взрыв сверхновой · Свет как материя <em>·</em> Образование туманности · Внутри туманности · Макрокосм <em>·</em> 12 проекторов · Depth cameras · Пространственный звук <em>·</em></span>
+    <span>Nebula · Туманность · Взрыв сверхновой · Свет как материя <em>·</em> Образование туманности · Внутри туманности · Макрокосм <em>·</em> 12 проекторов · глубинные камеры · пространственный звук <em>·</em></span>
+    <span>Nebula · Туманность · Взрыв сверхновой · Свет как материя <em>·</em> Образование туманности · Внутри туманности · Макрокосм <em>·</em> 12 проекторов · глубинные камеры · пространственный звук <em>·</em></span>
   </div>
 </div>
 
@@ -352,7 +367,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
             <dt>Формат</dt><dd>Иммерсивная инсталляция</dd>
             <dt>Площадь</dt><dd>58 м²</dd>
             <dt>Площадка</dt><dd>EFEST 2021 · Hello I/O</dd>
-            <dt>Роль</dt><dd>Creative Director</dd>
+            <dt>Роль</dt><dd>Креативный директор</dd>
             <dt>Год</dt><dd>2021</dd>
           </dl>
         </div>
@@ -395,7 +410,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
     </div>
     <div class="setup-item">
       <div class="setup-num">↕</div>
-      <div class="setup-label">Depth cameras</div>
+      <div class="setup-label">Глубинные камеры</div>
       <div class="setup-desc">Глубинные камеры на потолке — трекинг движения в реальном времени</div>
     </div>
     <div class="setup-item">
@@ -410,7 +425,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
 <section class="sec warm" id="zone-video">
   <div class="sec-head no-title reveal">
     <span class="sec-tag"><span class="num">02</span> Видео</span>
-    <span class="sec-side">Documentation · Show reel</span>
+    <span class="sec-side">Запись шоу</span>
   </div>
   <div class="reveal" style="max-width:1100px;margin:0 auto">
     <!-- Локальный постер + click-to-play: превью не зависит от серверов YouTube -->
@@ -423,62 +438,49 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
         </svg>
       </div>
     </div>
-    <p class="video-caption">Nebula · EFEST 2021 · Hello I/O · Interactive Technologies · <a href="https://www.youtube.com/watch?v=bGKW-AaJ7QU" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:underline">смотреть на YouTube</a></p>
+    <p class="video-caption">Nebula · EFEST 2021 · студия Hello I/O · <a href="https://www.youtube.com/watch?v=bGKW-AaJ7QU" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:underline">смотреть на YouTube</a></p>
   </div>
 </section>
 
 <!-- ══ 03 · ГАЛЕРЕЯ ══ -->
 <section class="sec" id="zone-gallery" style="padding-top:80px;padding-bottom:80px">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">03</span> Фото проекта</span>
-    <h2 class="sec-h">Фото <em>проекта</em></h2>
-    <span class="sec-side">Документация</span>
+    <span class="sec-tag"><span class="num">03</span> Съёмка</span>
+    <h2 class="sec-h">Галерея</h2>
+    <span class="sec-side">На площадке</span>
   </div>
   <!-- slot: gal-slot-tall / gal-slot-1 / gal-slot-2 / gal-slot-wide -->
   <div class="gal-main reveal">
     <div class="g tall" style="min-height:360px">
       <!-- slot: gal-slot-tall -->
-      <img src="../assets/nebula/photo/webp/nebula-01.webp" alt="Nebula" loading="lazy">
-      <span class="glbl">01</span>
-    </div>
+      <img src="../assets/nebula/photo/webp/nebula-01.webp" alt="Nebula" loading="lazy">    </div>
     <div class="g" style="min-height:200px">
       <!-- slot: gal-slot-1 -->
-      <img src="../assets/nebula/photo/webp/nebula-06.webp" alt="Nebula" loading="lazy">
-      <span class="glbl">02</span>
-    </div>
+      <img src="../assets/nebula/photo/webp/nebula-06.webp" alt="Nebula" loading="lazy">    </div>
     <div class="g" style="min-height:200px">
       <!-- slot: gal-slot-2 -->
-      <img src="../assets/nebula/photo/webp/nebula-04.webp" alt="Nebula" loading="lazy">
-      <span class="glbl">03</span>
-    </div>
+      <img src="../assets/nebula/photo/webp/nebula-04.webp" alt="Nebula" loading="lazy">    </div>
     <div class="g" style="grid-column:2/4;min-height:200px">
       <!-- slot: gal-slot-wide -->
-      <img src="../assets/nebula/photo/webp/nebula-03.webp" alt="Nebula" loading="lazy">
-      <span class="glbl">04</span>
-    </div>
+      <img src="../assets/nebula/photo/webp/nebula-03.webp" alt="Nebula" loading="lazy">    </div>
   </div>
   <!-- slot: gal-slot-b1 / gal-slot-b2 / gal-slot-b3 -->
   <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px" class="reveal">
     <div class="g" style="min-height:220px">
-      <img src="../assets/nebula/photo/webp/nebula-07.webp" alt="Nebula" loading="lazy">
-      <span class="glbl">05</span>
-    </div>
+      <img src="../assets/nebula/photo/webp/nebula-07.webp" alt="Nebula" loading="lazy">    </div>
     <div class="g" style="min-height:220px">
-      <img src="../assets/nebula/photo/webp/nebula-02.webp" alt="Nebula" loading="lazy">
-      <span class="glbl">06</span>
-    </div>
+      <img src="../assets/nebula/photo/webp/nebula-02.webp" alt="Nebula" loading="lazy">    </div>
     <div class="g" style="min-height:220px">
-      <img src="../assets/nebula/photo/webp/nebula-08.webp" alt="Nebula" loading="lazy">
-      <span class="glbl">07</span>
-    </div>
+      <img src="../assets/nebula/photo/webp/nebula-08.webp" alt="Nebula" loading="lazy">    </div>
   </div>
 </section>
 
 <!-- ══ 04 · СЦЕНОГРАФИЯ ══ -->
 <section class="sec deep" id="zone-sceno">
-  <div class="sec-head no-title reveal">
-    <span class="sec-tag"><span class="num">04</span> Сценография</span>
-    <span class="sec-side">Dramaturgy · Experience flow · ~20 min</span>
+  <div class="sec-head reveal">
+    <span class="sec-tag"><span class="num">04</span> Драматургия</span>
+    <h2 class="sec-h">Сценография</h2>
+    <span class="sec-side">Три акта · ~20 минут</span>
   </div>
 
   <div class="vsystem reveal" style="margin-bottom:56px">
@@ -490,7 +492,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
     </div>
   </div>
 
-  <div class="sceno-timeline reveal">
+  <div class="sceno-timeline reveal" style="max-width:860px;margin:0 auto">
     <div class="sceno-act">
       <div class="sceno-left">
         <div class="sceno-num">I</div>
@@ -537,9 +539,9 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
 <!-- ══ 05 · ПРОЦЕСС ══ -->
 <section class="sec warm" id="zone-process">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">05</span> Процесс</span>
-    <h2 class="sec-h">За <em>кадром</em></h2>
-    <span class="sec-side">Backstage · Tests · Process</span>
+    <span class="sec-tag"><span class="num">05</span> За кадром</span>
+    <h2 class="sec-h">Процесс</h2>
+    <span class="sec-side">Сетап · тесты · рендеры</span>
   </div>
 
   <!-- Пространство и план -->
@@ -588,7 +590,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
       <span class="proc-lbl">II · Внутри туманности</span>
     </div>
     <div class="proc-item wide">
-      <img src="../assets/nebula/process/2-c.webp" alt="Полный цикл" loading="lazy" style="max-height:300px;width:100%;object-fit:cover">
+      <img src="../assets/nebula/process/nebula-fullcycle.webp" alt="Полный цикл визуальной системы" loading="lazy" style="max-height:300px;width:100%;object-fit:cover">
       <span class="proc-lbl">Полный цикл · визуальная система</span>
     </div>
   </div>
@@ -673,7 +675,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
       <div class="proj-nav-content">
         <div class="proj-nav-dir">← Предыдущий</div>
         <div class="proj-nav-name">Союзмультпарк</div>
-        <div class="proj-nav-sub">Interactive parks · 2020—23</div>
+        <div class="proj-nav-sub">Интерактивные парки · 2020—23</div>
       </div>
     </a>
     <a class="proj-nav-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
@@ -685,7 +687,7 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
       <div class="proj-nav-content">
         <div class="proj-nav-dir">Следующий →</div>
         <div class="proj-nav-name">Круг света</div>
-        <div class="proj-nav-sub">Festivals · Projection mapping · 2018–22</div>
+        <div class="proj-nav-sub">Фестивали · проекционный маппинг · 2018–22</div>
       </div>
     </a>
   </div>
@@ -729,6 +731,15 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('shown')});
 },{threshold:.05});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── nav: плавный скролл + подсветка активной секции ──
+document.querySelectorAll('.mag-pill').forEach(p=>{
+  p.addEventListener('click',e=>{e.preventDefault();const t=document.getElementById(p.dataset.section);if(t)t.scrollIntoView({behavior:'smooth',block:'start'});});
+});
+const navMap={};
+document.querySelectorAll('.mag-pill').forEach(p=>navMap[p.dataset.section]=p);
+const spy=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){Object.values(navMap).forEach(p=>p.classList.remove('active'));const a=navMap[e.target.id];if(a)a.classList.add('active');}}),{threshold:.25,rootMargin:'-10% 0px -60% 0px'});
+['zone-intro','zone-video','zone-gallery','zone-sceno','zone-process','zone-credits'].forEach(id=>{const el=document.getElementById(id);if(el)spy.observe(el);});
 </script>
 </body>
 </html>

@@ -448,7 +448,8 @@
   }
   /* about — фоновый портрет + текст поверх, 2 колонки */
   .about-sec{position:relative;overflow:hidden}
-  .about-bg{position:absolute;inset:0;z-index:0;background:url("assets/mememe_new.webp") 92% center/cover no-repeat}
+  .about-bg{position:absolute;inset:0;z-index:0}
+  .about-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:92% center}
   .about-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--graphite) 0%,rgba(22,22,26,.86) 40%,rgba(22,22,26,.5) 64%,rgba(22,22,26,.08) 100%)}
   .about-sec .wrap{position:relative;z-index:2}
   .about-content{display:flex;flex-direction:column;gap:clamp(20px,2.4vw,32px);max-width:min(720px,56%)}
@@ -478,23 +479,15 @@
 
   /* ───── SERVICES ───── */
   .svc-section{padding:90px 0 100px;background:var(--cream);color:var(--ink);position:relative;border-top:1px solid var(--line-l)}
-  .svc{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink);background:var(--cream)}
+  /* обводка через gap-линии: одинаковые 1px при любом числе колонок, ничего не пропадает */
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ink);border:1px solid var(--ink)}
   @media(max-width:900px){.svc{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.svc{grid-template-columns:1fr}}
   .svc-cell{
-    padding:28px 22px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);
+    padding:28px 22px;
     background:var(--cream);transition:background .25s,color .25s;
     min-height:240px;display:flex;flex-direction:column;justify-content:space-between;gap:22px;overflow:hidden;
   }
-  .svc-cell:nth-child(3n){border-right:0}
-  .svc-cell:nth-last-child(-n+3){border-bottom:0}
-  @media(max-width:900px){
-    .svc-cell:nth-child(3n){border-right:1px solid var(--ink)}
-    .svc-cell:nth-child(2n){border-right:0}
-    .svc-cell:nth-last-child(-n+3){border-bottom:1px solid var(--ink)}
-    .svc-cell:nth-last-child(-n+2){border-bottom:0}
-  }
-  @media(max-width:560px){.svc-cell{border-right:0!important}.svc-cell:not(:last-child){border-bottom:1px solid var(--ink)!important}}
   .svc-cell:hover{background:var(--ink);color:var(--bone)}
   .svc-cell:hover .svc-num{color:var(--bone-3)}
   .svc-cell:hover .svc-tag{color:var(--lime)}
@@ -554,12 +547,12 @@
   }
   .wrow-thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;position:relative;z-index:1;transition:transform .6s cubic-bezier(.2,.7,.2,1);will-change:transform}
   .wrow:hover .wrow-thumb{border-radius:10px;height:237px}
-  .wrow:hover .wrow-thumb img{transform:scale(1.1)}
+  .wrow:hover .wrow-thumb img{transform:scale(1.05)}
   .wrow-thumb .ph{position:absolute;inset:0;z-index:0;display:grid;place-items:center;color:var(--bone-3);font-size:22px}
   .wrow-title{font-weight:600;font-size:clamp(20px,2.6vw,34px);letter-spacing:-.025em;line-height:1;transition:color .25s;hyphens:none;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .wrow-title em{font-family:"Bricolage Grotesque",sans-serif;font-style:italic;color:var(--lime-deep);font-weight:700;transition:color .25s}
   .wrow:hover .wrow-title em{color:var(--lime)}
-  .wrow-tags{font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-2);transition:color .25s}
+  .wrow-tags{font-family:"JetBrains Mono",monospace;font-size:clamp(9.5px,.78vw,11px);letter-spacing:.05em;text-transform:uppercase;color:var(--bone-2);transition:color .25s;white-space:nowrap}
   .wrow-year{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-3);text-align:right;letter-spacing:.06em;transition:color .25s}
   .wrow:hover .wrow-tags,.wrow:hover .wrow-year{color:var(--bone-3)}
   .wrow-go{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-d2);display:grid;place-items:center;color:var(--bone-2);transition:all .25s;justify-self:end}
@@ -582,15 +575,18 @@
   }
   .wcard:hover{transform:translateY(-3px)}
   .wcard .vis{position:absolute;inset:0;z-index:0}
-  .wcard .vis img{width:100%;height:100%;object-fit:cover;transition:transform .5s;position:relative;z-index:1}
-  .wcard:hover .vis img{transform:scale(1.04)}
+  .wcard .vis img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1);position:relative;z-index:1}
+  .wcard:hover .vis img{transform:scale(1.045)}
   .wcard .vis::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.7) 100%)}
   .wcard .vph{position:absolute;inset:0;z-index:0;display:grid;place-items:center;color:var(--bone-3);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;background:repeating-linear-gradient(135deg,var(--graphite-2) 0 8px,var(--graphite-3) 8px 16px)}
   .wcard-top{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone);margin-bottom:auto}
-  .wcard-top .tag{padding:5px 10px;border:1px solid rgba(180,180,180,.18);background:rgba(0,0,0,.45);backdrop-filter:blur(6px);border-radius:999px}
+  .wcard-top .tag{padding:8px 15px;font-size:clamp(12px,1.05vw,15px);font-weight:600;letter-spacing:.04em;border:1px solid rgba(180,180,180,.22);background:rgba(0,0,0,.5);backdrop-filter:blur(6px);border-radius:999px}
+  .wcard.s12 .wcard-top .tag{font-size:clamp(13px,1.2vw,17px);padding:9px 17px}
   .wcard-title-over{position:relative;z-index:2;font-weight:700;font-size:clamp(28px,3.4vw,52px);letter-spacing:-.035em;line-height:.92;color:var(--bone);text-wrap:balance}
-  .wcard-title-over .mark{color:var(--lime)}
-  .wcard-meta{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:end;gap:14px;margin-top:14px}
+  .wcard-title-over .mark{color:inherit}
+  .wcard-meta{position:relative;z-index:2;display:flex;justify-content:flex-end;align-items:end;gap:14px;margin-top:14px}
+  /* название проекта и стрелка — на одном уровне снизу */
+  .wcard-foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:14px}
   .wcard-cat{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-2);text-transform:uppercase;letter-spacing:.1em}
   .wcard-go{width:42px;height:42px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;flex-shrink:0;transition:transform .3s}
   .wcard:hover .wcard-go{transform:rotate(45deg)}
@@ -659,9 +655,11 @@
   .ccard:hover{color:var(--lime)}
   .ccard-lbl{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-3);text-transform:uppercase;letter-spacing:.12em;display:flex;justify-content:space-between;align-items:center}
   .ccard-lbl::before{content:"●";color:var(--lime)}
-  .ccard-val{font-weight:700;font-size:clamp(16px,1.8vw,24px);letter-spacing:-.02em;line-height:1.2;word-break:break-all}
+  .ccard-val{font-weight:700;font-size:clamp(15px,1.8vw,24px);letter-spacing:-.02em;line-height:1.25;overflow-wrap:normal;word-break:normal;hyphens:none}
   .ccard-go{width:32px;height:32px;border-radius:50%;border:1px solid var(--line-d2);display:grid;place-items:center;color:var(--bone-2);transition:all .25s}
   .ccard:hover .ccard-go{background:var(--lime);color:var(--ink);border-color:transparent;transform:rotate(45deg)}
+  /* контакты: меньше воздуха до футера */
+  #contact{padding-bottom:40px}
 
   /* ───── FOOTER ───── */
   footer{padding:28px var(--side-pad);border-top:1px solid var(--line-d);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);background:var(--graphite)}
@@ -746,7 +744,7 @@
     </a>
     <nav class="top-nav">
       <a href="#about">Обо мне</a>
-      <a href="#services">Экспертиза</a>
+      <a href="#services">Компетенции</a>
       <a href="#works">Проекты</a>
       <a href="#career">Опыт</a>
       <a href="#contact">Контакты</a>
@@ -781,7 +779,7 @@
     <div class="hero-curve" aria-hidden="true">
       <svg viewBox="0 0 500 500">
         <defs><path id="curveA" d="M 60 250 C 60 60, 440 60, 440 250 S 60 440, 60 250" fill="none"/></defs>
-        <text><textPath href="#curveA" startOffset="0">Кайф · делать то, чего ещё не делали · Кайф · </textPath></text>
+        <text><textPath href="#curveA" startOffset="0">Кайф · делать то, чего ещё не делали · делать то, чего ещё не делали · </textPath></text>
       </svg>
     </div>
 
@@ -797,7 +795,7 @@
     <!-- middle: description + role / cta -->
     <div class="hero-mid">
       <div class="hero-mid-left">
-        <p class="hero-lede">Креативный директор и продюсер <span class="word-oval">полного цикла</span>: концепция, сторителлинг, визуальный язык, интерактив, команда, производство, запуск и эксплуатация.</p>
+        <p class="hero-lede">Креативный директор и&nbsp;продюсер <span class="word-oval">полного цикла</span>: концепция, сторителлинг, визуальный язык, интерактив, команда, производство, запуск и&nbsp;эксплуатация.</p>
       </div>
       <div class="hero-mid-right">
         <div class="hero-role">
@@ -834,11 +832,11 @@
 
 <!-- ════════════ ABOUT ════════════ -->
 <section class="sec on-graphite about-sec" id="about" data-screen-label="01 About">
-  <div class="about-bg" aria-hidden="true"></div>
+  <div class="about-bg"><img src="assets/tanya-samarakovskaya-creative-director.webp" alt="Таня Самараковская — креативный директор и продюсер мультимедийных проектов" loading="lazy" decoding="async"></div>
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">01 / Обо мне</span>
-      <h2 class="sec-h"><span class="word-pill">Практика</span>.</h2>
+      <span class="sec-num">01</span>
+      <h2 class="sec-h">Обо мне</h2>
       <span class="sec-side">Искусство <b>&amp; технологии</b></span>
     </div>
 
@@ -870,8 +868,8 @@
 <section class="svc-section" id="services" data-screen-label="02 Services">
   <div class="wrap">
     <div class="sec-head reveal" style="border-color:var(--line-l)">
-      <span class="sec-num" style="color:var(--ink-3)">02 / Экспертиза</span>
-      <h2 class="sec-h" style="color:var(--ink)">Экспертиза.</h2>
+      <span class="sec-num" style="color:var(--ink-3)">02</span>
+      <h2 class="sec-h" style="color:var(--ink)">Компетенции</h2>
       <span class="sec-side" style="color:var(--ink-2)">Восемь направлений</span>
     </div>
     <div class="svc reveal stagger">
@@ -879,14 +877,14 @@
         <div class="svc-num"><span>✦ 01 / CORE PRACTICE</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Core practice</span>
-          <h3 class="svc-headline">Experience design — <span class="mark">от первого контакта</span> до впечатления, с которым человек уходит.</h3>
+          <h3 class="svc-headline">Experience design — <span class="mark">от первого контакта</span> до&nbsp;впечатления, с&nbsp;которым человек уходит.</h3>
         </div>
       </div>
       <div class="svc-cell">
         <div class="svc-num"><span>✦ 02 / STORYTELLING</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Storytelling &amp; engagement</span>
-          <h3 class="svc-h">Сторителлинг <span class="mark">&amp;</span> вовлечение</h3>
+          <h3 class="svc-h">Сторителлинг&nbsp;<span class="mark">&amp;</span>&nbsp;вовлечение</h3>
           <p class="svc-desc">Нарратив, игровые механики, модели вовлечения и удержания аудитории.</p>
         </div>
       </div>
@@ -894,7 +892,7 @@
         <div class="svc-num"><span>✦ 03 / MULTIMEDIA</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Multimedia</span>
-          <h3 class="svc-h">Мультимедиа и <span class="mark">интерактив</span></h3>
+          <h3 class="svc-h">Мультимедиа и&nbsp;<span class="mark">интерактив</span></h3>
           <p class="svc-desc">Свет, звук, контент и механики, которые делают пространство вовлекающим.</p>
         </div>
       </div>
@@ -910,7 +908,7 @@
         <div class="svc-num"><span>✦ 05 / AI</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">AI · Production</span>
-          <h3 class="svc-h">AI <span class="mark">в</span> продакшне</h3>
+          <h3 class="svc-h">AI&nbsp;<span class="mark">в</span>&nbsp;продакшне</h3>
           <p class="svc-desc">Генеративные инструменты в полном производственном цикле — от прототипа до финала.</p>
         </div>
       </div>
@@ -946,8 +944,8 @@
 <section class="sec on-graphite" id="works" data-screen-label="03 Works">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-num">03 / Проекты</span>
-      <h2 class="sec-h"><span class="word-pill">Избранные</span> работы.</h2>
+      <span class="sec-num">03</span>
+      <h2 class="sec-h" style="color:var(--lime)">Проекты</h2>
       <span class="sec-side">30+ реализованных<br><b>проектов</b></span>
     </div>
 
@@ -963,7 +961,7 @@
       <a class="wrow" href="projects/nebula.html">
         <span class="wrow-num">01</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — мультимедийная арт-инсталляция" onerror="this.style.display='none'"><span class="ph">✦</span></span>
-        <span class="wrow-title">Небула<em>*</em></span>
+        <span class="wrow-title">Небула</span>
         <span class="wrow-tags">Exhibitions · Experience design</span>
         <span class="wrow-year">2023</span>
         <span class="wrow-go">↗︎</span>
@@ -995,7 +993,7 @@
       <a class="wrow" href="projects/kandid.html">
         <span class="wrow-num">05</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="Кандид — театральный видеодизайн" onerror="this.style.display='none'"><span class="ph">K</span></span>
-        <span class="wrow-title">Кандид<em>.</em></span>
+        <span class="wrow-title">Кандид</span>
         <span class="wrow-tags">Theater · Video design</span>
         <span class="wrow-year">2016</span>
         <span class="wrow-go">↗︎</span>
@@ -1003,7 +1001,7 @@
       <a class="wrow" href="projects/baal.html">
         <span class="wrow-num">06</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><span class="ph">B</span></span>
-        <span class="wrow-title">Баал<em>.</em></span>
+        <span class="wrow-title">Баал</span>
         <span class="wrow-tags">Theater · Media artist</span>
         <span class="wrow-year">2019</span>
         <span class="wrow-go">↗︎</span>
@@ -1063,82 +1061,70 @@
       <!-- ряд 1 — два -->
       <a class="wcard s6" href="projects/nebula.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — мультимедийная арт-инсталляция" onerror="this.style.display='none'"><div class="vph">Небула</div></div>
-        <div class="wcard-top"><span class="tag">● Арт-инсталляция</span><span>01 / 12</span></div>
-        <h3 class="wcard-title-over">Не<span class="mark">була</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Exhibitions · Experience design</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Выставка</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Небула</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/cymatic.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/cymatic.webp" alt="Круг света — проекционный маппинг" onerror="this.style.display='none'"><div class="vph">Круг света</div></div>
-        <div class="wcard-top"><span class="tag">● Festival</span><span>02 / 12</span></div>
-        <h3 class="wcard-title-over">Круг света</h3>
-        <div class="wcard-meta"><p class="wcard-cat">Projection mapping · 2018—22</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Фестиваль</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Круг света</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 2 — крупный (флагман) -->
       <a class="wcard s12" href="projects/capybarabooom.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="КапибараБууум — интерактивная выставка" onerror="this.style.display='none'"><div class="vph">КапибараБууум</div></div>
-        <div class="wcard-top"><span class="tag">● Pop-IP · Interactive exhibition</span><span>03 / 12</span></div>
-        <h3 class="wcard-title-over">Капибара<span class="mark">Бууум</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Exhibitions · IP system · 30 people</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Выставка</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">КапибараБууум</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 3 — два -->
       <a class="wcard s6" href="projects/pole.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="Поле — театральный медиаарт" onerror="this.style.display='none'"><div class="vph">Поле</div></div>
-        <div class="wcard-top"><span class="tag">● Theater</span><span>04 / 12</span></div>
-        <h3 class="wcard-title-over">Поле</h3>
-        <div class="wcard-meta"><p class="wcard-cat">Media artist · 2021</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Театр</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Поле</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/kandid.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="Кандид — театральный видеодизайн" onerror="this.style.display='none'"><div class="vph">Кандид</div></div>
-        <div class="wcard-top"><span class="tag">● Theater</span><span>05 / 12</span></div>
-        <h3 class="wcard-title-over">Кан<span class="mark">дид</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Video design · 2016</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Театр</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Кандид</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 4 — крупный (флагман) -->
       <a class="wcard s12" href="projects/baal.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><div class="vph">Баал</div></div>
-        <div class="wcard-top"><span class="tag">● Theater · Media art</span><span>06 / 12</span></div>
-        <h3 class="wcard-title-over">Баал<span class="mark">.</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Media artist · 2019</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Театр</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Баал</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 5 — два -->
       <a class="wcard s6" href="projects/wayofwater.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><div class="vph">Путь воды</div></div>
-        <div class="wcard-top"><span class="tag">● Exhibition</span><span>07 / 12</span></div>
-        <h3 class="wcard-title-over">Путь <span class="mark">воды</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Experience design · 2022—24</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Выставка</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Путь воды</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/prosvetitel.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="Просветитель — фестиваль и награды" onerror="this.style.display='none'"><div class="vph">Просветитель</div></div>
-        <div class="wcard-top"><span class="tag">● Festivals · Awards</span><span>08 / 12</span></div>
-        <h3 class="wcard-title-over">Просве<span class="mark">титель</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Festivals · Awards · 2018</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Фестиваль</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Просветитель</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 6 — крупный (флагман) -->
       <a class="wcard s12" href="projects/moskvaruim.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/msq_10let/photo/webp/city-01.webp" alt="Рыбов показываем — рекламная кампания 360°" onerror="this.style.display='none'"><div class="vph">Рыбов показываем</div></div>
-        <div class="wcard-top"><span class="tag">● Advertising 360°</span><span>09 / 12</span></div>
-        <h3 class="wcard-title-over">Рыбов <span class="mark">показываем</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Реклама · Art direction · 2024</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Рекламная кампания</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Рыбов показываем</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 7 — два -->
       <a class="wcard s6" href="projects/troyka-lovemeet.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект" onerror="this.style.display='none'"><div class="vph">Случайное знакомство</div></div>
-        <div class="wcard-top"><span class="tag">● Cards · AR · Video</span><span>10 / 12</span></div>
-        <h3 class="wcard-title-over">Случайное <span class="mark">знакомство</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Cards · AR · Video production · 2023</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● AR-проект</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/clean-ocean.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/clean-ocean.webp" alt="С океаном начистоту — WebAR-квест в Москвариуме" onerror="this.style.display='none'"><div class="vph">С океаном начистоту</div></div>
-        <div class="wcard-top"><span class="tag">● WebAR · Quest</span><span>11 / 12</span></div>
-        <h3 class="wcard-title-over">С океаном <span class="mark">начистоту</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">WebAR · Creative direction · Москвариум</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● WebAR-квест</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">С океаном начистоту</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 8 — крупный (флагман) -->
       <a class="wcard s12" href="projects/souzmultpark.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><div class="vph">Союзмультпарк</div></div>
-        <div class="wcard-top"><span class="tag">● Interactive parks</span><span>12 / 12</span></div>
-        <h3 class="wcard-title-over">Союзмульт<span class="mark">парк</span></h3>
-        <div class="wcard-meta"><p class="wcard-cat">Interactive · Multi-zone · 2020—23</p><span class="wcard-go">↗︎</span></div>
+        <div class="wcard-top"><span class="tag">● Интерактивный парк</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over">Союзмультпарк</h3><span class="wcard-go">↗︎</span></div>
       </a>
     </div>
   </div>
@@ -1148,14 +1134,14 @@
 <section class="sec on-cream" id="career" data-screen-label="04 Career">
   <div class="wrap">
     <div class="sec-head reveal" style="border-color:var(--line-l)">
-      <span class="sec-num" style="color:var(--ink-3)">04 / Опыт</span>
-      <h2 class="sec-h" style="color:var(--ink)"><span class="word-pill">Опыт</span>.</h2>
+      <span class="sec-num" style="color:var(--ink-3)">04</span>
+      <h2 class="sec-h" style="color:var(--ink)">Опыт</h2>
       <span class="sec-side" style="color:var(--ink-2)">12+ лет практики</span>
     </div>
 
     <div class="career">
       <div class="career-aside reveal">
-        <p>Выставки, контент, phygital, театр, AI.</p>
+        <p>Выставки, контент, phygital, театр, рекламные кампании, AR, маппинг, AI.</p>
 
         <div class="tools-stack">
           <span class="tools-label">Стек</span>
@@ -1183,17 +1169,17 @@
       </div>
 
       <div class="timeline reveal stagger"><a class="titem" href="#">
-          <span class="tyear">2025—н.в.</span>
+          <span class="tyear">2024—н.в.</span>
           <div>
             <h3 class="ttitle">Москвариум <span class="mark">/</span> Креативный директор</h3>
-            <p class="tdesc">Руководство креативными проектами разного масштаба на стороне заказчика. АР-квесты, спецпроекты, рекламные кампании 360, фото и видео-съемки, брендинг, партнерские и фестивальные интеграции. Дополнительно — функции креативного директора мультимедийных проектов.</p>
+            <p class="tdesc">Руководство креативными проектами разного масштаба на стороне заказчика. АР-квесты, спецпроекты, рекламные кампании 360, фото и видео-съемки, брендинг, партнерские и фестивальные интеграции.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
         <a class="titem" href="#">
           <span class="tyear">2021—2024</span>
           <div>
-            <h3 class="ttitle">Москвариум <span class="mark">/</span> Руководитель мультимедийных проектов</h3>
+            <h3 class="ttitle">Москвариум <span class="mark">/</span> Креативный директор мультимедийных проектов</h3>
             <p class="tdesc">Руководство мультимедийными выставочными проектами на стороне заказчика: концепция, сценарная архитектура, визуальное направление, подрядчики, бюджет, сроки, запуск и эксплуатационные доработки. Ключевые проекты: «Путь воды», «КапибараБууум», гастроли и расширение «Океана Юрского периода».</p>
           </div>
           <span class="tarrow">↗︎</span>
@@ -1233,8 +1219,8 @@
         <a class="titem" href="#">
           <span class="tyear">2005—12</span>
           <div>
-            <h3 class="ttitle">Digital &amp; <span class="mark">Advertising</span></h3>
-            <p class="tdesc">Digital-спецпроекты, рекламные кампании, интерактивные промо-механики в международных агентствах Actis Wunderman, ADV. Путь от технического исполнения к арт-дирекшену.</p>
+            <h3 class="ttitle">Диджитал и&nbsp;<span class="mark">реклама</span></h3>
+            <p class="tdesc">Digital-спецпроекты, рекламные кампании, интерактивные промо-механики в&nbsp;международных агентствах Actis Wunderman, ADV Digital. Путь от технического исполнения к&nbsp;арт-дирекшену.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
@@ -1257,11 +1243,11 @@
     <div class="ccards reveal stagger">
       <a class="ccard" href="mailto:tsamarakovskaya@gmail.com">
         <span class="ccard-lbl">Email <span class="ccard-go">↗︎</span></span>
-        <span class="ccard-val">tsamarakovskaya@gmail.com</span>
+        <span class="ccard-val">tsamarakovskaya<wbr>@gmail.com</span>
       </a>
       <a class="ccard" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
         <span class="ccard-lbl">Telegram <span class="ccard-go">↗︎</span></span>
-        <span class="ccard-val">@samarakovskaya_tanya</span>
+        <span class="ccard-val">@samarakovskaya<wbr>_tanya</span>
       </a>
       <a class="ccard" href="assets/resume.pdf" download>
         <span class="ccard-lbl">Resume <span class="ccard-go">↓</span></span>
