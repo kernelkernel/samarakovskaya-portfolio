@@ -52,6 +52,11 @@
   .back::before{content:"←";color:var(--lime);font-size:14px}
   .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
   .nav-cta::after{content:"↗"}
+  .nav-end{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
+  .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:var(--graphite);border:1px solid var(--line-d);border-radius:99px}
+  .lang-seg{padding:7px 9px;border-radius:99px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-3);line-height:1;transition:background .2s,color .2s}
+  .lang-seg.on{background:var(--lime);color:var(--ink);font-weight:600}
+  .lang-seg:hover:not(.on){color:var(--bone)}
 
   /* MAGNETIC NAV */
   .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
@@ -289,7 +294,7 @@
 <body>
 
 <div class="lb" id="lb">
-  <button class="lb-close" id="lbClose">[ESC] закрыть</button>
+  <button class="lb-close" id="lbClose" data-i18n="lb.close">[ESC] закрыть</button>
   <button class="lb-nav lb-prev" id="lbPrev">←</button>
   <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
   <button class="lb-nav lb-next" id="lbNext">→</button>
@@ -299,15 +304,21 @@
 <!-- TOP NAV -->
 <header class="top">
   <div class="nav-bar">
-    <a class="back" href="../index.html#works">Все проекты</a>
+    <a class="back" href="../index.html#works" data-i18n="n.back">Все проекты</a>
     <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#s-concept" data-section="s-concept">Концепт</a>
-      <a class="mag-pill" href="#s-show" data-section="s-show">Реализация</a>
-      <a class="mag-pill" href="#s-video" data-section="s-video">Видео</a>
-      <a class="mag-pill" href="#s-gallery" data-section="s-gallery">Галерея</a>
-      <a class="mag-pill" href="#s-credits" data-section="s-credits">Команда</a>
+      <a class="mag-pill" href="#s-concept" data-section="s-concept" data-i18n="n.concept">Концепт</a>
+      <a class="mag-pill" href="#s-show" data-section="s-show" data-i18n="n.show">Реализация</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video" data-i18n="n.video">Видео</a>
+      <a class="mag-pill" href="#s-gallery" data-section="s-gallery" data-i18n="n.gallery">Галерея</a>
+      <a class="mag-pill" href="#s-credits" data-section="s-credits" data-i18n="n.credits">Команда</a>
     </nav>
-    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
+    <div class="nav-end">
+      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
+        <button class="lang-seg on" data-lang="ru" type="button">RU</button>
+        <button class="lang-seg" data-lang="en" type="button">EN</button>
+      </div>
+      <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="n.cta">Написать</a>
+    </div>
   </div>
 </header>
 
@@ -322,31 +333,31 @@
   <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
     <div class="hero-meta-row">
       <div class="pills">
-        <span class="pill solid">2018</span>
-        <span class="pill">премия просветитель</span>
-        <span class="pill">supervisuals</span>
-        <span class="pill">москва</span>
+        <span class="pill solid" data-i18n="h.t1">2018</span>
+        <span class="pill" data-i18n="h.t2">премия просветитель</span>
+        <span class="pill" data-i18n="h.t3">supervisuals</span>
+        <span class="pill" data-i18n="h.t4">москва</span>
       </div>
       <div class="pills">
-        <span class="pill outline">light design</span>
-        <span class="pill outline">cg-контент</span>
+        <span class="pill outline" data-i18n="h.t5">light design</span>
+        <span class="pill outline" data-i18n="h.t6">cg-контент</span>
       </div>
     </div>
 
     <div class="hero-title">
       <h1 class="hero-h1">
-        <span class="syl s1">Про</span><span class="syl s2">свет</span><span class="syl s3">итель</span>
+        <span class="syl s1" data-i18n="h.syl1">Про</span><span class="syl s2" data-i18n="h.syl2">свет</span><span class="syl s3" data-i18n="h.syl3">итель</span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub" data-i18n="h.sub">
         10-летие премии — <b>лазерное шоу-открытие</b> и мультимедийная церемония.
       </p>
     </div>
 
     <div class="hero-foot">
-      <div class="hero-fact"><b>Format</b><span>Award Ceremony</span></div>
-      <div class="hero-fact"><b>Venue</b><span>Москва</span></div>
-      <div class="hero-fact"><b>Year</b><span>2018</span></div>
-      <div class="hero-fact"><b>Role</b><span>Light Design · CG</span></div>
+      <div class="hero-fact"><b data-i18n="h.f1l">Format</b><span data-i18n="h.f1v">Award Ceremony</span></div>
+      <div class="hero-fact"><b data-i18n="h.f2l">Venue</b><span data-i18n="h.f2v">Москва</span></div>
+      <div class="hero-fact"><b data-i18n="h.f3l">Year</b><span data-i18n="h.f3v">2018</span></div>
+      <div class="hero-fact"><b data-i18n="h.f4l">Role</b><span data-i18n="h.f4v">Light Design · CG</span></div>
     </div>
   </div>
 </section>
@@ -354,8 +365,8 @@
 <!-- MARQUEE -->
 <div class="marq" aria-hidden="true">
   <div class="marq-track">
-    <span>ПРОСВЕТИТЕЛЬ <span class="dot"></span> 10 ЛЕТ <span class="dot"></span> ЛАЗЕРНОЕ ШОУ <span class="dot"></span> НАУКА <span class="dot"></span> КНИГА <span class="dot"></span> CG-КОНТЕНТ <span class="dot"></span> TOUCHDESIGNER <span class="dot"></span> SUPERVISUALS <span class="dot"></span> REALTIME <span class="dot"></span></span>
-    <span>ПРОСВЕТИТЕЛЬ <span class="dot"></span> 10 ЛЕТ <span class="dot"></span> ЛАЗЕРНОЕ ШОУ <span class="dot"></span> НАУКА <span class="dot"></span> КНИГА <span class="dot"></span> CG-КОНТЕНТ <span class="dot"></span> TOUCHDESIGNER <span class="dot"></span> SUPERVISUALS <span class="dot"></span> REALTIME <span class="dot"></span></span>
+    <span data-i18n="marq.row">ПРОСВЕТИТЕЛЬ <span class="dot"></span> 10 ЛЕТ <span class="dot"></span> ЛАЗЕРНОЕ ШОУ <span class="dot"></span> НАУКА <span class="dot"></span> КНИГА <span class="dot"></span> CG-КОНТЕНТ <span class="dot"></span> TOUCHDESIGNER <span class="dot"></span> SUPERVISUALS <span class="dot"></span> REALTIME <span class="dot"></span></span>
+    <span data-i18n="marq.row">ПРОСВЕТИТЕЛЬ <span class="dot"></span> 10 ЛЕТ <span class="dot"></span> ЛАЗЕРНОЕ ШОУ <span class="dot"></span> НАУКА <span class="dot"></span> КНИГА <span class="dot"></span> CG-КОНТЕНТ <span class="dot"></span> TOUCHDESIGNER <span class="dot"></span> SUPERVISUALS <span class="dot"></span> REALTIME <span class="dot"></span></span>
   </div>
 </div>
 
@@ -363,9 +374,9 @@
 <section class="sec on-cream" id="s-concept">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Концепт</span>
-      <h2 class="sec-h"><span class="word-pill">Идея</span> шоу.</h2>
-      <span class="sec-side"><b>Юбилей 10 лет</b><br>2018 · Москва</span>
+      <span class="sec-label" data-i18n="concept.label">Концепт</span>
+      <h2 class="sec-h" data-i18n="concept.h"><span class="word-pill">Идея</span> шоу.</h2>
+      <span class="sec-side" data-i18n="concept.side"><b>Юбилей 10 лет</b><br>2018 · Москва</span>
     </div>
 
     <div class="concept reveal">
@@ -375,18 +386,18 @@
         </div>
       </div>
       <div class="concept-body">
-        <p class="concept-lead">
+        <p class="concept-lead" data-i18n="concept.lead">
           Лазерное шоу как <span class="word-block">символ пути</span> — десять лет премии, объединившей науку и культуру.
         </p>
         <div class="concept-text">
-          <p>Премия <b>«Просветитель»</b> за лучшую научно-популярную книгу на русском языке была учреждена в 2008 году основателем компании «Вымпелком» <b>Дмитрием Зиминым</b> и Фондом некоммерческих программ «Династия».</p>
-          <p>Цель премии — привлечь внимание читателей к просветительскому жанру, поощрить авторов и создать предпосылки для расширения рынка просветительской литературы в России.</p>
-          <p>У юбилейной церемонии было три задачи: <b>яркое лазерное шоу</b> как эффектное открытие — символ десятилетнего пути; <b>стильное представление</b> членов жюри и финалистов через короткие стилизованные видео; <b>архивная нарезка</b> ключевых моментов за 10 лет.</p>
+          <p data-i18n="concept.p1">Премия <b>«Просветитель»</b> за лучшую научно-популярную книгу на русском языке была учреждена в 2008 году основателем компании «Вымпелком» <b>Дмитрием Зиминым</b> и Фондом некоммерческих программ «Династия».</p>
+          <p data-i18n="concept.p2">Цель премии — привлечь внимание читателей к просветительскому жанру, поощрить авторов и создать предпосылки для расширения рынка просветительской литературы в России.</p>
+          <p data-i18n="concept.p3">У юбилейной церемонии было три задачи: <b>яркое лазерное шоу</b> как эффектное открытие — символ десятилетнего пути; <b>стильное представление</b> членов жюри и финалистов через короткие стилизованные видео; <b>архивная нарезка</b> ключевых моментов за 10 лет.</p>
         </div>
         <dl class="concept-meta">
-          <div><dt>Учредитель</dt><dd>Дмитрий Зимин</dd></div>
-          <div><dt>Основана</dt><dd>2008</dd></div>
-          <div><dt>Команда</dt><dd>SUPERVISUALS</dd></div>
+          <div><dt data-i18n="concept.dt1">Учредитель</dt><dd data-i18n="concept.dd1">Дмитрий Зимин</dd></div>
+          <div><dt data-i18n="concept.dt2">Основана</dt><dd data-i18n="concept.dd2">2008</dd></div>
+          <div><dt data-i18n="concept.dt3">Команда</dt><dd data-i18n="concept.dd3">SUPERVISUALS</dd></div>
         </dl>
       </div>
     </div>
@@ -401,7 +412,7 @@
     </div>
   </div>
   <div class="pullq-inner reveal">
-    <p class="pullq-text">
+    <p class="pullq-text" data-i18n="pullq.text">
       Яркое лазерное шоу как <span class="word-block">эффектное открытие</span> — и символ <span class="word-oval">десятилетнего</span> пути.
     </p>
   </div>
@@ -411,9 +422,9 @@
 <section class="sec on-graphite" id="s-show">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Реализация</span>
-      <h2 class="sec-h">4 задачи одного <span class="word-pill">шоу</span>.</h2>
-      <span class="sec-side"><b>Light Design · CG</b><br>Москва · 2018</span>
+      <span class="sec-label" data-i18n="show.label">Реализация</span>
+      <h2 class="sec-h" data-i18n="show.h">4 задачи одного <span class="word-pill">шоу</span>.</h2>
+      <span class="sec-side" data-i18n="show.side"><b>Light Design · CG</b><br>Москва · 2018</span>
     </div>
 
     <article class="chap reveal">
@@ -421,8 +432,8 @@
         <div class="ph" data-ph="лазерное шоу открытие"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-01.webp" alt=""></div>
       </div>
       <div class="chap-body">
-        <h3 class="chap-title">Лазерное шоу как <span class="mark">открытие</span></h3>
-        <p>Разработка сценария светового шоу — от драматургии к техническому заданию. <b>100 роботизированных прожекторов</b> синхронизованы в единое зрелище, которое читается как символ десятилетнего пути: рост, движение, свет.</p>
+        <h3 class="chap-title" data-i18n="show.c1.title">Лазерное шоу как <span class="mark">открытие</span></h3>
+        <p data-i18n="show.c1.p">Разработка сценария светового шоу — от драматургии к техническому заданию. <b>100 роботизированных прожекторов</b> синхронизованы в единое зрелище, которое читается как символ десятилетнего пути: рост, движение, свет.</p>
       </div>
     </article>
 
@@ -431,8 +442,8 @@
         <div class="ph" data-ph="общий план зала"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-06.webp" alt=""></div>
       </div>
       <div class="chap-body">
-        <h3 class="chap-title">Портреты <span class="mark">жюри</span> и финалистов</h3>
-        <p>Короткие <b>стилизованные видеопредставления</b> для каждого члена жюри и финалиста — разработаны в CG, выполнены в единой визуальной логике церемонии. Задача: передать статус и индивидуальность каждого участника без потери общего ритма шоу.</p>
+        <h3 class="chap-title" data-i18n="show.c2.title">Портреты <span class="mark">жюри</span> и финалистов</h3>
+        <p data-i18n="show.c2.p">Короткие <b>стилизованные видеопредставления</b> для каждого члена жюри и финалиста — разработаны в CG, выполнены в единой визуальной логике церемонии. Задача: передать статус и индивидуальность каждого участника без потери общего ритма шоу.</p>
       </div>
     </article>
 
@@ -441,8 +452,8 @@
         <div class="ph" data-ph="архивная нарезка"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-gallery-04.webp" alt=""></div>
       </div>
       <div class="chap-body">
-        <h3 class="chap-title">Архивная <span class="mark">нарезка</span></h3>
-        <p>Ключевые моменты за 10 лет существования премии — смонтированы в единый нарратив. <b>Работа с архивными материалами</b>: отбор, ресайз, цветокоррекция, интеграция в CG-среду. Эмоциональная точка шоу.</p>
+        <h3 class="chap-title" data-i18n="show.c3.title">Архивная <span class="mark">нарезка</span></h3>
+        <p data-i18n="show.c3.p">Ключевые моменты за 10 лет существования премии — смонтированы в единый нарратив. <b>Работа с архивными материалами</b>: отбор, ресайз, цветокоррекция, интеграция в CG-среду. Эмоциональная точка шоу.</p>
       </div>
     </article>
 
@@ -451,8 +462,8 @@
         <div class="ph" data-ph="схема зала и прожекторы"><img loading="lazy" decoding="async" src="../assets/prosvetitel/photo/webp/prosvetitel-plan.webp" alt=""></div>
       </div>
       <div class="chap-body">
-        <h3 class="chap-title">Realtime-<span class="mark">контроль</span></h3>
-        <p>Программирование световых приборов и управление шоу в реальном времени на церемонии. <b>TouchDesigner</b> для генеративного управления, <b>Cinema 4D</b> для предвизуализации и CG-контента, <b>100 Head&amp;Beams</b> в зале.</p>
+        <h3 class="chap-title" data-i18n="show.c4.title">Realtime-<span class="mark">контроль</span></h3>
+        <p data-i18n="show.c4.p">Программирование световых приборов и управление шоу в реальном времени на церемонии. <b>TouchDesigner</b> для генеративного управления, <b>Cinema 4D</b> для предвизуализации и CG-контента, <b>100 Head&amp;Beams</b> в зале.</p>
       </div>
     </article>
   </div>
@@ -462,35 +473,35 @@
 <section class="sec on-cream">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Роль в проекте</span>
-      <h2 class="sec-h">Роль <span class="word-pill">в проекте</span>.</h2>
-      <span class="sec-side"><b>Light · CG · Realtime</b><br>SUPERVISUALS</span>
+      <span class="sec-label" data-i18n="role.label">Роль в проекте</span>
+      <h2 class="sec-h" data-i18n="role.h">Роль <span class="word-pill">в проекте</span>.</h2>
+      <span class="sec-side" data-i18n="role.side"><b>Light · CG · Realtime</b><br>SUPERVISUALS</span>
     </div>
 
     <div class="role-grid reveal">
       <div class="role-card">
         <span class="num">01</span>
-        <span class="step">Step · 01 / 04</span>
-        <h3>Сценарий <span class="mark">светового</span> шоу</h3>
-        <p>Разработка драматургии и технического сценария шоу-открытия. <b>Хронометраж, структура сцен, логика нарастания</b> — всё это определялось на этапе препродакшена. Визуальная концепция согласовывалась с организаторами церемонии.</p>
+        <span class="step" data-i18n="role.r1.step">Step · 01 / 04</span>
+        <h3 data-i18n="role.r1.h">Сценарий <span class="mark">светового</span> шоу</h3>
+        <p data-i18n="role.r1.p">Разработка драматургии и технического сценария шоу-открытия. <b>Хронометраж, структура сцен, логика нарастания</b> — всё это определялось на этапе препродакшена. Визуальная концепция согласовывалась с организаторами церемонии.</p>
       </div>
       <div class="role-card">
         <span class="num">02</span>
-        <span class="step">Step · 02 / 04</span>
-        <h3>CG-<span class="mark">контент</span></h3>
-        <p>Производство CG-материалов для экранов и проекций: <b>стилизованные портреты участников</b>, фоновые анимации, архивные врезки. Cinema 4D как основная среда — рендер, композитинг, финальная сборка.</p>
+        <span class="step" data-i18n="role.r2.step">Step · 02 / 04</span>
+        <h3 data-i18n="role.r2.h">CG-<span class="mark">контент</span></h3>
+        <p data-i18n="role.r2.p">Производство CG-материалов для экранов и проекций: <b>стилизованные портреты участников</b>, фоновые анимации, архивные врезки. Cinema 4D как основная среда — рендер, композитинг, финальная сборка.</p>
       </div>
       <div class="role-card">
         <span class="num">03</span>
-        <span class="step">Step · 03 / 04</span>
-        <h3>Программирование <span class="mark">световых</span> приборов</h3>
-        <p>Написание световых программ для <b>100 роботизированных прожекторов</b>. Синхронизация с музыкой и CG-контентом. Тестирование на репетициях, финальная правка по результатам прогонов.</p>
+        <span class="step" data-i18n="role.r3.step">Step · 03 / 04</span>
+        <h3 data-i18n="role.r3.h">Программирование <span class="mark">световых</span> приборов</h3>
+        <p data-i18n="role.r3.p">Написание световых программ для <b>100 роботизированных прожекторов</b>. Синхронизация с музыкой и CG-контентом. Тестирование на репетициях, финальная правка по результатам прогонов.</p>
       </div>
       <div class="role-card">
         <span class="num">04</span>
-        <span class="step">Step · 04 / 04</span>
-        <h3>Управление <span class="mark">в эфире</span></h3>
-        <p>Realtime-контроль шоу непосредственно на церемонии: <b>запуск сцен, мониторинг синхронизации</b>, оперативное решение технических ситуаций. TouchDesigner как консоль управления всем световым и медийным потоком.</p>
+        <span class="step" data-i18n="role.r4.step">Step · 04 / 04</span>
+        <h3 data-i18n="role.r4.h">Управление <span class="mark">в эфире</span></h3>
+        <p data-i18n="role.r4.p">Realtime-контроль шоу непосредственно на церемонии: <b>запуск сцен, мониторинг синхронизации</b>, оперативное решение технических ситуаций. TouchDesigner как консоль управления всем световым и медийным потоком.</p>
       </div>
     </div>
   </div>
@@ -500,9 +511,9 @@
 <section class="sec on-graphite" id="s-video" style="padding-top:72px;padding-bottom:72px">
   <div class="wrap">
     <div class="sec-head reveal" style="margin-bottom:32px">
-      <span class="sec-label">Видео</span>
-      <h2 class="sec-h">Смотреть <span class="word-pill">шоу</span>.</h2>
-      <span class="sec-side">YouTube · Documentation</span>
+      <span class="sec-label" data-i18n="video.label">Видео</span>
+      <h2 class="sec-h" data-i18n="video.h">Смотреть <span class="word-pill">шоу</span>.</h2>
+      <span class="sec-side" data-i18n="video.side">YouTube · Documentation</span>
     </div>
     <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px"
       onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/EIN5VqVbIBA?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
@@ -518,9 +529,9 @@
 <section class="sec on-graphite" id="s-gallery">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Галерея</span>
-      <h2 class="sec-h">Галерея.</h2>
-      <span class="sec-side"><b>фото с церемонии</b><br>Москва · 2018</span>
+      <span class="sec-label" data-i18n="gallery.label">Галерея</span>
+      <h2 class="sec-h" data-i18n="gallery.h">Галерея.</h2>
+      <span class="sec-side" data-i18n="gallery.side"><b>фото с церемонии</b><br>Москва · 2018</span>
     </div>
 
     <div class="gal reveal">
@@ -534,13 +545,13 @@
       </figure>
 
       <div class="gcap">
-        <div class="big">100+<br>Beams</div>
-        <div class="sub">роботизированных прожекторов</div>
+        <div class="big" data-i18n="gallery.gcap1.big">100+<br>Beams</div>
+        <div class="sub" data-i18n="gallery.gcap1.sub">роботизированных прожекторов</div>
       </div>
 
       <div class="gcap dark">
-        <div class="big">10 лет<br>пути</div>
-        <div class="sub">2008 → 2018</div>
+        <div class="big" data-i18n="gallery.gcap2.big">10 лет<br>пути</div>
+        <div class="sub" data-i18n="gallery.gcap2.sub">2008 → 2018</div>
       </div>
 
       <figure class="gi">
@@ -572,8 +583,8 @@
       </figure>
 
       <div class="gcap">
-        <div class="big">Realtime</div>
-        <div class="sub">TouchDesigner · Cinema 4D</div>
+        <div class="big" data-i18n="gallery.gcap3.big">Realtime</div>
+        <div class="sub" data-i18n="gallery.gcap3.sub">TouchDesigner · Cinema 4D</div>
       </div>
 
     </div>
@@ -585,43 +596,43 @@
   <div class="wrap">
     <div class="credits-top reveal">
       <div>
-        <h2 class="credits-title">Команда</h2>
+        <h2 class="credits-title" data-i18n="credits.title">Команда</h2>
       </div>
       <div class="credits-facts">
-        <div class="cred-fact"><strong>100<span class="mark">+</span></strong>прожекторов</div>
-        <div class="cred-fact"><strong>3</strong>технологии</div>
-        <div class="cred-fact"><strong>10</strong>лет</div>
-        <div class="cred-fact"><strong>2018</strong>год</div>
+        <div class="cred-fact"><strong>100<span class="mark">+</span></strong><span data-i18n="credits.fact1">прожекторов</span></div>
+        <div class="cred-fact"><strong>3</strong><span data-i18n="credits.fact2">технологии</span></div>
+        <div class="cred-fact"><strong>10</strong><span data-i18n="credits.fact3">лет</span></div>
+        <div class="cred-fact"><strong>2018</strong><span data-i18n="credits.fact4">год</span></div>
       </div>
     </div>
 
     <div class="credits-body reveal">
       <dl>
         <div class="cred-row">
-          <dt>Команда</dt>
-          <dd><span class="mark">SUPERVISUALS</span></dd>
+          <dt data-i18n="credits.r1.dt">Команда</dt>
+          <dd data-i18n="credits.r1.dd"><span class="mark">SUPERVISUALS</span></dd>
         </div>
         <div class="cred-row">
-          <dt>Программирование</dt>
-          <dd>SUPERVISUALS</dd>
+          <dt data-i18n="credits.r2.dt">Программирование</dt>
+          <dd data-i18n="credits.r2.dd">SUPERVISUALS</dd>
         </div>
         <div class="cred-row">
-          <dt>CG-контент</dt>
-          <dd>SUPERVISUALS &amp; Global Illuminations</dd>
+          <dt data-i18n="credits.r3.dt">CG-контент</dt>
+          <dd data-i18n="credits.r3.dd">SUPERVISUALS &amp; Global Illuminations</dd>
         </div>
       </dl>
       <dl class="credits-col-right">
         <div class="cred-row">
-          <dt>Стек</dt>
-          <dd>TouchDesigner + Cinema 4D</dd>
+          <dt data-i18n="credits.r4.dt">Стек</dt>
+          <dd data-i18n="credits.r4.dd">TouchDesigner + Cinema 4D</dd>
         </div>
         <div class="cred-row">
-          <dt>Head&amp;Beams</dt>
-          <dd>100 приборов<span class="sub">Роботизированные прожекторы</span></dd>
+          <dt data-i18n="credits.r5.dt">Head&amp;Beams</dt>
+          <dd data-i18n="credits.r5.dd">100 приборов<span class="sub" data-i18n="credits.r5.sub">Роботизированные прожекторы</span></dd>
         </div>
         <div class="cred-row">
-          <dt>Клиент</dt>
-          <dd>Премия <span class="mark">Просветитель</span><span class="sub">Фонд «Династия» · 10 лет</span></dd>
+          <dt data-i18n="credits.r6.dt">Клиент</dt>
+          <dd data-i18n="credits.r6.dd">Премия <span class="mark">Просветитель</span><span class="sub" data-i18n="credits.r6.sub">Фонд «Династия» · 10 лет</span></dd>
         </div>
       </dl>
     </div>
@@ -633,27 +644,27 @@
   <div class="proj-nav-inner">
     <a class="pn-card" href="wayofwater.html">
       <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/wayofwater.webp" alt="" aria-hidden="true">
-      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">←</span><br>Предыдущий</span>
-      <span class="pn-name">Путь воды</span>
-      <span class="pn-sub">Exhibitions · Experience design · 2022—24</span>
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">←</span><br><span data-i18n="pn.prev">Предыдущий</span></span>
+      <span class="pn-name" data-i18n="pn.name1">Путь воды</span>
+      <span class="pn-sub" data-i18n="pn.sub1">Exhibitions · Experience design · 2022—24</span>
     </a>
     <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
-      <span class="pn-contact-label">Есть проект?</span>
-      <span class="pn-btn">Написать ↗</span>
+      <span class="pn-contact-label" data-i18n="pn.contact-label">Есть проект?</span>
+      <span class="pn-btn" data-i18n="pn.btn">Написать ↗</span>
     </a>
     <a class="pn-card" href="moskvaruim.html" style="text-align:right">
       <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/moskvaruim.webp" alt="" aria-hidden="true">
-      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">→</span><br>Следующий</span>
-      <span class="pn-name">Рыбов показываем</span>
-      <span class="pn-sub">Advertising · 360° · 2024</span>
+      <span class="pn-dir"><span class="circle-btn sm bone" aria-hidden="true" style="margin-bottom:14px">→</span><br><span data-i18n="pn.next">Следующий</span></span>
+      <span class="pn-name" data-i18n="pn.name2">Рыбов показываем</span>
+      <span class="pn-sub" data-i18n="pn.sub2">Advertising · 360° · 2024</span>
     </a>
   </div>
 </nav>
 
 <footer>
   <div class="foot-row">
-    <span>© 2026 · <b>Таня Самараковская</b></span>
-    <span><a href="#top">↑ Наверх</a></span>
+    <span data-i18n="foot.copy">© 2026 · <b>Таня Самараковская</b></span>
+    <span><a href="#top" data-i18n="foot.top">↑ Наверх</a></span>
   </div>
 </footer>
 
@@ -755,6 +766,176 @@
     const dx = e.changedTouches[0].clientX - touchStartX;
     if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
   });
+</script>
+
+<script>
+  const EN = {
+    "n.back": "All projects",
+    "n.concept": "Concept",
+    "n.show": "Execution",
+    "n.video": "Video",
+    "n.gallery": "Gallery",
+    "n.credits": "Team",
+    "n.cta": "Contact",
+
+    "h.t1": "2018",
+    "h.t2": "prosvetitel award",
+    "h.t3": "supervisuals",
+    "h.t4": "moscow",
+    "h.t5": "light design",
+    "h.t6": "CG content",
+    "h.syl1": "Pro",
+    "h.syl2": "sveti",
+    "h.syl3": "tel",
+    "h.sub": "10th anniversary of the award — <b>an opening laser show</b> and a multimedia ceremony.",
+    "h.f1l": "Format",
+    "h.f1v": "Award Ceremony",
+    "h.f2l": "Venue",
+    "h.f2v": "Moscow",
+    "h.f3l": "Year",
+    "h.f3v": "2018",
+    "h.f4l": "Role",
+    "h.f4v": "Light Design · CG",
+
+    "marq.row": "PROSVETITEL <span class=\"dot\"></span> 10 YEARS <span class=\"dot\"></span> LASER SHOW <span class=\"dot\"></span> SCIENCE <span class=\"dot\"></span> BOOK <span class=\"dot\"></span> CG CONTENT <span class=\"dot\"></span> TOUCHDESIGNER <span class=\"dot\"></span> SUPERVISUALS <span class=\"dot\"></span> REALTIME <span class=\"dot\"></span>",
+
+    "concept.label": "Concept",
+    "concept.h": "<span class=\"word-pill\">The idea</span> of the show.",
+    "concept.side": "<b>10th anniversary</b><br>2018 · Moscow",
+    "concept.lead": "A laser show as <span class=\"word-block\">a symbol of the journey</span> — ten years of an award that brought science and culture together.",
+    "concept.p1": "The <b>Prosvetitel Award</b> for the best popular science book in Russian was established in 2008 by VimpelCom founder <b>Dmitry Zimin</b> and the Dynasty Foundation for Non-Profit Programs.",
+    "concept.p2": "The award’s goal is to draw readers’ attention to the popular science genre, support authors, and help develop the market for educational nonfiction in Russia.",
+    "concept.p3": "The anniversary ceremony had three tasks: <b>a powerful laser show</b> as a striking opening and a symbol of the ten-year journey; <b>stylish introductions</b> of jury members and finalists through short stylized videos; <b>archive montage</b> of key moments from the past 10 years.",
+    "concept.dt1": "Founder",
+    "concept.dd1": "Dmitry Zimin",
+    "concept.dt2": "Founded",
+    "concept.dd2": "2008",
+    "concept.dt3": "Team",
+    "concept.dd3": "SUPERVISUALS",
+
+    "pullq.text": "A powerful laser show as <span class=\"word-block\">a striking opening</span> — and a symbol of <span class=\"word-oval\">a ten-year</span> journey.",
+
+    "show.label": "Execution",
+    "show.h": "4 tasks for one <span class=\"word-pill\">show</span>.",
+    "show.side": "<b>Light Design · CG</b><br>Moscow · 2018",
+    "show.c1.title": "A laser show as <span class=\"mark\">opening</span>",
+    "show.c1.p": "Developing the light-show script — from dramaturgy to technical brief. <b>100 robotic lighting fixtures</b> synchronized into one spectacle, read as a symbol of a ten-year journey: growth, movement, light.",
+    "show.c2.title": "Portraits of the <span class=\"mark\">jury</span> and finalists",
+    "show.c2.p": "Short <b>stylized video introductions</b> for every jury member and finalist, developed in CG and built within the ceremony’s unified visual logic. The task: convey each participant’s status and individuality without breaking the overall rhythm of the show.",
+    "show.c3.title": "Archive <span class=\"mark\">montage</span>",
+    "show.c3.p": "Key moments from 10 years of the award were edited into a single narrative. <b>Working with archive materials</b>: selection, resizing, color correction, and integration into the CG environment. The emotional peak of the show.",
+    "show.c4.title": "Realtime-<span class=\"mark\">control</span>",
+    "show.c4.p": "Programming lighting fixtures and controlling the show live during the ceremony. <b>TouchDesigner</b> for generative control, <b>Cinema 4D</b> for previsualization and CG content, <b>100 Head&amp;Beams</b> in the hall.",
+
+    "role.label": "Role in the project",
+    "role.h": "Role <span class=\"word-pill\">in the project</span>.",
+    "role.side": "<b>Light · CG · Realtime</b><br>SUPERVISUALS",
+    "role.r1.step": "Step · 01 / 04",
+    "role.r1.h": "Script for the <span class=\"mark\">light</span> show",
+    "role.r1.p": "Developing the dramaturgy and technical script for the opening show. <b>Timing, scene structure, escalation logic</b> — all of this was defined during pre-production. The visual concept was aligned with the ceremony organizers.",
+    "role.r2.step": "Step · 02 / 04",
+    "role.r2.h": "CG-<span class=\"mark\">content</span>",
+    "role.r2.p": "Production of CG materials for screens and projections: <b>stylized portraits of participants</b>, background animations, and archive inserts. Cinema 4D was the core environment for rendering, compositing, and final assembly.",
+    "role.r3.step": "Step · 03 / 04",
+    "role.r3.h": "Programming <span class=\"mark\">lighting</span> fixtures",
+    "role.r3.p": "Writing lighting programs for <b>100 robotic lighting fixtures</b>. Synchronization with music and CG content. Rehearsal testing and final adjustments based on run-throughs.",
+    "role.r4.step": "Step · 04 / 04",
+    "role.r4.h": "Live <span class=\"mark\">operation</span>",
+    "role.r4.p": "Realtime show control during the ceremony: <b>launching scenes, monitoring synchronization</b>, and solving technical issues on the spot. TouchDesigner served as the control console for the entire light and media flow.",
+
+    "video.label": "Video",
+    "video.h": "Watch the <span class=\"word-pill\">show</span>.",
+    "video.side": "YouTube · Documentation",
+
+    "gallery.label": "Gallery",
+    "gallery.h": "Gallery.",
+    "gallery.side": "<b>ceremony photos</b><br>Moscow · 2018",
+    "gallery.gcap1.big": "100+<br>Beams",
+    "gallery.gcap1.sub": "robotic lighting fixtures",
+    "gallery.gcap2.big": "10 years<br>of the journey",
+    "gallery.gcap2.sub": "2008 → 2018",
+    "gallery.gcap3.big": "Realtime",
+    "gallery.gcap3.sub": "TouchDesigner · Cinema 4D",
+
+    "credits.title": "Team",
+    "credits.fact1": "fixtures",
+    "credits.fact2": "technologies",
+    "credits.fact3": "years",
+    "credits.fact4": "year",
+    "credits.r1.dt": "Team",
+    "credits.r1.dd": "<span class=\"mark\">SUPERVISUALS</span>",
+    "credits.r2.dt": "Programming",
+    "credits.r2.dd": "SUPERVISUALS",
+    "credits.r3.dt": "CG content",
+    "credits.r3.dd": "SUPERVISUALS &amp; Global Illuminations",
+    "credits.r4.dt": "Stack",
+    "credits.r4.dd": "TouchDesigner + Cinema 4D",
+    "credits.r5.dt": "Head&amp;Beams",
+    "credits.r5.dd": "100 fixtures",
+    "credits.r5.sub": "Robotic lighting fixtures",
+    "credits.r6.dt": "Client",
+    "credits.r6.dd": "The <span class=\"mark\">Prosvetitel</span>",
+    "credits.r6.sub": "Dynasty Foundation · 10 years",
+
+    "pn.prev": "Previous",
+    "pn.name1": "The Path of Water",
+    "pn.sub1": "Exhibitions · Experience design · 2022—24",
+    "pn.contact-label": "Have a project?",
+    "pn.btn": "Contact ↗",
+    "pn.next": "Next",
+    "pn.name2": "Showing Fish",
+    "pn.sub2": "Advertising · 360° · 2024",
+
+    "foot.copy": "© 2026 · <b>Tanya Samarakovskaya</b>",
+    "foot.top": "↑ Back to top",
+
+    "lb.close": "[ESC] close"
+  };
+
+  const META_EN = {
+    title: "Prosvetitel · Tanya Samarakovskaya",
+    desc: "The Prosvetitel Award — 10th anniversary: opening laser show, CG content, and a multimedia ceremony. A case study by Tanya Samarakovskaya, 2018."
+  };
+
+  const RU = new Map();
+  const metaDesc = document.querySelector('meta[name="description"]');
+  const titleEl = document.querySelector('title');
+  const META_RU = { title: titleEl ? titleEl.textContent : '', desc: metaDesc ? metaDesc.getAttribute('content') : '' };
+
+  function apply(lang) {
+    const nodes = document.querySelectorAll('[data-i18n]');
+    nodes.forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (!RU.has(el)) RU.set(el, el.innerHTML);
+      if (lang === 'en') {
+        if (EN.hasOwnProperty(key)) el.innerHTML = EN[key];
+      } else {
+        el.innerHTML = RU.get(el);
+      }
+    });
+
+    if (titleEl) titleEl.textContent = lang === 'en' ? META_EN.title : META_RU.title;
+    if (metaDesc) metaDesc.setAttribute('content', lang === 'en' ? META_EN.desc : META_RU.desc);
+
+    document.querySelectorAll('.lang-seg').forEach(btn => {
+      btn.classList.toggle('on', btn.dataset.lang === lang);
+    });
+
+    localStorage.setItem('site_lang', lang);
+    window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
+  }
+
+  const langToggle = document.getElementById('langToggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', e => {
+      const btn = e.target.closest('.lang-seg');
+      if (!btn) return;
+      apply(btn.dataset.lang);
+    });
+  }
+
+  const savedLang = localStorage.getItem('site_lang') || 'ru';
+  apply(savedLang);
 </script>
 </body>
 </html>

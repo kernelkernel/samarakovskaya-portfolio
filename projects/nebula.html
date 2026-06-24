@@ -83,6 +83,12 @@ body::before{content:"";position:fixed;inset:-50%;pointer-events:none;z-index:10
 .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--accent);color:#fff;padding:9px 16px;border-radius:999px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0;transition:background .2s}
 .nav-cta:hover{background:var(--accent-2)}
 .nav-cta::after{content:"↗\FE0E"}
+.nav-end{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(241,236,221,.06);border:1px solid var(--border);border-radius:999px;flex-shrink:0}
+.lang-seg{padding:6px 8px;border-radius:999px;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);transition:background .2s,color .2s;line-height:1;cursor:none}
+.lang-seg.on{background:var(--accent);color:#fff;font-weight:600}
+.lang-seg:hover:not(.on){color:var(--ink)}
+@media(hover:none){.lang-seg{cursor:pointer}}
 section[id]{scroll-margin-top:84px}
 
 /* ── hero ── */
@@ -309,16 +315,22 @@ section[id]{scroll-margin-top:84px}
 
 <header class="top">
   <div class="nav-bar">
-    <a class="back" href="../index.html#works">Все проекты</a>
+    <a class="back" href="../index.html#works" data-i18n="n.back">Все проекты</a>
     <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#zone-intro" data-section="zone-intro">Концепция</a>
-      <a class="mag-pill" href="#zone-video" data-section="zone-video">Видео</a>
-      <a class="mag-pill" href="#zone-gallery" data-section="zone-gallery">Галерея</a>
-      <a class="mag-pill" href="#zone-sceno" data-section="zone-sceno">Сценография</a>
-      <a class="mag-pill" href="#zone-process" data-section="zone-process">Процесс</a>
-      <a class="mag-pill" href="#zone-credits" data-section="zone-credits">Реализация</a>
+      <a class="mag-pill" href="#zone-intro" data-section="zone-intro" data-i18n="n.s1">Концепция</a>
+      <a class="mag-pill" href="#zone-video" data-section="zone-video" data-i18n="n.s2">Видео</a>
+      <a class="mag-pill" href="#zone-gallery" data-section="zone-gallery" data-i18n="n.s3">Галерея</a>
+      <a class="mag-pill" href="#zone-sceno" data-section="zone-sceno" data-i18n="n.s4">Сценография</a>
+      <a class="mag-pill" href="#zone-process" data-section="zone-process" data-i18n="n.s5">Процесс</a>
+      <a class="mag-pill" href="#zone-credits" data-section="zone-credits" data-i18n="n.s6">Реализация</a>
     </nav>
-    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
+    <div class="nav-end">
+      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
+        <button class="lang-seg on" data-lang="ru" type="button">RU</button>
+        <button class="lang-seg" data-lang="en" type="button">EN</button>
+      </div>
+      <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="n.cta">Написать</a>
+    </div>
   </div>
 </header>
 
@@ -328,15 +340,15 @@ section[id]{scroll-margin-top:84px}
   <img class="hero-img" src="../assets/nebula/preview.webp" alt="Nebula" loading="eager">
   <div class="hero-glow"></div>
   <div class="hero-body">
-    <div class="hero-kicker">Иммерсивная инсталляция · дизайн впечатлений</div>
+    <div class="hero-kicker" data-i18n="h.kicker">Иммерсивная инсталляция · дизайн впечатлений</div>
     <h1 class="hero-h">NEBULA</h1>
-    <p class="hero-sub">Арт-инсталляция на стыке космической науки и <span class="word-oval">телесного опыта</span></p>
+    <p class="hero-sub" data-i18n="h.sub">Арт-инсталляция на стыке космической науки и <span class="word-oval">телесного опыта</span></p>
     <div class="hero-meta-row">
-      <div class="hero-fact">Роль<b>Креативный директор</b></div>
-      <div class="hero-fact">Формат<b>Иммерсивная инсталляция</b></div>
-      <div class="hero-fact">Площадка<b>Hello I/O · EFEST</b></div>
-      <div class="hero-fact">Технологии<b>Проекция · глубинные камеры · звук</b></div>
-      <div class="hero-fact">Год<b>2021</b></div>
+      <div class="hero-fact" data-i18n="h.f1">Роль<b>Креативный директор</b></div>
+      <div class="hero-fact" data-i18n="h.f2">Формат<b>Иммерсивная инсталляция</b></div>
+      <div class="hero-fact" data-i18n="h.f3">Площадка<b>Hello I/O · EFEST</b></div>
+      <div class="hero-fact" data-i18n="h.f4">Технологии<b>Проекция · глубинные камеры · звук</b></div>
+      <div class="hero-fact" data-i18n="h.f5">Год<b>2021</b></div>
     </div>
   </div>
 </section>
@@ -344,16 +356,16 @@ section[id]{scroll-margin-top:84px}
 <!-- ══ TICKER ══ -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span>Nebula · Туманность · Взрыв сверхновой · Свет как материя <em>·</em> Образование туманности · Внутри туманности · Макрокосм <em>·</em> 12 проекторов · глубинные камеры · пространственный звук <em>·</em></span>
-    <span>Nebula · Туманность · Взрыв сверхновой · Свет как материя <em>·</em> Образование туманности · Внутри туманности · Макрокосм <em>·</em> 12 проекторов · глубинные камеры · пространственный звук <em>·</em></span>
+    <span data-i18n="tk.line">Nebula · Туманность · Взрыв сверхновой · Свет как материя <em>·</em> Образование туманности · Внутри туманности · Макрокосм <em>·</em> 12 проекторов · глубинные камеры · пространственный звук <em>·</em></span>
+    <span data-i18n="tk.line">Nebula · Туманность · Взрыв сверхновой · Свет как материя <em>·</em> Образование туманности · Внутри туманности · Макрокосм <em>·</em> 12 проекторов · глубинные камеры · пространственный звук <em>·</em></span>
   </div>
 </div>
 
 <!-- ══ 01 · О ПРОЕКТЕ ══ -->
 <section class="sec" id="zone-intro">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">01</span> О проекте</span>
-    <h2 class="sec-h">Концепция</h2>
+    <span class="sec-tag" data-i18n="s1.tag"><span class="num">01</span> О проекте</span>
+    <h2 class="sec-h" data-i18n="s1.h">Концепция</h2>
     <span class="sec-side">EFEST 2021 · Hello I/O</span>
   </div>
   <div class="intro reveal">
@@ -362,7 +374,7 @@ section[id]{scroll-margin-top:84px}
       <div class="aside-img">
         <img src="../assets/nebula/photo/webp/nebula-02.webp" alt="Nebula" loading="lazy">
         <div class="aside-overlay">
-          <dl>
+          <dl data-i18n="s1.dl">
             <dt>Проект</dt><dd>Nebula</dd>
             <dt>Формат</dt><dd>Иммерсивная инсталляция</dd>
             <dt>Площадь</dt><dd>58 м²</dd>
@@ -374,15 +386,15 @@ section[id]{scroll-margin-top:84px}
       </div>
     </aside>
     <div class="intro-body">
-      <h3>Туманности, которые можно <span class="word-pill">потрогать</span></h3>
+      <h3 data-i18n="s1.h3">Туманности, которые можно <span class="word-pill">потрогать</span></h3>
       <div class="intro-text">
-        <p>EFEST 2021. Пространство 58 м², три проекционных круга на полу и восьмиметровый экран на стене — всё работало как единая интерактивная система.</p>
-        <p>В основе — физическое моделирование туманностей: межзвёздных облаков из газов, пыли и плазмы, которые рождаются из взрывов сверхновых. Инсталляция воспроизводила их динамику: структуры, плотность, поведение частиц.</p>
-        <p>Каждый посетитель притягивал или отталкивал частицы, накапливая вокруг себя поле. На финальном экране оно складывалось в силуэт конкретного человека — туманный аватар, существующий только здесь и сейчас.</p>
+        <p data-i18n="s1.p1">EFEST 2021. Пространство 58 м², три проекционных круга на полу и восьмиметровый экран на стене — всё работало как единая интерактивная система.</p>
+        <p data-i18n="s1.p2">В основе — физическое моделирование туманностей: межзвёздных облаков из газов, пыли и плазмы, которые рождаются из взрывов сверхновых. Инсталляция воспроизводила их динамику: структуры, плотность, поведение частиц.</p>
+        <p data-i18n="s1.p3">Каждый посетитель притягивал или отталкивал частицы, накапливая вокруг себя поле. На финальном экране оно складывалось в силуэт конкретного человека — туманный аватар, существующий только здесь и сейчас.</p>
       </div>
       <div class="hook-block">
-        <div class="hook-label">Ключевая идея</div>
-        <p class="hook-text">Твоё тело становится <span class="word-ul">частью туманности</span>.</p>
+        <div class="hook-label" data-i18n="s1.hooklbl">Ключевая идея</div>
+        <p class="hook-text" data-i18n="s1.hook">Твоё тело становится <span class="word-ul">частью туманности</span>.</p>
       </div>
     </div>
   </div>
@@ -390,33 +402,33 @@ section[id]{scroll-margin-top:84px}
   <div class="setup-grid reveal">
     <div class="setup-item">
       <div class="setup-num">12</div>
-      <div class="setup-label">Проекторов</div>
-      <div class="setup-desc">12 проекторов формировали единое бесшовное проекционное поле</div>
+      <div class="setup-label" data-i18n="s1.sl1">Проекторов</div>
+      <div class="setup-desc" data-i18n="s1.sd1">12 проекторов формировали единое бесшовное проекционное поле</div>
     </div>
     <div class="setup-item">
       <div class="setup-num">3</div>
-      <div class="setup-label">Круга на полу</div>
-      <div class="setup-desc">Три проекционных круга диаметром 10 м — основная зона взаимодействия</div>
+      <div class="setup-label" data-i18n="s1.sl2">Круга на полу</div>
+      <div class="setup-desc" data-i18n="s1.sd2">Три проекционных круга диаметром 10 м — основная зона взаимодействия</div>
     </div>
     <div class="setup-item">
       <div class="setup-num">8м</div>
-      <div class="setup-label">Вертикальный экран</div>
-      <div class="setup-desc">Круг диаметром 8 м на стене — финальный акт, туманный аватар посетителя</div>
+      <div class="setup-label" data-i18n="s1.sl3">Вертикальный экран</div>
+      <div class="setup-desc" data-i18n="s1.sd3">Круг диаметром 8 м на стене — финальный акт, туманный аватар посетителя</div>
     </div>
     <div class="setup-item">
       <div class="setup-num">58м²</div>
-      <div class="setup-label">Площадь</div>
-      <div class="setup-desc">Единое иммерсивное пространство без физических барьеров</div>
+      <div class="setup-label" data-i18n="s1.sl4">Площадь</div>
+      <div class="setup-desc" data-i18n="s1.sd4">Единое иммерсивное пространство без физических барьеров</div>
     </div>
     <div class="setup-item">
       <div class="setup-num">↕</div>
-      <div class="setup-label">Глубинные камеры</div>
-      <div class="setup-desc">Глубинные камеры на потолке — трекинг движения в реальном времени</div>
+      <div class="setup-label" data-i18n="s1.sl5">Глубинные камеры</div>
+      <div class="setup-desc" data-i18n="s1.sd5">Глубинные камеры на потолке — трекинг движения в реальном времени</div>
     </div>
     <div class="setup-item">
       <div class="setup-num">≋</div>
-      <div class="setup-label">Дым + LED</div>
-      <div class="setup-desc">Дым создавал объём для световых лучей, LED-бары — пространственный свет</div>
+      <div class="setup-label" data-i18n="s1.sl6">Дым + LED</div>
+      <div class="setup-desc" data-i18n="s1.sd6">Дым создавал объём для световых лучей, LED-бары — пространственный свет</div>
     </div>
   </div>
 </section>
@@ -424,8 +436,8 @@ section[id]{scroll-margin-top:84px}
 <!-- ══ 02 · ВИДЕО ══ -->
 <section class="sec warm" id="zone-video">
   <div class="sec-head no-title reveal">
-    <span class="sec-tag"><span class="num">02</span> Видео</span>
-    <span class="sec-side">Запись шоу</span>
+    <span class="sec-tag" data-i18n="s2.tag"><span class="num">02</span> Видео</span>
+    <span class="sec-side" data-i18n="s2.side">Запись шоу</span>
   </div>
   <div class="reveal" style="max-width:1100px;margin:0 auto">
     <!-- Локальный постер + click-to-play: превью не зависит от серверов YouTube -->
@@ -438,16 +450,16 @@ section[id]{scroll-margin-top:84px}
         </svg>
       </div>
     </div>
-    <p class="video-caption">Nebula · EFEST 2021 · студия Hello I/O · <a href="https://www.youtube.com/watch?v=bGKW-AaJ7QU" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:underline">смотреть на YouTube</a></p>
+    <p class="video-caption" data-i18n="s2.cap">Nebula · EFEST 2021 · студия Hello I/O · <a href="https://www.youtube.com/watch?v=bGKW-AaJ7QU" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:underline">смотреть на YouTube</a></p>
   </div>
 </section>
 
 <!-- ══ 03 · ГАЛЕРЕЯ ══ -->
 <section class="sec" id="zone-gallery" style="padding-top:80px;padding-bottom:80px">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">03</span> Съёмка</span>
-    <h2 class="sec-h">Галерея</h2>
-    <span class="sec-side">На площадке</span>
+    <span class="sec-tag" data-i18n="s3.tag"><span class="num">03</span> Съёмка</span>
+    <h2 class="sec-h" data-i18n="s3.h">Галерея</h2>
+    <span class="sec-side" data-i18n="s3.side">На площадке</span>
   </div>
   <!-- slot: gal-slot-tall / gal-slot-1 / gal-slot-2 / gal-slot-wide -->
   <div class="gal-main reveal">
@@ -478,17 +490,17 @@ section[id]{scroll-margin-top:84px}
 <!-- ══ 04 · СЦЕНОГРАФИЯ ══ -->
 <section class="sec deep" id="zone-sceno">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">04</span> Драматургия</span>
-    <h2 class="sec-h">Сценография</h2>
-    <span class="sec-side">Три акта · ~20 минут</span>
+    <span class="sec-tag" data-i18n="s4.tag"><span class="num">04</span> Драматургия</span>
+    <h2 class="sec-h" data-i18n="s4.h">Сценография</h2>
+    <span class="sec-side" data-i18n="s4.side">Три акта · ~20 минут</span>
   </div>
 
   <div class="vsystem reveal" style="margin-bottom:56px">
-    <p class="vsys-body">Шоу строилось как нарратив из трёх актов с двумя переходами — Образование туманности, Внутри туманности, Макрокосм. Каждый акт со своим визуальным языком, плотностью и эмоциональной температурой. Полный цикл около 20 минут.</p>
+    <p class="vsys-body" data-i18n="s4.body">Шоу строилось как нарратив из трёх актов с двумя переходами — Образование туманности, Внутри туманности, Макрокосм. Каждый акт со своим визуальным языком, плотностью и эмоциональной температурой. Полный цикл около 20 минут.</p>
     <div class="vsys-list">
-      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text"><b>Проекция на полу.</b> Три круга диаметром 10 м — основная сцена взаимодействия. Здесь формировалось поле частиц вокруг каждого посетителя.</p></div>
-      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text"><b>Вертикальный экран.</b> Круг 8 м на стене — финальная трансформация. Накопленные частицы складывались в туманный аватар посетителя.</p></div>
-      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text"><b>Интерактивность.</b> Depth-камеры считывали движение тела и переводили физическое присутствие в визуальный отклик системы в реальном времени.</p></div>
+      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text" data-i18n="s4.r1"><b>Проекция на полу.</b> Три круга диаметром 10 м — основная сцена взаимодействия. Здесь формировалось поле частиц вокруг каждого посетителя.</p></div>
+      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text" data-i18n="s4.r2"><b>Вертикальный экран.</b> Круг 8 м на стене — финальная трансформация. Накопленные частицы складывались в туманный аватар посетителя.</p></div>
+      <div class="vsys-row"><div class="vsys-dot"></div><p class="vsys-text" data-i18n="s4.r3"><b>Интерактивность.</b> Depth-камеры считывали движение тела и переводили физическое присутствие в визуальный отклик системы в реальном времени.</p></div>
     </div>
   </div>
 
@@ -496,41 +508,41 @@ section[id]{scroll-margin-top:84px}
     <div class="sceno-act">
       <div class="sceno-left">
         <div class="sceno-num">I</div>
-        <div class="sceno-dur">6 минут</div>
+        <div class="sceno-dur" data-i18n="s4.dur1">6 минут</div>
       </div>
       <div class="sceno-right">
-        <div class="sceno-title">Образование туманности</div>
-        <p class="sceno-desc">Разрозненные частицы медленно собираются в структуры. Посетители впервые замечают: каждый шаг меняет поведение поля вокруг них. Система начинает реагировать на присутствие.</p>
+        <div class="sceno-title" data-i18n="s4.t1">Образование туманности</div>
+        <p class="sceno-desc" data-i18n="s4.d1">Разрозненные частицы медленно собираются в структуры. Посетители впервые замечают: каждый шаг меняет поведение поля вокруг них. Система начинает реагировать на присутствие.</p>
       </div>
     </div>
     <div class="sceno-transition">
       <div class="line"></div>
-      <span>Переход · 15–20 сек</span>
+      <span data-i18n="s4.tr1">Переход · 15–20 сек</span>
       <div class="line"></div>
     </div>
     <div class="sceno-act">
       <div class="sceno-left">
         <div class="sceno-num">II</div>
-        <div class="sceno-dur">6 минут</div>
+        <div class="sceno-dur" data-i18n="s4.dur2">6 минут</div>
       </div>
       <div class="sceno-right">
-        <div class="sceno-title">Внутри туманности</div>
-        <p class="sceno-desc">Пространство наполнено. Вокруг каждого человека — своё уникальное поле частиц. Когда люди сближаются, поля пересекаются и реагируют друг на друга. Опыт из индивидуального становится общим.</p>
+        <div class="sceno-title" data-i18n="s4.t2">Внутри туманности</div>
+        <p class="sceno-desc" data-i18n="s4.d2">Пространство наполнено. Вокруг каждого человека — своё уникальное поле частиц. Когда люди сближаются, поля пересекаются и реагируют друг на друга. Опыт из индивидуального становится общим.</p>
       </div>
     </div>
     <div class="sceno-transition">
       <div class="line"></div>
-      <span>Апогей · взрыв сверхновой · 30–50 сек</span>
+      <span data-i18n="s4.tr2">Апогей · взрыв сверхновой · 30–50 сек</span>
       <div class="line"></div>
     </div>
     <div class="sceno-act">
       <div class="sceno-left">
         <div class="sceno-num">III</div>
-        <div class="sceno-dur">6 минут</div>
+        <div class="sceno-dur" data-i18n="s4.dur3">6 минут</div>
       </div>
       <div class="sceno-right">
-        <div class="sceno-title">Макрокосм</div>
-        <p class="sceno-desc">Взрыв сверхновой. Частицы уходят на вертикальный экран. На стене возникают силуэты присутствующих — каждый превращается в туманного аватара. Присутствие конкретного человека становится частью космоса.</p>
+        <div class="sceno-title" data-i18n="s4.t3">Макрокосм</div>
+        <p class="sceno-desc" data-i18n="s4.d3">Взрыв сверхновой. Частицы уходят на вертикальный экран. На стене возникают силуэты присутствующих — каждый превращается в туманного аватара. Присутствие конкретного человека становится частью космоса.</p>
       </div>
     </div>
   </div>
@@ -539,59 +551,59 @@ section[id]{scroll-margin-top:84px}
 <!-- ══ 05 · ПРОЦЕСС ══ -->
 <section class="sec warm" id="zone-process">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">05</span> За кадром</span>
-    <h2 class="sec-h">Процесс</h2>
-    <span class="sec-side">Сетап · тесты · рендеры</span>
+    <span class="sec-tag" data-i18n="s5.tag"><span class="num">05</span> За кадром</span>
+    <h2 class="sec-h" data-i18n="s5.h">Процесс</h2>
+    <span class="sec-side" data-i18n="s5.side">Сетап · тесты · рендеры</span>
   </div>
 
   <!-- Пространство и план -->
-  <div class="proc-sub reveal">Пространство · Сетап</div>
+  <div class="proc-sub reveal" data-i18n="s5.sub1">Пространство · Сетап</div>
   <div class="proc-grid-3 reveal">
     <div class="proc-item auto" style="grid-column:1/3">
       <img src="../assets/nebula/process/setup-plan.webp" alt="План зала" loading="lazy">
-      <span class="proc-lbl">План зала · 3 круга + экран</span>
+      <span class="proc-lbl" data-i18n="s5.l1">План зала · 3 круга + экран</span>
     </div>
     <div class="proc-item auto">
       <img src="../assets/nebula/process/setup-render.webp" alt="3D рендер" loading="lazy">
-      <span class="proc-lbl">3D рендер пространства</span>
+      <span class="proc-lbl" data-i18n="s5.l2">3D рендер пространства</span>
     </div>
   </div>
 
   <!-- Рендеры и фото-тесты -->
-  <div class="proc-sub reveal">Рендеры · Фото-тесты</div>
+  <div class="proc-sub reveal" data-i18n="s5.sub2">Рендеры · Фото-тесты</div>
   <div class="proc-grid-3 reveal">
     <div class="proc-item auto">
       <img src="../assets/nebula/process/render-final.webp" alt="Рендер финальный" loading="lazy">
-      <span class="proc-lbl">Итоговый рендер</span>
+      <span class="proc-lbl" data-i18n="s5.l3">Итоговый рендер</span>
     </div>
     <div class="proc-item auto">
       <img src="../assets/nebula/process/test-01.webp" alt="Фото-тест 1" loading="lazy">
-      <span class="proc-lbl">Фото-тест · образование</span>
+      <span class="proc-lbl" data-i18n="s5.l4">Фото-тест · образование</span>
     </div>
     <div class="proc-item auto">
       <img src="../assets/nebula/process/test-02.webp" alt="Фото-тест 2" loading="lazy">
-      <span class="proc-lbl">Фото-тест · взаимодействие</span>
+      <span class="proc-lbl" data-i18n="s5.l5">Фото-тест · взаимодействие</span>
     </div>
   </div>
 
   <!-- GIF-мозаика по актам -->
-  <div class="proc-sub reveal">Визуальная система · По актам</div>
+  <div class="proc-sub reveal" data-i18n="s5.sub3">Визуальная система · По актам</div>
   <div class="gif-mosaic reveal">
     <div class="proc-item">
       <img src="../assets/nebula/process/effect-01.webp" alt="Эффект от пользователя" loading="lazy">
-      <span class="proc-lbl">Эффект от пользователя</span>
+      <span class="proc-lbl" data-i18n="s5.l6">Эффект от пользователя</span>
     </div>
     <div class="proc-item">
       <img src="../assets/nebula/process/effect-02.webp" alt="Образование туманности" loading="lazy">
-      <span class="proc-lbl">I · Образование туманности</span>
+      <span class="proc-lbl" data-i18n="s5.l7">I · Образование туманности</span>
     </div>
     <div class="proc-item">
       <img src="../assets/nebula/process/nebula-c.webp" alt="Внутри туманности" loading="lazy">
-      <span class="proc-lbl">II · Внутри туманности</span>
+      <span class="proc-lbl" data-i18n="s5.l8">II · Внутри туманности</span>
     </div>
     <div class="proc-item wide">
       <img src="../assets/nebula/process/nebula-fullcycle.webp" alt="Полный цикл визуальной системы" loading="lazy" style="max-height:300px;width:100%;object-fit:cover">
-      <span class="proc-lbl">Полный цикл · визуальная система</span>
+      <span class="proc-lbl" data-i18n="s5.l9">Полный цикл · визуальная система</span>
     </div>
   </div>
 </section>
@@ -601,7 +613,7 @@ section[id]{scroll-margin-top:84px}
   <img class="quote-bg" src="../assets/nebula/photo/webp/nebula-06.webp" alt="" aria-hidden="true" loading="lazy">
   <div class="quote-inner">
     <span class="quote-mark">"</span>
-    <p class="quote-text">Nebula позволяла увидеть невероятной красоты туманности <span class="word-oval">невооружённым глазом</span> — и поучаствовать во <span class="word-pill">взрыве сверхновой</span>.</p>
+    <p class="quote-text" data-i18n="q.text">Nebula позволяла увидеть невероятной красоты туманности <span class="word-oval">невооружённым глазом</span> — и поучаствовать во <span class="word-pill">взрыве сверхновой</span>.</p>
     <p class="quote-attr">Nebula · EFEST</p>
   </div>
 </div>
@@ -609,15 +621,15 @@ section[id]{scroll-margin-top:84px}
 <!-- ══ 06 · РЕАЛИЗАЦИЯ ══ -->
 <section class="sec" id="zone-credits">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">06</span> Что сделано</span>
-    <h2 class="sec-h">Реализация</h2>
-    <span class="sec-side">От идеи до финала</span>
+    <span class="sec-tag" data-i18n="s6.tag"><span class="num">06</span> Что сделано</span>
+    <h2 class="sec-h" data-i18n="s6.h">Реализация</h2>
+    <span class="sec-side" data-i18n="s6.side">От идеи до финала</span>
   </div>
   <div class="deliv reveal">
     <div class="deliv-cell">
       <div class="deliv-icon">✦</div>
-      <h4 class="deliv-h">Концепция</h4>
-      <ul class="deliv-list">
+      <h4 class="deliv-h" data-i18n="s6.c1h">Концепция</h4>
+      <ul class="deliv-list" data-i18n="s6.c1l">
         <li>Идея и научная база</li>
         <li>Сценарий трёх актов</li>
         <li>Пространственное решение</li>
@@ -626,8 +638,8 @@ section[id]{scroll-margin-top:84px}
     </div>
     <div class="deliv-cell">
       <div class="deliv-icon">◐</div>
-      <h4 class="deliv-h">Сценография</h4>
-      <ul class="deliv-list">
+      <h4 class="deliv-h" data-i18n="s6.c2h">Сценография</h4>
+      <ul class="deliv-list" data-i18n="s6.c2l">
         <li>Драматургия шоу</li>
         <li>Тайминг и ритм</li>
         <li>Переходы и апогей</li>
@@ -637,19 +649,19 @@ section[id]{scroll-margin-top:84px}
   </div>
   <div class="credits reveal">
     <div>
-      <div class="credit-role">Креативный директор</div>
+      <div class="credit-role" data-i18n="cr.cd">Креативный директор</div>
       <div class="credit-name">Приходько Сергей</div>
     </div>
     <div>
-      <div class="credit-role">Креативный директор</div>
+      <div class="credit-role" data-i18n="cr.cd">Креативный директор</div>
       <div class="credit-name">Самараковская Татьяна</div>
     </div>
     <div>
-      <div class="credit-role">Арт-директор</div>
+      <div class="credit-role" data-i18n="cr.ad">Арт-директор</div>
       <div class="credit-name">Дарья Сапожникова</div>
     </div>
     <div>
-      <div class="credit-role">Медиа-артист</div>
+      <div class="credit-role" data-i18n="cr.ma">Медиа-артист</div>
       <div class="credit-name">Михаил Головин</div>
     </div>
     <div>
@@ -657,11 +669,11 @@ section[id]{scroll-margin-top:84px}
       <div class="credit-name">Макс Яхонтов</div>
     </div>
     <div>
-      <div class="credit-role">Саунд-дизайн</div>
+      <div class="credit-role" data-i18n="cr.sound">Саунд-дизайн</div>
       <div class="credit-name">Мария Теряева</div>
     </div>
     <div>
-      <div class="credit-role">Студия</div>
+      <div class="credit-role" data-i18n="cr.studio">Студия</div>
       <div class="credit-name">Hello I/O · Interactive Technologies</div>
     </div>
   </div>
@@ -673,21 +685,21 @@ section[id]{scroll-margin-top:84px}
     <a class="proj-nav-card" href="souzmultpark.html">
       <img class="proj-nav-bg" src="../assets/preview_projects/souzmultpark.webp" alt="" aria-hidden="true">
       <div class="proj-nav-content">
-        <div class="proj-nav-dir">← Предыдущий</div>
-        <div class="proj-nav-name">Союзмультпарк</div>
-        <div class="proj-nav-sub">Интерактивные парки · 2020—23</div>
+        <div class="proj-nav-dir" data-i18n="pn.prev">← Предыдущий</div>
+        <div class="proj-nav-name" data-i18n="pn.prevname">Союзмультпарк</div>
+        <div class="proj-nav-sub" data-i18n="pn.prevsub">Интерактивные парки · 2020—23</div>
       </div>
     </a>
     <a class="proj-nav-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
-      <div class="proj-nav-contact-label">Есть проект?</div>
-      <div class="proj-nav-contact-btn">Написать ↗</div>
+      <div class="proj-nav-contact-label" data-i18n="pn.clabel">Есть проект?</div>
+      <div class="proj-nav-contact-btn" data-i18n="pn.cbtn">Написать ↗</div>
     </a>
     <a class="proj-nav-card" href="cymatic.html">
       <img class="proj-nav-bg" src="../assets/preview_projects/cymatic.webp" alt="" aria-hidden="true">
       <div class="proj-nav-content">
-        <div class="proj-nav-dir">Следующий →</div>
-        <div class="proj-nav-name">Круг света</div>
-        <div class="proj-nav-sub">Фестивали · проекционный маппинг · 2018–22</div>
+        <div class="proj-nav-dir" data-i18n="pn.next">Следующий →</div>
+        <div class="proj-nav-name" data-i18n="pn.nextname">Круг света</div>
+        <div class="proj-nav-sub" data-i18n="pn.nextsub">Фестивали · проекционный маппинг · 2018–22</div>
       </div>
     </a>
   </div>
@@ -695,8 +707,94 @@ section[id]{scroll-margin-top:84px}
 
 <footer class="foot">
   <span>© 2026 · Tanya Samarakovskaya · Nebula</span>
-  <a class="foot-back" href="../index.html"><span class="ar">←</span> Вернуться к портфолио</a>
+  <a class="foot-back" href="../index.html" data-i18n="f.back"><span class="ar">←</span> Вернуться к портфолио</a>
 </footer>
+
+<script>
+/* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
+(function(){
+  const EN = {
+    'n.back':'All projects','n.s1':'Concept','n.s2':'Video','n.s3':'Gallery','n.s4':'Scenography','n.s5':'Process','n.s6':'Delivery','n.cta':'Get in touch',
+    'h.kicker':'Immersive installation · experience design',
+    'h.sub':'An art installation at the intersection of space science and <span class="word-oval">bodily experience</span>',
+    'h.f1':'Role<b>Creative Director</b>','h.f2':'Format<b>Immersive installation</b>','h.f3':'Venue<b>Hello I/O · EFEST</b>','h.f4':'Technology<b>Projection · depth cameras · sound</b>','h.f5':'Year<b>2021</b>',
+    'tk.line':'Nebula · Cosmic cloud · Supernova explosion · Light as matter <em>·</em> Birth of a nebula · Inside the nebula · Macrocosm <em>·</em> 12 projectors · depth cameras · spatial sound <em>·</em>',
+    's1.tag':'<span class="num">01</span> About','s1.h':'Concept',
+    's1.dl':'<dt>Project</dt><dd>Nebula</dd><dt>Format</dt><dd>Immersive installation</dd><dt>Area</dt><dd>58 m²</dd><dt>Venue</dt><dd>EFEST 2021 · Hello I/O</dd><dt>Role</dt><dd>Creative Director</dd><dt>Year</dt><dd>2021</dd>',
+    's1.h3':'Nebulae you can <span class="word-pill">touch</span>',
+    's1.p1':'EFEST 2021. A 58 m² space with three projection circles on the floor and an eight-meter screen on the wall — all working as a single interactive system.',
+    's1.p2':'At its core — a physical simulation of nebulae: interstellar clouds of gas, dust and plasma born from supernova explosions. The installation reproduced their dynamics: structures, density, particle behavior.',
+    's1.p3':'Each visitor attracted or repelled particles, building up a field around themselves. On the final screen it resolved into the silhouette of a specific person — a nebula avatar existing only here and now.',
+    's1.hooklbl':'Key idea','s1.hook':'Your body becomes <span class="word-ul">part of the nebula</span>.',
+    's1.sl1':'Projectors','s1.sd1':'12 projectors formed a single seamless projection field',
+    's1.sl2':'Floor circles','s1.sd2':'Three 10 m projection circles — the main interaction zone',
+    's1.sl3':'Vertical screen','s1.sd3':'An 8 m circle on the wall — the final act, the visitor’s nebula avatar',
+    's1.sl4':'Area','s1.sd4':'A single immersive space with no physical barriers',
+    's1.sl5':'Depth cameras','s1.sd5':'Ceiling depth cameras — real-time motion tracking',
+    's1.sl6':'Smoke + LED','s1.sd6':'Smoke gave volume to the light beams, LED bars added spatial light',
+    's2.tag':'<span class="num">02</span> Video','s2.side':'Show recording',
+    's2.cap':'Nebula · EFEST 2021 · Hello I/O studio · <a href="https://www.youtube.com/watch?v=bGKW-AaJ7QU" target="_blank" rel="noopener" style="color:var(--accent-2);text-decoration:underline">watch on YouTube</a>',
+    's3.tag':'<span class="num">03</span> Shoot','s3.h':'Gallery','s3.side':'On site',
+    's4.tag':'<span class="num">04</span> Dramaturgy','s4.h':'Scenography','s4.side':'Three acts · ~20 minutes',
+    's4.body':'The show was built as a three-act narrative with two transitions — Nebula formation, Inside the nebula, Macrocosm. Each act with its own visual language, density and emotional temperature. The full cycle runs about 20 minutes.',
+    's4.r1':'<b>Floor projection.</b> Three 10 m circles — the main interaction stage. Here a particle field formed around each visitor.',
+    's4.r2':'<b>Vertical screen.</b> An 8 m circle on the wall — the final transformation. Accumulated particles formed the visitor’s nebula avatar.',
+    's4.r3':'<b>Interactivity.</b> Depth cameras read body movement and translated physical presence into the system’s visual response in real time.',
+    's4.dur1':'6 minutes','s4.dur2':'6 minutes','s4.dur3':'6 minutes',
+    's4.t1':'Nebula formation','s4.d1':'Scattered particles slowly gather into structures. Visitors notice for the first time: every step changes the behavior of the field around them. The system begins to react to presence.',
+    's4.tr1':'Transition · 15–20 sec',
+    's4.t2':'Inside the nebula','s4.d2':'The space is full. Around each person — their own unique particle field. As people draw closer, the fields intersect and react to one another. The experience shifts from individual to shared.',
+    's4.tr2':'Climax · supernova explosion · 30–50 sec',
+    's4.t3':'Macrocosm','s4.d3':'A supernova explosion. Particles move onto the vertical screen. Silhouettes of those present appear on the wall — each turns into a nebula avatar. The presence of a specific person becomes part of the cosmos.',
+    's5.tag':'<span class="num">05</span> Behind the scenes','s5.h':'Process','s5.side':'Setup · tests · renders',
+    's5.sub1':'Space · Setup','s5.l1':'Floor plan · 3 circles + screen','s5.l2':'3D render of the space',
+    's5.sub2':'Renders · Photo tests','s5.l3':'Final render','s5.l4':'Photo test · formation','s5.l5':'Photo test · interaction',
+    's5.sub3':'Visual system · By act','s5.l6':'User-driven effect','s5.l7':'I · Nebula formation','s5.l8':'II · Inside the nebula','s5.l9':'Full cycle · visual system',
+    'q.text':'Nebula let you see nebulae of incredible beauty <span class="word-oval">with the naked eye</span> — and take part in a <span class="word-pill">supernova explosion</span>.',
+    's6.tag':'<span class="num">06</span> What was done','s6.h':'Delivery','s6.side':'From idea to final',
+    's6.c1h':'Concept','s6.c1l':'<li>Idea and scientific basis</li><li>Three-act script</li><li>Spatial design</li><li>Visual language</li>',
+    's6.c2h':'Scenography','s6.c2l':'<li>Show dramaturgy</li><li>Timing and rhythm</li><li>Transitions and climax</li><li>Interactive logic</li>',
+    'cr.cd':'Creative Director','cr.ad':'Art Director','cr.ma':'Media Artist','cr.sound':'Sound design','cr.studio':'Studio',
+    'pn.prev':'← Previous','pn.prevname':'Soyuzmultpark','pn.prevsub':'Interactive parks · 2020—23',
+    'pn.clabel':'Got a project?','pn.cbtn':'Get in touch ↗',
+    'pn.next':'Next →','pn.nextname':'Circle of Light','pn.nextsub':'Festivals · projection mapping · 2018–22',
+    'f.back':'<span class="ar">←</span> Back to portfolio'
+  };
+  const META_EN = {
+    title:'Nebula — Case · Tanya Samarakovskaya',
+    desc:'Nebula — multimedia art installation: experience design, light, sound and interaction. Case by Tanya Samarakovskaya.'
+  };
+  const RU = new Map();
+  const ruTitle = document.title;
+  const descMeta = document.querySelector('meta[name="description"]');
+  const ruDesc = descMeta ? descMeta.content : '';
+  function apply(lang){
+    const en = (lang === 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!RU.has(el)) RU.set(el, el.innerHTML);
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = (en && EN[key] != null) ? EN[key] : RU.get(el);
+    });
+    document.title = en ? META_EN.title : ruTitle;
+    if(descMeta) descMeta.content = en ? META_EN.desc : ruDesc;
+    document.querySelectorAll('#langToggle .lang-seg').forEach(function(b){
+      b.classList.toggle('on', b.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('site_lang', lang); }catch(e){}
+    window.dispatchEvent(new CustomEvent('langchange', {detail: lang}));
+  }
+  const lt = document.getElementById('langToggle');
+  if(lt) lt.addEventListener('click', function(e){
+    const b = e.target.closest('button'); if(!b) return;
+    apply(b.dataset.lang);
+  });
+  let saved = 'ru';
+  try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
+  apply(saved === 'en' ? 'en' : 'ru');
+})();
+</script>
 
 <script>
 // ── cursor ──
