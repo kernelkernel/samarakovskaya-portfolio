@@ -50,12 +50,13 @@
   .nav-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
   .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone)}
   .back::before{content:"←";color:var(--lime);font-size:14px}
-  .breadcrumb{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-2);text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:10px}
-  .breadcrumb .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:blink 1.4s steps(1) infinite}
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
   .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
   .nav-cta::after{content:"↗"}
-  @media (max-width:780px){.breadcrumb span:not(.dot){display:none}}
 
   .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
 
@@ -306,7 +307,13 @@
 <header class="top">
   <div class="nav-bar">
     <a class="back" href="../index.html#works">Все проекты</a>
-    <span class="breadcrumb"><span class="dot"></span><span>Москвариум · 10 лет</span></span>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#zone-concept" data-section="zone-concept">Концепт</a>
+      <a class="mag-pill" href="#zone-campaign" data-section="zone-campaign">Кампания</a>
+      <a class="mag-pill" href="#zone-video" data-section="zone-video">Видео</a>
+      <a class="mag-pill" href="#zone-gallery" data-section="zone-gallery">Галерея</a>
+      <a class="mag-pill" href="#zone-credits" data-section="zone-credits">Команда</a>
+    </nav>
     <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
   </div>
 </header>
@@ -360,7 +367,7 @@
 </div>
 
 <!-- CONCEPT (cream) -->
-<section class="sec on-cream">
+<section class="sec on-cream" id="zone-concept">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Концепт</span>
@@ -407,7 +414,7 @@
 </section>
 
 <!-- CAMPAIGN MECHANICS (graphite) -->
-<section class="sec on-graphite">
+<section class="sec on-graphite" id="zone-campaign">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label">Кампания</span>
@@ -666,7 +673,7 @@
 </section>
 
 <!-- GALLERY — кампания 360° (graphite) -->
-<section class="sec on-graphite" style="padding-top:0">
+<section class="sec on-graphite" id="zone-gallery" style="padding-top:0">
   <div class="wrap">
     <div class="gal reveal">
 
@@ -755,7 +762,7 @@
 </section>
 
 <!-- CREDITS (cream) -->
-<section class="credits">
+<section class="credits" id="zone-credits">
   <div class="wrap">
     <div class="credits-top reveal">
       <div>
@@ -852,6 +859,38 @@
     <span><a href="#top">↑ Наверх</a></span>
   </div>
 </footer>
+
+<script>
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  /* ACTIVE PILL on scroll */
+  const navSectionIds = ['zone-concept','zone-campaign','zone-video','zone-gallery','zone-credits'];
+  const navPillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { navPillMap[p.dataset.section] = p; });
+  const navSecObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(navPillMap).forEach(p => p.classList.remove('active'));
+        const active = navPillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  navSectionIds.forEach(id => { const el = document.getElementById(id); if (el) navSecObs.observe(el); });
+</script>
 
 <script>
   const io = new IntersectionObserver(es => es.forEach(e => {

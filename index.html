@@ -789,7 +789,7 @@
     <div class="hero-curve" aria-hidden="true">
       <svg viewBox="0 0 500 500">
         <defs><path id="curveA" d="M 60 250 C 60 60, 440 60, 440 250 S 60 440, 60 250" fill="none"/></defs>
-        <text><textPath href="#curveA" startOffset="0" data-i18n="hero.curve">Кайф · делать то, чего ещё не делали · делать то, чего ещё не делали · </textPath></text>
+        <text><textPath href="#curveA" startOffset="0" data-i18n="hero.curve">Кайф · делать то, чего ещё не делали · </textPath></text>
       </svg>
     </div>
 
@@ -1287,7 +1287,7 @@
     'nav.contact':'Contact',
     'nav.cta':'Get in touch',
 
-    'hero.curve':'The thrill · making things no one has made yet · making things no one has made yet · ',
+    'hero.curve':'The thrill · making things no one has made yet · ',
     'hero.name':'<span class="row"><span class="syl s1">Ta</span><span class="syl s2">nya</span><span class="small"><em>★</em>cd · producer</span></span><span class="row"><span class="syl s1">Sa</span><span class="syl s2">ma</span><span class="syl s3">ra</span></span><span class="row"><span class="syl s1">kov</span><span class="syl s2">ska</span><span class="syl s3">ya</span></span>',
     'hero.lede':'Creative director and <span class="word-oval">full-cycle</span> producer: concept, storytelling, visual language, interaction, team, production, launch and operation.',
     'hero.role1':'creative',
@@ -1339,27 +1339,27 @@
     'work.l.nebula':'Nebula',
     'work.l.cymatic':'Circle of <em>Light</em>',
     'work.l.capy':'Capybara<em>Booom</em>',
-    'work.l.pole':'Pole',
+    'work.l.pole':'Mother <em>Earth</em>',
     'work.l.kandid':'Candide',
     'work.l.baal':'Baal',
     'work.l.wow':'Way of <em>Water</em>',
-    'work.l.prosv':'Enlightener',
+    'work.l.prosv':'Prosvetitel',
     'work.l.moskvaruim':'Got <em>Fish?</em>',
     'work.l.troyka':'Chance <em>Encounter</em>',
-    'work.l.ocean':'Honest with the <em>Ocean</em>',
+    'work.l.ocean':'Clean <em>Ocean</em>',
     'work.l.souz':'Soyuz<em>multpark</em>',
 
     'work.g.nebula':'Nebula',
     'work.g.cymatic':'Circle of Light',
     'work.g.capy':'CapybaraBooom',
-    'work.g.pole':'Pole',
+    'work.g.pole':'Mother Earth',
     'work.g.kandid':'Candide',
     'work.g.baal':'Baal',
     'work.g.wow':'Way of Water',
-    'work.g.prosv':'Enlightener',
+    'work.g.prosv':'Prosvetitel',
     'work.g.moskvaruim':'Got Fish?',
     'work.g.troyka':'Chance Encounter',
-    'work.g.ocean':'Honest with the Ocean',
+    'work.g.ocean':'Clean Ocean',
     'work.g.souz':'Soyuzmultpark',
 
     'cat.exhibition':'● Exhibition',
@@ -1433,6 +1433,48 @@
   let saved = 'ru';
   try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
   apply(saved === 'en' ? 'en' : 'ru');
+})();
+</script>
+
+<script>
+/* ════════════ hero-curve: автоподбор размера шрифта под длину фразы ════════════ */
+(function(){
+  const wrap = document.querySelector('.hero-curve');
+  if(!wrap) return;
+  const path = document.getElementById('curveA');
+  const textEl = wrap.querySelector('text');
+  if(!path || !textEl) return;
+
+  const BASE_SIZE = 30; // px — макс. размер, как в CSS .hero-curve text
+  const MIN_SIZE = 15;  // px — нижняя граница читаемости
+  const MARGIN = 0.94;  // небольшой зазор, чтобы виток не наезжал сам на себя
+
+  function fit(){
+    textEl.style.fontSize = BASE_SIZE + 'px';
+    let pathLen = 0, textLen = 0;
+    try{
+      pathLen = path.getTotalLength();
+      textLen = textEl.getComputedTextLength();
+    }catch(e){ return; }
+    if(!pathLen || !textLen) return;
+    let size = BASE_SIZE * (pathLen * MARGIN) / textLen;
+    size = Math.max(MIN_SIZE, Math.min(BASE_SIZE, size));
+    textEl.style.fontSize = size.toFixed(1) + 'px';
+  }
+
+  function fitWhenReady(){
+    fit();
+    if(document.fonts && document.fonts.ready){ document.fonts.ready.then(fit); }
+    setTimeout(fit, 300);
+  }
+
+  window.addEventListener('load', fitWhenReady);
+  window.addEventListener('langchange', function(){ requestAnimationFrame(fit); });
+  let rT;
+  window.addEventListener('resize', function(){
+    clearTimeout(rT); rT = setTimeout(fit, 150);
+  });
+  fitWhenReady();
 })();
 </script>
 
