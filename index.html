@@ -139,6 +139,12 @@
     text-transform:uppercase;letter-spacing:.1em;font-weight:600;
   }
   .nav-cta::after{content:"↗\FE0E"}
+  /* language toggle */
+  .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(241,236,221,.06);border:1px solid var(--line-d);border-radius:999px;flex-shrink:0}
+  .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-2);transition:background .2s,color .2s;line-height:1;cursor:none}
+  .lang-seg.on{background:var(--lime);color:var(--ink);font-weight:600}
+  .lang-seg:hover:not(.on){color:var(--bone)}
+  @media(hover:none){.lang-seg{cursor:pointer}}
   @media(max-width:880px){.top-nav{display:none}}
   @media(max-width:560px){.brand small{display:none}}
 
@@ -740,16 +746,20 @@
   <div class="nav-bar">
     <a class="brand" href="#hero">
       <img class="brand-mark" src="assets/icon.webp" alt="Таня Самараковская — логотип">
-      Таня Самараковская <small>· Креативный директор</small>
+      <span data-i18n="nav.brand">Таня Самараковская</span> <small data-i18n="nav.brandRole">· Креативный директор</small>
     </a>
     <nav class="top-nav">
-      <a href="#about">Обо мне</a>
-      <a href="#services">Компетенции</a>
-      <a href="#works">Проекты</a>
-      <a href="#career">Опыт</a>
-      <a href="#contact">Контакты</a>
+      <a href="#about" data-i18n="nav.about">Обо мне</a>
+      <a href="#services" data-i18n="nav.services">Компетенции</a>
+      <a href="#works" data-i18n="nav.works">Проекты</a>
+      <a href="#career" data-i18n="nav.career">Опыт</a>
+      <a href="#contact" data-i18n="nav.contact">Контакты</a>
     </nav>
-    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
+    <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
+      <button class="lang-seg on" data-lang="ru" type="button">RU</button>
+      <button class="lang-seg" data-lang="en" type="button">EN</button>
+    </div>
+    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="nav.cta">Написать</a>
   </div>
 </header>
 
@@ -779,12 +789,12 @@
     <div class="hero-curve" aria-hidden="true">
       <svg viewBox="0 0 500 500">
         <defs><path id="curveA" d="M 60 250 C 60 60, 440 60, 440 250 S 60 440, 60 250" fill="none"/></defs>
-        <text><textPath href="#curveA" startOffset="0">Кайф · делать то, чего ещё не делали · делать то, чего ещё не делали · </textPath></text>
+        <text><textPath href="#curveA" startOffset="0" data-i18n="hero.curve">Кайф · делать то, чего ещё не делали · делать то, чего ещё не делали · </textPath></text>
       </svg>
     </div>
 
     <!-- big name — per-letter animation -->
-    <h1 class="hero-name" id="heroName">
+    <h1 class="hero-name" id="heroName" data-i18n="hero.name">
       <span class="row">
         <span class="syl s1">Та</span><span class="syl s2">ня</span><span class="small"><em>★</em>cd · producer</span>
       </span>
@@ -795,28 +805,28 @@
     <!-- middle: description + role / cta -->
     <div class="hero-mid">
       <div class="hero-mid-left">
-        <p class="hero-lede">Креативный директор и&nbsp;продюсер <span class="word-oval">полного цикла</span>: концепция, сторителлинг, визуальный язык, интерактив, команда, производство, запуск и&nbsp;эксплуатация.</p>
+        <p class="hero-lede" data-i18n="hero.lede">Креативный директор и&nbsp;продюсер <span class="word-oval">полного цикла</span>: концепция, сторителлинг, визуальный язык, интерактив, команда, производство, запуск и&nbsp;эксплуатация.</p>
       </div>
       <div class="hero-mid-right">
         <div class="hero-role">
-          <span class="hr-line">креативный</span>
-          <span class="hr-block">phygital</span>
-          <span class="hr-line">директор</span>
+          <span class="hr-line" data-i18n="hero.role1">креативный</span>
+          <span class="hr-block" data-i18n="hero.role2">phygital</span>
+          <span class="hr-line" data-i18n="hero.role3">директор</span>
         </div>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать <span class="arrow">↗︎</span></a>
-          <a class="btn btn-ghost" href="https://vimeo.com/1195428623?fl=ip&amp;fe=ec" target="_blank" rel="noopener">Шоурил <span class="arrow">↗︎</span></a>
+          <a class="btn btn-primary" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="hero.ctaWrite">Написать <span class="arrow">↗︎</span></a>
+          <a class="btn btn-ghost" href="https://vimeo.com/1195428623?fl=ip&amp;fe=ec" target="_blank" rel="noopener" data-i18n="hero.ctaReel">Шоурил <span class="arrow">↗︎</span></a>
         </div>
       </div>
     </div>
 
     <!-- stats — positioning USPs -->
     <div class="hero-stats">
-      <div class="stat"><b>10<sup>+</sup></b><span>лет в experience design</span></div>
-      <div class="stat"><b>30<sup>+</sup></b><span>реализованных проектов</span></div>
-      <div class="stat"><b class="stat-txt">Искусство&thinsp;&amp; технологии</b></div>
-      <div class="stat"><b class="stat-txt">Полный&thinsp;цикл</b><span>от стратегии до запуска</span></div>
-      <div class="stat"><b class="stat-txt">Phygital</b><span>продукты · кампании</span></div>
+      <div class="stat" data-i18n="hero.stat1"><b>10<sup>+</sup></b><span>лет в experience design</span></div>
+      <div class="stat" data-i18n="hero.stat2"><b>30<sup>+</sup></b><span>реализованных проектов</span></div>
+      <div class="stat" data-i18n="hero.stat3"><b class="stat-txt">Искусство&thinsp;&amp; технологии</b></div>
+      <div class="stat" data-i18n="hero.stat4"><b class="stat-txt">Полный&thinsp;цикл</b><span>от стратегии до запуска</span></div>
+      <div class="stat" data-i18n="hero.stat5"><b class="stat-txt">Phygital</b><span>продукты · кампании</span></div>
     </div>
 
   </div>
@@ -825,8 +835,8 @@
 <!-- MARQUEE -->
 <div class="marq" aria-hidden="true">
   <div class="marq-track">
-    <span>Experience design <i class="star-ico"></i> Phygital <i class="star-ico"></i> Мультимедиа <i class="star-ico"></i> Art direction <i class="star-ico"></i> Интерактив <i class="star-ico"></i> AI production <i class="star-ico"></i> Immersive <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i></span>
-    <span>Experience design <i class="star-ico"></i> Phygital <i class="star-ico"></i> Мультимедиа <i class="star-ico"></i> Art direction <i class="star-ico"></i> Интерактив <i class="star-ico"></i> AI production <i class="star-ico"></i> Immersive <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i></span>
+    <span data-i18n="marq.line">Experience design <i class="star-ico"></i> Phygital <i class="star-ico"></i> Мультимедиа <i class="star-ico"></i> Art direction <i class="star-ico"></i> Интерактив <i class="star-ico"></i> AI production <i class="star-ico"></i> Immersive <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i></span>
+    <span data-i18n="marq.line">Experience design <i class="star-ico"></i> Phygital <i class="star-ico"></i> Мультимедиа <i class="star-ico"></i> Art direction <i class="star-ico"></i> Интерактив <i class="star-ico"></i> AI production <i class="star-ico"></i> Immersive <i class="star-ico"></i> Сторителлинг <i class="star-ico"></i></span>
   </div>
 </div>
 
@@ -836,25 +846,25 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">01</span>
-      <h2 class="sec-h">Обо мне</h2>
-      <span class="sec-side">Искусство <b>&amp; технологии</b></span>
+      <h2 class="sec-h" data-i18n="about.h">Обо мне</h2>
+      <span class="sec-side" data-i18n="about.side">Искусство <b>&amp; технологии</b></span>
     </div>
 
     <div class="about">
       <div class="about-content reveal">
-        <h3 class="about-statement-h">Сотни квадратных метров, десятки тысяч посетителей, <span class="word-ul" style="white-space:nowrap">тонны эмоций</span>, миллионы решений <span style="white-space:nowrap"><span class="word-oval">до первого посетителя</span>.</span></h3>
+        <h3 class="about-statement-h" data-i18n="about.statement">Сотни квадратных метров, десятки тысяч посетителей, <span class="word-ul" style="white-space:nowrap">тонны эмоций</span>, миллионы решений <span style="white-space:nowrap"><span class="word-oval">до первого посетителя</span>.</span></h3>
         <div class="about-body">
-          <p>Работа над проектом на всех этапах: концепция, сторителлинг, арт-дирекшен, интерактивные механики, визуальное направление, техническая реализация, контроль подрядчиков, команда, бюджет и сроки. От питча до эксплуатации. Сила идеи и то, как она работает в реальности, одинаково важны.</p>
-          <p>Форматы разные: мультимедийные выставки, иммерсивные шоу, интерактивные парки, AR-опыт, рекламные кампании, театральные и фестивальные проекты. <b>AI-инструменты</b> встроены в пайплайн: быстрый визуальный поиск, прототипирование, оптимизация продакшн-ресурсов, времени и бюджета.</p>
+          <p data-i18n="about.p1">Работа над проектом на всех этапах: концепция, сторителлинг, арт-дирекшен, интерактивные механики, визуальное направление, техническая реализация, контроль подрядчиков, команда, бюджет и сроки. От питча до эксплуатации. Сила идеи и то, как она работает в реальности, одинаково важны.</p>
+          <p data-i18n="about.p2">Форматы разные: мультимедийные выставки, иммерсивные шоу, интерактивные парки, AR-опыт, рекламные кампании, театральные и фестивальные проекты. <b>AI-инструменты</b> встроены в пайплайн: быстрый визуальный поиск, прототипирование, оптимизация продакшн-ресурсов, времени и бюджета.</p>
         </div>
         <div class="about-tags">
         <span class="pill">experience design</span>
         <span class="pill">phygital</span>
         <span class="pill">AI prod</span>
-        <span class="pill">мультимедиа</span>
-        <span class="pill">рекламные кампании</span>
-        <span class="pill">театр</span>
-        <span class="pill">выставки</span>
+        <span class="pill" data-i18n="about.tag.multimedia">мультимедиа</span>
+        <span class="pill" data-i18n="about.tag.adcampaigns">рекламные кампании</span>
+        <span class="pill" data-i18n="about.tag.theater">театр</span>
+        <span class="pill" data-i18n="about.tag.exhibitions">выставки</span>
         <span class="pill">AR</span>
         <span class="pill">projection</span>
         <span class="pill">vibe coding</span>
@@ -869,71 +879,71 @@
   <div class="wrap">
     <div class="sec-head reveal" style="border-color:var(--line-l)">
       <span class="sec-num" style="color:var(--ink-3)">02</span>
-      <h2 class="sec-h" style="color:var(--ink)">Компетенции</h2>
-      <span class="sec-side" style="color:var(--ink-2)">Восемь направлений</span>
+      <h2 class="sec-h" style="color:var(--ink)" data-i18n="svc.h">Компетенции</h2>
+      <span class="sec-side" style="color:var(--ink-2)" data-i18n="svc.side">Восемь направлений</span>
     </div>
     <div class="svc reveal stagger">
       <div class="svc-cell feat">
         <div class="svc-num"><span>✦ 01 / CORE PRACTICE</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Core practice</span>
-          <h3 class="svc-headline">Experience design — <span class="mark">от первого контакта</span> до&nbsp;впечатления, с&nbsp;которым человек уходит.</h3>
+          <h3 class="svc-headline" data-i18n="svc.feat">Experience design — <span class="mark">от первого контакта</span> до&nbsp;впечатления, с&nbsp;которым человек уходит.</h3>
         </div>
       </div>
       <div class="svc-cell">
         <div class="svc-num"><span>✦ 02 / STORYTELLING</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Storytelling &amp; engagement</span>
-          <h3 class="svc-h">Сторителлинг&nbsp;<span class="mark">&amp;</span>&nbsp;вовлечение</h3>
-          <p class="svc-desc">Нарратив, игровые механики, модели вовлечения и удержания аудитории.</p>
+          <h3 class="svc-h" data-i18n="svc.h2">Сторителлинг&nbsp;<span class="mark">&amp;</span>&nbsp;вовлечение</h3>
+          <p class="svc-desc" data-i18n="svc.d2">Нарратив, игровые механики, модели вовлечения и удержания аудитории.</p>
         </div>
       </div>
       <div class="svc-cell">
         <div class="svc-num"><span>✦ 03 / MULTIMEDIA</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Multimedia</span>
-          <h3 class="svc-h">Мультимедиа и&nbsp;<span class="mark">интерактив</span></h3>
-          <p class="svc-desc">Свет, звук, контент и механики, которые делают пространство вовлекающим.</p>
+          <h3 class="svc-h" data-i18n="svc.h3">Мультимедиа и&nbsp;<span class="mark">интерактив</span></h3>
+          <p class="svc-desc" data-i18n="svc.d3">Свет, звук, контент и механики, которые делают пространство вовлекающим.</p>
         </div>
       </div>
       <div class="svc-cell">
         <div class="svc-num"><span>✦ 04 / ART × TECH</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Art × Tech</span>
-          <h3 class="svc-h">Phygital-<span class="mark">пространства</span></h3>
-          <p class="svc-desc">Физический мир с игровыми правилами: маршруты, квесты, персонажи и задания.</p>
+          <h3 class="svc-h" data-i18n="svc.h4">Phygital-<span class="mark">пространства</span></h3>
+          <p class="svc-desc" data-i18n="svc.d4">Физический мир с игровыми правилами: маршруты, квесты, персонажи и задания.</p>
         </div>
       </div>
       <div class="svc-cell">
         <div class="svc-num"><span>✦ 05 / AI</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">AI · Production</span>
-          <h3 class="svc-h">AI&nbsp;<span class="mark">в</span>&nbsp;продакшне</h3>
-          <p class="svc-desc">Генеративные инструменты в полном производственном цикле — от прототипа до финала.</p>
+          <h3 class="svc-h" data-i18n="svc.h5">AI&nbsp;<span class="mark">в</span>&nbsp;продакшне</h3>
+          <p class="svc-desc" data-i18n="svc.d5">Генеративные инструменты в полном производственном цикле — от прототипа до финала.</p>
         </div>
       </div>
       <div class="svc-cell">
         <div class="svc-num"><span>✦ 06 / DIRECTION</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Art direction</span>
-          <h3 class="svc-h">Арт-<span class="mark">дирекшен</span></h3>
-          <p class="svc-desc">Key visual, персонажи, тональность — целостная вселенная проекта.</p>
+          <h3 class="svc-h" data-i18n="svc.h6">Арт-<span class="mark">дирекшен</span></h3>
+          <p class="svc-desc" data-i18n="svc.d6">Key visual, персонажи, тональность — целостная вселенная проекта.</p>
         </div>
       </div>
       <div class="svc-cell">
         <div class="svc-num"><span>✦ 07 / STRATEGY</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Strategy</span>
-          <h3 class="svc-h">Креативная <span class="mark">стратегия</span></h3>
-          <p class="svc-desc">Концепция, позиционирование, конкурентные преимущества, трендовые тематики.</p>
+          <h3 class="svc-h" data-i18n="svc.h7">Креативная <span class="mark">стратегия</span></h3>
+          <p class="svc-desc" data-i18n="svc.d7">Концепция, позиционирование, конкурентные преимущества, трендовые тематики.</p>
         </div>
       </div>
       <div class="svc-cell">
         <div class="svc-num"><span>✦ 08 / PRODUCING</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Producing</span>
-          <h3 class="svc-h">Продюси<span class="mark">рование</span></h3>
-          <p class="svc-desc">Команда, бюджет, площадка, сроки — управление полным циклом.</p>
+          <h3 class="svc-h" data-i18n="svc.h8">Продюси<span class="mark">рование</span></h3>
+          <p class="svc-desc" data-i18n="svc.d8">Команда, бюджет, площадка, сроки — управление полным циклом.</p>
         </div>
       </div>
     </div>
@@ -945,14 +955,14 @@
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">03</span>
-      <h2 class="sec-h" style="color:var(--lime)">Проекты</h2>
-      <span class="sec-side">30+ реализованных<br><b>проектов</b></span>
+      <h2 class="sec-h" style="color:var(--lime)" data-i18n="works.h">Проекты</h2>
+      <span class="sec-side" data-i18n="works.side">30+ реализованных<br><b>проектов</b></span>
     </div>
 
     <div class="works-tools reveal">
       <div class="view-toggle" id="viewToggle">
-        <button data-view="list" class="on">≡ Список</button>
-        <button data-view="grid">◧ Сетка</button>
+        <button data-view="list" class="on" data-i18n="works.list">≡ Список</button>
+        <button data-view="grid" data-i18n="works.grid">◧ Сетка</button>
       </div>
     </div>
 
@@ -961,7 +971,7 @@
       <a class="wrow" href="projects/nebula.html">
         <span class="wrow-num">01</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — мультимедийная арт-инсталляция" onerror="this.style.display='none'"><span class="ph">✦</span></span>
-        <span class="wrow-title">Небула</span>
+        <span class="wrow-title" data-i18n="work.l.nebula">Небула</span>
         <span class="wrow-tags">Exhibitions · Experience design</span>
         <span class="wrow-year">2023</span>
         <span class="wrow-go">↗︎</span>
@@ -969,7 +979,7 @@
       <a class="wrow" href="projects/cymatic.html">
         <span class="wrow-num">02</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/cymatic.webp" alt="Круг света — проекционный маппинг" onerror="this.style.display='none'"><span class="ph">◐</span></span>
-        <span class="wrow-title">Круг <em>света</em></span>
+        <span class="wrow-title" data-i18n="work.l.cymatic">Круг <em>света</em></span>
         <span class="wrow-tags">Festivals · Projection mapping</span>
         <span class="wrow-year">2018—22</span>
         <span class="wrow-go">↗︎</span>
@@ -977,7 +987,7 @@
       <a class="wrow" href="projects/capybarabooom.html">
         <span class="wrow-num">03</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="КапибараБууум — интерактивная выставка" onerror="this.style.display='none'"><span class="ph">◯</span></span>
-        <span class="wrow-title">Капибара<em>Бууум</em></span>
+        <span class="wrow-title" data-i18n="work.l.capy">Капибара<em>Бууум</em></span>
         <span class="wrow-tags">Exhibitions · IP system</span>
         <span class="wrow-year">2024—26</span>
         <span class="wrow-go">↗︎</span>
@@ -985,7 +995,7 @@
       <a class="wrow" href="projects/pole.html">
         <span class="wrow-num">04</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="Поле — театральный медиаарт" onerror="this.style.display='none'"><span class="ph">▲</span></span>
-        <span class="wrow-title">Поле</span>
+        <span class="wrow-title" data-i18n="work.l.pole">Поле</span>
         <span class="wrow-tags">Theater · Media artist</span>
         <span class="wrow-year">2021</span>
         <span class="wrow-go">↗︎</span>
@@ -993,7 +1003,7 @@
       <a class="wrow" href="projects/kandid.html">
         <span class="wrow-num">05</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="Кандид — театральный видеодизайн" onerror="this.style.display='none'"><span class="ph">K</span></span>
-        <span class="wrow-title">Кандид</span>
+        <span class="wrow-title" data-i18n="work.l.kandid">Кандид</span>
         <span class="wrow-tags">Theater · Video design</span>
         <span class="wrow-year">2016</span>
         <span class="wrow-go">↗︎</span>
@@ -1001,7 +1011,7 @@
       <a class="wrow" href="projects/baal.html">
         <span class="wrow-num">06</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><span class="ph">B</span></span>
-        <span class="wrow-title">Баал</span>
+        <span class="wrow-title" data-i18n="work.l.baal">Баал</span>
         <span class="wrow-tags">Theater · Media artist</span>
         <span class="wrow-year">2019</span>
         <span class="wrow-go">↗︎</span>
@@ -1009,7 +1019,7 @@
       <a class="wrow" href="projects/wayofwater.html">
         <span class="wrow-num">07</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><span class="ph">~</span></span>
-        <span class="wrow-title">Путь <em>воды</em></span>
+        <span class="wrow-title" data-i18n="work.l.wow">Путь <em>воды</em></span>
         <span class="wrow-tags">Exhibitions · Experience design</span>
         <span class="wrow-year">2022—24</span>
         <span class="wrow-go">↗︎</span>
@@ -1017,7 +1027,7 @@
       <a class="wrow" href="projects/prosvetitel.html">
         <span class="wrow-num">08</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="Просветитель — фестиваль и награды" onerror="this.style.display='none'"><span class="ph">✶</span></span>
-        <span class="wrow-title">Просветитель</span>
+        <span class="wrow-title" data-i18n="work.l.prosv">Просветитель</span>
         <span class="wrow-tags">Festivals · Awards</span>
         <span class="wrow-year">2018</span>
         <span class="wrow-go">↗︎</span>
@@ -1025,7 +1035,7 @@
       <a class="wrow" href="projects/moskvaruim.html">
         <span class="wrow-num">09</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/msq_10let/photo/webp/city-01.webp" alt="Рыбов показываем — рекламная кампания 360°" onerror="this.style.display='none'"><span class="ph">◉</span></span>
-        <span class="wrow-title">Рыбов <em>показываем</em></span>
+        <span class="wrow-title" data-i18n="work.l.moskvaruim">Рыбов <em>показываем</em></span>
         <span class="wrow-tags">Advertising · Art direction · 360°</span>
         <span class="wrow-year">2024</span>
         <span class="wrow-go">↗︎</span>
@@ -1033,7 +1043,7 @@
       <a class="wrow" href="projects/troyka-lovemeet.html">
         <span class="wrow-num">10</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект" onerror="this.style.display='none'"><span class="ph">◇</span></span>
-        <span class="wrow-title">Случайное<em> знакомство</em></span>
+        <span class="wrow-title" data-i18n="work.l.troyka">Случайное<em> знакомство</em></span>
         <span class="wrow-tags">Cards · AR · Video production</span>
         <span class="wrow-year">2023</span>
         <span class="wrow-go">↗︎</span>
@@ -1041,7 +1051,7 @@
       <a class="wrow" href="projects/clean-ocean.html">
         <span class="wrow-num">11</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/clean-ocean.webp" alt="С океаном начистоту — WebAR-квест в Москвариуме" onerror="this.style.display='none'"><span class="ph">◐</span></span>
-        <span class="wrow-title">С океаном <em>начистоту</em></span>
+        <span class="wrow-title" data-i18n="work.l.ocean">С океаном <em>начистоту</em></span>
         <span class="wrow-tags">WebAR · Quest · Creative direction</span>
         <span class="wrow-year">2026</span>
         <span class="wrow-go">↗︎</span>
@@ -1049,7 +1059,7 @@
       <a class="wrow" href="projects/souzmultpark.html">
         <span class="wrow-num">12</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><span class="ph">✦</span></span>
-        <span class="wrow-title">Союзмульт<em>парк</em></span>
+        <span class="wrow-title" data-i18n="work.l.souz">Союзмульт<em>парк</em></span>
         <span class="wrow-tags">Interactive parks</span>
         <span class="wrow-year">2020—23</span>
         <span class="wrow-go">↗︎</span>
@@ -1060,71 +1070,71 @@
     <div class="works-grid">
       <!-- ряд 1 — два -->
       <a class="wcard s6" href="projects/nebula.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — мультимедийная арт-инсталляция" onerror="this.style.display='none'"><div class="vph">Небула</div></div>
-        <div class="wcard-top"><span class="tag">● Выставка</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Небула</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — мультимедийная арт-инсталляция" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.nebula">Небула</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.nebula">Небула</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/cymatic.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/cymatic.webp" alt="Круг света — проекционный маппинг" onerror="this.style.display='none'"><div class="vph">Круг света</div></div>
-        <div class="wcard-top"><span class="tag">● Фестиваль</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Круг света</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/cymatic.webp" alt="Круг света — проекционный маппинг" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.cymatic">Круг света</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.festival">● Фестиваль</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.cymatic">Круг света</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 2 — крупный (флагман) -->
       <a class="wcard s12" href="projects/capybarabooom.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="КапибараБууум — интерактивная выставка" onerror="this.style.display='none'"><div class="vph">КапибараБууум</div></div>
-        <div class="wcard-top"><span class="tag">● Выставка</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">КапибараБууум</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="КапибараБууум — интерактивная выставка" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.capy">КапибараБууум</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.capy">КапибараБууум</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 3 — два -->
       <a class="wcard s6" href="projects/pole.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="Поле — театральный медиаарт" onerror="this.style.display='none'"><div class="vph">Поле</div></div>
-        <div class="wcard-top"><span class="tag">● Театр</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Поле</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="Поле — театральный медиаарт" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.pole">Поле</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.pole">Поле</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/kandid.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="Кандид — театральный видеодизайн" onerror="this.style.display='none'"><div class="vph">Кандид</div></div>
-        <div class="wcard-top"><span class="tag">● Театр</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Кандид</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="Кандид — театральный видеодизайн" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.kandid">Кандид</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.kandid">Кандид</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 4 — крупный (флагман) -->
       <a class="wcard s12" href="projects/baal.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><div class="vph">Баал</div></div>
-        <div class="wcard-top"><span class="tag">● Театр</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Баал</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.baal">Баал</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.baal">Баал</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 5 — два -->
       <a class="wcard s6" href="projects/wayofwater.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><div class="vph">Путь воды</div></div>
-        <div class="wcard-top"><span class="tag">● Выставка</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Путь воды</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.wow">Путь воды</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.wow">Путь воды</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/prosvetitel.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="Просветитель — фестиваль и награды" onerror="this.style.display='none'"><div class="vph">Просветитель</div></div>
-        <div class="wcard-top"><span class="tag">● Фестиваль</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Просветитель</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="Просветитель — фестиваль и награды" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.prosv">Просветитель</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.festival">● Фестиваль</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.prosv">Просветитель</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 6 — крупный (флагман) -->
       <a class="wcard s12" href="projects/moskvaruim.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/msq_10let/photo/webp/city-01.webp" alt="Рыбов показываем — рекламная кампания 360°" onerror="this.style.display='none'"><div class="vph">Рыбов показываем</div></div>
-        <div class="wcard-top"><span class="tag">● Рекламная кампания</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Рыбов показываем</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/msq_10let/photo/webp/city-01.webp" alt="Рыбов показываем — рекламная кампания 360°" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.moskvaruim">Рыбов показываем</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.adcampaign">● Рекламная кампания</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.moskvaruim">Рыбов показываем</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 7 — два -->
       <a class="wcard s6" href="projects/troyka-lovemeet.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект" onerror="this.style.display='none'"><div class="vph">Случайное знакомство</div></div>
-        <div class="wcard-top"><span class="tag">● AR-проект</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.arproject">● AR-проект</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.troyka">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/clean-ocean.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/clean-ocean.webp" alt="С океаном начистоту — WebAR-квест в Москвариуме" onerror="this.style.display='none'"><div class="vph">С океаном начистоту</div></div>
-        <div class="wcard-top"><span class="tag">● WebAR-квест</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">С океаном начистоту</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/clean-ocean.webp" alt="С океаном начистоту — WebAR-квест в Москвариуме" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.ocean">С океаном начистоту</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.webar">● WebAR-квест</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.ocean">С океаном начистоту</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <!-- ряд 8 — крупный (флагман) -->
       <a class="wcard s12" href="projects/souzmultpark.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><div class="vph">Союзмультпарк</div></div>
-        <div class="wcard-top"><span class="tag">● Интерактивный парк</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over">Союзмультпарк</h3><span class="wcard-go">↗︎</span></div>
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.souz">Союзмультпарк</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.park">● Интерактивный парк</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.souz">Союзмультпарк</h3><span class="wcard-go">↗︎</span></div>
       </a>
     </div>
   </div>
@@ -1135,16 +1145,16 @@
   <div class="wrap">
     <div class="sec-head reveal" style="border-color:var(--line-l)">
       <span class="sec-num" style="color:var(--ink-3)">04</span>
-      <h2 class="sec-h" style="color:var(--ink)">Опыт</h2>
-      <span class="sec-side" style="color:var(--ink-2)">12+ лет практики</span>
+      <h2 class="sec-h" style="color:var(--ink)" data-i18n="career.h">Опыт</h2>
+      <span class="sec-side" style="color:var(--ink-2)" data-i18n="career.side">12+ лет практики</span>
     </div>
 
     <div class="career">
       <div class="career-aside reveal">
-        <p>Выставки, контент, phygital, театр, рекламные кампании, AR, маппинг, AI.</p>
+        <p data-i18n="career.aside">Выставки, контент, phygital, театр, рекламные кампании, AR, маппинг, AI.</p>
 
         <div class="tools-stack">
-          <span class="tools-label">Стек</span>
+          <span class="tools-label" data-i18n="career.stack">Стек</span>
           <div class="tools-groups">
             <div class="tool-group">
               <span class="tg-name">Visual</span>
@@ -1169,58 +1179,58 @@
       </div>
 
       <div class="timeline reveal stagger"><a class="titem" href="#">
-          <span class="tyear">2024—н.в.</span>
+          <span class="tyear" data-i18n="career.y1">2024—н.в.</span>
           <div>
-            <h3 class="ttitle">Москвариум <span class="mark">/</span> Креативный директор</h3>
-            <p class="tdesc">Руководство креативными проектами разного масштаба на стороне заказчика. АР-квесты, спецпроекты, рекламные кампании 360, фото и видео-съемки, брендинг, партнерские и фестивальные интеграции.</p>
+            <h3 class="ttitle" data-i18n="career.t1">Москвариум <span class="mark">/</span> Креативный директор</h3>
+            <p class="tdesc" data-i18n="career.d1">Руководство креативными проектами разного масштаба на стороне заказчика. АР-квесты, спецпроекты, рекламные кампании 360, фото и видео-съемки, брендинг, партнерские и фестивальные интеграции.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
         <a class="titem" href="#">
           <span class="tyear">2021—2024</span>
           <div>
-            <h3 class="ttitle">Москвариум <span class="mark">/</span> Креативный директор мультимедийных проектов</h3>
-            <p class="tdesc">Руководство мультимедийными выставочными проектами на стороне заказчика: концепция, сценарная архитектура, визуальное направление, подрядчики, бюджет, сроки, запуск и эксплуатационные доработки. Ключевые проекты: «Путь воды», «КапибараБууум», гастроли и расширение «Океана Юрского периода».</p>
+            <h3 class="ttitle" data-i18n="career.t2">Москвариум <span class="mark">/</span> Креативный директор мультимедийных проектов</h3>
+            <p class="tdesc" data-i18n="career.d2">Руководство мультимедийными выставочными проектами на стороне заказчика: концепция, сценарная архитектура, визуальное направление, подрядчики, бюджет, сроки, запуск и эксплуатационные доработки. Ключевые проекты: «Путь воды», «КапибараБууум», гастроли и расширение «Океана Юрского периода».</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
         <a class="titem" href="#">
           <span class="tyear">2017—21</span>
           <div>
-            <h3 class="ttitle">Hello Computer <span class="mark">/</span> Креативный директор · ведущий креатор</h3>
-            <p class="tdesc">Интерактивные парки, выставки, городские фестивали, мультимедийные инсталляции. Концепции, механики взаимодействия, питчи, визуальные системы. Союзмультпарк, Nebula, Окская жемчужина, «Вместе ярче» на ВДНХ.</p>
+            <h3 class="ttitle" data-i18n="career.t3">Hello Computer <span class="mark">/</span> Креативный директор · ведущий креатор</h3>
+            <p class="tdesc" data-i18n="career.d3">Интерактивные парки, выставки, городские фестивали, мультимедийные инсталляции. Концепции, механики взаимодействия, питчи, визуальные системы. Союзмультпарк, Nebula, Окская жемчужина, «Вместе ярче» на ВДНХ.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
         <a class="titem" href="#">
           <span class="tyear">2017—21</span>
           <div>
-            <h3 class="ttitle">Конференции <span class="mark">/</span> Лекции</h3>
-            <p class="tdesc">Лекции на фестивалях Intervals Education, EFEST 2021, фестиваль «Круг света». Темы - experience design, интерактивные среды, сторителлинг и phygital-проекты.</p>
+            <h3 class="ttitle" data-i18n="career.t4">Конференции <span class="mark">/</span> Лекции</h3>
+            <p class="tdesc" data-i18n="career.d4">Лекции на фестивалях Intervals Education, EFEST 2021, фестиваль «Круг света». Темы - experience design, интерактивные среды, сторителлинг и phygital-проекты.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
       <a class="titem" href="#">
           <span class="tyear">2014—17</span>
           <div>
-            <h3 class="ttitle">Медиаарт <span class="mark">/</span> Театр · Маппинг · Фестивали</h3>
-            <p class="tdesc">Театральные проекты BAAL, POLE, Кандид: видеоарт, световые партитуры. Проекционный маппинг. TouchDesigner, Cinema 4d, Resolume Arena, vvvv.</p>
+            <h3 class="ttitle" data-i18n="career.t5">Медиаарт <span class="mark">/</span> Театр · Маппинг · Фестивали</h3>
+            <p class="tdesc" data-i18n="career.d5">Театральные проекты BAAL, POLE, Кандид: видеоарт, световые партитуры. Проекционный маппинг. TouchDesigner, Cinema 4d, Resolume Arena, vvvv.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
         <a class="titem" href="#">
           <span class="tyear">2012—14</span>
           <div>
-            <h3 class="ttitle">БВШД <span class="mark">/</span> Дизайн в интерактивной среде</h3>
-            <p class="tdesc">Переход от экранного дизайна к проектированию опыта в пространстве. Инсталляции, motion, взаимодействие зрителя с объектом.</p>
+            <h3 class="ttitle" data-i18n="career.t6">БВШД <span class="mark">/</span> Дизайн в интерактивной среде</h3>
+            <p class="tdesc" data-i18n="career.d6">Переход от экранного дизайна к проектированию опыта в пространстве. Инсталляции, motion, взаимодействие зрителя с объектом.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
         <a class="titem" href="#">
           <span class="tyear">2005—12</span>
           <div>
-            <h3 class="ttitle">Диджитал и&nbsp;<span class="mark">реклама</span></h3>
-            <p class="tdesc">Digital-спецпроекты, рекламные кампании, интерактивные промо-механики в&nbsp;международных агентствах Actis Wunderman, ADV Digital. Путь от технического исполнения к&nbsp;арт-дирекшену.</p>
+            <h3 class="ttitle" data-i18n="career.t7">Диджитал и&nbsp;<span class="mark">реклама</span></h3>
+            <p class="tdesc" data-i18n="career.d7">Digital-спецпроекты, рекламные кампании, интерактивные промо-механики в&nbsp;международных агентствах Actis Wunderman, ADV Digital. Путь от технического исполнения к&nbsp;арт-дирекшену.</p>
           </div>
           <span class="tarrow">↗︎</span>
         </a>
@@ -1233,10 +1243,10 @@
 <section class="sec on-graphite" id="contact" data-screen-label="05 Contact">
   <div class="wrap">
     <div class="reveal" style="margin-bottom:48px">
-      <span class="sec-num" style="margin-bottom:24px;display:inline-flex">05 / Контакты</span>
+      <span class="sec-num" style="margin-bottom:24px;display:inline-flex" data-i18n="contact.num">05 / Контакты</span>
       <h2 class="contact-h">
-        Давайте <span class="word-pill">сделаем</span><br>
-        что-то <span class="word-oval" id="cycleWord" style="display:inline-block;min-width:6ch">&nbsp;</span>.
+        <span data-i18n="contact.h1">Давайте</span> <span class="word-pill" data-i18n="contact.make">сделаем</span><br>
+        <span data-i18n="contact.h2">что-то</span> <span class="word-oval" id="cycleWord" style="display:inline-block;min-width:6ch">&nbsp;</span>.
       </h2>
     </div>
 
@@ -1260,9 +1270,171 @@
 <footer>
   <div class="foot-row">
     <span>© 2026 · <b>Tanya Samarakovskaya</b> · Creative director · Creative producer</span>
-    <span><a href="#hero">Наверх ↑</a></span>
+    <span><a href="#hero" data-i18n="footer.top">Наверх ↑</a></span>
   </div>
 </footer>
+
+<script>
+/* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
+(function(){
+  const EN = {
+    'nav.brand':'Tanya Samarakovskaya',
+    'nav.brandRole':'· Creative Director',
+    'nav.about':'About',
+    'nav.services':'Expertise',
+    'nav.works':'Projects',
+    'nav.career':'Experience',
+    'nav.contact':'Contact',
+    'nav.cta':'Get in touch',
+
+    'hero.curve':'The thrill · making things no one has made yet · making things no one has made yet · ',
+    'hero.name':'<span class="row"><span class="syl s1">Ta</span><span class="syl s2">nya</span><span class="small"><em>★</em>cd · producer</span></span><span class="row"><span class="syl s1">Sa</span><span class="syl s2">ma</span><span class="syl s3">ra</span></span><span class="row"><span class="syl s1">kov</span><span class="syl s2">ska</span><span class="syl s3">ya</span></span>',
+    'hero.lede':'Creative director and <span class="word-oval">full-cycle</span> producer: concept, storytelling, visual language, interaction, team, production, launch and operation.',
+    'hero.role1':'creative',
+    'hero.role2':'phygital',
+    'hero.role3':'director',
+    'hero.ctaWrite':'Get in touch <span class="arrow">↗︎</span>',
+    'hero.ctaReel':'Showreel <span class="arrow">↗︎</span>',
+    'hero.stat1':'<b>10<sup>+</sup></b><span>years in experience design</span>',
+    'hero.stat2':'<b>30<sup>+</sup></b><span>projects delivered</span>',
+    'hero.stat3':'<b class="stat-txt">Art&thinsp;&amp; technology</b>',
+    'hero.stat4':'<b class="stat-txt">Full&thinsp;cycle</b><span>from strategy to launch</span>',
+    'hero.stat5':'<b class="stat-txt">Phygital</b><span>products · campaigns</span>',
+
+    'marq.line':'Experience design <i class="star-ico"></i> Phygital <i class="star-ico"></i> Multimedia <i class="star-ico"></i> Art direction <i class="star-ico"></i> Interactivity <i class="star-ico"></i> AI production <i class="star-ico"></i> Immersive <i class="star-ico"></i> Storytelling <i class="star-ico"></i>',
+
+    'about.h':'About',
+    'about.side':'Art <b>&amp; technology</b>',
+    'about.statement':'Hundreds of square meters, tens of thousands of visitors, <span class="word-ul" style="white-space:nowrap">tons of emotion</span>, millions of decisions <span style="white-space:nowrap"><span class="word-oval">before the first visitor</span>.</span>',
+    'about.p1':'Work across every stage of a project: concept, storytelling, art direction, interactive mechanics, visual direction, technical implementation, contractor oversight, team, budget and deadlines. From pitch to operation. The strength of an idea and how it works in reality matter equally.',
+    'about.p2':'The formats vary: multimedia exhibitions, immersive shows, interactive parks, AR experiences, advertising campaigns, theater and festival projects. <b>AI tools</b> are built into the pipeline: fast visual exploration, prototyping, and optimization of production resources, time and budget.',
+    'about.tag.multimedia':'multimedia',
+    'about.tag.adcampaigns':'ad campaigns',
+    'about.tag.theater':'theater',
+    'about.tag.exhibitions':'exhibitions',
+
+    'svc.h':'Expertise',
+    'svc.side':'Eight disciplines',
+    'svc.feat':'Experience design — <span class="mark">from the first contact</span> to the impression a person leaves with.',
+    'svc.h2':'Storytelling&nbsp;<span class="mark">&amp;</span>&nbsp;engagement',
+    'svc.d2':'Narrative, game mechanics, models for engaging and retaining audiences.',
+    'svc.h3':'Multimedia &amp;&nbsp;<span class="mark">interaction</span>',
+    'svc.d3':'Light, sound, content and mechanics that make a space engaging.',
+    'svc.h4':'Phygital <span class="mark">spaces</span>',
+    'svc.d4':'The physical world with game rules: routes, quests, characters and tasks.',
+    'svc.h5':'AI&nbsp;<span class="mark">in</span>&nbsp;production',
+    'svc.d5':'Generative tools across the full production cycle — from prototype to final.',
+    'svc.h6':'Art <span class="mark">direction</span>',
+    'svc.d6':'Key visual, characters, tone of voice — a coherent project universe.',
+    'svc.h7':'Creative <span class="mark">strategy</span>',
+    'svc.d7':'Concept, positioning, competitive advantages, trending themes.',
+    'svc.h8':'Produ<span class="mark">cing</span>',
+    'svc.d8':'Team, budget, venue, deadlines — managing the full cycle.',
+
+    'works.h':'Projects',
+    'works.side':'30+ delivered<br><b>projects</b>',
+    'works.list':'≡ List',
+    'works.grid':'◧ Grid',
+
+    'work.l.nebula':'Nebula',
+    'work.l.cymatic':'Circle of <em>Light</em>',
+    'work.l.capy':'Capybara<em>Booom</em>',
+    'work.l.pole':'Pole',
+    'work.l.kandid':'Candide',
+    'work.l.baal':'Baal',
+    'work.l.wow':'Way of <em>Water</em>',
+    'work.l.prosv':'Enlightener',
+    'work.l.moskvaruim':'Got <em>Fish?</em>',
+    'work.l.troyka':'Chance <em>Encounter</em>',
+    'work.l.ocean':'Honest with the <em>Ocean</em>',
+    'work.l.souz':'Soyuz<em>multpark</em>',
+
+    'work.g.nebula':'Nebula',
+    'work.g.cymatic':'Circle of Light',
+    'work.g.capy':'CapybaraBooom',
+    'work.g.pole':'Pole',
+    'work.g.kandid':'Candide',
+    'work.g.baal':'Baal',
+    'work.g.wow':'Way of Water',
+    'work.g.prosv':'Enlightener',
+    'work.g.moskvaruim':'Got Fish?',
+    'work.g.troyka':'Chance Encounter',
+    'work.g.ocean':'Honest with the Ocean',
+    'work.g.souz':'Soyuzmultpark',
+
+    'cat.exhibition':'● Exhibition',
+    'cat.festival':'● Festival',
+    'cat.theater':'● Theater',
+    'cat.adcampaign':'● Ad campaign',
+    'cat.arproject':'● AR project',
+    'cat.webar':'● WebAR quest',
+    'cat.park':'● Interactive park',
+
+    'career.h':'Experience',
+    'career.side':'12+ years of practice',
+    'career.aside':'Exhibitions, content, phygital, theater, ad campaigns, AR, mapping, AI.',
+    'career.stack':'Stack',
+    'career.y1':'2024—present',
+    'career.t1':'Moskvarium <span class="mark">/</span> Creative Director',
+    'career.d1':'Leading creative projects of various scales on the client side. AR quests, special projects, 360° advertising campaigns, photo and video shoots, branding, partner and festival integrations.',
+    'career.t2':'Moskvarium <span class="mark">/</span> Creative Director, Multimedia Projects',
+    'career.d2':'Leading multimedia exhibition projects on the client side: concept, narrative architecture, visual direction, contractors, budget, deadlines, launch and operational refinements. Key projects: “Way of Water”, “CapybaraBooom”, touring and the expansion of “Jurassic Ocean”.',
+    'career.t3':'Hello Computer <span class="mark">/</span> Creative Director · Lead Creative',
+    'career.d3':'Interactive parks, exhibitions, city festivals, multimedia installations. Concepts, interaction mechanics, pitches, visual systems. Soyuzmultpark, Nebula, Oka Pearl, “Brighter Together” at VDNKh.',
+    'career.t4':'Conferences <span class="mark">/</span> Talks',
+    'career.d4':'Talks at Intervals Education, EFEST 2021 and the “Circle of Light” festival. Topics — experience design, interactive environments, storytelling and phygital projects.',
+    'career.t5':'Media Art <span class="mark">/</span> Theater · Mapping · Festivals',
+    'career.d5':'Theater projects BAAL, POLE, Candide: video art, lighting scores. Projection mapping. TouchDesigner, Cinema 4D, Resolume Arena, vvvv.',
+    'career.t6':'BHSAD <span class="mark">/</span> Design for Interactive Environments',
+    'career.d6':'A shift from screen design to designing experience in space. Installations, motion, the viewer’s interaction with the object.',
+    'career.t7':'Digital &amp;&nbsp;<span class="mark">advertising</span>',
+    'career.d7':'Digital special projects, advertising campaigns, interactive promo mechanics at the international agencies Actis Wunderman and ADV Digital. A path from technical execution to art direction.',
+
+    'contact.num':'05 / Contact',
+    'contact.h1':'Let’s',
+    'contact.make':'make',
+    'contact.h2':'something',
+    'footer.top':'Top ↑'
+  };
+  const META_EN = {
+    title:'Tanya Samarakovskaya — Creative Director · Phygital Practice',
+    desc:'Tanya Samarakovskaya — creative director and full-cycle producer. Multimedia exhibitions, immersive shows, interactive parks, AR. From concept to launch.'
+  };
+
+  const RU = new Map();
+  const ruTitle = document.title;
+  const descMeta = document.querySelector('meta[name="description"]');
+  const ruDesc = descMeta ? descMeta.content : '';
+
+  function apply(lang){
+    const en = (lang === 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!RU.has(el)) RU.set(el, el.innerHTML);
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = (en && EN[key] != null) ? EN[key] : RU.get(el);
+    });
+    document.title = en ? META_EN.title : ruTitle;
+    if(descMeta) descMeta.content = en ? META_EN.desc : ruDesc;
+    document.querySelectorAll('#langToggle .lang-seg').forEach(function(b){
+      b.classList.toggle('on', b.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('site_lang', lang); }catch(e){}
+    window.dispatchEvent(new CustomEvent('langchange', {detail: lang}));
+  }
+
+  const lt = document.getElementById('langToggle');
+  if(lt) lt.addEventListener('click', function(e){
+    const b = e.target.closest('button'); if(!b) return;
+    apply(b.dataset.lang);
+  });
+
+  let saved = 'ru';
+  try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
+  apply(saved === 'en' ? 'en' : 'ru');
+})();
+</script>
 
 <script>
   // Reveal on scroll
@@ -1323,15 +1495,23 @@
     applyView('grid');
   }
 
-  // Scramble cycling words
+  // Scramble cycling words (language-aware)
   (function(){
     const el = document.getElementById('cycleWord');
     if(!el) return;
-    const words = ['необычное','невероятное','яркое','живое','настоящее','мощное','странное','большое','своё','нечаянное','крутое'];
-    const chars = 'абвгдежзийклмнопрстуфхцчшщыьэюя';
+    const WORDS = {
+      ru: ['необычное','невероятное','яркое','живое','настоящее','мощное','странное','большое','своё','нечаянное','крутое'],
+      en: ['unexpected','incredible','vivid','alive','real','powerful','strange','big','our own','unplanned','bold']
+    };
+    const CHARS = {
+      ru: 'абвгдежзийклмнопрстуфхцчшщыьэюя',
+      en: 'abcdefghijklmnopqrstuvwxyz'
+    };
+    let lang = (document.documentElement.dataset.lang === 'en') ? 'en' : 'ru';
     let idx = 0;
 
     function scrambleTo(target) {
+      const chars = CHARS[lang];
       const dur = 480;
       let start = null;
       function frame(ts) {
@@ -1349,12 +1529,18 @@
       requestAnimationFrame(frame);
     }
 
-    // init first word
-    scrambleTo(words[0]);
+    function start(){ idx = 0; scrambleTo(WORDS[lang][0]); }
+    start();
+
+    // restart cycle when language changes
+    window.addEventListener('langchange', function(e){
+      lang = (e.detail === 'en') ? 'en' : 'ru';
+      start();
+    });
 
     setInterval(() => {
-      idx = (idx + 1) % words.length;
-      scrambleTo(words[idx]);
+      idx = (idx + 1) % WORDS[lang].length;
+      scrambleTo(WORDS[lang][idx]);
     }, 3000);
   })();
 

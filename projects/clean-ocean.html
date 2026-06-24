@@ -59,6 +59,10 @@
   @media(max-width:900px){.mag-nav{display:none}}
   .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:#fff;padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
   .nav-cta::after{content:"↗\FE0E"}
+  .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(238,243,243,.06);border:1px solid var(--line-d2);border-radius:99px;flex-shrink:0}
+  .lang-seg{padding:7px 9px;border-radius:99px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--bone-3);line-height:1;transition:background .2s,color .2s}
+  .lang-seg.on{background:var(--lime);color:#fff;font-weight:600}
+  .lang-seg:hover:not(.on){color:var(--bone)}
 
   .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
 
@@ -284,7 +288,7 @@
 <body>
 
 <div class="lb" id="lb">
-  <button class="lb-close" id="lbClose">[ESC] закрыть</button>
+  <button class="lb-close" id="lbClose" data-i18n="lb.close">[ESC] закрыть</button>
   <button class="lb-nav lb-prev" id="lbPrev">←</button>
   <img id="lbImg" src="" alt="">
   <button class="lb-nav lb-next" id="lbNext">→</button>
@@ -294,22 +298,26 @@
 <!-- TOP NAV -->
 <header class="top">
   <div class="nav-bar">
-    <a class="back" href="../index.html#works">Все проекты</a>
+    <a class="back" href="../index.html#works" data-i18n="n.back">Все проекты</a>
     <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#s-about" data-section="s-about">Проект</a>
-      <a class="mag-pill" href="#s-route" data-section="s-route">Маршрут</a>
-      <a class="mag-pill" href="#s-how" data-section="s-how">Как играть</a>
-      <a class="mag-pill" href="#s-screens" data-section="s-screens">Экраны</a>
-      <a class="mag-pill" href="#s-mascots" data-section="s-mascots">Персонажи</a>
-      <a class="mag-pill" href="#s-credits" data-section="s-credits">Команда</a>
+      <a class="mag-pill" href="#s-about" data-section="s-about" data-i18n="n.m1">Проект</a>
+      <a class="mag-pill" href="#s-route" data-section="s-route" data-i18n="n.m2">Маршрут</a>
+      <a class="mag-pill" href="#s-how" data-section="s-how" data-i18n="n.m3">Как играть</a>
+      <a class="mag-pill" href="#s-screens" data-section="s-screens" data-i18n="n.m4">Экраны</a>
+      <a class="mag-pill" href="#s-mascots" data-section="s-mascots" data-i18n="n.m5">Персонажи</a>
+      <a class="mag-pill" href="#s-credits" data-section="s-credits" data-i18n="n.m6">Команда</a>
     </nav>
-    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать</a>
+    <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
+      <button class="lang-seg on" data-lang="ru" type="button">RU</button>
+      <button class="lang-seg" data-lang="en" type="button">EN</button>
+    </div>
+    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="n.cta">Написать</a>
   </div>
 </header>
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0">С океаном начистоту — WebAR-квест в Москвариуме</h1>
+  <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0" data-i18n="h.h1">С океаном начистоту — WebAR-квест в Москвариуме</h1>
   <div class="hero-bg" id="heroBg" aria-hidden="true">
     <img src="../assets/msq_clean-ocean/kv/clean-ocean-kv-buoy.webp" alt="С океаном начистоту — Москвариум × BBDO" loading="eager" decoding="async">
   </div>
@@ -318,8 +326,8 @@
 <!-- MARQUEE -->
 <div class="marq" aria-hidden="true">
   <div class="marq-track">
-    <span>Десять локаций <span class="dot"></span> десять персонажей <span class="dot"></span> кодовое слово экоспасателя <span class="dot"></span> пластик · нефть · микропластик · сети <span class="dot"></span> WebAR без приложения <span class="dot"></span> </span>
-    <span>Десять локаций <span class="dot"></span> десять персонажей <span class="dot"></span> кодовое слово экоспасателя <span class="dot"></span> пластик · нефть · микропластик · сети <span class="dot"></span> WebAR без приложения <span class="dot"></span> </span>
+    <span data-i18n="marq.row">Десять локаций <span class="dot"></span> десять персонажей <span class="dot"></span> кодовое слово экоспасателя <span class="dot"></span> пластик · нефть · микропластик · сети <span class="dot"></span> WebAR без приложения <span class="dot"></span> </span>
+    <span data-i18n="marq.row">Десять локаций <span class="dot"></span> десять персонажей <span class="dot"></span> кодовое слово экоспасателя <span class="dot"></span> пластик · нефть · микропластик · сети <span class="dot"></span> WebAR без приложения <span class="dot"></span> </span>
   </div>
 </div>
 
@@ -329,24 +337,24 @@
   <div class="wrap">
     <div class="about-in">
       <div class="about-left reveal">
-        <span class="about-eyebrow">О проекте</span>
-        <h2 class="about-h">Экологическая инициатива о судьбе воды</h2>
+        <span class="about-eyebrow" data-i18n="about.eyebrow">О проекте</span>
+        <h2 class="about-h" data-i18n="about.h">Экологическая инициатива о судьбе воды</h2>
         <div class="about-text">
-          <p>«С океаном начистоту». Образовательный интерактивный проект, который в понятном формате рассказывает о загрязнении мирового океана, показывает последствия для водных обитателей и предлагает простые действия, доступные каждому.</p>
-          <p>Проект стартовал во Всемирный день Океана, <b>8 июня 2026 года</b>, в экспозиции Москвариума на ВДНХ.</p>
+          <p data-i18n="about.p1">«С океаном начистоту». Образовательный интерактивный проект, который в понятном формате рассказывает о загрязнении мирового океана, показывает последствия для водных обитателей и предлагает простые действия, доступные каждому.</p>
+          <p data-i18n="about.p2">Проект стартовал во Всемирный день Океана, <b>8 июня 2026 года</b>, в экспозиции Москвариума на ВДНХ.</p>
         </div>
         <div class="about-tags">
-          <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg>Загрязнение воды</span>
-          <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.1 1.2 6L12 16.9 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>Интерактивный формат</span>
-          <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.6-5 6-5s6 2 6 5M16.5 14.2c2.3.2 4.5 1.8 4.5 4.8"/></svg>Для всей семьи</span>
-          <span class="atag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>Практические советы</span>
+          <span class="atag" data-i18n="about.tag1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg>Загрязнение воды</span>
+          <span class="atag" data-i18n="about.tag2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.1 1.2 6L12 16.9 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>Интерактивный формат</span>
+          <span class="atag" data-i18n="about.tag3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 19c0-3 2.6-5 6-5s6 2 6 5M16.5 14.2c2.3.2 4.5 1.8 4.5 4.8"/></svg>Для всей семьи</span>
+          <span class="atag" data-i18n="about.tag4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>Практические советы</span>
         </div>
       </div>
       <div class="stat-cards reveal stagger">
-        <div class="stat-card" style="--c:#FF6B5C"><span class="v">10</span><span class="l">локаций в экспозиции Москвариума</span></div>
-        <div class="stat-card" style="--c:#45C4E0"><span class="v">WebAR</span><span class="l">без скачивания приложения</span></div>
-        <div class="stat-card" style="--c:#9B8CFF"><span class="v">10</span><span class="l">персонажей-проводников</span></div>
-        <div class="stat-card" style="--c:#F2B33D"><span class="v">8 <small>июня</small></span><span class="l">старт во Всемирный день Океана</span></div>
+        <div class="stat-card" style="--c:#FF6B5C"><span class="v">10</span><span class="l" data-i18n="about.stat1">локаций в экспозиции Москвариума</span></div>
+        <div class="stat-card" style="--c:#45C4E0"><span class="v">WebAR</span><span class="l" data-i18n="about.stat2">без скачивания приложения</span></div>
+        <div class="stat-card" style="--c:#9B8CFF"><span class="v">10</span><span class="l" data-i18n="about.stat3">персонажей-проводников</span></div>
+        <div class="stat-card" style="--c:#F2B33D"><span class="v">8 <small data-i18n="about.stat4-mo">июня</small></span><span class="l" data-i18n="about.stat4">старт во Всемирный день Океана</span></div>
       </div>
     </div>
   </div>
@@ -356,14 +364,14 @@
 <section class="sec on-graphite" id="s-video">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Видео</span>
+      <span class="sec-label" data-i18n="video.label">Видео</span>
       <div></div>
-      <div class="sec-side">прохождение<br><b>квеста</b></div>
+      <div class="sec-side" data-i18n="video.side">прохождение<br><b>квеста</b></div>
     </div>
     <div class="video-frame reveal">
       <iframe src="https://www.youtube-nocookie.com/embed/nUlaF-BUMMI?rel=0&amp;modestbranding=1&amp;playsinline=1" title="Прохождение WebAR-квеста «С океаном начистоту»" loading="lazy" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
-    <p class="video-cap">Нажмите, чтобы посмотреть прохождение квеста</p>
+    <p class="video-cap" data-i18n="video.cap">Нажмите, чтобы посмотреть прохождение квеста</p>
   </div>
 </section>
 
@@ -375,9 +383,9 @@
         <img src="../assets/msq_clean-ocean/kv/clean-ocean-mission-phone.webp" alt="Экран WebAR-миссии «С океаном начистоту»">
       </div>
       <div class="feature-body reveal">
-        <span class="feature-eyebrow">Экоквест в экспозиции</span>
-        <h2 class="feature-h">Экоквест.<br>10 локаций.<br><span class="coral">10 персонажей.</span></h2>
-        <p class="feature-p">Десять аквариумов с QR-кодами по всей экспозиции Москвариума: от перелётных скатов до большого морского танка с акулами. <b>Сканируешь, открываешь WebAR без установки приложения и помогаешь очищать воду.</b></p>
+        <span class="feature-eyebrow" data-i18n="feature.eyebrow">Экоквест в экспозиции</span>
+        <h2 class="feature-h" data-i18n="feature.h">Экоквест.<br>10 локаций.<br><span class="coral">10 персонажей.</span></h2>
+        <p class="feature-p" data-i18n="feature.p">Десять аквариумов с QR-кодами по всей экспозиции Москвариума: от перелётных скатов до большого морского танка с акулами. <b>Сканируешь, открываешь WebAR без установки приложения и помогаешь очищать воду.</b></p>
       </div>
     </div>
   </div>
@@ -389,7 +397,7 @@
     <div class="ph" data-ph="скан аквариума"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-01.webp" alt=""></div>
   </div>
   <div class="pullq-inner reveal">
-    <p class="pullq-text">Чистая вода — это не данность.<br>Поможем океану <span class="word-block">вместе</span>.</p>
+    <p class="pullq-text" data-i18n="pullq1.text">Чистая вода — это не данность.<br>Поможем океану <span class="word-block">вместе</span>.</p>
   </div>
 </section>
 
@@ -397,16 +405,16 @@
 <section class="sec on-graphite" id="s-route">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">01 / Маршрут</span>
+      <span class="sec-label" data-i18n="route.label">01 / Маршрут</span>
       <div></div>
-      <div class="sec-side">по всей<br><b>экспозиции</b></div>
+      <div class="sec-side" data-i18n="route.side">по всей<br><b>экспозиции</b></div>
     </div>
-    <h2 class="sec-h reveal" style="margin-bottom:48px">Эдьютеймент-квест.<br><span class="em">10 локаций</span>.</h2>
+    <h2 class="sec-h reveal" style="margin-bottom:48px" data-i18n="route.h">Эдьютеймент-квест.<br><span class="em">10 локаций</span>.</h2>
     <div class="map-blue reveal">
       <div class="map-blue-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/concept/clean-ocean-route-map-nobg.webp" alt="Схема экспозиции Москвариума с игровыми локациями маршрута"></div>
       <div class="map-blue-body">
-        <h3>Сканируй QR. Играй. Очищай.</h3>
-        <p>Точки расставлены по реальному пути Москвариума, чтобы цифровой слой усиливал прогулку. Девять локаций с AR-игрой и точка с эко-чек-листом. Посетитель проходит короткую миссию там, где и так интересно, и идёт дальше. <b>Кит в большом морском аквариуме закрывает маршрут</b> и собирает кодовое слово экоспасателя.</p>
+        <h3 data-i18n="route.h3">Сканируй QR. Играй. Очищай.</h3>
+        <p data-i18n="route.p">Точки расставлены по реальному пути Москвариума, чтобы цифровой слой усиливал прогулку. Девять локаций с AR-игрой и точка с эко-чек-листом. Посетитель проходит короткую миссию там, где и так интересно, и идёт дальше. <b>Кит в большом морском аквариуме закрывает маршрут</b> и собирает кодовое слово экоспасателя.</p>
       </div>
     </div>
   </div>
@@ -416,56 +424,56 @@
 <section class="sec on-blue" id="s-how">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">02 / Как играть</span>
+      <span class="sec-label" data-i18n="how.label">02 / Как играть</span>
       <div></div>
-      <div class="sec-side">маршрут из<br><b>девяти шагов</b></div>
+      <div class="sec-side" data-i18n="how.side">маршрут из<br><b>девяти шагов</b></div>
     </div>
-    <h2 class="sec-h reveal" style="margin-bottom:52px">Как устроена <span class="em">игра</span>.</h2>
+    <h2 class="sec-h reveal" style="margin-bottom:52px" data-i18n="how.h">Как устроена <span class="em">игра</span>.</h2>
     <div class="steps stagger reveal">
       <div class="step-card" style="--c:#FF6B5C">
         <div class="step-top"><span class="step-num">1</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><path d="M10 17l5-5-5-5"/><path d="M15 12H3"/></svg></span></div>
-        <h3>Приходишь в экспозицию</h3>
-        <p>Стандартный билет в Москвариум на Проспекте Мира, 119с23.</p>
+        <h3 data-i18n="how.s1h">Приходишь в экспозицию</h3>
+        <p data-i18n="how.s1p">Стандартный билет в Москвариум на Проспекте Мира, 119с23.</p>
       </div>
       <div class="step-card" style="--c:#F2B33D">
         <div class="step-top"><span class="step-num">2</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3M21 21v.01M17 21h.01M21 17h.01"/></svg></span></div>
-        <h3>Находишь QR-код</h3>
-        <p>Наклейка «смятый стаканчик» на стекле аквариума.</p>
+        <h3 data-i18n="how.s2h">Находишь QR-код</h3>
+        <p data-i18n="how.s2p">Наклейка «смятый стаканчик» на стекле аквариума.</p>
       </div>
       <div class="step-card" style="--c:#45C4E0">
         <div class="step-top"><span class="step-num">3</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18"/></svg></span></div>
-        <h3>Открываешь WebAR</h3>
-        <p>Прямо в Safari или Chrome, без установки.</p>
+        <h3 data-i18n="how.s3h">Открываешь WebAR</h3>
+        <p data-i18n="how.s3p">Прямо в Safari или Chrome, без установки.</p>
       </div>
       <div class="step-card" style="--c:#9B8CFF">
         <div class="step-top"><span class="step-num">4</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 1 2-2h2l1.5-2h7L17 6h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="3.5"/></svg></span></div>
-        <h3>Наводишь камеру</h3>
-        <p>На реальный аквариум, поверх которого дорисованы загрязнения.</p>
+        <h3 data-i18n="how.s4h">Наводишь камеру</h3>
+        <p data-i18n="how.s4p">На реальный аквариум, поверх которого дорисованы загрязнения.</p>
       </div>
       <div class="step-card" style="--c:#57C77A">
         <div class="step-top"><span class="step-num">5</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span></div>
-        <h3>Видишь AR-загрязнение</h3>
-        <p>Бутылки, плёнка, нефть, микропластик. Всё, что незаметно глазу.</p>
+        <h3 data-i18n="how.s5h">Видишь AR-загрязнение</h3>
+        <p data-i18n="how.s5p">Бутылки, плёнка, нефть, микропластик. Всё, что незаметно глазу.</p>
       </div>
       <div class="step-card" style="--c:#FF8A4C">
         <div class="step-top"><span class="step-num">6</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z"/></svg></span></div>
-        <h3>Очищаешь воду</h3>
-        <p>Сачок, скиммер, бластер, пылесос или гарпун. На каждой локации своё.</p>
+        <h3 data-i18n="how.s6h">Очищаешь воду</h3>
+        <p data-i18n="how.s6p">Сачок, скиммер, бластер, пылесос или гарпун. На каждой локации своё.</p>
       </div>
       <div class="step-card" style="--c:#FF6B5C">
         <div class="step-top"><span class="step-num">7</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c.7.8 1 1.5 1 2h6c0-.5.3-1.2 1-2a6 6 0 0 0-4-10z"/></svg></span></div>
-        <h3>Получаешь факт и совет</h3>
-        <p>Персонаж рассказывает о загрязнении и даёт практический совет.</p>
+        <h3 data-i18n="how.s7h">Получаешь факт и совет</h3>
+        <p data-i18n="how.s7p">Персонаж рассказывает о загрязнении и даёт практический совет.</p>
       </div>
       <div class="step-card" style="--c:#F2B33D">
         <div class="step-top"><span class="step-num">8</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5h16v2M9 19h6M12 5v14"/></svg></span></div>
-        <h3>Собираешь букву</h3>
-        <p>За каждую локацию буква от секретного кодового слова.</p>
+        <h3 data-i18n="how.s8h">Собираешь букву</h3>
+        <p data-i18n="how.s8p">За каждую локацию буква от секретного кодового слова.</p>
       </div>
       <div class="step-card" style="--c:#45C4E0">
         <div class="step-top"><span class="step-num">9</span><span class="step-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><path d="M8.5 12.5 7 22l5-3 5 3-1.5-9.5"/></svg></span></div>
-        <h3>Открываешь награды</h3>
-        <p>Собрал слово целиком, получил доступ к скрытой странице с цифровыми подарками.</p>
+        <h3 data-i18n="how.s9h">Открываешь награды</h3>
+        <p data-i18n="how.s9p">Собрал слово целиком, получил доступ к скрытой странице с цифровыми подарками.</p>
       </div>
     </div>
   </div>
@@ -475,24 +483,24 @@
 <section class="sec on-graphite" id="s-screens">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">03 / Экраны</span>
+      <span class="sec-label" data-i18n="screens.label">03 / Экраны</span>
       <div></div>
-      <div class="sec-side">интерфейс<br><b>квеста</b></div>
+      <div class="sec-side" data-i18n="screens.side">интерфейс<br><b>квеста</b></div>
     </div>
-    <h2 class="sec-h reveal" style="margin-bottom:48px;font-size:clamp(34px,5.2vw,76px)">Путь игрока <span class="em">от старта до награды</span>.</h2>
+    <h2 class="sec-h reveal" style="margin-bottom:48px;font-size:clamp(34px,5.2vw,76px)" data-i18n="screens.h">Путь игрока <span class="em">от старта до награды</span>.</h2>
     <div class="screens-lane reveal">
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-01-zagruzka.webp" alt="Экран загрузки квеста «С океаном начистоту»"></div><div class="screen-cap"><span class="screen-num">01</span><span class="screen-label">Заставка</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-02-privetstvie.webp" alt="Экран приветствия персонажа"></div><div class="screen-cap"><span class="screen-num">02</span><span class="screen-label">Приветствие героя</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-03-onbording.webp" alt="Экран знакомства с проблемой"></div><div class="screen-cap"><span class="screen-num">03</span><span class="screen-label">Онбординг</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-04-igra.webp" alt="Экран геймплея: очистка воды"></div><div class="screen-cap"><span class="screen-num">04</span><span class="screen-label">Геймплей · очистка</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-05-skat-sovet.webp" alt="Экран совета от персонажа"></div><div class="screen-cap"><span class="screen-num">05</span><span class="screen-label">Совет ската</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-06-sovet.webp" alt="Экран практического совета"></div><div class="screen-cap"><span class="screen-num">06</span><span class="screen-label">Практический совет</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-07-neony-fakt.webp" alt="Экран факта и собранной буквы кодового слова"></div><div class="screen-cap"><span class="screen-num">07</span><span class="screen-label">Факт и буква</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-08-kit-final.webp" alt="Экран продолжения очистки"></div><div class="screen-cap"><span class="screen-num">08</span><span class="screen-label">Очистка дальше</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-09-dostizhenie.webp" alt="Экран награды «Друг океанов»"></div><div class="screen-cap"><span class="screen-num">09</span><span class="screen-label">Награда</span></div></div>
-      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-10-hirurg-final.webp" alt="Финальный экран благодарности"></div><div class="screen-cap"><span class="screen-num">10</span><span class="screen-label">Финал</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-01-zagruzka.webp" alt="Экран загрузки квеста «С океаном начистоту»"></div><div class="screen-cap"><span class="screen-num">01</span><span class="screen-label" data-i18n="screens.s1">Заставка</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-02-privetstvie.webp" alt="Экран приветствия персонажа"></div><div class="screen-cap"><span class="screen-num">02</span><span class="screen-label" data-i18n="screens.s2">Приветствие героя</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-03-onbording.webp" alt="Экран знакомства с проблемой"></div><div class="screen-cap"><span class="screen-num">03</span><span class="screen-label" data-i18n="screens.s3">Онбординг</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-04-igra.webp" alt="Экран геймплея: очистка воды"></div><div class="screen-cap"><span class="screen-num">04</span><span class="screen-label" data-i18n="screens.s4">Геймплей · очистка</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-05-skat-sovet.webp" alt="Экран совета от персонажа"></div><div class="screen-cap"><span class="screen-num">05</span><span class="screen-label" data-i18n="screens.s5">Совет ската</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-06-sovet.webp" alt="Экран практического совета"></div><div class="screen-cap"><span class="screen-num">06</span><span class="screen-label" data-i18n="screens.s6">Практический совет</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-07-neony-fakt.webp" alt="Экран факта и собранной буквы кодового слова"></div><div class="screen-cap"><span class="screen-num">07</span><span class="screen-label" data-i18n="screens.s7">Факт и буква</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-08-kit-final.webp" alt="Экран продолжения очистки"></div><div class="screen-cap"><span class="screen-num">08</span><span class="screen-label" data-i18n="screens.s8">Очистка дальше</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-09-dostizhenie.webp" alt="Экран награды «Друг океанов»"></div><div class="screen-cap"><span class="screen-num">09</span><span class="screen-label" data-i18n="screens.s9">Награда</span></div></div>
+      <div class="screen"><div class="screen-frame"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/screens/clean-ocean-screen-10-hirurg-final.webp" alt="Финальный экран благодарности"></div><div class="screen-cap"><span class="screen-num">10</span><span class="screen-label" data-i18n="screens.s10">Финал</span></div></div>
     </div>
-    <div class="screens-hint">листай вправо · 10 экранов</div>
+    <div class="screens-hint" data-i18n="screens.hint">листай вправо · 10 экранов</div>
   </div>
 </section>
 
@@ -500,22 +508,22 @@
 <section class="sec on-graphite" id="s-mascots">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">04 / Персонажи</span>
+      <span class="sec-label" data-i18n="mascots.label">04 / Персонажи</span>
       <div></div>
-      <div class="sec-side">у каждой локации<br><b>свой герой</b></div>
+      <div class="sec-side" data-i18n="mascots.side">у каждой локации<br><b>свой герой</b></div>
     </div>
-    <h2 class="sec-h reveal" style="margin-bottom:52px;font-size:clamp(34px,5.2vw,76px)">Проблемы обитателей <span class="em">через персонажей</span>.</h2>
+    <h2 class="sec-h reveal" style="margin-bottom:52px;font-size:clamp(34px,5.2vw,76px)" data-i18n="mascots.h">Проблемы обитателей <span class="em">через персонажей</span>.</h2>
     <div class="masks stagger reveal">
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-whale.webp" alt="Скат"></div><div class="mask-num">01</div><div class="mask-name">Скат</div><div class="mask-zone">Перелётные скаты</div><div class="mask-poll">банки · бутылки · упаковка</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-dolphin.webp" alt="Белуга"></div><div class="mask-num">02</div><div class="mask-name">Белуга</div><div class="mask-zone">Пресноводные хищники</div><div class="mask-poll">нефть · канистра</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-crab.webp" alt="Парчовый сом"></div><div class="mask-num">03</div><div class="mask-name">Парчовый сом</div><div class="mask-zone">Древние рыбы Африки</div><div class="mask-poll">сточные воды</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-pufferfish.webp" alt="Неоны"></div><div class="mask-num">04</div><div class="mask-name">Неоны</div><div class="mask-zone">Неоны</div><div class="mask-poll">микропластик</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-ray.webp" alt="Черепаха"></div><div class="mask-num">05</div><div class="mask-name">Черепаха</div><div class="mask-zone">Кайман и черепахи</div><div class="mask-poll">тетра-пак · трубочки · пакет</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-catfish.webp" alt="Иния"></div><div class="mask-num">06</div><div class="mask-name">Иния</div><div class="mask-zone">Главный пресноводный</div><div class="mask-poll">шампунь · порошок · ПАВ</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-neon-fish.webp" alt="Голубой хирург"></div><div class="mask-num">07</div><div class="mask-name">Голубой хирург</div><div class="mask-zone">Рифовые кораллы</div><div class="mask-poll">стаканчик · тюбик</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-sturgeon.webp" alt="Аротрон"></div><div class="mask-num">08</div><div class="mask-name">Аротрон</div><div class="mask-zone">Диодоны и аротроны</div><div class="mask-poll">плёнка · крышки · волокна</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-blue-tang.webp" alt="Потамон"></div><div class="mask-num">09</div><div class="mask-name">Потамон</div><div class="mask-zone">Малые реки России</div><div class="mask-poll">эко-чек-лист</div></div>
-      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-mascot-turtle.webp" alt="Кит"></div><div class="mask-num">10</div><div class="mask-name">Кит</div><div class="mask-zone">Большой морской · финал</div><div class="mask-poll">шина · сети · леска</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-whale.webp" alt="Скат"></div><div class="mask-num">01</div><div class="mask-name" data-i18n="mascots.m1n">Скат</div><div class="mask-zone" data-i18n="mascots.m1z">Перелётные скаты</div><div class="mask-poll" data-i18n="mascots.m1p">банки · бутылки · упаковка</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-dolphin.webp" alt="Белуга"></div><div class="mask-num">02</div><div class="mask-name" data-i18n="mascots.m2n">Белуга</div><div class="mask-zone" data-i18n="mascots.m2z">Пресноводные хищники</div><div class="mask-poll" data-i18n="mascots.m2p">нефть · канистра</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-crab.webp" alt="Парчовый сом"></div><div class="mask-num">03</div><div class="mask-name" data-i18n="mascots.m3n">Парчовый сом</div><div class="mask-zone" data-i18n="mascots.m3z">Древние рыбы Африки</div><div class="mask-poll" data-i18n="mascots.m3p">сточные воды</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-pufferfish.webp" alt="Неоны"></div><div class="mask-num">04</div><div class="mask-name" data-i18n="mascots.m4n">Неоны</div><div class="mask-zone" data-i18n="mascots.m4z">Неоны</div><div class="mask-poll" data-i18n="mascots.m4p">микропластик</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-ray.webp" alt="Черепаха"></div><div class="mask-num">05</div><div class="mask-name" data-i18n="mascots.m5n">Черепаха</div><div class="mask-zone" data-i18n="mascots.m5z">Кайман и черепахи</div><div class="mask-poll" data-i18n="mascots.m5p">тетра-пак · трубочки · пакет</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-catfish.webp" alt="Иния"></div><div class="mask-num">06</div><div class="mask-name" data-i18n="mascots.m6n">Иния</div><div class="mask-zone" data-i18n="mascots.m6z">Главный пресноводный</div><div class="mask-poll" data-i18n="mascots.m6p">шампунь · порошок · ПАВ</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-neon-fish.webp" alt="Голубой хирург"></div><div class="mask-num">07</div><div class="mask-name" data-i18n="mascots.m7n">Голубой хирург</div><div class="mask-zone" data-i18n="mascots.m7z">Рифовые кораллы</div><div class="mask-poll" data-i18n="mascots.m7p">стаканчик · тюбик</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-sturgeon.webp" alt="Аротрон"></div><div class="mask-num">08</div><div class="mask-name" data-i18n="mascots.m8n">Аротрон</div><div class="mask-zone" data-i18n="mascots.m8z">Диодоны и аротроны</div><div class="mask-poll" data-i18n="mascots.m8p">плёнка · крышки · волокна</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-blue-tang.webp" alt="Потамон"></div><div class="mask-num">09</div><div class="mask-name" data-i18n="mascots.m9n">Потамон</div><div class="mask-zone" data-i18n="mascots.m9z">Малые реки России</div><div class="mask-poll" data-i18n="mascots.m9p">эко-чек-лист</div></div>
+      <div class="mask"><div class="mask-img"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/characters/clean-ocean-char-mascot-turtle.webp" alt="Кит"></div><div class="mask-num">10</div><div class="mask-name" data-i18n="mascots.m10n">Кит</div><div class="mask-zone" data-i18n="mascots.m10z">Большой морской · финал</div><div class="mask-poll" data-i18n="mascots.m10p">шина · сети · леска</div></div>
     </div>
   </div>
 </section>
@@ -524,15 +532,15 @@
 <section class="sec on-graphite" id="s-gallery" style="padding-top:30px">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">05 / В экспозиции</span>
+      <span class="sec-label" data-i18n="gallery.label">05 / В экспозиции</span>
       <div></div>
-      <div class="sec-side">реальное<br><b>прохождение</b></div>
+      <div class="sec-side" data-i18n="gallery.side">реальное<br><b>прохождение</b></div>
     </div>
   </div>
   <div class="gal">
     <div class="gi"><div class="ph" data-ph="портрет"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-16.webp" alt="Мальчик с телефоном у тоннельного аквариума"></div></div>
     <div class="gi"><div class="ph" data-ph="экран приложения"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-06.webp" alt="Экран WebAR-квеста на телефоне у аквариума"></div></div>
-    <div class="gcap"><div class="big">Десять локаций, одно кодовое слово</div><div class="sub">webar · без установки приложения</div></div>
+    <div class="gcap"><div class="big" data-i18n="gallery.capbig">Десять локаций, одно кодовое слово</div><div class="sub" data-i18n="gallery.capsub">webar · без установки приложения</div></div>
     <div class="gi"><div class="ph" data-ph="скаты"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-01.webp" alt="Мальчик сканирует синий аквариум со скатами, AR-мусор на экране"></div></div>
     <div class="gi"><div class="ph" data-ph="вместе"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-10.webp" alt="Двое детей проходят AR-миссию у аквариума"></div></div>
     <div class="gi"><div class="ph" data-ph="AR-мусор"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-12.webp" alt="AR-загрязнение поверх аквариума: бутылка и QR-код"></div></div>
@@ -543,25 +551,25 @@
 <section class="credits" id="s-credits">
   <div class="wrap">
     <div class="credits-top reveal">
-      <h2 class="credits-title">Команда.</h2>
+      <h2 class="credits-title" data-i18n="credits.h">Команда.</h2>
       <div class="credits-facts">
-        <div class="cred-fact"><strong>10</strong>маскотов</div>
-        <div class="cred-fact"><strong>10</strong>аквариумов</div>
-        <div class="cred-fact"><strong>10</strong>советов для жизни</div>
-        <div class="cred-fact"><strong>1</strong>кодовое слово</div>
+        <div class="cred-fact"><strong>10</strong><span data-i18n="credits.f1">маскотов</span></div>
+        <div class="cred-fact"><strong>10</strong><span data-i18n="credits.f2">аквариумов</span></div>
+        <div class="cred-fact"><strong>10</strong><span data-i18n="credits.f3">советов для жизни</span></div>
+        <div class="cred-fact"><strong>1</strong><span data-i18n="credits.f4">кодовое слово</span></div>
       </div>
     </div>
     <div class="credits-body">
       <dl class="credits-col-left">
-        <div class="cred-row"><dt>Проект</dt><dd>Москвариум</dd></div>
-        <div class="cred-row"><dt>Креативное руководство</dt><dd>Татьяна Самараковская · креативный директор Москвариума</dd></div>
-        <div class="cred-row"><dt>Команда Москвариума</dt><dd>12 человек</dd></div>
-        <div class="cred-row"><dt>Партнёр (агентство)</dt><dd>BBDO</dd></div>
-        <div class="cred-row"><dt>Подрядчик (продакшн)</dt><dd>likeVR</dd></div>
-        <div class="cred-row"><dt>Формат · старт</dt><dd>WebAR-квест · 8 июня 2026</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt1">Проект</dt><dd data-i18n="credits.dd1">Москвариум</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt2">Креативное руководство</dt><dd data-i18n="credits.dd2">Татьяна Самараковская · креативный директор Москвариума</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt3">Команда Москвариума</dt><dd data-i18n="credits.dd3">12 человек</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt4">Партнёр (агентство)</dt><dd data-i18n="credits.dd4">BBDO</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt5">Подрядчик (продакшн)</dt><dd data-i18n="credits.dd5">likeVR</dd></div>
+        <div class="cred-row"><dt data-i18n="credits.dt6">Формат · старт</dt><dd data-i18n="credits.dd6">WebAR-квест · 8 июня 2026</dd></div>
       </dl>
       <div class="credits-col-right">
-        <p class="role-statement">Креативное руководство со стороны Москвариума: концепция опыта, архитектура маршрута, привязка обитателей к типам загрязнений, читаемость сцен и темп прохождения. Координация агентства BBDO и продакшна likeVR от идеи до запуска.</p>
+        <p class="role-statement" data-i18n="credits.role">Креативное руководство со стороны Москвариума: концепция опыта, архитектура маршрута, привязка обитателей к типам загрязнений, читаемость сцен и темп прохождения. Координация агентства BBDO и продакшна likeVR от идеи до запуска.</p>
       </div>
     </div>
   </div>
@@ -573,7 +581,7 @@
     <div class="ph" data-ph="экран миссии"><img loading="lazy" decoding="async" src="../assets/msq_clean-ocean/photo/webp/clean-ocean-ar-06.webp" alt=""></div>
   </div>
   <div class="pullq-inner reveal">
-    <p class="pullq-text">Спасение океана<br><span class="word-oval">начинается с тебя</span>.</p>
+    <p class="pullq-text" data-i18n="pullq2.text">Спасение океана<br><span class="word-oval">начинается с тебя</span>.</p>
   </div>
 </section>
 
@@ -582,27 +590,27 @@
   <div class="proj-nav-inner">
     <a class="pn-card" href="troyka-lovemeet.html">
       <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/troyka-lovemeet.webp" alt="" aria-hidden="true">
-      <span class="pn-dir">← Предыдущий</span>
-      <span class="pn-name">Случайное знакомство</span>
-      <span class="pn-sub">Москвариум · AR · 2023</span>
+      <span class="pn-dir" data-i18n="pn.prevdir">← Предыдущий</span>
+      <span class="pn-name" data-i18n="pn.prevname">Случайное знакомство</span>
+      <span class="pn-sub" data-i18n="pn.prevsub">Москвариум · AR · 2023</span>
     </a>
     <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
-      <span class="pn-contact-label">Есть проект?</span>
-      <span class="pn-btn">Написать ↗</span>
+      <span class="pn-contact-label" data-i18n="pn.clabel">Есть проект?</span>
+      <span class="pn-btn" data-i18n="pn.cbtn">Написать ↗</span>
     </a>
     <a class="pn-card" href="souzmultpark.html">
       <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/souzmultpark.webp" alt="" aria-hidden="true">
-      <span class="pn-dir">Следующий →</span>
-      <span class="pn-name">Союзмультпарк</span>
-      <span class="pn-sub">Interactive parks · 2020—23</span>
+      <span class="pn-dir" data-i18n="pn.nextdir">Следующий →</span>
+      <span class="pn-name" data-i18n="pn.nextname">Союзмультпарк</span>
+      <span class="pn-sub" data-i18n="pn.nextsub">Interactive parks · 2020—23</span>
     </a>
   </div>
 </nav>
 
 <footer>
   <div class="foot-row">
-    <span>© 2026 · <b>Таня Самараковская</b></span>
-    <span><a href="#top">↑ Наверх</a></span>
+    <span data-i18n="foot.copy">© 2026 · <b>Таня Самараковская</b></span>
+    <span><a href="#top" data-i18n="foot.top">↑ Наверх</a></span>
   </div>
 </footer>
 
@@ -640,5 +648,156 @@
   let tx=0;lb.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
   lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50)dx<0?show((idx+1)%imgs.length,1):show((idx-1+imgs.length)%imgs.length);});
 
+</script>
+<script>
+/* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
+(function(){
+  const EN = {
+    "lb.close":"[ESC] close",
+    "n.back":"All projects",
+    "n.m1":"Project",
+    "n.m2":"Route",
+    "n.m3":"How to play",
+    "n.m4":"Screens",
+    "n.m5":"Characters",
+    "n.m6":"Team",
+    "n.cta":"Contact",
+    "h.h1":"Clean Ocean — a WebAR quest at Moskvarium",
+    "marq.row":"Ten locations <span class=\"dot\"></span> ten characters <span class=\"dot\"></span> eco-rescuer code word <span class=\"dot\"></span> plastic · oil · microplastics · nets <span class=\"dot\"></span> WebAR without an app <span class=\"dot\"></span> ",
+    "about.eyebrow":"About the project",
+    "about.h":"An environmental initiative about the future of water",
+    "about.p1":"Clean Ocean is an educational interactive project that explains ocean pollution in a clear, accessible format, shows its impact on aquatic life, and offers simple actions anyone can take.",
+    "about.p2":"The project launched on World Ocean Day, <b>June 8, 2026</b>, inside the Moskvarium exhibition at VDNH.",
+    "about.tag1":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z\"/></svg>Water pollution",
+    "about.tag2":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l2.6 5.6 6.1.7-4.5 4.1 1.2 6L12 16.9 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z\"/></svg>Interactive format",
+    "about.tag3":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"9\" cy=\"8\" r=\"3\"/><circle cx=\"17\" cy=\"9\" r=\"2.4\"/><path d=\"M3 19c0-3 2.6-5 6-5s6 2 6 5M16.5 14.2c2.3.2 4.5 1.8 4.5 4.8\"/></svg>For the whole family",
+    "about.tag4":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M3 12h4l3 8 4-16 3 8h4\"/></svg>Practical tips",
+    "about.stat1":"locations inside the Moskvarium exhibition",
+    "about.stat2":"no app download required",
+    "about.stat3":"character guides",
+    "about.stat4-mo":"June",
+    "about.stat4":"launched on World Ocean Day",
+    "video.label":"Video",
+    "video.side":"the quest<br><b>walkthrough</b>",
+    "video.cap":"Click to watch the quest walkthrough",
+    "feature.eyebrow":"An eco-quest inside the exhibition",
+    "feature.h":"Eco-quest.<br>10 locations.<br><span class=\"coral\">10 characters.</span>",
+    "feature.p":"Ten aquariums with QR codes across the Moskvarium exhibition: from migratory rays to the large marine tank with sharks. <b>Scan, open WebAR without installing an app, and help clean the water.</b>",
+    "pullq1.text":"Clean water is not a given.<br>Let's help the ocean <span class=\"word-block\">together</span>.",
+    "route.label":"01 / Route",
+    "route.side":"across the<br><b>exhibition</b>",
+    "route.h":"An edutainment quest.<br><span class=\"em\">10 locations</span>.",
+    "route.h3":"Scan the QR. Play. Clean.",
+    "route.p":"The points are placed along the real visitor route through Moskvarium, so the digital layer amplifies the walk rather than interrupting it. Nine locations contain AR gameplay, plus one eco-checklist point. Visitors complete a short mission exactly where the live habitat is already engaging, then move on. <b>The whale in the large marine aquarium closes the route</b> and completes the eco-rescuer code word.",
+    "how.label":"02 / How to play",
+    "how.side":"a route in<br><b>nine steps</b>",
+    "how.h":"How the <span class=\"em\">game works</span>.",
+    "how.s1h":"Enter the exhibition",
+    "how.s1p":"A standard ticket to Moskvarium, 119s23 Prospekt Mira.",
+    "how.s2h":"Find a QR code",
+    "how.s2p":"Look for the “crumpled cup” sticker on the aquarium glass.",
+    "how.s3h":"Open WebAR",
+    "how.s3p":"Directly in Safari or Chrome, with nothing to install.",
+    "how.s4h":"Point the camera",
+    "how.s4p":"At a real aquarium, with pollution drawn over the live habitat.",
+    "how.s5h":"See AR pollution",
+    "how.s5p":"Bottles, film, oil, microplastics — the things the eye often misses.",
+    "how.s6h":"Clean the water",
+    "how.s6p":"Use a net, skimmer, blaster, vacuum, or harpoon. Each location has its own tool.",
+    "how.s7h":"Get a fact and a tip",
+    "how.s7p":"A character explains the pollution type and gives a practical everyday tip.",
+    "how.s8h":"Collect a letter",
+    "how.s8p":"Each location gives one letter of the secret code word.",
+    "how.s9h":"Unlock rewards",
+    "how.s9p":"Complete the word and unlock a hidden page with digital gifts.",
+    "screens.label":"03 / Screens",
+    "screens.side":"quest<br><b>walkthrough</b>",
+    "screens.h":"The player journey <span class=\"em\">from start to reward</span>.",
+    "screens.s1":"Loading screen",
+    "screens.s2":"Hero greeting",
+    "screens.s3":"Onboarding",
+    "screens.s4":"Gameplay · cleaning",
+    "screens.s5":"Ray's tip",
+    "screens.s6":"Practical tip",
+    "screens.s7":"Fact and letter",
+    "screens.s8":"Continue cleaning",
+    "screens.s9":"Reward",
+    "screens.s10":"Finale",
+    "screens.hint":"scroll right · 10 screens",
+    "mascots.label":"04 / Characters",
+    "mascots.side":"each location has<br><b>its own hero</b>",
+    "mascots.h":"Aquatic problems <span class=\"em\">told through characters</span>.",
+    "mascots.m1n":"Ray","mascots.m1z":"Migratory rays","mascots.m1p":"cans · bottles · packaging",
+    "mascots.m2n":"Beluga whale","mascots.m2z":"Freshwater predators","mascots.m2p":"oil · canister",
+    "mascots.m3n":"Sailfin catfish","mascots.m3z":"Ancient fish of Africa","mascots.m3p":"wastewater",
+    "mascots.m4n":"Neon tetras","mascots.m4z":"Neon tetras","mascots.m4p":"microplastics",
+    "mascots.m5n":"Turtle","mascots.m5z":"Caiman and turtles","mascots.m5p":"carton · straws · plastic bag",
+    "mascots.m6n":"Inia","mascots.m6z":"Main freshwater tank","mascots.m6p":"shampoo · detergent · surfactants",
+    "mascots.m7n":"Blue tang","mascots.m7z":"Reef corals","mascots.m7p":"cup · tube",
+    "mascots.m8n":"Arothron","mascots.m8z":"Porcupinefish and arothrons","mascots.m8p":"film · caps · fibers",
+    "mascots.m9n":"Potamon","mascots.m9z":"Small rivers of Russia","mascots.m9p":"eco-checklist",
+    "mascots.m10n":"Whale","mascots.m10z":"Large marine tank · finale","mascots.m10p":"tire · nets · fishing line",
+    "gallery.label":"05 / In the exhibition",
+    "gallery.side":"real-life<br><b>walkthrough</b>",
+    "gallery.capbig":"Ten locations, one code word",
+    "gallery.capsub":"webar · no app installation",
+    "credits.h":"Team.",
+    "credits.f1":"mascots",
+    "credits.f2":"aquariums",
+    "credits.f3":"everyday tips",
+    "credits.f4":"code word",
+    "credits.dt1":"Project","credits.dd1":"Moskvarium",
+    "credits.dt2":"Creative direction","credits.dd2":"Tanya Samarakovskaya · Creative Director at Moskvarium",
+    "credits.dt3":"Moskvarium team","credits.dd3":"12 people",
+    "credits.dt4":"Partner agency","credits.dd4":"BBDO",
+    "credits.dt5":"Production partner","credits.dd5":"likeVR",
+    "credits.dt6":"Format · launch","credits.dd6":"WebAR quest · June 8, 2026",
+    "credits.role":"Creative direction on behalf of Moskvarium: experience concept, route architecture, pairing aquatic species with pollution types, scene clarity, and pacing. Coordination of BBDO and likeVR from idea to launch.",
+    "pullq2.text":"Saving the ocean<br><span class=\"word-oval\">starts with you</span>.",
+    "pn.prevdir":"← Previous",
+    "pn.prevname":"Chance Encounter",
+    "pn.prevsub":"Moskvarium · AR · 2023",
+    "pn.clabel":"Have a project?",
+    "pn.cbtn":"Contact ↗",
+    "pn.nextdir":"Next →",
+    "pn.nextname":"Soyuzmultpark",
+    "pn.nextsub":"Interactive parks · 2020—23",
+    "foot.copy":"© 2026 · <b>Tanya Samarakovskaya</b>",
+    "foot.top":"↑ Back to top"
+  };
+  const META_EN = {
+    title:"Clean Ocean · Tanya Samarakovskaya",
+    desc:"Clean Ocean. A WebAR quest inside the Moskvarium exhibition about water pollution. Ten locations, ten characters, and real waste layered over live aquatic habitats. Creative direction: Tanya Samarakovskaya. Partners: BBDO, production by likeVR."
+  };
+  const RU = new Map();
+  const ruTitle = document.title;
+  const descMeta = document.querySelector('meta[name="description"]');
+  const ruDesc = descMeta ? descMeta.content : '';
+  function apply(lang){
+    const en = (lang === 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!RU.has(el)) RU.set(el, el.innerHTML);
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = (en && EN[key] != null) ? EN[key] : RU.get(el);
+    });
+    document.title = en ? META_EN.title : ruTitle;
+    if(descMeta) descMeta.content = en ? META_EN.desc : ruDesc;
+    document.querySelectorAll('#langToggle .lang-seg').forEach(function(b){
+      b.classList.toggle('on', b.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('site_lang', lang); }catch(e){}
+    window.dispatchEvent(new CustomEvent('langchange', {detail: lang}));
+  }
+  const lt = document.getElementById('langToggle');
+  if(lt) lt.addEventListener('click', function(e){
+    const b = e.target.closest('button'); if(!b) return;
+    apply(b.dataset.lang);
+  });
+  let saved = 'ru';
+  try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
+  apply(saved === 'en' ? 'en' : 'ru');
+})();
 </script>
 </body></html>

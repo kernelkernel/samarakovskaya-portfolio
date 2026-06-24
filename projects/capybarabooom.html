@@ -62,6 +62,11 @@
   @media (max-width:780px){.top-mid{display:none}}
   .visit{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
   .visit:hover{background:var(--lime);color:var(--ink)}
+  .nav-end{display:inline-flex;align-items:center;gap:8px;pointer-events:auto}
+  .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:var(--bg);border:1px solid var(--ink);border-radius:99px}
+  .lang-seg{padding:7px 9px;border-radius:99px;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);line-height:1;transition:background .2s,color .2s}
+  .lang-seg.on{background:var(--lime);color:var(--ink);font-weight:600}
+  .lang-seg:hover:not(.on){color:var(--ink)}
 
   /* HERO */
   .hero{padding:104px 24px 40px;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;gap:28px;background:var(--graphite);color:var(--bg);position:relative;overflow:hidden}
@@ -676,9 +681,15 @@
 <div class="cur-ring" id="curRing"></div>
 
 <header class="top">
-  <a class="back" href="../index.html#works"><span class="ar">←</span> Все проекты</a>
-  <span class="top-mid"><span class="live"></span>Капибарабууум · Москвариум · 2024</span>
-  <a class="visit" href="https://capybarabooom.ru" target="_blank" rel="noopener">Сайт проекта ↗</a>
+  <a class="back" href="../index.html#works" data-i18n="n.back"><span class="ar">←</span> Все проекты</a>
+  <span class="top-mid" data-i18n="n.mid"><span class="live"></span>Капибарабууум · Москвариум · 2024</span>
+  <div class="nav-end">
+    <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
+      <button class="lang-seg on" data-lang="ru" type="button">RU</button>
+      <button class="lang-seg" data-lang="en" type="button">EN</button>
+    </div>
+    <a class="visit" href="https://capybarabooom.ru" target="_blank" rel="noopener" data-i18n="n.visit">Сайт проекта ↗</a>
+  </div>
 </header>
 
 <!-- HERO -->
@@ -687,37 +698,37 @@
     <img src="../assets/capybarabooom/kv/6x3.webp" alt="" loading="eager" decoding="async">
   </div>
   <div class="hero-tags">
-    <span class="pill solid">● москвариум</span>
-    <span class="pill">выставка</span>
+    <span class="pill solid" data-i18n="h.t1">● москвариум</span>
+    <span class="pill" data-i18n="h.t2">выставка</span>
     <span class="pill">phygital</span>
-    <span class="pill">персонажная вселенная</span>
-    <span class="pill">мем-культура</span>
+    <span class="pill" data-i18n="h.t3">персонажная вселенная</span>
+    <span class="pill" data-i18n="h.t4">мем-культура</span>
     <span class="pill">kawaii</span>
   </div>
 
   <div class="hero-title-wrap">
-    <h1 class="hero-h">
+    <h1 class="hero-h" data-i18n="h.h">
       Капибара-<br><em>б<span class="o">у</span><span class="o">у</span><span class="o">у</span>м</em>
     </h1>
-    <p class="hero-sub">«КАПИБАРАБУУУМ» — выставка, вдохновлённая мировым хайпом вокруг капибар.</p>
+    <p class="hero-sub" data-i18n="h.sub">«КАПИБАРАБУУУМ» — выставка, вдохновлённая мировым хайпом вокруг капибар.</p>
   </div>
 
   <div class="hero-strip">
     <div class="hero-cell">
       <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="Зона капибаризации" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;">
-      <span class="lbl">Зона капибаризации</span>
+      <span class="lbl" data-i18n="h.l1">Зона капибаризации</span>
     </div>
     <div class="hero-cell">
       <img src="../assets/capybarabooom/photo/webp/2-capybarius1.webp" alt="Капибариус" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;">
-      <span class="lbl">Капибариус</span>
+      <span class="lbl" data-i18n="h.l2">Капибариус</span>
     </div>
     <div class="hero-cell">
       <img src="../assets/capybarabooom/photo/webp/4-capybro.webp" alt="КапиБро · Спорт" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;">
-      <span class="lbl">КапиБро · Спорт</span>
+      <span class="lbl" data-i18n="h.l3">КапиБро · Спорт</span>
     </div>
     <div class="hero-cell">
       <img src="../assets/capybarabooom/photo/webp/7-orange-pool.webp" alt="Мандариновый бууум" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;">
-      <span class="lbl">Мандариновый бууум</span>
+      <span class="lbl" data-i18n="h.l4">Мандариновый бууум</span>
     </div>
   </div>
 </section>
@@ -725,8 +736,8 @@
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker-track">
-    <span class="row">не парься <span class="star">✦</span> capy or no capy <em>kawaii</em> <span class="star">✦</span> мандариновый <em>бууум</em> <span class="star">✦</span> phygital <em>edutainment</em> <span class="star">✦</span></span>
-    <span class="row">не парься <span class="star">✦</span> capy or no capy <em>kawaii</em> <span class="star">✦</span> мандариновый <em>бууум</em> <span class="star">✦</span> phygital <em>edutainment</em> <span class="star">✦</span></span>
+    <span class="row" data-i18n="tk.row">не парься <span class="star">✦</span> capy or no capy <em>kawaii</em> <span class="star">✦</span> мандариновый <em>бууум</em> <span class="star">✦</span> phygital <em>edutainment</em> <span class="star">✦</span></span>
+    <span class="row" data-i18n="tk.row">не парься <span class="star">✦</span> capy or no capy <em>kawaii</em> <span class="star">✦</span> мандариновый <em>бууум</em> <span class="star">✦</span> phygital <em>edutainment</em> <span class="star">✦</span></span>
   </div>
 </div>
 
@@ -735,7 +746,7 @@
   <img src="../assets/capybarabooom/photo/webp/quote-bg.webp" alt="Капибара с мандарином" loading="lazy" decoding="async">
   <div class="editorial-still-overlay"></div>
   <div class="editorial-still-text reveal">
-    <p class="editorial-h">
+    <p class="editorial-h" data-i18n="ed.h">
       Самое <span class="word-oval">мемное</span> животное планеты —<br>впервые целая выставка на <span class="mark">500 м²</span>.
     </p>
   </div>
@@ -744,19 +755,19 @@
 <!-- VIDEO — шоурил без крупного заголовка, сразу после тэглайна -->
 <section class="sec" style="padding-top:clamp(48px,7vh,96px)">
   <div class="sec-head reveal" style="margin-bottom:28px">
-    <span class="sec-tag"><span class="num">01</span><span class="star">✦</span> Шоурил</span>
-    <span class="sec-side"><b>Шоурил проекта</b><br>атмосфера<br>и ключевые зоны</span>
+    <span class="sec-tag" data-i18n="s1.tag"><span class="num">01</span><span class="star">✦</span> Шоурил</span>
+    <span class="sec-side" data-i18n="s1.side"><b>Шоурил проекта</b><br>атмосфера<br>и ключевые зоны</span>
   </div>
   <div class="video-frame" id="videoFrame" data-src="https://youtu.be/PTzOGjehN-4">
     <img src="https://img.youtube.com/vi/PTzOGjehN-4/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/PTzOGjehN-4/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0" alt="">
     <div class="placeholder">
       <div class="play">▶</div>
-      <h4>Капибарабууум</h4>
-      <p>Шоурил проекта · нажмите для просмотра</p>
+      <h4 data-i18n="s1.phh">Капибарабууум</h4>
+      <p data-i18n="s1.php">Шоурил проекта · нажмите для просмотра</p>
     </div>
     <div class="corners">
       <span class="tl">REC ●</span><span class="tr">4K</span>
-      <span class="bl">КАПИБАРАБУУУМ</span><span class="br">Москвариум</span>
+      <span class="bl" data-i18n="s1.bl">КАПИБАРАБУУУМ</span><span class="br" data-i18n="s1.br">Москвариум</span>
     </div>
   </div>
 </section>
@@ -764,9 +775,9 @@
 <!-- INTRO -->
 <section class="sec">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">02</span><span class="star">✦</span> Концепция</span>
-    <h2 class="sec-h"><em>Не парься</em> — это<br>философия<span style="color:var(--graphite)">.</span></h2>
-    <span class="sec-side"><b>Персонажная вселенная</b><br>с нуля · мир<br>· выставка</span>
+    <span class="sec-tag" data-i18n="s2.tag"><span class="num">02</span><span class="star">✦</span> Концепция</span>
+    <h2 class="sec-h" data-i18n="s2.h"><em>Не парься</em> — это<br>философия<span style="color:var(--graphite)">.</span></h2>
+    <span class="sec-side" data-i18n="s2.side"><b>Персонажная вселенная</b><br>с нуля · мир<br>· выставка</span>
   </div>
 
   <div class="intro">
@@ -774,7 +785,7 @@
       <div class="aside-img">
         <img src="../assets/capybarabooom/photo/webp/0-capyhall.webp" alt="CapyHall" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;">
       </div>
-      <dl>
+      <dl data-i18n="s2.dl">
         <dt>Проект</dt><dd>Москвариум · ВДНХ</dd>
         <dt>Формат</dt><dd>Мультимедийная выставка</dd>
         <dt>Аудитория</dt><dd>Семьи · поколение Z</dd>
@@ -786,21 +797,21 @@
     </aside>
 
     <div class="reveal">
-      <p class="intro-h">
+      <p class="intro-h" data-i18n="s2.introh">
         «Капибарабууум» — персонажная вселенная с нуля: персонажи, мир, phygital-выставка и экосистема, выросшие из одного вопроса — <em>почему мир сошёл с ума по капибарам</em>?
       </p>
       <div class="intro-body">
-        <p>Капибары покорили соцсети не случайно: в мире тревоги и перегруза их образ стал <b>идеальным мемом эпохи</b>. Выставка Москвариума превращает этот культурный феномен в пространство вау-эмоций — живое, игровое, визуально яркое и кавайное.</p>
-        <p>Формат — <b>эдьютейнмент</b>: научные факты встроены в механики. Посетители не читают стенды — они действуют, соревнуются и уходят с историей.</p>
+        <p data-i18n="s2.p1">Капибары покорили соцсети не случайно: в мире тревоги и перегруза их образ стал <b>идеальным мемом эпохи</b>. Выставка Москвариума превращает этот культурный феномен в пространство вау-эмоций — живое, игровое, визуально яркое и кавайное.</p>
+        <p data-i18n="s2.p2">Формат — <b>эдьютейнмент</b>: научные факты встроены в механики. Посетители не читают стенды — они действуют, соревнуются и уходят с историей.</p>
       </div>
       <div class="poster-duo">
         <div>
           <img src="../assets/capybarabooom/photo/webp/3-capytour.webp" alt="Key visual" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;">
-          <span class="lbl">Ключевой визуал</span>
+          <span class="lbl" data-i18n="s2.lbl1">Ключевой визуал</span>
         </div>
         <div>
           <img src="../assets/capybarabooom/photo/webp/8-shop.webp" alt="Merch" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;">
-          <span class="lbl">Мерч-линейка</span>
+          <span class="lbl" data-i18n="s2.lbl2">Мерч-линейка</span>
         </div>
       </div>
     </div>
@@ -810,40 +821,40 @@
 <!-- WHY -->
 <section class="sec dark">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">03</span><span class="star">✦</span> Почему это работает</span>
-    <h2 class="sec-h">Почему это<br><em>работает</em><span style="color:var(--lime)">.</span></h2>
-    <span class="sec-side"><b>Опоры опыта</b><br>что уносит<br>посетитель</span>
+    <span class="sec-tag" data-i18n="s3.tag"><span class="num">03</span><span class="star">✦</span> Почему это работает</span>
+    <h2 class="sec-h" data-i18n="s3.h">Почему это<br><em>работает</em><span style="color:var(--lime)">.</span></h2>
+    <span class="sec-side" data-i18n="s3.side"><b>Опоры опыта</b><br>что уносит<br>посетитель</span>
   </div>
   <div class="why reveal">
     <div class="why-cell">
-      <div class="why-num"><span>01 / Погружение</span><span class="star">✦</span></div>
-      <h3 class="why-h">Полное <em>погружение</em></h3>
-      <p class="why-d">7 зон, квест, капикоины. Посетитель не наблюдает — живёт внутри вселенной 90 минут.</p>
+      <div class="why-num" data-i18n="s3.n1"><span>01 / Погружение</span><span class="star">✦</span></div>
+      <h3 class="why-h" data-i18n="s3.h1">Полное <em>погружение</em></h3>
+      <p class="why-d" data-i18n="s3.d1">7 зон, квест, капикоины. Посетитель не наблюдает — живёт внутри вселенной 90 минут.</p>
     </div>
     <div class="why-cell">
-      <div class="why-num"><span>02 / Аудитория</span><span class="star">✦</span></div>
-      <h3 class="why-h">Для <em>всей семьи</em></h3>
-      <p class="why-d">От 3 до 99: детская глубина, родительская ирония, эстетика поколения Z без компромиссов.</p>
+      <div class="why-num" data-i18n="s3.n2"><span>02 / Аудитория</span><span class="star">✦</span></div>
+      <h3 class="why-h" data-i18n="s3.h2">Для <em>всей семьи</em></h3>
+      <p class="why-d" data-i18n="s3.d2">От 3 до 99: детская глубина, родительская ирония, эстетика поколения Z без компромиссов.</p>
     </div>
     <div class="why-cell">
-      <div class="why-num"><span>03 / Вирусность</span><span class="star">✦</span></div>
-      <h3 class="why-h">Встроенная <em>вирусность</em></h3>
-      <p class="why-d">Каждая зона — готовый кадр для сторис. Органический шеринг заложен в дизайн.</p>
+      <div class="why-num" data-i18n="s3.n3"><span>03 / Вирусность</span><span class="star">✦</span></div>
+      <h3 class="why-h" data-i18n="s3.h3">Встроенная <em>вирусность</em></h3>
+      <p class="why-d" data-i18n="s3.d3">Каждая зона — готовый кадр для сторис. Органический шеринг заложен в дизайн.</p>
     </div>
     <div class="why-cell">
-      <div class="why-num"><span>04 / Phygital</span><span class="star">✦</span></div>
-      <h3 class="why-h"><em>Phygital</em>-экосистема</h3>
-      <p class="why-d">Цифровые подарки, онлайн-активации — опыт продолжается за пределами площадки.</p>
+      <div class="why-num" data-i18n="s3.n4"><span>04 / Phygital</span><span class="star">✦</span></div>
+      <h3 class="why-h" data-i18n="s3.h4"><em>Phygital</em>-экосистема</h3>
+      <p class="why-d" data-i18n="s3.d4">Цифровые подарки, онлайн-активации — опыт продолжается за пределами площадки.</p>
     </div>
     <div class="why-cell">
-      <div class="why-num"><span>05 / Эдьютейнмент</span><span class="star">✦</span></div>
-      <h3 class="why-h"><em>Эдьютейнмент</em></h3>
-      <p class="why-d">Факты о капибарах встроены в механики. Посетители узнают новое — и не замечают, что учатся.</p>
+      <div class="why-num" data-i18n="s3.n5"><span>05 / Эдьютейнмент</span><span class="star">✦</span></div>
+      <h3 class="why-h" data-i18n="s3.h5"><em>Эдьютейнмент</em></h3>
+      <p class="why-d" data-i18n="s3.d5">Факты о капибарах встроены в механики. Посетители узнают новое — и не замечают, что учатся.</p>
     </div>
     <div class="why-cell">
-      <div class="why-num"><span>06 / Вселенная</span><span class="star">✦</span></div>
-      <h3 class="why-h">Полноценная <em>вселенная</em></h3>
-      <p class="why-d">4 персонажа с характерами, бэкстори и мерчем. Не маскот — живая вселенная.</p>
+      <div class="why-num" data-i18n="s3.n6"><span>06 / Вселенная</span><span class="star">✦</span></div>
+      <h3 class="why-h" data-i18n="s3.h6">Полноценная <em>вселенная</em></h3>
+      <p class="why-d" data-i18n="s3.d6">4 персонажа с характерами, бэкстори и мерчем. Не маскот — живая вселенная.</p>
     </div>
   </div>
 </section>
@@ -851,45 +862,45 @@
 <!-- GALLERY — 2-row marquee с scroll-параллаксом -->
 <section style="border-top:1px solid var(--ink);padding-top:80px" id="gallery-section">
   <div class="gallery-head reveal" style="margin-bottom:40px">
-    <h3>Галерея <em>проекта</em><span style="color:var(--graphite)">.</span></h3>
-    <span class="gal-counter">Скроллите страницу — ленты двигаются</span>
+    <h3 data-i18n="g.h">Галерея <em>проекта</em><span style="color:var(--graphite)">.</span></h3>
+    <span class="gal-counter" data-i18n="g.counter">Скроллите страницу — ленты двигаются</span>
   </div>
   <div class="gal-marquee" id="gallery-marquee">
     <div class="gal-row" data-row="1" style="margin-left:-700px">
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/0-capyhall.webp" alt="Холл выставки" loading="lazy"><span class="gt-lbl">Холл</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya2.webp" alt="Зона капибаризации" loading="lazy"><span class="gt-lbl">Капибаризация</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius3.webp" alt="Капибариус" loading="lazy"><span class="gt-lbl">Капибариус</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour.webp" alt="Амазонка 360°" loading="lazy"><span class="gt-lbl">Амазонка</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro2.webp" alt="КапиБро" loading="lazy"><span class="gt-lbl">КапиБро</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen.webp" alt="Капибара-сан" loading="lazy"><span class="gt-lbl">Капибара-сан</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance.webp" alt="Капибара-бой" loading="lazy"><span class="gt-lbl">Капибара-бой</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool2.webp" alt="Мандариновый бууум" loading="lazy"><span class="gt-lbl">Мандариновый бууум</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/8-shop.webp" alt="Магазин мерча" loading="lazy"><span class="gt-lbl">Магазин · мерч</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/406a0086.webp" alt="Общий вид" loading="lazy"><span class="gt-lbl">Общий вид</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/0-capyhall.webp" alt="Холл выставки" loading="lazy"><span class="gt-lbl" data-i18n="g.t1">Холл</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya2.webp" alt="Зона капибаризации" loading="lazy"><span class="gt-lbl" data-i18n="g.t2">Капибаризация</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius3.webp" alt="Капибариус" loading="lazy"><span class="gt-lbl" data-i18n="g.t3">Капибариус</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour.webp" alt="Амазонка 360°" loading="lazy"><span class="gt-lbl" data-i18n="g.t4">Амазонка</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro2.webp" alt="КапиБро" loading="lazy"><span class="gt-lbl" data-i18n="g.t5">КапиБро</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen.webp" alt="Капибара-сан" loading="lazy"><span class="gt-lbl" data-i18n="g.t6">Капибара-сан</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance.webp" alt="Капибара-бой" loading="lazy"><span class="gt-lbl" data-i18n="g.t7">Капибара-бой</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool2.webp" alt="Мандариновый бууум" loading="lazy"><span class="gt-lbl" data-i18n="g.t8">Мандариновый бууум</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/8-shop.webp" alt="Магазин мерча" loading="lazy"><span class="gt-lbl" data-i18n="g.t9">Магазин · мерч</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/406a0086.webp" alt="Общий вид" loading="lazy"><span class="gt-lbl" data-i18n="g.t10">Общий вид</span></figure>
     </div>
     <div class="gal-row" data-row="2" style="margin-left:-700px">
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="Онбординг" loading="lazy"><span class="gt-lbl">Онбординг</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius6.webp" alt="КапиКвиз" loading="lazy"><span class="gt-lbl">КапиКвиз</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius4.webp" alt="Большая капибара" loading="lazy"><span class="gt-lbl">Капибариус</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour2.webp" alt="Панорама 360°" loading="lazy"><span class="gt-lbl">Амазонка · 360°</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro4.webp" alt="Спортивная зона" loading="lazy"><span class="gt-lbl">Спортивная зона</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen2.webp" alt="Зеркальная стена" loading="lazy"><span class="gt-lbl">Зеркальная стена</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance2-new.webp" alt="Аркады" loading="lazy"><span class="gt-lbl">Аркады</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool3.webp" alt="Фотозона" loading="lazy"><span class="gt-lbl">Фотозона</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/406a9842.webp" alt="Открытие" loading="lazy"><span class="gt-lbl">Открытие</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya3.webp" alt="Вход в зону" loading="lazy"><span class="gt-lbl">Вход</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="Онбординг" loading="lazy"><span class="gt-lbl" data-i18n="g.t11">Онбординг</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius6.webp" alt="КапиКвиз" loading="lazy"><span class="gt-lbl" data-i18n="g.t12">КапиКвиз</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius4.webp" alt="Большая капибара" loading="lazy"><span class="gt-lbl" data-i18n="g.t13">Капибариус</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour2.webp" alt="Панорама 360°" loading="lazy"><span class="gt-lbl" data-i18n="g.t14">Амазонка · 360°</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro4.webp" alt="Спортивная зона" loading="lazy"><span class="gt-lbl" data-i18n="g.t15">Спортивная зона</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen2.webp" alt="Зеркальная стена" loading="lazy"><span class="gt-lbl" data-i18n="g.t16">Зеркальная стена</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance2-new.webp" alt="Аркады" loading="lazy"><span class="gt-lbl" data-i18n="g.t17">Аркады</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool3.webp" alt="Фотозона" loading="lazy"><span class="gt-lbl" data-i18n="g.t18">Фотозона</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/406a9842.webp" alt="Открытие" loading="lazy"><span class="gt-lbl" data-i18n="g.t19">Открытие</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/1-capybarizatsya3.webp" alt="Вход в зону" loading="lazy"><span class="gt-lbl" data-i18n="g.t20">Вход</span></figure>
     </div>
     <div class="gal-row" data-row="3" style="margin-left:-700px">
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius1.webp" alt="Профессор Капибариус" loading="lazy"><span class="gt-lbl">Профессор Капибариус</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius5.webp" alt="Экран викторины" loading="lazy"><span class="gt-lbl">Экран викторины</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius7.webp" alt="Капикоин на тумбе" loading="lazy"><span class="gt-lbl">Капикоин</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro.webp" alt="Штанга-бамбук" loading="lazy"><span class="gt-lbl">Штанга-бамбук</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro3.webp" alt="LED-подсветка" loading="lazy"><span class="gt-lbl">LED-зона</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen3.webp" alt="Точка тишины" loading="lazy"><span class="gt-lbl">Точка тишины</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance2.webp" alt="Капибараоке" loading="lazy"><span class="gt-lbl">Капибараоке</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance3.webp" alt="LED-пол" loading="lazy"><span class="gt-lbl">LED-пол</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool.webp" alt="Бассейн с шарами" loading="lazy"><span class="gt-lbl">Бассейн с шарами</span></figure>
-      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour.webp" alt="Путешествие" loading="lazy"><span class="gt-lbl">Амазонка</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius1.webp" alt="Профессор Капибариус" loading="lazy"><span class="gt-lbl" data-i18n="g.t21">Профессор Капибариус</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius5.webp" alt="Экран викторины" loading="lazy"><span class="gt-lbl" data-i18n="g.t22">Экран викторины</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/2-capybarius7.webp" alt="Капикоин на тумбе" loading="lazy"><span class="gt-lbl" data-i18n="g.t23">Капикоин</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro.webp" alt="Штанга-бамбук" loading="lazy"><span class="gt-lbl" data-i18n="g.t24">Штанга-бамбук</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/4-capybro3.webp" alt="LED-подсветка" loading="lazy"><span class="gt-lbl" data-i18n="g.t25">LED-зона</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/5-capyzen3.webp" alt="Точка тишины" loading="lazy"><span class="gt-lbl" data-i18n="g.t26">Точка тишины</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance2.webp" alt="Капибараоке" loading="lazy"><span class="gt-lbl" data-i18n="g.t27">Капибараоке</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/6-capydance3.webp" alt="LED-пол" loading="lazy"><span class="gt-lbl" data-i18n="g.t28">LED-пол</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/7-orange-pool.webp" alt="Бассейн с шарами" loading="lazy"><span class="gt-lbl" data-i18n="g.t29">Бассейн с шарами</span></figure>
+      <figure class="gal-tile"><img src="../assets/capybarabooom/photo/webp/3-capytour.webp" alt="Путешествие" loading="lazy"><span class="gt-lbl" data-i18n="g.t30">Амазонка</span></figure>
     </div>
   </div>
 </section>
@@ -897,8 +908,8 @@
 <!-- MAP -->
 <section class="map-sec" id="map">
   <div class="map-sec-head reveal">
-    <h2>Карта <em>выставки</em><span style="color:var(--ink)">.</span></h2>
-    <p><b>7 зон</b><br>один маршрут · ~90 минут</p>
+    <h2 data-i18n="map.h">Карта <em>выставки</em><span style="color:var(--ink)">.</span></h2>
+    <p data-i18n="map.p"><b>7 зон</b><br>один маршрут · ~90 минут</p>
   </div>
   <div class="map-img-wrap reveal">
     <img src="../assets/capybarabooom/photo/webp/map-exhibition.webp" alt="Карта выставки · 7 зон" loading="lazy">
@@ -909,9 +920,9 @@
 <!-- ZONES -->
 <section class="sec" id="zones">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">04</span><span class="star">✦</span> Зоны выставки</span>
-    <h2 class="sec-h">Зоны <em>выставки</em><span style="color:var(--graphite)">.</span></h2>
-    <span class="sec-side"><b>Маршрут опыта</b><br>~90 мин · квест<br>с капикоинами</span>
+    <span class="sec-tag" data-i18n="s4.tag"><span class="num">04</span><span class="star">✦</span> Зоны выставки</span>
+    <h2 class="sec-h" data-i18n="s4.h">Зоны <em>выставки</em><span style="color:var(--graphite)">.</span></h2>
+    <span class="sec-side" data-i18n="s4.side"><b>Маршрут опыта</b><br>~90 мин · квест<br>с капикоинами</span>
   </div>
 
   <div class="zones-wrap">
@@ -920,35 +931,35 @@
       <header class="zone-head">
         <div class="zone-num-big">01</div>
         <div class="zone-meta">
-          <span class="zone-tag-new">Интро · интерактив</span>
-          <h3 class="zone-h-new">Зона <em>капибаризации</em></h3>
-          <p class="zone-d-new">Первая зона выставки: каждый проходит виртуальную капибаризацию — создаёт своего персонажа, чтобы собирать капикоины и выяснить, кто тут самый крутой капи. Маршрут начинается — и уже не отпускает.</p>
+          <span class="zone-tag-new" data-i18n="z1.tag">Интро · интерактив</span>
+          <h3 class="zone-h-new" data-i18n="z1.h">Зона <em>капибаризации</em></h3>
+          <p class="zone-d-new" data-i18n="z1.d">Первая зона выставки: каждый проходит виртуальную капибаризацию — создаёт своего персонажа, чтобы собирать капикоины и выяснить, кто тут самый крутой капи. Маршрут начинается — и уже не отпускает.</p>
         </div>
       </header>
       <div class="zone-hero-new">
         <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya2.webp" alt="Зона капибаризации" loading="lazy" decoding="async">
-        <span class="lbl-new">Онбординг · интерактив</span>
+        <span class="lbl-new" data-i18n="z1.lbl">Онбординг · интерактив</span>
       </div>
       <div class="zone-grid-new">
         <figure class="zone-thumb" data-pin-x="30%" data-pin-y="55%">
           <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" alt="Онбординг" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Капибаризация</span>
-            <span class="zone-thumb-desc">Интерактивная установка · создание персонажа · стартовые капикоины</span>
+            <span class="zone-thumb-name" data-i18n="z1.t1n">Капибаризация</span>
+            <span class="zone-thumb-desc" data-i18n="z1.t1d">Интерактивная установка · создание персонажа · стартовые капикоины</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="60%" data-pin-y="45%">
           <img src="../assets/capybarabooom/photo/webp/1-capybarizatsya3.webp" alt="Вход" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Онбординг · вход</span>
-            <span class="zone-thumb-desc">Ещё не в зоне — но уже в истории</span>
+            <span class="zone-thumb-name" data-i18n="z1.t2n">Онбординг · вход</span>
+            <span class="zone-thumb-desc" data-i18n="z1.t2d">Ещё не в зоне — но уже в истории</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="80%" data-pin-y="65%">
           <img src="../assets/capybarabooom/photo/webp/0-capyhall.webp" alt="CapyHall" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Холл выставки</span>
-            <span class="zone-thumb-desc">Брендированная айдентика и квест-экран старта</span>
+            <span class="zone-thumb-name" data-i18n="z1.t3n">Холл выставки</span>
+            <span class="zone-thumb-desc" data-i18n="z1.t3d">Брендированная айдентика и квест-экран старта</span>
           </figcaption>
         </figure>
       </div>
@@ -958,28 +969,28 @@
       <header class="zone-head">
         <div class="zone-num-big">02</div>
         <div class="zone-meta">
-          <span class="zone-tag-new">Эдьютейнмент-зона</span>
-          <h3 class="zone-h-new">Зона <em>Капибариус</em></h3>
-          <p class="zone-d-new">Интерактивное пространство, где научные факты о капибарах встроены в поп-культуру. Гид зоны — профессор Капибариус: викторина КапиКвиз и игровые механики вместо скучных стендов.</p>
+          <span class="zone-tag-new" data-i18n="z2.tag">Эдьютейнмент-зона</span>
+          <h3 class="zone-h-new" data-i18n="z2.h">Зона <em>Капибариус</em></h3>
+          <p class="zone-d-new" data-i18n="z2.d">Интерактивное пространство, где научные факты о капибарах встроены в поп-культуру. Гид зоны — профессор Капибариус: викторина КапиКвиз и игровые механики вместо скучных стендов.</p>
         </div>
       </header>
       <div class="zone-hero-new">
         <img src="../assets/capybarabooom/photo/webp/2-capybarius4.webp" alt="Большая капибара — профессор Капибариус" loading="lazy" decoding="async">
-        <span class="lbl-new">Капибариус · эдьютейнмент</span>
+        <span class="lbl-new" data-i18n="z2.lbl">Капибариус · эдьютейнмент</span>
       </div>
       <div class="zone-grid-new">
         <figure class="zone-thumb" data-pin-x="35%" data-pin-y="50%">
           <img src="../assets/capybarabooom/photo/webp/2-capybarius6.webp" alt="Экран КапиКвиз" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Экран с КапиКвизом</span>
-            <span class="zone-thumb-desc">Викторина · ответы приносят капикоины</span>
+            <span class="zone-thumb-name" data-i18n="z2.t1n">Экран с КапиКвизом</span>
+            <span class="zone-thumb-desc" data-i18n="z2.t1d">Викторина · ответы приносят капикоины</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="65%" data-pin-y="55%">
           <img src="../assets/capybarabooom/photo/webp/2-capybarius7.webp" alt="Капикоин на интерактивной тумбе" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Капикоин на тумбе</span>
-            <span class="zone-thumb-desc">Графит-метки для сбора капикоинов</span>
+            <span class="zone-thumb-name" data-i18n="z2.t2n">Капикоин на тумбе</span>
+            <span class="zone-thumb-desc" data-i18n="z2.t2d">Графит-метки для сбора капикоинов</span>
           </figcaption>
         </figure>
       </div>
@@ -989,21 +1000,21 @@
       <header class="zone-head">
         <div class="zone-num-big">03</div>
         <div class="zone-meta">
-          <span class="zone-tag-new">Панорама 360°</span>
-          <h3 class="zone-h-new">Зона <em>Амазонки</em></h3>
-          <p class="zone-d-new">Круговой 360°-проекционный экран в формате роллеркостера: интерактивное путешествие по Амазонке с опасными поворотами и динамической управляемой лодкой. Самая захватывающая точка маршрута.</p>
+          <span class="zone-tag-new" data-i18n="z3.tag">Панорама 360°</span>
+          <h3 class="zone-h-new" data-i18n="z3.h">Зона <em>Амазонки</em></h3>
+          <p class="zone-d-new" data-i18n="z3.d">Круговой 360°-проекционный экран в формате роллеркостера: интерактивное путешествие по Амазонке с опасными поворотами и динамической управляемой лодкой. Самая захватывающая точка маршрута.</p>
         </div>
       </header>
       <div class="zone-hero-new">
         <img src="../assets/capybarabooom/photo/webp/3-capytour2.webp" alt="Амазонка · панорама 360°" loading="lazy" decoding="async">
-        <span class="lbl-new">360° · роллеркостер</span>
+        <span class="lbl-new" data-i18n="z3.lbl">360° · роллеркостер</span>
       </div>
       <div class="zone-grid-new">
         <figure class="zone-thumb" data-pin-x="35%" data-pin-y="55%">
           <img src="../assets/capybarabooom/photo/webp/3-capytour.webp" alt="Путешествие по Амазонке" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Путешествие по Амазонке</span>
-            <span class="zone-thumb-desc">Опасные повороты · управляемая лодка · кинематографика без кресел</span>
+            <span class="zone-thumb-name" data-i18n="z3.t1n">Путешествие по Амазонке</span>
+            <span class="zone-thumb-desc" data-i18n="z3.t1d">Опасные повороты · управляемая лодка · кинематографика без кресел</span>
           </figcaption>
         </figure>
       </div>
@@ -1013,35 +1024,35 @@
       <header class="zone-head">
         <div class="zone-num-big">04</div>
         <div class="zone-meta">
-          <span class="zone-tag-new">Спортивная зона</span>
-          <h3 class="zone-h-new">Зона <em>КапиБро</em></h3>
-          <p class="zone-d-new">Узнаём о спортивных качествах капибар через соревнования с ними и их друзьями. Вращай ручки, прыгай выше, проверяй меткость и соревнуйся с друзьями или семьёй. В центре — КапиБро со штангой-бамбуком вместо блинов.</p>
+          <span class="zone-tag-new" data-i18n="z4.tag">Спортивная зона</span>
+          <h3 class="zone-h-new" data-i18n="z4.h">Зона <em>КапиБро</em></h3>
+          <p class="zone-d-new" data-i18n="z4.d">Узнаём о спортивных качествах капибар через соревнования с ними и их друзьями. Вращай ручки, прыгай выше, проверяй меткость и соревнуйся с друзьями или семьёй. В центре — КапиБро со штангой-бамбуком вместо блинов.</p>
         </div>
       </header>
       <div class="zone-hero-new">
         <img src="../assets/capybarabooom/photo/webp/4-capybro2.webp" alt="Спортивная зона КапиБро" loading="lazy" decoding="async">
-        <span class="lbl-new">Спортивная зона</span>
+        <span class="lbl-new" data-i18n="z4.lbl">Спортивная зона</span>
       </div>
       <div class="zone-grid-new">
         <figure class="zone-thumb" data-pin-x="30%" data-pin-y="55%">
           <img src="../assets/capybarabooom/photo/webp/4-capybro.webp" alt="Штанга-бамбук" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">КапиБро · штанга-бамбук</span>
-            <span class="zone-thumb-desc">Бамбук + кокосы · абсурдно · вирусно</span>
+            <span class="zone-thumb-name" data-i18n="z4.t1n">КапиБро · штанга-бамбук</span>
+            <span class="zone-thumb-desc" data-i18n="z4.t1d">Бамбук + кокосы · абсурдно · вирусно</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="55%" data-pin-y="40%">
           <img src="../assets/capybarabooom/photo/webp/4-capybro3.webp" alt="LED" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">LED · динамическая подсветка</span>
-            <span class="zone-thumb-desc">Больше движения — ярче свет</span>
+            <span class="zone-thumb-name" data-i18n="z4.t2n">LED · динамическая подсветка</span>
+            <span class="zone-thumb-desc" data-i18n="z4.t2d">Больше движения — ярче свет</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="78%" data-pin-y="60%">
           <img src="../assets/capybarabooom/photo/webp/4-capybro4.webp" alt="Спортивная зона" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Спортивная зона · общий вид</span>
-            <span class="zone-thumb-desc">Соревнование · энергия · дух КапиБро</span>
+            <span class="zone-thumb-name" data-i18n="z4.t3n">Спортивная зона · общий вид</span>
+            <span class="zone-thumb-desc" data-i18n="z4.t3d">Соревнование · энергия · дух КапиБро</span>
           </figcaption>
         </figure>
       </div>
@@ -1051,28 +1062,28 @@
       <header class="zone-head">
         <div class="zone-num-big">05</div>
         <div class="zone-meta">
-          <span class="zone-tag-new">Зона дзена</span>
-          <h3 class="zone-h-new"><em>Капибара-сан</em></h3>
-          <p class="zone-d-new">Медитирующая капибара над светящимся лотосом. Интерактивная проекция с несколькими режимами — точка тишины и спокойствия посреди маршрута.</p>
+          <span class="zone-tag-new" data-i18n="z5.tag">Зона дзена</span>
+          <h3 class="zone-h-new" data-i18n="z5.h"><em>Капибара-сан</em></h3>
+          <p class="zone-d-new" data-i18n="z5.d">Медитирующая капибара над светящимся лотосом. Интерактивная проекция с несколькими режимами — точка тишины и спокойствия посреди маршрута.</p>
         </div>
       </header>
       <div class="zone-hero-new">
         <img src="../assets/capybarabooom/photo/webp/5-capyzen.webp" alt="Капибара-сан над светящимся лотосом" loading="lazy" decoding="async">
-        <span class="lbl-new">Светящийся лотос · шар</span>
+        <span class="lbl-new" data-i18n="z5.lbl">Светящийся лотос · шар</span>
       </div>
       <div class="zone-grid-new">
         <figure class="zone-thumb" data-pin-x="35%" data-pin-y="50%">
           <img src="../assets/capybarabooom/photo/webp/5-capyzen2.webp" alt="Зеркало" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Зеркальная стена</span>
-            <span class="zone-thumb-desc">Бесконечное пространство · посетитель видит себя внутри покоя</span>
+            <span class="zone-thumb-name" data-i18n="z5.t1n">Зеркальная стена</span>
+            <span class="zone-thumb-desc" data-i18n="z5.t1d">Бесконечное пространство · посетитель видит себя внутри покоя</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="70%" data-pin-y="55%">
           <img src="../assets/capybarabooom/photo/webp/5-capyzen3.webp" alt="Тишина" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Точка тишины</span>
-            <span class="zone-thumb-desc">Единственная зона без активных механик</span>
+            <span class="zone-thumb-name" data-i18n="z5.t2n">Точка тишины</span>
+            <span class="zone-thumb-desc" data-i18n="z5.t2d">Единственная зона без активных механик</span>
           </figcaption>
         </figure>
       </div>
@@ -1082,35 +1093,35 @@
       <header class="zone-head">
         <div class="zone-num-big">06</div>
         <div class="zone-meta">
-          <span class="zone-tag-new">Фан-зона</span>
-          <h3 class="zone-h-new">Зона <em>Капибара-бой</em></h3>
-          <p class="zone-d-new">Капибараоке, аркадные автоматы и танцпол с LED-полом и распознаванием движений. Пой, танцуй и играй — самая весёлая точка экспозиции.</p>
+          <span class="zone-tag-new" data-i18n="z6.tag">Фан-зона</span>
+          <h3 class="zone-h-new" data-i18n="z6.h">Зона <em>Капибара-бой</em></h3>
+          <p class="zone-d-new" data-i18n="z6.d">Капибараоке, аркадные автоматы и танцпол с LED-полом и распознаванием движений. Пой, танцуй и играй — самая весёлая точка экспозиции.</p>
         </div>
       </header>
       <div class="zone-hero-new">
         <img src="../assets/capybarabooom/photo/webp/6-capydance.webp" alt="Зона Капибара-бой" loading="lazy" decoding="async">
-        <span class="lbl-new">Аркады · караоке · танцы</span>
+        <span class="lbl-new" data-i18n="z6.lbl">Аркады · караоке · танцы</span>
       </div>
       <div class="zone-grid-new">
         <figure class="zone-thumb" data-pin-x="25%" data-pin-y="60%">
           <img src="../assets/capybarabooom/photo/webp/6-capydance2.webp" alt="Капибараоке" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Капибараоке</span>
-            <span class="zone-thumb-desc">Живое пение под капибара-треки</span>
+            <span class="zone-thumb-name" data-i18n="z6.t1n">Капибараоке</span>
+            <span class="zone-thumb-desc" data-i18n="z6.t1d">Живое пение под капибара-треки</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="50%" data-pin-y="40%">
           <img src="../assets/capybarabooom/photo/webp/6-capydance2-new.webp" alt="Аркадные автоматы" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Аркадные автоматы</span>
-            <span class="zone-thumb-desc">Игры в стиле вселенной · здесь зависают дольше всего</span>
+            <span class="zone-thumb-name" data-i18n="z6.t2n">Аркадные автоматы</span>
+            <span class="zone-thumb-desc" data-i18n="z6.t2d">Игры в стиле вселенной · здесь зависают дольше всего</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="78%" data-pin-y="55%">
           <img src="../assets/capybarabooom/photo/webp/6-capydance3.webp" alt="Танцпол с LED-полом" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Танцпол · LED-пол</span>
-            <span class="zone-thumb-desc">Распознавание движений · готовый контент для сторис</span>
+            <span class="zone-thumb-name" data-i18n="z6.t3n">Танцпол · LED-пол</span>
+            <span class="zone-thumb-desc" data-i18n="z6.t3d">Распознавание движений · готовый контент для сторис</span>
           </figcaption>
         </figure>
       </div>
@@ -1120,28 +1131,28 @@
       <header class="zone-head">
         <div class="zone-num-big">07</div>
         <div class="zone-meta">
-          <span class="zone-tag-new">Финал · фотозона</span>
-          <h3 class="zone-h-new">Мандариновый <em>бууум</em></h3>
-          <p class="zone-d-new">Большой бассейн с оранжевыми шарами-мандаринами — любимое лакомство капибар и вирусный мем превращаются в огромную фотозону и физическое пространство. После цифровых зон маршрут переключается на движение, яркость и активность.</p>
+          <span class="zone-tag-new" data-i18n="z7.tag">Финал · фотозона</span>
+          <h3 class="zone-h-new" data-i18n="z7.h">Мандариновый <em>бууум</em></h3>
+          <p class="zone-d-new" data-i18n="z7.d">Большой бассейн с оранжевыми шарами-мандаринами — любимое лакомство капибар и вирусный мем превращаются в огромную фотозону и физическое пространство. После цифровых зон маршрут переключается на движение, яркость и активность.</p>
         </div>
       </header>
       <div class="zone-hero-new">
         <img src="../assets/capybarabooom/photo/webp/7-orange-pool2.webp" alt="Мандариновый бууум · бассейн с шарами" loading="lazy" decoding="async">
-        <span class="lbl-new">Бассейн с шарами</span>
+        <span class="lbl-new" data-i18n="z7.lbl">Бассейн с шарами</span>
       </div>
       <div class="zone-grid-new">
         <figure class="zone-thumb" data-pin-x="40%" data-pin-y="55%">
           <img src="../assets/capybarabooom/photo/webp/7-orange-pool.webp" alt="Бассейн с оранжевыми шарами" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Бассейн с шарами</span>
-            <span class="zone-thumb-desc">Оранжевые шары вместо мандаринов · вирусный мем как пространство</span>
+            <span class="zone-thumb-name" data-i18n="z7.t1n">Бассейн с шарами</span>
+            <span class="zone-thumb-desc" data-i18n="z7.t1d">Оранжевые шары вместо мандаринов · вирусный мем как пространство</span>
           </figcaption>
         </figure>
         <figure class="zone-thumb" data-pin-x="72%" data-pin-y="50%">
           <img src="../assets/capybarabooom/photo/webp/7-orange-pool3.webp" alt="Фотозона · вид сверху" loading="lazy">
           <figcaption class="zone-thumb-cap">
-            <span class="zone-thumb-name">Фотозона · вид сверху</span>
-            <span class="zone-thumb-desc">Финал маршрута — переход от цифры к физике</span>
+            <span class="zone-thumb-name" data-i18n="z7.t2n">Фотозона · вид сверху</span>
+            <span class="zone-thumb-desc" data-i18n="z7.t2d">Финал маршрута — переход от цифры к физике</span>
           </figcaption>
         </figure>
       </div>
@@ -1153,9 +1164,9 @@
 <!-- CHARACTERS -->
 <section class="sec dark" id="cast">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">05</span><span class="star">✦</span> Поиск персонажей</span>
-    <h2 class="sec-h">От эскиза.<br><em>К запуску</em><span style="color:var(--lime)">.</span></h2>
-    <span class="sec-side"><b>Вселенная персонажей</b><br>десятки итераций<br>4 капибары · мерч</span>
+    <span class="sec-tag" data-i18n="s5.tag"><span class="num">05</span><span class="star">✦</span> Поиск персонажей</span>
+    <h2 class="sec-h" data-i18n="s5.h">От эскиза.<br><em>К запуску</em><span style="color:var(--lime)">.</span></h2>
+    <span class="sec-side" data-i18n="s5.side"><b>Вселенная персонажей</b><br>десятки итераций<br>4 капибары · мерч</span>
   </div>
 
   <figure class="cast-video">
@@ -1166,12 +1177,12 @@
       controls
       aria-label="Запись процесса скетчинга капибары"></video>
     <figcaption class="cv-meta">
-      <span class="cv-tag">Поиск формы · запись</span>
-      <span class="cv-title">Поиск формы — запись процесса</span>
+      <span class="cv-tag" data-i18n="s5.cvtag">Поиск формы · запись</span>
+      <span class="cv-title" data-i18n="s5.cvtitle">Поиск формы — запись процесса</span>
     </figcaption>
   </figure>
 
-  <p class="char-intro reveal">4 финальных персонажа выросли из десятков альтернативных образов. У каждой капибары своя вселенная, бэкстори и развитие силуэта — от рукописного эскиза до 3D-рендера, готового встать в музей и в мерч-линейку.</p>
+  <p class="char-intro reveal" data-i18n="s5.intro">4 финальных персонажа выросли из десятков альтернативных образов. У каждой капибары своя вселенная, бэкстори и развитие силуэта — от рукописного эскиза до 3D-рендера, готового встать в музей и в мерч-линейку.</p>
 
   <div class="char-cards reveal">
 
@@ -1180,11 +1191,11 @@
         <img src="../assets/capybarabooom/characters/cards/capy-san-card.webp" alt="КапиСан — карточка персонажа" loading="lazy">
       </div>
       <div class="char-card-info">
-        <span class="char-card-tag">01 · Дзен</span>
-        <h3>Капи<em>Сан</em></h3>
-        <span class="char-motto">Не парься, будь капи</span>
-        <p>Парит над лотосом. Учит состоянию дзена — без усилий и без слов.</p>
-        <ul class="char-card-traits">
+        <span class="char-card-tag" data-i18n="c1.tag">01 · Дзен</span>
+        <h3 data-i18n="c1.h">Капи<em>Сан</em></h3>
+        <span class="char-motto" data-i18n="c1.motto">Не парься, будь капи</span>
+        <p data-i18n="c1.p">Парит над лотосом. Учит состоянию дзена — без усилий и без слов.</p>
+        <ul class="char-card-traits" data-i18n="c1.traits">
           <li><b>Палитра:</b> охра · мягкий розовый · золото</li>
           <li><b>Атрибут:</b> лотос · аура спокойствия</li>
           <li><b>Зона:</b> Капибара-сан · дзен</li>
@@ -1197,11 +1208,11 @@
         <img src="../assets/capybarabooom/characters/cards/capy-balerina-card.webp" alt="КапиБалерина — карточка персонажа" loading="lazy">
       </div>
       <div class="char-card-info">
-        <span class="char-card-tag">02 · Радость</span>
-        <h3>Капи<em>Балерина</em></h3>
-        <span class="char-motto">Не жизнь, а праздник</span>
-        <p>Пончики для энергии, музыка в ушах. Самая лёгкая капибара выставки.</p>
-        <ul class="char-card-traits">
+        <span class="char-card-tag" data-i18n="c2.tag">02 · Радость</span>
+        <h3 data-i18n="c2.h">Капи<em>Балерина</em></h3>
+        <span class="char-motto" data-i18n="c2.motto">Не жизнь, а праздник</span>
+        <p data-i18n="c2.p">Пончики для энергии, музыка в ушах. Самая лёгкая капибара выставки.</p>
+        <ul class="char-card-traits" data-i18n="c2.traits">
           <li><b>Палитра:</b> розовый · кремовый · персик</li>
           <li><b>Атрибут:</b> пончик · бусы · пуанты</li>
           <li><b>Зона:</b> Капибара-бой · танцы</li>
@@ -1214,11 +1225,11 @@
         <img src="../assets/capybarabooom/characters/cards/capy-boy-card.webp" alt="Капибара-бой — карточка персонажа" loading="lazy">
       </div>
       <div class="char-card-info">
-        <span class="char-card-tag">03 · Веселье</span>
-        <h3>Капибара<em>Бой</em></h3>
-        <span class="char-motto">Танцы — жизнь</span>
-        <p>Звёздные очки, фиолетовый блейзер, дух праздника. Самая стильная капибара выставки.</p>
-        <ul class="char-card-traits">
+        <span class="char-card-tag" data-i18n="c3.tag">03 · Веселье</span>
+        <h3 data-i18n="c3.h">Капибара<em>Бой</em></h3>
+        <span class="char-motto" data-i18n="c3.motto">Танцы — жизнь</span>
+        <p data-i18n="c3.p">Звёздные очки, фиолетовый блейзер, дух праздника. Самая стильная капибара выставки.</p>
+        <ul class="char-card-traits" data-i18n="c3.traits">
           <li><b>Палитра:</b> фиолетовый · фуксия · неон</li>
           <li><b>Атрибут:</b> очки-звёзды · наушники · кэп</li>
           <li><b>Зона:</b> Капибара-бой · фан-зона</li>
@@ -1231,11 +1242,11 @@
         <img src="../assets/capybarabooom/characters/cards/capy-bro-card.webp" alt="КапибараБро — карточка персонажа" loading="lazy">
       </div>
       <div class="char-card-info">
-        <span class="char-card-tag">04 · Драйв</span>
-        <h3>Капибара<em>Бро</em></h3>
-        <span class="char-motto">Спорт — жизнь</span>
-        <p>Качает штангу-бамбук, ходит в худи, верит в утреннюю зарядку. Гордо. Абсурдно. Вирусно.</p>
-        <ul class="char-card-traits">
+        <span class="char-card-tag" data-i18n="c4.tag">04 · Драйв</span>
+        <h3 data-i18n="c4.h">Капибара<em>Бро</em></h3>
+        <span class="char-motto" data-i18n="c4.motto">Спорт — жизнь</span>
+        <p data-i18n="c4.p">Качает штангу-бамбук, ходит в худи, верит в утреннюю зарядку. Гордо. Абсурдно. Вирусно.</p>
+        <ul class="char-card-traits" data-i18n="c4.traits">
           <li><b>Палитра:</b> голубой · коричневый · розовый</li>
           <li><b>Атрибут:</b> штанга-бамбук · худи · рок-жест</li>
           <li><b>Зона:</b> КапиБро · спорт</li>
@@ -1245,8 +1256,8 @@
 
   </div>
 
-  <h3 class="char-cross-h reveal">20 персонажей</h3>
-  <p class="char-cross-d reveal">Полный состав вселенной: гиды-маскоты, кросс-образы, спецвыпуски и коллаборации. У каждого — свой характер, костюм и вайб.</p>
+  <h3 class="char-cross-h reveal" data-i18n="s5.crossh">20 персонажей</h3>
+  <p class="char-cross-d reveal" data-i18n="s5.crossd">Полный состав вселенной: гиды-маскоты, кросс-образы, спецвыпуски и коллаборации. У каждого — свой характер, костюм и вайб.</p>
   <div class="char-cross-grid reveal">
     <figure style="background:#ff3f89"><img src="../assets/capybarabooom/characters/roster/capy-01.webp" alt="Персонаж капибары" loading="lazy"></figure>
     <figure style="background:#a13cff"><img src="../assets/capybarabooom/characters/roster/capy-02.webp" alt="Персонаж капибары" loading="lazy"></figure>
@@ -1272,11 +1283,11 @@
 
   <!-- ПОДРОБНЫЙ PIPELINE формы персонажей — свёрнутый -->
   <details class="pipeline-toggle reveal">
-    <summary>Показать подробный пайплайн формы персонажей · 6 шагов</summary>
+    <summary data-i18n="pl.summary">Показать подробный пайплайн формы персонажей · 6 шагов</summary>
     <div class="pipeline">
     <div class="pipeline-head">
-      <h3>Поиск формы персонажей</h3>
-      <p>От референсов и мудбордов — через десятки 3D-итераций — к четырём финальным капибарам. Шесть ключевых вех большого пути. Клик по карточке — увеличить страницу.</p>
+      <h3 data-i18n="pl.h">Поиск формы персонажей</h3>
+      <p data-i18n="pl.p">От референсов и мудбордов — через десятки 3D-итераций — к четырём финальным капибарам. Шесть ключевых вех большого пути. Клик по карточке — увеличить страницу.</p>
     </div>
     <div class="pipeline-grid">
       <figure class="pl-step" data-src="../assets/capybarabooom/process/archive/characters/01-references.webp" data-wide="1">
@@ -1285,7 +1296,7 @@
           <img src="../assets/capybarabooom/process/archive/characters/01-references.webp" alt="Референсы и общие черты" loading="lazy">
           <span class="pl-zoom">⤢</span>
         </div>
-        <figcaption class="pl-cap"><b>Референсы</b><span>Мудборды · общие черты · стилевые группы</span></figcaption>
+        <figcaption class="pl-cap" data-i18n="pl.c1"><b>Референсы</b><span>Мудборды · общие черты · стилевые группы</span></figcaption>
       </figure>
       <figure class="pl-step" data-src="../assets/capybarabooom/process/archive/characters/06-silhouette-development.webp" data-wide="1">
         <div class="pl-step-imgwrap">
@@ -1293,7 +1304,7 @@
           <img src="../assets/capybarabooom/process/archive/characters/06-silhouette-development.webp" alt="Развитие силуэта" loading="lazy">
           <span class="pl-zoom">⤢</span>
         </div>
-        <figcaption class="pl-cap"><b>Силуэт</b><span>Линия → плоский покрас → объём</span></figcaption>
+        <figcaption class="pl-cap" data-i18n="pl.c2"><b>Силуэт</b><span>Линия → плоский покрас → объём</span></figcaption>
       </figure>
       <figure class="pl-step" data-src="../assets/capybarabooom/process/archive/characters/07-3d-iterations-notes.webp">
         <div class="pl-step-imgwrap">
@@ -1301,7 +1312,7 @@
           <img src="../assets/capybarabooom/process/archive/characters/07-3d-iterations-notes.webp" alt="3D-итерации с заметками" loading="lazy">
           <span class="pl-zoom">⤢</span>
         </div>
-        <figcaption class="pl-cap"><b>3D-итерации</b><span>Рендеры + прямые правки арт-дирекции</span></figcaption>
+        <figcaption class="pl-cap" data-i18n="pl.c3"><b>3D-итерации</b><span>Рендеры + прямые правки арт-дирекции</span></figcaption>
       </figure>
       <figure class="pl-step" data-src="../assets/capybarabooom/process/archive/characters/11-final-silhouette.webp">
         <div class="pl-step-imgwrap">
@@ -1309,7 +1320,7 @@
           <img src="../assets/capybarabooom/process/archive/characters/11-final-silhouette.webp" alt="Финальная форма" loading="lazy">
           <span class="pl-zoom">⤢</span>
         </div>
-        <figcaption class="pl-cap"><b>Базовая форма</b><span>«было / едем с этим, ураааа!»</span></figcaption>
+        <figcaption class="pl-cap" data-i18n="pl.c4"><b>Базовая форма</b><span>«было / едем с этим, ураааа!»</span></figcaption>
       </figure>
       <figure class="pl-step" data-src="../assets/capybarabooom/process/archive/characters/13-variants-grid.webp" data-wide="1">
         <div class="pl-step-imgwrap">
@@ -1317,7 +1328,7 @@
           <img src="../assets/capybarabooom/process/archive/characters/13-variants-grid.webp" alt="Образы и характеры" loading="lazy">
           <span class="pl-zoom">⤢</span>
         </div>
-        <figcaption class="pl-cap"><b>Образы и характеры</b><span>Десятки вариантов одежды и мимики</span></figcaption>
+        <figcaption class="pl-cap" data-i18n="pl.c5"><b>Образы и характеры</b><span>Десятки вариантов одежды и мимики</span></figcaption>
       </figure>
       <figure class="pl-step" data-src="../assets/capybarabooom/process/archive/characters/15-final-cast.webp">
         <div class="pl-step-imgwrap">
@@ -1325,7 +1336,7 @@
           <img src="../assets/capybarabooom/process/archive/characters/15-final-cast.webp" alt="Финальный состав" loading="lazy">
           <span class="pl-zoom">⤢</span>
         </div>
-        <figcaption class="pl-cap"><b>Финальный состав</b><span>4 капибары + key visual</span></figcaption>
+        <figcaption class="pl-cap" data-i18n="pl.c6"><b>Финальный состав</b><span>4 капибары + key visual</span></figcaption>
       </figure>
     </div>
     </div>
@@ -1336,9 +1347,9 @@
 <!-- PROCESS -->
 <section class="sec" id="process">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">06</span><span class="star">✦</span> Процесс</span>
-    <h2 class="sec-h">Рабочие<br><em>материалы</em><span style="color:var(--graphite)">.</span></h2>
-    <span class="sec-side"><b>Что под капотом</b><br>UI · эскизы<br>· сценография · KV</span>
+    <span class="sec-tag" data-i18n="s6.tag"><span class="num">06</span><span class="star">✦</span> Процесс</span>
+    <h2 class="sec-h" data-i18n="s6.h">Рабочие<br><em>материалы</em><span style="color:var(--graphite)">.</span></h2>
+    <span class="sec-side" data-i18n="s6.side"><b>Что под капотом</b><br>UI · эскизы<br>· сценография · KV</span>
   </div>
 
   <div class="process-grid reveal">
@@ -1346,27 +1357,27 @@
     <div class="proc-card wide">
       <div class="proc-img"><img src="../assets/capybarabooom/photo/webp/map-exhibition.webp" alt="Концепт-карта зонирования" loading="lazy"></div>
       <div class="proc-info">
-        <span class="proc-tag">Концепт-карта</span>
-        <h4>Зонирование маршрута</h4>
-        <p>Графическая система маршрута: 7 зон, 10+ инсталляций, единая визуальная грамматика. Карта работает и как навигация, и как самостоятельный плакат.</p>
+        <span class="proc-tag" data-i18n="s6.c1tag">Концепт-карта</span>
+        <h4 data-i18n="s6.c1h">Зонирование маршрута</h4>
+        <p data-i18n="s6.c1p">Графическая система маршрута: 7 зон, 10+ инсталляций, единая визуальная грамматика. Карта работает и как навигация, и как самостоятельный плакат.</p>
       </div>
     </div>
 
     <div class="proc-card">
       <div class="proc-img"><img src="../assets/capybarabooom/kv/6x3.webp" alt="Key visual 6×3" loading="lazy"></div>
       <div class="proc-info">
-        <span class="proc-tag">Key visual</span>
-        <h4>Главный визуал 6×3</h4>
-        <p>Постер-флагман для наружки. Из него выросла айдентика всей выставки.</p>
+        <span class="proc-tag" data-i18n="s6.c2tag">Key visual</span>
+        <h4 data-i18n="s6.c2h">Главный визуал 6×3</h4>
+        <p data-i18n="s6.c2p">Постер-флагман для наружки. Из него выросла айдентика всей выставки.</p>
       </div>
     </div>
 
     <div class="proc-card">
       <div class="proc-img"><img src="../assets/capybarabooom/photo/webp/2-capybarius7.webp" alt="RFID-метки и капикоины" loading="lazy"></div>
       <div class="proc-info">
-        <span class="proc-tag">Механика квеста</span>
-        <h4>RFID-метки и капикоины</h4>
-        <p>Браслет с RFID-меткой: посетитель собирает капикоины на тумбах в зонах — единая игровая валюта на весь маршрут.</p>
+        <span class="proc-tag" data-i18n="s6.c3tag">Механика квеста</span>
+        <h4 data-i18n="s6.c3h">RFID-метки и капикоины</h4>
+        <p data-i18n="s6.c3p">Браслет с RFID-меткой: посетитель собирает капикоины на тумбах в зонах — единая игровая валюта на весь маршрут.</p>
       </div>
     </div>
 
@@ -1378,156 +1389,156 @@
     <!-- [2 пополам] айдентика + персонажи -->
     <figure class="pf-card s-6" data-src="../assets/capybarabooom/process/visual-identity-creation.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">01 · айдентика</span>
+        <span class="pf-step" data-i18n="pf.s1">01 · айдентика</span>
         <img src="../assets/capybarabooom/process/visual-identity-creation.webp" alt="Создание визуальной айдентики" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Visual identity</b><span>Палитра · типографика · паттерны · правила использования</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c1"><b>Visual identity</b><span>Палитра · типографика · паттерны · правила использования</span></figcaption>
     </figure>
 
     <figure class="pf-card s-6" data-src="../assets/capybarabooom/process/characters-creation-process.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">02 · персонажи</span>
+        <span class="pf-step" data-i18n="pf.s2">02 · персонажи</span>
         <img src="../assets/capybarabooom/process/characters-creation-process.webp" alt="Процесс создания персонажей" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Characters creation</b><span>Скетчи · итерации · подбор финального состава</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c2"><b>Characters creation</b><span>Скетчи · итерации · подбор финального состава</span></figcaption>
     </figure>
 
     <!-- [1 длинное] UI-система — обзор всех интерактивов -->
     <figure class="pf-card s-12" data-src="../assets/capybarabooom/process/ui-screens.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">03 · UI-система</span>
+        <span class="pf-step" data-i18n="pf.s3">03 · UI-система</span>
         <img src="../assets/capybarabooom/process/ui-screens.webp" alt="UI экранов интерактивов" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>UI-система выставки</b><span>Все экраны интерактивов · сценарные состояния · правила взаимодействия</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c3"><b>UI-система выставки</b><span>Все экраны интерактивов · сценарные состояния · правила взаимодействия</span></figcaption>
     </figure>
 
     <!-- [2 пополам] викторина + kapi food -->
     <figure class="pf-card s-6" data-src="../assets/capybarabooom/process/quize-screens.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">04 · викторина</span>
+        <span class="pf-step" data-i18n="pf.s4">04 · викторина</span>
         <img src="../assets/capybarabooom/process/quize-screens.webp" alt="Экраны викторины Capy or No Capy" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Capy or No Capy</b><span>Викторина · экранные сценарии</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c4"><b>Capy or No Capy</b><span>Викторина · экранные сценарии</span></figcaption>
     </figure>
 
     <figure class="pf-card s-6" data-src="../assets/capybarabooom/process/capyfood-creation.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">05 · kapi food</span>
+        <span class="pf-step" data-i18n="pf.s5">05 · kapi food</span>
         <img src="../assets/capybarabooom/process/capyfood-creation.webp" alt="Разработка интерактива Capi Food" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Capi Food</b><span>Сборка интерактива · ингредиенты · логика</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c5"><b>Capi Food</b><span>Сборка интерактива · ингредиенты · логика</span></figcaption>
     </figure>
 
     <!-- [5 длинных подряд] arcade · jump · karaoke · love battle · print-wall -->
     <figure class="pf-card s-12" data-src="../assets/capybarabooom/process/arcade-games.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">06 · аркады</span>
+        <span class="pf-step" data-i18n="pf.s6">06 · аркады</span>
         <img src="../assets/capybarabooom/process/arcade-games.webp" alt="Arcade games — игровые механики" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Capy Games Arcade</b><span>Игровая механика · мини-игры зоны 06</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c6"><b>Capy Games Arcade</b><span>Игровая механика · мини-игры зоны 06</span></figcaption>
     </figure>
 
     <figure class="pf-card s-12" data-src="../assets/capybarabooom/process/jump-scenario.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">07 · прыжки</span>
+        <span class="pf-step" data-i18n="pf.s7">07 · прыжки</span>
         <img src="../assets/capybarabooom/process/jump-scenario.webp" alt="Сценарий jump-механики" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Jump · сценарий</b><span>Спортивный челлендж КапиБро</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c7"><b>Jump · сценарий</b><span>Спортивный челлендж КапиБро</span></figcaption>
     </figure>
 
     <figure class="pf-card s-12" data-src="../assets/capybarabooom/process/karaoke-sketch.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">08 · караоке</span>
+        <span class="pf-step" data-i18n="pf.s8">08 · караоке</span>
         <img src="../assets/capybarabooom/process/karaoke-sketch.webp" alt="Эскиз Capybaraoke" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Capybaraoke</b><span>Сцена · экран · взаимодействие посетителя</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c8"><b>Capybaraoke</b><span>Сцена · экран · взаимодействие посетителя</span></figcaption>
     </figure>
 
     <figure class="pf-card s-12" data-src="../assets/capybarabooom/process/love-battle-scenario.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">09 · love battle</span>
+        <span class="pf-step" data-i18n="pf.s9">09 · love battle</span>
         <img src="../assets/capybarabooom/process/love-battle-scenario.webp" alt="Сценарий Love Battle" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Love Battle · сценарий</b><span>Парная механика · экранная драматургия</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c9"><b>Love Battle · сценарий</b><span>Парная механика · экранная драматургия</span></figcaption>
     </figure>
 
     <figure class="pf-card s-12" data-src="../assets/capybarabooom/process/print-wall.webp" data-wide="1">
       <div class="pf-img">
-        <span class="pf-step">10 · принт-стена</span>
+        <span class="pf-step" data-i18n="pf.s10">10 · принт-стена</span>
         <img src="../assets/capybarabooom/process/print-wall.webp" alt="Принт-стена выставки" loading="lazy">
         <span class="pf-zoom">⤢</span>
       </div>
-      <figcaption class="pf-cap"><b>Принт-стена</b><span>Большеформатная графика для пространства</span></figcaption>
+      <figcaption class="pf-cap" data-i18n="pf.c10"><b>Принт-стена</b><span>Большеформатная графика для пространства</span></figcaption>
     </figure>
 
   </div>
 
   <div class="process-meta reveal">
-    <div class="pm-cell"><span class="pm-v">30<em>+</em></span><span class="pm-l">человек в команде · от концепта к открытию</span></div>
-    <div class="pm-cell"><span class="pm-v">100<em>+</em></span><span class="pm-l">визуальных итераций</span></div>
+    <div class="pm-cell"><span class="pm-v">30<em>+</em></span><span class="pm-l" data-i18n="s6.pm1">человек в команде · от концепта к открытию</span></div>
+    <div class="pm-cell"><span class="pm-v">100<em>+</em></span><span class="pm-l" data-i18n="s6.pm2">визуальных итераций</span></div>
   </div>
 </section>
 
 <!-- QUEST -->
 <section class="sec">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">07</span><span class="star">✦</span> Интерактивный квест</span>
-    <h2 class="sec-h">Закапибарься<br><em>по полной</em><span style="color:var(--graphite)">.</span></h2>
-    <span class="sec-side"><b>Механика квеста</b><br>капикоины<br>· турнирная таблица</span>
+    <span class="sec-tag" data-i18n="s7.tag"><span class="num">07</span><span class="star">✦</span> Интерактивный квест</span>
+    <h2 class="sec-h" data-i18n="s7.h">Закапибарься<br><em>по полной</em><span style="color:var(--graphite)">.</span></h2>
+    <span class="sec-side" data-i18n="s7.side"><b>Механика квеста</b><br>капикоины<br>· турнирная таблица</span>
   </div>
   <div class="quest reveal">
     <div class="quest-half dark">
-      <span class="quest-tag">Квестовая механика</span>
-      <h3 class="quest-h">Собирай<br><em>капикоины</em></h3>
-      <p class="quest-body">Каждый посетитель проходит маршрут как игрок. В каждой зоне — задания и монеты внутренней валюты выставки.</p>
+      <span class="quest-tag" data-i18n="s7.tagL">Квестовая механика</span>
+      <h3 class="quest-h" data-i18n="s7.hL">Собирай<br><em>капикоины</em></h3>
+      <p class="quest-body" data-i18n="s7.bodyL">Каждый посетитель проходит маршрут как игрок. В каждой зоне — задания и монеты внутренней валюты выставки.</p>
       <div class="quest-steps">
         <div class="quest-step">
           <span class="quest-step-num">01</span>
-          <div class="quest-step-text"><b>Интерактивная капибаризация на входе</b> — создай персонажа и получи стартовый бонус</div>
+          <div class="quest-step-text" data-i18n="s7.st1"><b>Интерактивная капибаризация на входе</b> — создай персонажа и получи стартовый бонус</div>
         </div>
         <div class="quest-step">
           <span class="quest-step-num">02</span>
-          <div class="quest-step-text"><b>Задания в зонах</b> — викторина, спортивные испытания, танцевальный батл</div>
+          <div class="quest-step-text" data-i18n="s7.st2"><b>Задания в зонах</b> — викторина, спортивные испытания, танцевальный батл</div>
         </div>
         <div class="quest-step">
           <span class="quest-step-num">03</span>
-          <div class="quest-step-text"><b>Бонусы за скорость и точность</b> — чем лучше результат, тем выше позиция</div>
+          <div class="quest-step-text" data-i18n="s7.st3"><b>Бонусы за скорость и точность</b> — чем лучше результат, тем выше позиция</div>
         </div>
         <div class="quest-step">
           <span class="quest-step-num">04</span>
-          <div class="quest-step-text"><b>Финальный обмен</b> — капикоины конвертируются в призы, мерч и цифровые бонусы</div>
+          <div class="quest-step-text" data-i18n="s7.st4"><b>Финальный обмен</b> — капикоины конвертируются в призы, мерч и цифровые бонусы</div>
         </div>
       </div>
       <div class="quest-coins">
         <div class="coin-icon">₵</div>
-        <div class="coin-text"><b>Капикоины — внутренняя валюта</b>Единая игровая система на 90 минут маршрута</div>
+        <div class="coin-text" data-i18n="s7.coins"><b>Капикоины — внутренняя валюта</b>Единая игровая система на 90 минут маршрута</div>
       </div>
     </div>
     <div class="quest-half lime">
-      <span class="quest-tag">Турнирная таблица</span>
-      <h3 class="quest-h">Кто<br><em>главная</em> капибара?</h3>
-      <p class="quest-body">Турнирная таблица обновляется в реальном времени. Каждый знает позицию — и хочет улучшить.</p>
+      <span class="quest-tag" data-i18n="s7.tagR">Турнирная таблица</span>
+      <h3 class="quest-h" data-i18n="s7.hR">Кто<br><em>главная</em> капибара?</h3>
+      <p class="quest-body" data-i18n="s7.bodyR">Турнирная таблица обновляется в реальном времени. Каждый знает позицию — и хочет улучшить.</p>
       <div class="quest-steps">
         <div class="quest-step" style="border-top-color:rgba(18,18,18,.18)">
           <span class="quest-step-num">🏆</span>
-          <div class="quest-step-text"><b>Топ-3 получают титул</b> «Главная Капибара» и спецприз при выходе</div>
+          <div class="quest-step-text" data-i18n="s7.sr1"><b>Топ-3 получают титул</b> «Главная Капибара» и спецприз при выходе</div>
         </div>
         <div class="quest-step" style="border-top-color:rgba(18,18,18,.18)">
           <span class="quest-step-num">📲</span>
-          <div class="quest-step-text"><b>QR-код результата</b> — персональная карточка квеста, готовая для сторис</div>
+          <div class="quest-step-text" data-i18n="s7.sr2"><b>QR-код результата</b> — персональная карточка квеста, готовая для сторис</div>
         </div>
         <div class="quest-step" style="border-top-color:rgba(18,18,18,.18)">
           <span class="quest-step-num">🔄</span>
-          <div class="quest-step-text"><b>Повторный визит</b> — счёт обнуляется, хочется вернуться и побить рекорд</div>
+          <div class="quest-step-text" data-i18n="s7.sr3"><b>Повторный визит</b> — счёт обнуляется, хочется вернуться и побить рекорд</div>
         </div>
       </div>
     </div>
@@ -1537,46 +1548,46 @@
 <!-- LEADERBOARD -->
 <section class="sec dark">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">08</span><span class="star">✦</span> Турнирная таблица</span>
-    <h2 class="sec-h">Топ <em>капибар</em><span style="color:var(--lime)">.</span></h2>
-    <span class="sec-side"><b>Результаты</b><br>обновляются<br>в реальном времени</span>
+    <span class="sec-tag" data-i18n="s8.tag"><span class="num">08</span><span class="star">✦</span> Турнирная таблица</span>
+    <h2 class="sec-h" data-i18n="s8.h">Топ <em>капибар</em><span style="color:var(--lime)">.</span></h2>
+    <span class="sec-side" data-i18n="s8.side"><b>Результаты</b><br>обновляются<br>в реальном времени</span>
   </div>
   <div class="lboard reveal">
-    <div class="lboard-head">
+    <div class="lboard-head" data-i18n="s8.head">
       <span>#</span><span>Капибара</span><span>Зона</span><span>Капикоины</span>
     </div>
     <div class="lboard-row top1">
       <span class="lboard-rank">🏆</span>
-      <div class="lboard-name">КапиЧемпион<small>Персонаж: КапиБро</small></div>
-      <span class="lboard-zone">Все 7 зон</span>
+      <div class="lboard-name" data-i18n="s8.n1">КапиЧемпион<small>Персонаж: КапиБро</small></div>
+      <span class="lboard-zone" data-i18n="s8.z1">Все 7 зон</span>
       <span class="lboard-coins">2 840<em>₵</em></span>
     </div>
     <div class="lboard-row">
       <span class="lboard-rank" style="color:var(--ink-2)">02</span>
-      <div class="lboard-name">НеПарюсь<small>Персонаж: Капибара-сан</small></div>
-      <span class="lboard-zone">6 из 7 зон</span>
+      <div class="lboard-name" data-i18n="s8.n2">НеПарюсь<small>Персонаж: Капибара-сан</small></div>
+      <span class="lboard-zone" data-i18n="s8.z2">6 из 7 зон</span>
       <span class="lboard-coins">2 190<em>₵</em></span>
     </div>
     <div class="lboard-row">
       <span class="lboard-rank" style="color:var(--ink-2)">03</span>
-      <div class="lboard-name">МандаринБустер<small>Персонаж: Капибара-бой</small></div>
-      <span class="lboard-zone">7 из 7 зон</span>
+      <div class="lboard-name" data-i18n="s8.n3">МандаринБустер<small>Персонаж: Капибара-бой</small></div>
+      <span class="lboard-zone" data-i18n="s8.z3">7 из 7 зон</span>
       <span class="lboard-coins">1 870<em>₵</em></span>
     </div>
     <div class="lboard-row">
       <span class="lboard-rank" style="color:var(--ink-3)">04</span>
-      <div class="lboard-name">Капибариус2.0<small>Персонаж: Профессор Капибариус</small></div>
-      <span class="lboard-zone">5 из 7 зон</span>
+      <div class="lboard-name" data-i18n="s8.n4">Капибариус2.0<small>Персонаж: Профессор Капибариус</small></div>
+      <span class="lboard-zone" data-i18n="s8.z4">5 из 7 зон</span>
       <span class="lboard-coins">1 540<em>₵</em></span>
     </div>
     <div class="lboard-row">
       <span class="lboard-rank" style="color:var(--ink-3)">05</span>
-      <div class="lboard-name">ЗенМастер<small>Персонаж: Капибара-сан</small></div>
-      <span class="lboard-zone">7 из 7 зон</span>
+      <div class="lboard-name" data-i18n="s8.n5">ЗенМастер<small>Персонаж: Капибара-сан</small></div>
+      <span class="lboard-zone" data-i18n="s8.z5">7 из 7 зон</span>
       <span class="lboard-coins">1 320<em>₵</em></span>
     </div>
     <div class="lboard-slogan">
-      <h3>Закапибарься по полной!</h3>
+      <h3 data-i18n="s8.slogan">Закапибарься по полной!</h3>
     </div>
   </div>
 </section>
@@ -1585,35 +1596,35 @@
 <section class="summary">
   <div class="summary-inner reveal">
     <div>
-      <h2 class="summary-h">Выставка Москвариума с культовой <em>персонажной вселенной</em> на 500 м².</h2>
+      <h2 class="summary-h" data-i18n="sm.h">Выставка Москвариума с культовой <em>персонажной вселенной</em> на 500 м².</h2>
     </div>
     <div class="summary-utp">
       <div class="summary-row">
         <span class="summary-mark">01</span>
         <div>
-          <strong>Вселенная персонажей с нуля</strong>
-          <p>4 персонажа, бэкстори, мерч-линейка, ToV — за рамки маскота, до полноценной франшизы.</p>
+          <strong data-i18n="sm.h1">Вселенная персонажей с нуля</strong>
+          <p data-i18n="sm.p1">4 персонажа, бэкстори, мерч-линейка, ToV — за рамки маскота, до полноценной франшизы.</p>
         </div>
       </div>
       <div class="summary-row">
         <span class="summary-mark">02</span>
         <div>
-          <strong>Phygital-опыт на 90 минут</strong>
-          <p>7 зон, 10+ инсталляций, квестовая механика с капикоинами. Посетитель не наблюдает — живёт внутри истории.</p>
+          <strong data-i18n="sm.h2">Phygital-опыт на 90 минут</strong>
+          <p data-i18n="sm.p2">7 зон, 10+ инсталляций, квестовая механика с капикоинами. Посетитель не наблюдает — живёт внутри истории.</p>
         </div>
       </div>
       <div class="summary-row">
         <span class="summary-mark">03</span>
         <div>
-          <strong>Полный цикл — от концепта до запуска</strong>
-          <p>Команда 30+ человек: иллюстраторы, сценографы, разработчики механик, монтаж, открытие, тур.</p>
+          <strong data-i18n="sm.h3">Полный цикл — от концепта до запуска</strong>
+          <p data-i18n="sm.p3">Команда 30+ человек: иллюстраторы, сценографы, разработчики механик, монтаж, открытие, тур.</p>
         </div>
       </div>
       <div class="summary-row">
         <span class="summary-mark">04</span>
         <div>
-          <strong>Масштабируется в тур и в мерч</strong>
-          <p>Айдентика, гайдбук и игровая механика спроектированы так, чтобы переезжать на новые площадки без переделок.</p>
+          <strong data-i18n="sm.h4">Масштабируется в тур и в мерч</strong>
+          <p data-i18n="sm.p4">Айдентика, гайдбук и игровая механика спроектированы так, чтобы переезжать на новые площадки без переделок.</p>
         </div>
       </div>
     </div>
@@ -1625,7 +1636,7 @@
   <div class="quote-bg" aria-hidden="true"></div>
   <div class="quote-inner reveal">
     <p class="quote-text">
-      Классный проект — это когда посетителю есть что <span class="qword-oval" id="qword-anim">сфотографировать</span>.
+      <span data-i18n="q.pre">Классный проект — это когда посетителю есть что</span> <span class="qword-oval" id="qword-anim">сфотографировать</span>.
     </p>
   </div>
 </section>
@@ -1633,44 +1644,44 @@
 <!-- DELIVERABLES -->
 <section class="sec">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">09</span><span class="star">✦</span> Разработка проекта</span>
-    <h2 class="sec-h">Что вошло<br>в <em>проект</em><span style="color:var(--graphite)">.</span></h2>
-    <span class="sec-side"><b>От концепта до запуска</b><br>полный цикл</span>
+    <span class="sec-tag" data-i18n="s9.tag"><span class="num">09</span><span class="star">✦</span> Разработка проекта</span>
+    <h2 class="sec-h" data-i18n="s9.h">Что вошло<br>в <em>проект</em><span style="color:var(--graphite)">.</span></h2>
+    <span class="sec-side" data-i18n="s9.side"><b>От концепта до запуска</b><br>полный цикл</span>
   </div>
   <div class="deliv reveal">
-    <div class="deliv-cell"><div><h4>Креативная <em>концепция</em></h4><p>Драматургия маршрута, вселенная персонажей, философия «не парься», характер и тон бренда.</p></div><span class="num">01</span></div>
-    <div class="deliv-cell"><div><h4>Арт-<em>дирекция</em> и ключевой визуал</h4><p>4 персонажа, kawaii-стилистика, цветовая система, типографика, мерч-линейка.</p></div><span class="num">02</span></div>
-    <div class="deliv-cell"><div><h4>Зонирование и <em>сценография</em></h4><p>7 зон, маршрут на 90 мин, 10+ инсталляций, тех-задания подрядчикам.</p></div><span class="num">03</span></div>
-    <div class="deliv-cell"><div><h4>Игровые <em>механики</em> · капикоины</h4><p>Внутренняя валюта, квестовая структура, интерактивная капибаризация, «Capy or No Capy».</p></div><span class="num">04</span></div>
-    <div class="deliv-cell"><div><h4>Phygital-<em>экосистема</em></h4><p>Сайт capybarabooom.ru, цифровые подарки, онлайн-активации, after-visit механики.</p></div><span class="num">05</span></div>
-    <div class="deliv-cell"><div><h4>Продюси<em>рование</em></h4><p>Команда, бюджет, площадка, подрядчики, монтаж, открытие, тур.</p></div><span class="num">06</span></div>
+    <div class="deliv-cell"><div data-i18n="s9.d1"><h4>Креативная <em>концепция</em></h4><p>Драматургия маршрута, вселенная персонажей, философия «не парься», характер и тон бренда.</p></div><span class="num">01</span></div>
+    <div class="deliv-cell"><div data-i18n="s9.d2"><h4>Арт-<em>дирекция</em> и ключевой визуал</h4><p>4 персонажа, kawaii-стилистика, цветовая система, типографика, мерч-линейка.</p></div><span class="num">02</span></div>
+    <div class="deliv-cell"><div data-i18n="s9.d3"><h4>Зонирование и <em>сценография</em></h4><p>7 зон, маршрут на 90 мин, 10+ инсталляций, тех-задания подрядчикам.</p></div><span class="num">03</span></div>
+    <div class="deliv-cell"><div data-i18n="s9.d4"><h4>Игровые <em>механики</em> · капикоины</h4><p>Внутренняя валюта, квестовая структура, интерактивная капибаризация, «Capy or No Capy».</p></div><span class="num">04</span></div>
+    <div class="deliv-cell"><div data-i18n="s9.d5"><h4>Phygital-<em>экосистема</em></h4><p>Сайт capybarabooom.ru, цифровые подарки, онлайн-активации, after-visit механики.</p></div><span class="num">05</span></div>
+    <div class="deliv-cell"><div data-i18n="s9.d6"><h4>Продюси<em>рование</em></h4><p>Команда, бюджет, площадка, подрядчики, монтаж, открытие, тур.</p></div><span class="num">06</span></div>
   </div>
 </section>
 
 <!-- PRODUCTION -->
 <section class="sec dark">
   <div class="sec-head reveal">
-    <span class="sec-tag"><span class="num">10</span><span class="star">✦</span> Команда</span>
-    <h2 class="sec-h">Кто <em>сделал</em><br>это<span style="color:var(--lime)">.</span></h2>
-    <span class="sec-side"><b>Команда</b><br>роли<br>· состав</span>
+    <span class="sec-tag" data-i18n="s10.tag"><span class="num">10</span><span class="star">✦</span> Команда</span>
+    <h2 class="sec-h" data-i18n="s10.h">Кто <em>сделал</em><br>это<span style="color:var(--lime)">.</span></h2>
+    <span class="sec-side" data-i18n="s10.side"><b>Команда</b><br>роли<br>· состав</span>
   </div>
   <div class="prod reveal">
     <aside class="prod-aside">
-      <div class="prod-stat"><span class="v">500<em> м²</em></span><span class="l">Площадь экспозиции</span></div>
-      <div class="prod-stat"><span class="v">10<em>+</em></span><span class="l">Инсталляций</span></div>
-      <div class="prod-stat"><span class="v">~90<em> мин</em></span><span class="l">Полный маршрут</span></div>
-      <div class="prod-stat"><span class="v">30<em>+</em></span><span class="l">Человек в команде</span></div>
+      <div class="prod-stat"><span class="v">500<em> м²</em></span><span class="l" data-i18n="s10.st1">Площадь экспозиции</span></div>
+      <div class="prod-stat"><span class="v">10<em>+</em></span><span class="l" data-i18n="s10.st2">Инсталляций</span></div>
+      <div class="prod-stat"><span class="v">~90<em> мин</em></span><span class="l" data-i18n="s10.st3">Полный маршрут</span></div>
+      <div class="prod-stat"><span class="v">30<em>+</em></span><span class="l" data-i18n="s10.st4">Человек в команде</span></div>
     </aside>
     <dl class="prod-table">
-      <div class="prod-row"><dt>Проект</dt><dd>Москвариум<em> · ВДНХ</em><span class="role">Центр океанографии и морской биологии</span></dd></div>
-      <div class="prod-row"><dt>Креативный директор</dt><dd>Татьяна <em>Самараковская</em><span class="role">Креативный директор Москвариума · ВДНХ</span></dd></div>
-      <div class="prod-row"><dt>Продюсирование</dt><dd>Светлана Крапивина, <em>Валерия Левшина</em></dd></div>
-      <div class="prod-row"><dt>Арт-дирекция</dt><dd>Юлия Артамонова, <em>Ярослав Примаченко</em></dd></div>
-      <div class="prod-row"><dt>Разработка персонажей</dt><dd>Татьяна Самараковская, <em>Юлия Артамонова</em></dd></div>
-      <div class="prod-row"><dt>Интерактивные механики</dt><dd>In-house <em>команда Москвариума</em></dd></div>
-      <div class="prod-row"><dt>Концепция</dt><dd>In-house команда Москвариума, <em>Татьяна Самараковская</em></dd></div>
-      <div class="prod-row"><dt>Технический директор</dt><dd>Юрий <em>Черноусов</em></dd></div>
-      <div class="prod-row"><dt>Нейрохудожник</dt><dd>Роман <em>Кулигин</em><span class="role">Продакшен</span></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt1">Проект</dt><dd data-i18n="s10.dd1">Москвариум<em> · ВДНХ</em><span class="role">Центр океанографии и морской биологии</span></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt2">Креативный директор</dt><dd data-i18n="s10.dd2">Татьяна <em>Самараковская</em><span class="role">Креативный директор Москвариума · ВДНХ</span></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt3">Продюсирование</dt><dd data-i18n="s10.dd3">Светлана Крапивина, <em>Валерия Левшина</em></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt4">Арт-дирекция</dt><dd data-i18n="s10.dd4">Юлия Артамонова, <em>Ярослав Примаченко</em></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt5">Разработка персонажей</dt><dd data-i18n="s10.dd5">Татьяна Самараковская, <em>Юлия Артамонова</em></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt6">Интерактивные механики</dt><dd data-i18n="s10.dd6">In-house <em>команда Москвариума</em></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt7">Концепция</dt><dd data-i18n="s10.dd7">In-house команда Москвариума, <em>Татьяна Самараковская</em></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt8">Технический директор</dt><dd data-i18n="s10.dd8">Юрий <em>Черноусов</em></dd></div>
+      <div class="prod-row"><dt data-i18n="s10.dt9">Нейрохудожник</dt><dd data-i18n="s10.dd9">Роман <em>Кулигин</em><span class="role">Продакшен</span></dd></div>
     </dl>
   </div>
 </section>
@@ -1681,31 +1692,31 @@
     <a class="pnav-cell prev" href="cymatic.html">
       <span class="pnav-bg" style="background-image:url('../assets/preview_projects/cymatic.webp')"></span>
       <div class="pnav-inner">
-        <span class="pnav-label">← 02 · Предыдущий</span>
-        <h3 class="pnav-h">Круг света</h3>
-        <span class="pnav-meta">Фестивали · проекционный мэппинг · 2018—22</span>
+        <span class="pnav-label" data-i18n="pn.prevlabel">← 02 · Предыдущий</span>
+        <h3 class="pnav-h" data-i18n="pn.prevh">Круг света</h3>
+        <span class="pnav-meta" data-i18n="pn.prevmeta">Фестивали · проекционный мэппинг · 2018—22</span>
       </div>
     </a>
     <div class="pnav-center">
-      <span class="pnav-center-label">Есть проект?</span>
-      <a class="pnav-cta-btn" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">Написать <span class="ar">↗</span></a>
+      <span class="pnav-center-label" data-i18n="pn.clabel">Есть проект?</span>
+      <a class="pnav-cta-btn" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="pn.cbtn">Написать <span class="ar">↗</span></a>
       <div class="pnav-extras">
-        <a href="https://capybarabooom.ru" target="_blank" rel="noopener">Сайт проекта ↗</a>
-        <a href="../index.html#works">Все проекты ↗</a>
+        <a href="https://capybarabooom.ru" target="_blank" rel="noopener" data-i18n="pn.x1">Сайт проекта ↗</a>
+        <a href="../index.html#works" data-i18n="pn.x2">Все проекты ↗</a>
       </div>
     </div>
     <a class="pnav-cell next" href="pole.html">
       <span class="pnav-bg" style="background-image:url('../assets/preview_projects/pole.webp')"></span>
       <div class="pnav-inner">
-        <span class="pnav-label">04 · Следующий →</span>
+        <span class="pnav-label" data-i18n="pn.nextlabel">04 · Следующий →</span>
         <h3 class="pnav-h">POLE.</h3>
-        <span class="pnav-meta">Театр · медиахудожник · 2021</span>
+        <span class="pnav-meta" data-i18n="pn.nextmeta">Театр · медиахудожник · 2021</span>
       </div>
     </a>
   </div>
   <div class="pnav-foot">
-    <span>© 2026 · Таня Самараковская</span>
-    <a href="#top">↑ Наверх</a>
+    <span data-i18n="pn.copy">© 2026 · Таня Самараковская</span>
+    <a href="#top" data-i18n="pn.top">↑ Наверх</a>
   </div>
 </section>
 
@@ -1717,7 +1728,7 @@
     </div>
   </div>
   <aside class="lightbox-side" id="lightboxSide" hidden>
-    <span class="lightbox-side-kicker" id="lightboxKicker">Инсталляция</span>
+    <span class="lightbox-side-kicker" id="lightboxKicker" data-i18n="lb.kicker">Инсталляция</span>
     <h3 class="lightbox-side-title" id="lightboxTitle"></h3>
     <p class="lightbox-side-desc" id="lightboxDesc"></p>
     <div class="lightbox-side-meta">
@@ -1732,12 +1743,156 @@
   <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Предыдущее фото" hidden>‹</button>
   <button class="lightbox-nav next" id="lightboxNext" aria-label="Следующее фото" hidden>›</button>
   <span class="lightbox-counter" id="lightboxCounter" hidden>01 / 01</span>
-  <div class="lightbox-hint">esc — закрыть · ← → — листать · клик по фото — zoom</div>
+  <div class="lightbox-hint" data-i18n="lb.hint">esc — закрыть · ← → — листать · клик по фото — zoom</div>
 </div>
 
 <!-- (старый pgfoot удалён — нижняя полоса теперь часть pnav) -->
 
 <script src="../image-slot.js"></script>
+<script>
+/* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
+(function(){
+  const EN = {
+    'n.back':'<span class="ar">←</span> All projects','n.mid':'<span class="live"></span>CapybaraBooom · Moskvarium · 2024','n.visit':'Project site ↗',
+    'h.t1':'● moskvarium','h.t2':'exhibition','h.t3':'character universe','h.t4':'meme culture',
+    'h.h':'Capybara-<br><em>b<span class="o">o</span><span class="o">o</span><span class="o">o</span>m</em>',
+    'h.sub':'“CAPYBARABOOOM” — an exhibition inspired by the worldwide hype around capybaras.',
+    'h.l1':'Capybarization zone','h.l2':'Capybarius','h.l3':'CapyBro · Sports','h.l4':'Tangerine booom',
+    'tk.row':'don’t stress <span class="star">✦</span> capy or no capy <em>kawaii</em> <span class="star">✦</span> tangerine <em>booom</em> <span class="star">✦</span> phygital <em>edutainment</em> <span class="star">✦</span>',
+    'ed.h':'The planet’s most <span class="word-oval">meme-worthy</span> animal —<br>for the first time, given an entire <span class="mark">500 m²</span> exhibition.',
+    's1.tag':'<span class="num">01</span><span class="star">✦</span> Showreel','s1.side':'<b>Project showreel</b><br>atmosphere<br>and key zones',
+    's1.phh':'CapybaraBooom','s1.php':'Project showreel · click to play','s1.bl':'CAPYBARABOOOM','s1.br':'Moskvarium',
+    's2.tag':'<span class="num">02</span><span class="star">✦</span> Concept',
+    's2.h':'<em>Don’t stress</em> — it’s a<br>philosophy<span style="color:var(--graphite)">.</span>',
+    's2.side':'<b>A character-led universe</b><br>from scratch · world<br>· exhibition',
+    's2.dl':'<dt>Project</dt><dd>Moskvarium · VDNKh</dd><dt>Format</dt><dd>Multimedia exhibition</dd><dt>Audience</dt><dd>Families · Gen Z</dd><dt>Area</dt><dd>500 m² / 7 zones</dd><dt>Route</dt><dd>~ 90 minutes</dd><dt>Mechanics</dt><dd>Quest · capycoins · interactive</dd><dt>Style</dt><dd>Kawaii · Japanese pop</dd>',
+    's2.introh':'“CapybaraBooom” is a character-led universe built from scratch: characters, a world, a phygital exhibition and a wider ecosystem, all developed from one question — <em>why did the world fall in love with capybaras</em>?',
+    's2.p1':'Capybaras took over social media for a reason: in a world of anxiety and overload, their image became <b>the perfect meme for the moment</b>. The Moskvarium exhibition turns this cultural phenomenon into a high-emotion space — alive, playful, visually bright and kawaii.',
+    's2.p2':'The format is <b>edutainment</b>: scientific facts are embedded in the mechanics. Visitors don’t just read panels — they act, compete and leave with a story.',
+    's2.lbl1':'Key visual','s2.lbl2':'Merch line',
+    's3.tag':'<span class="num">03</span><span class="star">✦</span> Why it works',
+    's3.h':'Why it<br><em>works</em><span style="color:var(--lime)">.</span>',
+    's3.side':'<b>Experience pillars</b><br>what visitors<br>take away',
+    's3.n1':'<span>01 / Immersion</span><span class="star">✦</span>','s3.h1':'Full <em>immersion</em>','s3.d1':'7 zones, a quest, capycoins. Visitors don’t just observe — they spend 90 minutes inside the universe.',
+    's3.n2':'<span>02 / Audience</span><span class="star">✦</span>','s3.h2':'For <em>the whole family</em>','s3.d2':'From ages 3 to 99: play for kids, irony for parents, and Gen Z aesthetics without compromise.',
+    's3.n3':'<span>03 / Virality</span><span class="star">✦</span>','s3.h3':'Built-in <em>virality</em>','s3.d3':'Every zone is designed as a ready-made shot for stories. Organic sharing is built into the experience.',
+    's3.n4':'<span>04 / Phygital</span><span class="star">✦</span>','s3.h4':'<em>Phygital</em> ecosystem','s3.d4':'Digital gifts and online activations — the experience continues beyond the venue.',
+    's3.n5':'<span>05 / Edutainment</span><span class="star">✦</span>','s3.h5':'<em>Edutainment</em>','s3.d5':'Facts about capybaras are built into the mechanics. Visitors learn something new without feeling like they are being taught.',
+    's3.n6':'<span>06 / Universe</span><span class="star">✦</span>','s3.h6':'A full <em>universe</em>','s3.d6':'4 characters with distinct personalities, backstories and merch. Not just a mascot — a living universe.',
+    'g.h':'Project <em>gallery</em><span style="color:var(--graphite)">.</span>','g.counter':'Scroll the page — the image strips move',
+    'g.t1':'Hall','g.t2':'Capybarization','g.t3':'Capybarius','g.t4':'Amazon','g.t5':'CapyBro','g.t6':'Capybara-san','g.t7':'Capybara-boy','g.t8':'Tangerine booom','g.t9':'Shop · merch','g.t10':'Overview',
+    'g.t11':'Onboarding','g.t12':'CapyQuiz','g.t13':'Capybarius','g.t14':'Amazon · 360°','g.t15':'Sports zone','g.t16':'Mirror wall','g.t17':'Arcades','g.t18':'Photo zone','g.t19':'Opening','g.t20':'Entrance',
+    'g.t21':'Professor Capybarius','g.t22':'Quiz screen','g.t23':'Capycoin','g.t24':'Bamboo barbell','g.t25':'LED zone','g.t26':'Point of silence','g.t27':'Capybaraoke','g.t28':'LED floor','g.t29':'Ball pit','g.t30':'Amazon',
+    'map.h':'Exhibition <em>map</em><span style="color:var(--ink)">.</span>','map.p':'<b>7 zones</b><br>one route · ~90 minutes',
+    's4.tag':'<span class="num">04</span><span class="star">✦</span> Exhibition zones','s4.h':'Exhibition <em>zones</em><span style="color:var(--graphite)">.</span>','s4.side':'<b>Experience route</b><br>~90 min · quest<br>with capycoins',
+    'z1.tag':'Intro · interactive','z1.h':'<em>Capybarization</em> zone','z1.d':'The first zone of the exhibition: visitors go through a virtual “capybarization” process — creating their own character, collecting capycoins and finding out who becomes the ultimate capy. The route starts here — and immediately pulls them in.','z1.lbl':'Onboarding · interactive','z1.t1n':'Capybarization','z1.t1d':'Interactive installation · character creation · starter capycoins','z1.t2n':'Onboarding · entrance','z1.t2d':'Not inside the zone yet — already inside the story','z1.t3n':'Exhibition hall','z1.t3d':'Branded identity and the quest start screen',
+    'z2.tag':'Edutainment zone','z2.h':'<em>Capybarius</em> zone','z2.d':'An interactive space where scientific facts about capybaras are delivered through pop-culture language. The zone is guided by Professor Capybarius, with CapyQuiz and game mechanics instead of static panels.','z2.lbl':'Capybarius · edutainment','z2.t1n':'The CapyQuiz screen','z2.t1d':'Quiz · correct answers earn capycoins','z2.t2n':'Capycoin on the stand','z2.t2d':'RFID stations for collecting capycoins',
+    'z3.tag':'360° panorama','z3.h':'The <em>Amazon</em> zone','z3.d':'A circular 360° projection screen in a roller-coaster format: an interactive journey down the Amazon with sharp turns and a dynamic boat visitors can steer. The most thrilling point of the route.','z3.lbl':'360° · roller coaster','z3.t1n':'Journey down the Amazon','z3.t1d':'Sharp turns · a controllable boat · cinematic motion without moving seats',
+    'z4.tag':'Sports zone','z4.h':'The <em>CapyBro</em> zone','z4.d':'Visitors discover capybaras’ athletic abilities by competing with them and their friends. Turn the cranks, jump higher, test your aim and compete with friends or family. At the center is CapyBro, lifting a bamboo barbell instead of weight plates.','z4.lbl':'Sports zone','z4.t1n':'CapyBro · bamboo barbell','z4.t1d':'Bamboo + coconuts · absurd · viral','z4.t2n':'LED · dynamic lighting','z4.t2d':'More movement — brighter light','z4.t3n':'Sports zone · overview','z4.t3d':'Competition · energy · the CapyBro spirit',
+    'z5.tag':'Zen zone','z5.h':'<em>Capybara-san</em>','z5.d':'A meditating capybara above a glowing lotus. An interactive projection with several modes — a quiet pause in the middle of the route.','z5.lbl':'Glowing lotus · orb','z5.t1n':'Mirror wall','z5.t1d':'Infinite space · visitors see themselves inside the calm','z5.t2n':'Quiet point','z5.t2d':'The only zone without active mechanics',
+    'z6.tag':'Fun zone','z6.h':'The <em>Capybara-boy</em> zone','z6.d':'Capybaraoke, arcade machines and a dance floor with LED flooring and motion tracking. Sing, dance and play — the most playful spot in the exhibition.','z6.lbl':'Arcades · karaoke · dancing','z6.t1n':'Capybaraoke','z6.t1d':'Live singing to capybara tracks','z6.t2n':'Arcade machines','z6.t2d':'Games in the universe’s visual language · the longest dwell time','z6.t3n':'Dance floor · LED floor','z6.t3d':'Motion tracking · ready-made content for stories',
+    'z7.tag':'Finale · photo zone','z7.h':'Tangerine <em>booom</em>','z7.d':'A large pool of orange tangerine-like balls — capybaras’ favorite treat and a viral meme turned into a huge photo zone and physical space. After the digital zones, the route shifts into movement, brightness and activity.','z7.lbl':'Ball pit','z7.t1n':'Ball pit','z7.t1d':'Orange balls instead of tangerines · a viral meme turned into a space','z7.t2n':'Photo zone · top view','z7.t2d':'The route finale — a shift from digital to physical',
+    's5.tag':'<span class="num">05</span><span class="star">✦</span> Character development','s5.h':'From sketch<br><em>to launch</em><span style="color:var(--lime)">.</span>','s5.side':'<b>A character-led universe</b><br>dozens of iterations<br>4 capybaras · merch','s5.cvtag':'Form exploration · recording','s5.cvtitle':'Form exploration — process recording','s5.intro':'The 4 final characters grew out of dozens of alternative versions. Each capybara has its own world, backstory and silhouette logic — from a hand-drawn sketch to a 3D render ready for the exhibition space and the merch line.','s5.crossh':'20 characters','s5.crossd':'The full cast of the universe: mascot guides, crossover looks, special editions and collaborations. Each one has its own personality, costume and vibe.',
+    'c1.tag':'01 · Zen','c1.h':'Capy<em>San</em>','c1.motto':'Don’t stress, be capy','c1.p':'Floats above a lotus. Brings visitors into a state of zen — effortlessly and without words.','c1.traits':'<li><b>Palette:</b> ochre · soft pink · gold</li><li><b>Attribute:</b> lotus · an aura of calm</li><li><b>Zone:</b> Capybara-san · zen</li>',
+    'c2.tag':'02 · Joy','c2.h':'Capy<em>Ballerina</em>','c2.motto':'Life is a celebration','c2.p':'Donuts for energy, music in her ears. The most light-hearted capybara in the exhibition.','c2.traits':'<li><b>Palette:</b> pink · cream · peach</li><li><b>Attribute:</b> donut · beads · pointe shoes</li><li><b>Zone:</b> Capybara-boy · dancing</li>',
+    'c3.tag':'03 · Fun','c3.h':'Capybara<em>Boy</em>','c3.motto':'Dancing is life','c3.p':'Star-shaped glasses, a purple blazer and a party spirit. The most stylish capybara in the exhibition.','c3.traits':'<li><b>Palette:</b> purple · fuchsia · neon</li><li><b>Attribute:</b> star glasses · headphones · cap</li><li><b>Zone:</b> Capybara-boy · fun zone</li>',
+    'c4.tag':'04 · Drive','c4.h':'Capybara<em>Bro</em>','c4.motto':'Sport is life','c4.p':'Lifts a bamboo barbell, wears a hoodie and believes in morning workouts. Proud. Absurd. Viral.','c4.traits':'<li><b>Palette:</b> blue · brown · pink</li><li><b>Attribute:</b> bamboo barbell · hoodie · rock gesture</li><li><b>Zone:</b> CapyBro · sport</li>',
+    'pl.summary':'Show the detailed character design pipeline · 6 steps','pl.h':'Exploring the character form','pl.p':'From references and moodboards through dozens of 3D iterations to four final capybaras. Six key milestones of the process. Click a card to enlarge the page.',
+    'pl.c1':'<b>References</b><span>Moodboards · shared traits · style groups</span>','pl.c2':'<b>Silhouette</b><span>Line → flat color → volume</span>','pl.c3':'<b>3D iterations</b><span>Renders + direct art direction notes</span>','pl.c4':'<b>Base form</b><span>“before / going with this, hooray!”</span>','pl.c5':'<b>Looks and personalities</b><span>Dozens of outfit and expression variants</span>','pl.c6':'<b>Final cast</b><span>4 capybaras + key visual</span>',
+    's6.tag':'<span class="num">06</span><span class="star">✦</span> Process','s6.h':'Working<br><em>materials</em><span style="color:var(--graphite)">.</span>','s6.side':'<b>Behind the scenes</b><br>UI · sketches<br>· scenography · key visual',
+    's6.c1tag':'Concept map','s6.c1h':'Route zoning','s6.c1p':'A graphic system for the route: 7 zones, 10+ installations and a consistent visual grammar. The map works both as navigation and as a standalone poster.',
+    's6.c2tag':'Key visual','s6.c2h':'The main 6×3 visual','s6.c2p':'The flagship visual for outdoor advertising. The exhibition identity grew out of it.',
+    's6.c3tag':'Quest mechanic','s6.c3h':'RFID tags and capycoins','s6.c3p':'A wristband with an RFID tag lets visitors collect capycoins at RFID stations across the zones — a single game currency for the whole route.',
+    's6.pm1':'people on the team · from concept to opening','s6.pm2':'visual iterations',
+    'pf.s1':'01 · identity','pf.c1':'<b>Visual identity</b><span>Palette · typography · patterns · usage rules</span>',
+    'pf.s2':'02 · characters','pf.c2':'<b>Character creation</b><span>Sketches · iterations · final cast selection</span>',
+    'pf.s3':'03 · UI system','pf.c3':'<b>Exhibition UI system</b><span>All interactive screens · scenario states · interaction rules</span>',
+    'pf.s4':'04 · quiz','pf.c4':'<b>Capy or No Capy</b><span>Quiz · screen scenarios</span>',
+    'pf.s5':'05 · kapi food','pf.c5':'<b>Capi Food</b><span>Interactive build · ingredients · logic</span>',
+    'pf.s6':'06 · arcades','pf.c6':'<b>Capy Games Arcade</b><span>Game mechanics · mini-games for Zone 06</span>',
+    'pf.s7':'07 · jump','pf.c7':'<b>Jump · scenario</b><span>CapyBro sports challenge</span>',
+    'pf.s8':'08 · karaoke','pf.c8':'<b>Capybaraoke</b><span>Stage · screen · visitor interaction</span>',
+    'pf.s9':'09 · love battle','pf.c9':'<b>Love Battle · scenario</b><span>Two-player mechanic · screen flow</span>',
+    'pf.s10':'10 · print wall','pf.c10':'<b>Print wall</b><span>Large-format graphics for the space</span>',
+    's7.tag':'<span class="num">07</span><span class="star">✦</span> Interactive quest','s7.h':'Go full<br><em>capybara</em><span style="color:var(--graphite)">.</span>','s7.side':'<b>Quest mechanic</b><br>capycoins<br>· leaderboard',
+    's7.tagL':'Quest mechanic','s7.hL':'Collect<br><em>capycoins</em>','s7.bodyL':'Every visitor moves through the route as a player. Each zone offers tasks and coins from the exhibition’s internal currency.',
+    's7.st1':'<b>Interactive “capybarization” at the entrance</b> — create a character and get a starter bonus','s7.st2':'<b>Zone tasks</b> — quiz, sports challenges, dance battle','s7.st3':'<b>Speed and accuracy bonuses</b> — the better the result, the higher the ranking','s7.st4':'<b>Final exchange</b> — capycoins can be exchanged for prizes, merch and digital bonuses',
+    's7.coins':'<b>Capycoins — the internal currency</b>A single game system across the 90-minute route',
+    's7.tagR':'Leaderboard','s7.hR':'Who’s the<br><em>ultimate</em> capybara?','s7.bodyR':'The leaderboard updates in real time. Visitors know where they stand — and want to climb higher.',
+    's7.sr1':'<b>The top 3 earn the title</b> “Ultimate Capybara” and a special prize at the exit','s7.sr2':'<b>Result QR code</b> — a personal quest card, ready for stories','s7.sr3':'<b>A reason to return</b> — the score resets, and visitors want to come back and beat the record',
+    's8.tag':'<span class="num">08</span><span class="star">✦</span> Leaderboard','s8.h':'Top <em>capybaras</em><span style="color:var(--lime)">.</span>','s8.side':'<b>Results</b><br>update<br>in real time',
+    's8.head':'<span>#</span><span>Capybara</span><span>Zone</span><span>Capycoins</span>',
+    's8.n1':'CapyChampion<small>Character: CapyBro</small>','s8.z1':'All 7 zones',
+    's8.n2':'NoStress<small>Character: Capybara-san</small>','s8.z2':'6 of 7 zones',
+    's8.n3':'TangerineBooster<small>Character: Capybara-boy</small>','s8.z3':'7 of 7 zones',
+    's8.n4':'Capybarius2.0<small>Character: Professor Capybarius</small>','s8.z4':'5 of 7 zones',
+    's8.n5':'ZenMaster<small>Character: Capybara-san</small>','s8.z5':'7 of 7 zones',
+    's8.slogan':'Go full capybara!',
+    'sm.h':'A 500 m² Moskvarium exhibition built around a cult <em>character-led universe</em>.',
+    'sm.h1':'A character-led universe from scratch','sm.p1':'4 characters, backstories, a merch line and tone of voice — beyond a mascot, toward a franchise-ready world.',
+    'sm.h2':'A 90-minute phygital experience','sm.p2':'7 zones, 10+ installations and a quest mechanic with capycoins. Visitors don’t just observe — they live inside the story.',
+    'sm.h3':'Full cycle — from concept to launch','sm.p3':'A team of 30+ people: illustrators, set designers, interactive developers, installation crew, opening team and touring production.',
+    'sm.h4':'Designed to scale into touring and merch','sm.p4':'The identity, guidelines and game mechanics were designed to travel to new venues without being rebuilt from scratch.',
+    'q.pre':'A great project is when there’s something for the visitor to',
+    's9.tag':'<span class="num">09</span><span class="star">✦</span> Project development','s9.h':'What went into<br>the <em>project</em><span style="color:var(--graphite)">.</span>','s9.side':'<b>From concept to launch</b><br>full cycle',
+    's9.d1':'<h4>Creative <em>concept</em></h4><p>Route dramaturgy, the character-led universe, the “don’t stress” philosophy, brand character and tone of voice.</p>',
+    's9.d2':'<h4>Art <em>direction</em> and key visual</h4><p>4 characters, kawaii styling, color system, typography and merch line.</p>',
+    's9.d3':'<h4>Zoning and <em>scenography</em></h4><p>7 zones, a 90-min route, 10+ installations, technical briefs for contractors.</p>',
+    's9.d4':'<h4>Game <em>mechanics</em> · capycoins</h4><p>Internal currency, quest structure, interactive “capybarization” and “Capy or No Capy”.</p>',
+    's9.d5':'<h4>Phygital <em>ecosystem</em></h4><p>The capybarabooom.ru site, digital gifts, online activations and after-visit mechanics.</p>',
+    's9.d6':'<h4>Produ<em>ction</em></h4><p>Team, budget, venue, contractors, installation, opening and touring setup.</p>',
+    's10.tag':'<span class="num">10</span><span class="star">✦</span> Team','s10.h':'Who <em>made</em><br>it<span style="color:var(--lime)">.</span>','s10.side':'<b>Team</b><br>roles<br>· credits',
+    's10.st1':'Exhibition area','s10.st2':'Installations','s10.st3':'Full route','s10.st4':'Team members',
+    's10.dt1':'Project','s10.dd1':'Moskvarium<em> · VDNKh</em><span class="role">Center of Oceanography and Marine Biology</span>',
+    's10.dt2':'Creative Director','s10.dd2':'Tatiana <em>Samarakovskaya</em><span class="role">Creative Director, Moskvarium · VDNKh</span>',
+    's10.dt3':'Producing','s10.dd3':'Svetlana Krapivina, <em>Valeria Levshina</em>',
+    's10.dt4':'Art direction','s10.dd4':'Yulia Artamonova, <em>Yaroslav Primachenko</em>',
+    's10.dt5':'Character development','s10.dd5':'Tatiana Samarakovskaya, <em>Yulia Artamonova</em>',
+    's10.dt6':'Interactive mechanics','s10.dd6':'In-house <em>Moskvarium team</em>',
+    's10.dt7':'Concept','s10.dd7':'In-house Moskvarium team, <em>Tatiana Samarakovskaya</em>',
+    's10.dt8':'Technical director','s10.dd8':'Yuri <em>Chernousov</em>',
+    's10.dt9':'Neural artist','s10.dd9':'Roman <em>Kuligin</em><span class="role">AI visual production</span>',
+    'pn.prevlabel':'← 02 · Previous','pn.prevh':'Circle of Light','pn.prevmeta':'Festivals · projection mapping · 2018—22',
+    'pn.clabel':'Got a project?','pn.cbtn':'Get in touch <span class="ar">↗</span>','pn.x1':'Project site ↗','pn.x2':'All projects ↗',
+    'pn.nextlabel':'04 · Next →','pn.nextmeta':'Theater · media artist · 2021','pn.copy':'© 2026 · Tanya Samarakovskaya','pn.top':'↑ Top',
+    'lb.kicker':'Installation','lb.hint':'esc — close · ← → — browse · click photo — zoom'
+  };
+  const META_EN = {
+    title:'CapybaraBooom · Case — Tanya Samarakovskaya',
+    desc:'CapybaraBooom — a 500 m² phygital exhibition at Moskvarium: a character universe, 7 zones, a quest with capycoins. Case by Tanya Samarakovskaya.'
+  };
+  const RU = new Map();
+  const ruTitle = document.title;
+  const descMeta = document.querySelector('meta[name="description"]');
+  const ruDesc = descMeta ? descMeta.content : '';
+  function apply(lang){
+    const en = (lang === 'en');
+    document.documentElement.lang = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      if(!RU.has(el)) RU.set(el, el.innerHTML);
+      const key = el.getAttribute('data-i18n');
+      el.innerHTML = (en && EN[key] != null) ? EN[key] : RU.get(el);
+    });
+    document.title = en ? META_EN.title : ruTitle;
+    if(descMeta) descMeta.content = en ? META_EN.desc : ruDesc;
+    document.querySelectorAll('#langToggle .lang-seg').forEach(function(b){
+      b.classList.toggle('on', b.dataset.lang === lang);
+    });
+    try{ localStorage.setItem('site_lang', lang); }catch(e){}
+    window.dispatchEvent(new CustomEvent('langchange', {detail: lang}));
+  }
+  const lt = document.getElementById('langToggle');
+  if(lt) lt.addEventListener('click', function(e){
+    const b = e.target.closest('button'); if(!b) return;
+    apply(b.dataset.lang);
+  });
+  let saved = 'ru';
+  try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
+  apply(saved === 'en' ? 'en' : 'ru');
+})();
+</script>
+
 <script>
   // Reveal on scroll
   const io = new IntersectionObserver((entries)=>{
@@ -1999,15 +2154,20 @@
   (function(){
     const el = document.getElementById('qword-anim');
     if(!el) return;
-    const words = ['рассказать', 'показать', 'забрать', 'поиграть', 'вспомнить', 'сфотографировать', 'поделиться'];
+    const WORDS = {
+      ru: ['рассказать', 'показать', 'забрать', 'поиграть', 'вспомнить', 'сфотографировать', 'поделиться'],
+      en: ['tell', 'show', 'take home', 'play with', 'remember', 'photograph', 'share']
+    };
+    let lang = (document.documentElement.dataset.lang === 'en') ? 'en' : 'ru';
     let i = 0;
     el.style.transition = 'opacity 0.3s, transform 0.3s';
+    el.textContent = WORDS[lang][0];
     function next(){
       el.style.opacity = '0';
       el.style.transform = 'translateY(-8px)';
       setTimeout(()=>{
-        i = (i + 1) % words.length;
-        el.textContent = words[i];
+        i = (i + 1) % WORDS[lang].length;
+        el.textContent = WORDS[lang][i];
         el.style.transform = 'translateY(6px)';
         requestAnimationFrame(()=>{
           requestAnimationFrame(()=>{
@@ -2017,6 +2177,10 @@
         });
       }, 320);
     }
+    window.addEventListener('langchange', function(e){
+      lang = (e.detail === 'en') ? 'en' : 'ru';
+      i = 0; el.textContent = WORDS[lang][0];
+    });
     setInterval(next, 2800);
   })();
 </script>
