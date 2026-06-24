@@ -56,10 +56,11 @@
   .back:hover{background:var(--ink);color:var(--bg)}
   .back .ar{display:inline-block;transition:transform .25s}
   .back:hover .ar{transform:translateX(-3px)}
-  .top-mid{display:inline-flex;align-items:center;gap:8px;background:var(--bg);border:1px solid var(--ink);border-radius:99px;padding:6px 12px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em}
-  .top-mid .live{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 3px rgba(200,255,46,.35);margin-right:4px;animation:pulse 1.6s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-  @media (max-width:780px){.top-mid{display:none}}
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden;background:var(--bg);border:1px solid var(--ink);border-radius:99px;padding:4px}
+  .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:99px;font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
+  .mag-pill:hover{background:rgba(18,18,18,.06);color:var(--ink)}
+  .mag-pill.active{background:var(--lime);color:var(--ink);font-weight:600}
+  @media (max-width:900px){.mag-nav{display:none}}
   .visit{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
   .visit:hover{background:var(--lime);color:var(--ink)}
   .nav-end{display:inline-flex;align-items:center;gap:8px;pointer-events:auto}
@@ -76,14 +77,14 @@
   .hero-meta{position:relative;z-index:2;display:flex;justify-content:center;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(243,239,230,.6);gap:24px;flex-wrap:wrap;margin-bottom:auto;padding-top:8px}
   .hero-meta b{color:var(--bg);font-weight:500;display:block}
   .hero-meta em{font-family:var(--serif);font-style:italic;text-transform:none;color:rgba(243,239,230,.4);font-size:13px}
-  .hero-title-wrap{position:relative;z-index:2;text-align:center;margin:0}
-  .hero-h{font-family:var(--sans);font-weight:500;font-size:clamp(52px,11vw,172px);line-height:.84;letter-spacing:-.05em;margin:0;text-align:center}
+  .hero-title-wrap{position:relative;z-index:2;text-align:center;margin:0;padding-top:16px}
+  .hero-h{font-family:var(--sans);font-weight:500;font-size:clamp(52px,11vw,172px);line-height:1;letter-spacing:-.05em;margin:0;text-align:center}
   .hero-h em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--lime)}
   .hero-sub{max-width:640px;margin:22px auto 0;font-size:clamp(15px,1.7vw,20px);line-height:1.45;color:rgba(243,239,230,.82);text-align:center;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hero-h .o{display:inline-block;color:var(--lime);animation:wobble 4s ease-in-out infinite}
   .hero-h .o:nth-child(2){animation-delay:.2s}
   .hero-h .o:nth-child(3){animation-delay:.4s}
-  @keyframes wobble{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-12px) rotate(-4deg)}}
+  @keyframes wobble{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-3deg)}}
   .hero-tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin:0;position:relative;z-index:2}
   .pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;background:rgba(243,239,230,.06);border:1px solid rgba(243,239,230,.22);border-radius:999px;font-family:var(--mono);font-size:11px;text-transform:lowercase;letter-spacing:.04em;color:rgba(243,239,230,.9)}
   .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);flex:0 0 auto}
@@ -682,7 +683,13 @@
 
 <header class="top">
   <a class="back" href="../index.html#works" data-i18n="n.back"><span class="ar">←</span> Все проекты</a>
-  <span class="top-mid" data-i18n="n.mid"><span class="live"></span>Капибарабууум · Москвариум · 2024</span>
+  <nav class="mag-nav" id="magNav">
+    <a class="mag-pill" href="#gallery-section" data-section="gallery-section" data-i18n="n.gallery">Галерея</a>
+    <a class="mag-pill" href="#zones" data-section="zones" data-i18n="n.zones">Зоны</a>
+    <a class="mag-pill" href="#cast" data-section="cast" data-i18n="n.cast">Персонажи</a>
+    <a class="mag-pill" href="#process" data-section="process" data-i18n="n.process">Процесс</a>
+    <a class="mag-pill" href="#team" data-section="team" data-i18n="n.team">Команда</a>
+  </nav>
   <div class="nav-end">
     <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
       <button class="lang-seg on" data-lang="ru" type="button">RU</button>
@@ -1659,7 +1666,7 @@
 </section>
 
 <!-- PRODUCTION -->
-<section class="sec dark">
+<section class="sec dark" id="team">
   <div class="sec-head reveal">
     <span class="sec-tag" data-i18n="s10.tag"><span class="num">10</span><span class="star">✦</span> Команда</span>
     <h2 class="sec-h" data-i18n="s10.h">Кто <em>сделал</em><br>это<span style="color:var(--lime)">.</span></h2>
@@ -1753,7 +1760,8 @@
 /* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
 (function(){
   const EN = {
-    'n.back':'<span class="ar">←</span> All projects','n.mid':'<span class="live"></span>CapybaraBooom · Moskvarium · 2024','n.visit':'Project site ↗',
+    'n.back':'<span class="ar">←</span> All projects','n.visit':'Project site ↗',
+    'n.gallery':'Gallery','n.zones':'Zones','n.cast':'Characters','n.process':'Process','n.team':'Team',
     'h.t1':'● moskvarium','h.t2':'exhibition','h.t3':'character universe','h.t4':'meme culture',
     'h.h':'Capybara-<br><em>b<span class="o">o</span><span class="o">o</span><span class="o">o</span>m</em>',
     'h.sub':'“CAPYBARABOOOM” — an exhibition inspired by the worldwide hype around capybaras.',
@@ -1891,6 +1899,38 @@
   try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
   apply(saved === 'en' ? 'en' : 'ru');
 })();
+</script>
+
+<script>
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  /* ACTIVE PILL on scroll */
+  const sectionIds = ['gallery-section','zones','cast','process','team'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const active = pillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
 </script>
 
 <script>

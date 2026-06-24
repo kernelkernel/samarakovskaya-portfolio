@@ -49,9 +49,11 @@
   .nav-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;background:rgba(22,22,26,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid var(--line-d);border-radius:999px;padding:7px 8px 7px 18px}
   .back{display:inline-flex;align-items:center;gap:10px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone)}
   .back::before{content:"←";color:var(--lime);font-size:14px}
-  .breadcrumb{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-2);text-transform:uppercase;letter-spacing:.08em;display:inline-flex;align-items:center;gap:10px}
-  .breadcrumb .dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 12px var(--lime);animation:blink 1.4s steps(1) infinite}
-  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+  .mag-nav{display:flex;align-items:center;justify-content:center;gap:2px;overflow:hidden}
+  .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
+  .mag-pill:hover{background:rgba(241,236,221,.08);color:var(--bone)}
+  .mag-pill.active{color:var(--lime)}
+  @media(max-width:900px){.mag-nav{display:none}}
   .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:var(--ink);padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
   .nav-cta::after{content:"↗"}
   .nav-end{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
@@ -59,7 +61,6 @@
   .lang-seg{padding:6px 8px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--bone-2);transition:background .2s,color .2s;line-height:1;cursor:pointer}
   .lang-seg.on{background:var(--lime);color:var(--ink);font-weight:600}
   .lang-seg:hover:not(.on){color:var(--bone)}
-  @media(max-width:780px){.breadcrumb span:not(.dot){display:none}}
 
   .wrap{max-width:1320px;margin:0 auto;padding:0 24px;width:100%}
 
@@ -282,7 +283,13 @@
 <header class="top">
   <div class="nav-bar">
     <a class="back" href="../index.html#works" data-i18n="n.back">Все проекты</a>
-    <span class="breadcrumb"><span class="dot"></span><span>Case · Cymatic</span></span>
+    <nav class="mag-nav" id="magNav">
+      <a class="mag-pill" href="#zone-concept" data-section="zone-concept" data-i18n="n.concept">Концепт</a>
+      <a class="mag-pill" href="#zone-impl" data-section="zone-impl" data-i18n="n.show">Реализация</a>
+      <a class="mag-pill" href="#zone-video" data-section="zone-video" data-i18n="n.video">Видео</a>
+      <a class="mag-pill" href="#zone-gallery" data-section="zone-gallery" data-i18n="n.gallery">Галерея</a>
+      <a class="mag-pill" href="#zone-credits" data-section="zone-credits" data-i18n="n.credits">Команда</a>
+    </nav>
     <div class="nav-end">
       <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
         <button class="lang-seg on" data-lang="ru" type="button">RU</button>
@@ -342,7 +349,7 @@
 </div>
 
 <!-- CONCEPT (cream) -->
-<section class="sec on-cream">
+<section class="sec on-cream" id="zone-concept">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num" data-i18n="s1.num">01 / Концепт</span>
@@ -394,7 +401,7 @@
 </section>
 
 <!-- CHAPTERS (graphite) -->
-<section class="sec on-graphite">
+<section class="sec on-graphite" id="zone-impl">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num" data-i18n="s2.num">02 / Реализация</span>
@@ -497,7 +504,7 @@
 </section>
 
 <!-- GALLERY (graphite) -->
-<section class="sec on-graphite">
+<section class="sec on-graphite" id="zone-gallery">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num" data-i18n="s4.num">04 / Галерея</span>
@@ -531,7 +538,7 @@
 </section>
 
 <!-- CREDITS (cream) -->
-<section class="credits">
+<section class="credits" id="zone-credits">
   <div class="wrap">
     <div class="credits-top reveal">
       <div>
@@ -615,6 +622,7 @@
 (function(){
   const EN = {
     'n.back':'All projects','n.cta':'Get in touch',
+    'n.concept':'Concept','n.show':'Execution','n.video':'Video','n.gallery':'Gallery','n.credits':'Team',
     'h.pill1':'projection mapping','h.pill2':'Bolshoi Theatre','h.pill3':'Circle of Light','h.pill4':'generative visuals','h.pill5':'Moscow',
     'h.sub':'Projection <b>mapping</b> on the facade of the Bolshoi Theatre as part of the “Circle of Light” festival — the geometry of sound in architecture.',
     'h.f1':'<b>Format</b><span>“Circle of Light” festival</span>','h.f2':'<b>Object</b><span>Bolshoi Theatre</span>','h.f3':'<b>Location</b><span>Moscow</span>','h.f4':'<b>Role</b><span>Video artist · content</span>',
@@ -685,6 +693,38 @@
   try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
   apply(saved === 'en' ? 'en' : 'ru');
 })();
+</script>
+
+<script>
+  /* MAGNETIC PILLS */
+  document.querySelectorAll('.mag-pill').forEach(pill => {
+    pill.addEventListener('mousemove', e => {
+      const r = pill.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2);
+      const dy = e.clientY - (r.top + r.height / 2);
+      pill.style.transform = `translate(${dx * 0.38}px, ${dy * 0.42}px) scale(1.06)`;
+    });
+    pill.addEventListener('mouseleave', () => { pill.style.transform = ''; });
+    pill.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.getElementById(pill.dataset.section);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+  /* ACTIVE PILL on scroll */
+  const sectionIds = ['zone-concept','zone-impl','zone-video','zone-gallery','zone-credits'];
+  const pillMap = {};
+  document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  const secObs = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        Object.values(pillMap).forEach(p => p.classList.remove('active'));
+        const active = pillMap[entry.target.id];
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.25 });
+  sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
 </script>
 
 <script>
