@@ -51,6 +51,14 @@
 
   /* nav */
   .top{position:fixed;top:18px;left:0;right:0;z-index:60;display:flex;justify-content:space-between;align-items:center;padding:0 24px;pointer-events:none}
+  @media (max-width:680px){
+    .top{top:12px;left:12px;right:12px;padding:8px 10px;background:rgba(243,239,230,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:99px;box-shadow:0 6px 24px rgba(18,18,18,.1)}
+    .back{padding:8px 12px 8px 11px;font-size:10px;gap:7px}
+    .visit{padding:8px 12px;font-size:10px;gap:7px}
+    .nav-end{gap:6px}
+    .lang-toggle{padding:2px}
+    .lang-seg{padding:6px 8px!important;font-size:9px!important}
+  }
   .top > *{pointer-events:auto}
   .back{display:inline-flex;align-items:center;gap:10px;background:var(--bg);color:var(--ink);border:1px solid var(--ink);padding:10px 16px 10px 14px;border-radius:99px;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:500}
   .back:hover{background:var(--ink);color:var(--bg)}
@@ -474,6 +482,7 @@
   .char-card:hover{transform:translateY(-8px);border-color:rgba(200,255,46,.45);background:linear-gradient(160deg,rgba(200,255,46,.07),rgba(243,239,230,.02))}
   .char-card-img{position:relative;aspect-ratio:1/1;display:grid;place-items:center;padding:0;overflow:hidden}
   .char-card-img img{width:128%;height:128%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.7,.25,1)}
+  @media (max-width:560px){.char-card-img img{width:110%;height:110%}}
   .char-card:hover .char-card-img img{transform:scale(1.05) rotate(-1.5deg)}
   /* яркие фоны персонажей из гайдлайна */
   .char-card-img.bg-pink{background:radial-gradient(ellipse at 50% 38%,#ff9ccf,#ff6fb5)}
@@ -768,7 +777,7 @@
   <div class="video-frame" id="videoFrame" data-src="https://youtu.be/PTzOGjehN-4">
     <img src="https://img.youtube.com/vi/PTzOGjehN-4/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/PTzOGjehN-4/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0" alt="">
     <div class="placeholder">
-      <div class="play">▶</div>
+      <div class="play"><svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17l15-8.5z"/></svg></div>
       <h4 data-i18n="s1.phh">Капибарабууум</h4>
       <p data-i18n="s1.php">Шоурил проекта · нажмите для просмотра</p>
     </div>
