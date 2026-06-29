@@ -1,26 +1,27 @@
-<!doctype html>
-<html lang="ru">
+<!DOCTYPE html>
+
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cymatic · Case — Таня Самараковская</title>
-<meta name="description" content="Маппинг-фестиваль Cymatic — проекционный маппинг и видеоконтент, 2018—2022. Кейс Тани Самараковской.">
-<link rel="icon" type="image/webp" href="../assets/icon.webp">
-<meta property="og:type" content="article">
-<meta property="og:locale" content="ru_RU">
-<meta property="og:site_name" content="Tanya Samarakovskaya">
-<meta property="og:url" content="https://samarakovskaya.art/projects/cymatic.html">
-<meta property="og:title" content="Cymatic · Case — Таня Самараковская">
-<meta property="og:description" content="Маппинг-фестиваль Cymatic — проекционный маппинг и видеоконтент, 2018—2022. Кейс Тани Самараковской.">
-<meta property="og:image" content="https://samarakovskaya.art/assets/cymatic/preview.webp">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cymatic · Case — Таня Самараковская">
-<meta name="twitter:description" content="Маппинг-фестиваль Cymatic — проекционный маппинг и видеоконтент, 2018—2022. Кейс Тани Самараковской.">
-<meta name="twitter:image" content="https://samarakovskaya.art/assets/cymatic/preview.webp">
-<link rel="canonical" href="https://samarakovskaya.art/projects/cymatic.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<title>Cymatic · Case — Tanya Samarakovskaya</title>
+<meta content="Cymatic mapping festival — projection mapping and video content, 2018—2022. Case by Tanya Samarakovskaya." name="description"/>
+<link href="../../assets/icon.webp" rel="icon" type="image/webp"/>
+<meta content="article" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="Tanya Samarakovskaya" property="og:site_name"/>
+<meta content="https://samarakovskaya.art/en/projects/cymatic.html" property="og:url"/>
+<meta content="Cymatic · Case — Tanya Samarakovskaya" property="og:title"/>
+<meta content="Cymatic mapping festival — projection mapping and video content, 2018—2022. Case by Tanya Samarakovskaya." property="og:description"/>
+<meta content="https://samarakovskaya.art/assets/cymatic/preview.webp" property="og:image"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Cymatic · Case — Tanya Samarakovskaya" name="twitter:title"/>
+<meta content="Cymatic mapping festival — projection mapping and video content, 2018—2022. Case by Tanya Samarakovskaya." name="twitter:description"/>
+<meta content="https://samarakovskaya.art/assets/cymatic/preview.webp" name="twitter:image"/>
+<link href="https://samarakovskaya.art/en/projects/cymatic.html" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&amp;display=swap" rel="stylesheet"/>
 <style>
   :root{
     --graphite:#16161A;--graphite-2:#1E1E22;--graphite-3:#26262C;
@@ -271,7 +272,7 @@
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
-<style id="ru-switch-css">
+<style id="en-switch-css">
 .nav-end{display:inline-flex;align-items:center;gap:10px}
 .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
 .lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
@@ -283,350 +284,315 @@
 <link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/cymatic.html">
 </head>
 <body>
-
 <div class="lb" id="lb">
-  <button class="lb-close" id="lbClose" data-i18n="lb.close">[ESC] закрыть</button>
-  <img loading="lazy" decoding="async" id="lbImg" src="" alt="">
+<button class="lb-close" data-i18n="lb.close" id="lbClose">[ESC] close</button>
+<img alt="" decoding="async" id="lbImg" loading="lazy" src=""/>
 </div>
-
 <!-- TOP NAV -->
 <header class="top">
-  <div class="nav-bar">
-    <a class="back" href="../index.html#works" data-i18n="n.back">Все проекты</a>
-    <nav class="mag-nav" id="magNav">
-      <a class="mag-pill" href="#zone-concept" data-section="zone-concept" data-i18n="n.concept">Концепт</a>
-      <a class="mag-pill" href="#zone-impl" data-section="zone-impl" data-i18n="n.show">Реализация</a>
-      <a class="mag-pill" href="#zone-video" data-section="zone-video" data-i18n="n.video">Видео</a>
-      <a class="mag-pill" href="#zone-gallery" data-section="zone-gallery" data-i18n="n.gallery">Галерея</a>
-      <a class="mag-pill" href="#zone-credits" data-section="zone-credits" data-i18n="n.credits">Команда</a>
-    </nav>
-    <div class="nav-end">
-      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
-        <span class="lang-seg on" data-lang="ru">RU</span>
-        <a class="lang-seg" data-lang="en" href="../en/projects/cymatic.html">EN</a>
-      </div>
-      <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="n.cta">Написать</a>
-    </div>
-  </div>
+<div class="nav-bar">
+<a class="back" data-i18n="n.back" href="../index.html#works">All projects</a>
+<nav class="mag-nav" id="magNav">
+<a class="mag-pill" data-i18n="n.concept" data-section="zone-concept" href="#zone-concept">Concept</a>
+<a class="mag-pill" data-i18n="n.show" data-section="zone-impl" href="#zone-impl">Execution</a>
+<a class="mag-pill" data-i18n="n.video" data-section="zone-video" href="#zone-video">Video</a>
+<a class="mag-pill" data-i18n="n.gallery" data-section="zone-gallery" href="#zone-gallery">Gallery</a>
+<a class="mag-pill" data-i18n="n.credits" data-section="zone-credits" href="#zone-credits">Team</a>
+</nav>
+<div class="nav-end">
+<div aria-label="Language" class="lang-toggle" id="langToggle" role="group">
+<a class="lang-seg" data-lang="ru" href="../../projects/cymatic.html">RU</a>
+<span class="lang-seg on" data-lang="en">EN</span>
+</div>
+<a class="nav-cta" data-i18n="n.cta" href="https://t.me/samarakovskaya_tanya" rel="noopener" target="_blank">Get in touch</a>
+</div>
+</div>
 </header>
-
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true">
-    <div class="ph" data-ph="cymatic · большой театр">
-      <img src="../assets/cymatic/photo/webp/cymatic-04.webp" alt="" loading="eager" decoding="async">
-    </div>
-  </div>
-
-  <div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
-    <div class="hero-meta-row">
-      <div class="pills">
-        <span class="pill solid">● Cymatic</span>
-        <span class="pill" data-i18n="h.pill1">проекционный маппинг</span>
-        <span class="pill" data-i18n="h.pill2">Большой театр</span>
-        <span class="pill" data-i18n="h.pill3">Круг света</span>
-      </div>
-      <div class="pills">
-        <span class="pill outline" data-i18n="h.pill4">генеративный визуал</span>
-        <span class="pill outline" data-i18n="h.pill5">Москва</span>
-      </div>
-    </div>
-
-    <div class="hero-title">
-      <h1 class="hero-h1">
-        <span class="syl s1">Cy</span><span class="syl s2">ma</span><span class="syl s1">tic</span>
-      </h1>
-      <p class="hero-sub" data-i18n="h.sub">
-        Проекционный <b>маппинг</b> на фасаде Большого театра в рамках фестиваля «Круг света» — геометрия звука в архитектуре.
-      </p>
-    </div>
-
-    <div class="hero-foot">
-      <div class="hero-fact" data-i18n="h.f1"><b>Формат</b><span>Фестиваль «Круг света»</span></div>
-      <div class="hero-fact" data-i18n="h.f2"><b>Объект</b><span>Большой театр</span></div>
-      <div class="hero-fact" data-i18n="h.f3"><b>Локация</b><span>Москва</span></div>
-      <div class="hero-fact" data-i18n="h.f4"><b>Роль</b><span>Видеохудожник · контент</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marq" aria-hidden="true">
-  <div class="marq-track">
-    <span data-i18n="marq.line">CYMATIC <span class="dot"></span> ПРОЕКЦИОННЫЙ МАППИНГ <span class="dot"></span> БОЛЬШОЙ ТЕАТР <span class="dot"></span> КРУГ СВЕТА <span class="dot"></span> ГЕОМЕТРИЯ ЗВУКА <span class="dot"></span> ГЕНЕРАТИВНЫЙ ВИЗУАЛ <span class="dot"></span> СВЕТ <span class="dot"></span> АРХИТЕКТУРА <span class="dot"></span> МОСКВА <span class="dot"></span></span>
-    <span data-i18n="marq.line">CYMATIC <span class="dot"></span> ПРОЕКЦИОННЫЙ МАППИНГ <span class="dot"></span> БОЛЬШОЙ ТЕАТР <span class="dot"></span> КРУГ СВЕТА <span class="dot"></span> ГЕОМЕТРИЯ ЗВУКА <span class="dot"></span> ГЕНЕРАТИВНЫЙ ВИЗУАЛ <span class="dot"></span> СВЕТ <span class="dot"></span> АРХИТЕКТУРА <span class="dot"></span> МОСКВА <span class="dot"></span></span>
-  </div>
+<div aria-hidden="true" class="hero-bg">
+<div class="ph" data-ph="cymatic · bolshoi theatre">
+<img alt="" decoding="async" loading="eager" src="../../assets/cymatic/photo/webp/cymatic-04.webp"/>
 </div>
-
+</div>
+<div class="wrap" style="position:relative;z-index:2;display:flex;flex-direction:column;flex:1;gap:36px;justify-content:space-between">
+<div class="hero-meta-row">
+<div class="pills">
+<span class="pill solid">● Cymatic</span>
+<span class="pill" data-i18n="h.pill1">projection mapping</span>
+<span class="pill" data-i18n="h.pill2">Bolshoi Theatre</span>
+<span class="pill" data-i18n="h.pill3">Circle of Light</span>
+</div>
+<div class="pills">
+<span class="pill outline" data-i18n="h.pill4">generative visuals</span>
+<span class="pill outline" data-i18n="h.pill5">Moscow</span>
+</div>
+</div>
+<div class="hero-title">
+<h1 class="hero-h1">
+<span class="syl s1">Cy</span><span class="syl s2">ma</span><span class="syl s1">tic</span>
+</h1>
+<p class="hero-sub" data-i18n="h.sub">Projection <b>mapping</b> on the facade of the Bolshoi Theatre as part of the “Circle of Light” festival — the geometry of sound in architecture.</p>
+</div>
+<div class="hero-foot">
+<div class="hero-fact" data-i18n="h.f1"><b>Format</b><span>“Circle of Light” festival</span></div>
+<div class="hero-fact" data-i18n="h.f2"><b>Object</b><span>Bolshoi Theatre</span></div>
+<div class="hero-fact" data-i18n="h.f3"><b>Location</b><span>Moscow</span></div>
+<div class="hero-fact" data-i18n="h.f4"><b>Role</b><span>Video artist · content</span></div>
+</div>
+</div>
+</section>
+<!-- MARQUEE -->
+<div aria-hidden="true" class="marq">
+<div class="marq-track">
+<span data-i18n="marq.line">CYMATIC <span class="dot"></span> PROJECTION MAPPING <span class="dot"></span> BOLSHOI THEATRE <span class="dot"></span> CIRCLE OF LIGHT <span class="dot"></span> GEOMETRY OF SOUND <span class="dot"></span> GENERATIVE VISUALS <span class="dot"></span> LIGHT <span class="dot"></span> ARCHITECTURE <span class="dot"></span> MOSCOW <span class="dot"></span></span>
+<span data-i18n="marq.line">CYMATIC <span class="dot"></span> PROJECTION MAPPING <span class="dot"></span> BOLSHOI THEATRE <span class="dot"></span> CIRCLE OF LIGHT <span class="dot"></span> GEOMETRY OF SOUND <span class="dot"></span> GENERATIVE VISUALS <span class="dot"></span> LIGHT <span class="dot"></span> ARCHITECTURE <span class="dot"></span> MOSCOW <span class="dot"></span></span>
+</div>
+</div>
 <!-- CONCEPT (cream) -->
 <section class="sec on-cream" id="zone-concept">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num" data-i18n="s1.num">01 / Концепт</span>
-      <h2 class="sec-h" data-i18n="s1.h"><span class="word-pill">Идея</span> проекта.</h2>
-      <span class="sec-side" data-i18n="s1.side">Большой театр<br><b>Projection Mapping</b></span>
-    </div>
-
-    <div class="concept reveal">
-      <div class="concept-img">
-        <div class="ph" data-ph="cymatic · фасад">
-          <img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-01.webp" alt="">
-        </div>
-        <span class="concept-img-tag">● Cymatics</span>
-        <span class="concept-img-over" data-i18n="s1.over">Звук<br>→<br>Свет</span>
-      </div>
-      <div class="concept-body">
-        <p class="concept-lead" data-i18n="s1.lead">
-          Геометрия <span class="word-block">звуковых волн</span> — визуализированная на фасаде классической архитектуры.
-        </p>
-        <div class="concept-text">
-          <p data-i18n="s1.p1">Cymatic — проекционный маппинг на фасаде <b>Большого театра</b>. В основе концепции лежит наука cymatics: визуализация звуковых волн в виде геометрических паттернов.</p>
-          <p data-i18n="s1.p2">Классическая архитектура становится поверхностью для генеративного визуального контента. <b>Кристаллические структуры и волновые паттерны</b> прорастают сквозь колонны и рельефы, превращая фасад в живой экран.</p>
-          <p data-i18n="s1.p3">Проекция работает как <b>диалог архитектуры и звука</b>: геометрия здания усиливает ритмическую логику визуала, а паттерны cymatics откликаются на пространственный масштаб театра.</p>
-        </div>
-        <dl class="concept-meta" data-i18n="s1.meta">
-          <div><dt>Объект</dt><dd>Большой театр</dd></div>
-          <div><dt>Метод</dt><dd>Video Mapping</dd></div>
-          <div><dt>Концепт</dt><dd>Cymatics</dd></div>
-        </dl>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head reveal">
+<span class="sec-num" data-i18n="s1.num">01 / Concept</span>
+<h2 class="sec-h" data-i18n="s1.h">Project <span class="word-pill">idea</span>.</h2>
+<span class="sec-side" data-i18n="s1.side">Bolshoi Theatre<br/><b>Projection Mapping</b></span>
+</div>
+<div class="concept reveal">
+<div class="concept-img">
+<div class="ph" data-ph="cymatic · facade">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-01.webp"/>
+</div>
+<span class="concept-img-tag">● Cymatics</span>
+<span class="concept-img-over" data-i18n="s1.over">Sound<br/>→<br/>Light</span>
+</div>
+<div class="concept-body">
+<p class="concept-lead" data-i18n="s1.lead">The geometry of <span class="word-block">sound waves</span> — visualized on the facade of classical architecture.</p>
+<div class="concept-text">
+<p data-i18n="s1.p1">Cymatic is projection mapping on the facade of the <b>Bolshoi Theatre</b>. The concept is rooted in cymatics: the visualization of sound waves as geometric patterns.</p>
+<p data-i18n="s1.p2">Classical architecture becomes a surface for generative visual content. <b>Crystalline structures and wave patterns</b> grow through the columns and reliefs, turning the facade into a living screen.</p>
+<p data-i18n="s1.p3">The projection works as a <b>dialogue between architecture and sound</b>: the geometry of the building reinforces the rhythmic logic of the visuals, while the cymatics patterns respond to the spatial scale of the theatre.</p>
+</div>
+<dl class="concept-meta" data-i18n="s1.meta"><div><dt>Object</dt><dd>Bolshoi Theatre</dd></div><div><dt>Method</dt><dd>Video Mapping</dd></div><div><dt>Concept</dt><dd>Cymatics</dd></div></dl>
+</div>
+</div>
+</div>
 </section>
-
 <!-- PULL QUOTE -->
 <section class="pullq">
-  <div class="pullq-bg" aria-hidden="true">
-    <div class="ph" data-ph="cymatic · проекция">
-      <img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-03.webp" alt="">
-    </div>
-  </div>
-  <div class="pullq-inner reveal">
-    <div class="pullq-tag" data-i18n="pq.tag">концепция · cymatic</div>
-    <p class="pullq-text" data-i18n="pq.text">
-      Классическая <span class="word-oval">архитектура</span> как экран — паттерны <span class="word-block">cymatics</span> прорастают сквозь колонны.
-    </p>
-    <div class="pullq-cite" data-i18n="pq.cite">● <b>Cymatic</b> · Projection Mapping · Большой театр</div>
-  </div>
+<div aria-hidden="true" class="pullq-bg">
+<div class="ph" data-ph="cymatic · projection">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-03.webp"/>
+</div>
+</div>
+<div class="pullq-inner reveal">
+<div class="pullq-tag" data-i18n="pq.tag">concept · cymatic</div>
+<p class="pullq-text" data-i18n="pq.text">Classical <span class="word-oval">architecture</span> as a screen — <span class="word-block">cymatics</span> patterns grow through the columns.</p>
+<div class="pullq-cite" data-i18n="pq.cite">● <b>Cymatic</b> · Projection Mapping · Bolshoi Theatre</div>
+</div>
 </section>
-
 <!-- CHAPTERS (graphite) -->
 <section class="sec on-graphite" id="zone-impl">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num" data-i18n="s2.num">02 / Реализация</span>
-      <h2 class="sec-h" data-i18n="s2.h">Звук как <span class="word-pill">визуал</span>.</h2>
-      <span class="sec-side" data-i18n="s2.side"><b>Generative · Mapping</b><br>Большой театр</span>
-    </div>
-
-    <article class="chap reveal">
-      <div class="chap-img">
-        <div class="ph" data-ph="фасад театра · маппинг">
-          <img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-02.webp" alt="">
-        </div>
-        <span class="chap-img-tag">01</span>
-      </div>
-      <div class="chap-body">
-        <span class="chap-key" data-i18n="s2.k1">Объект · 01</span>
-        <h3 class="chap-title" data-i18n="s2.t1">Фасад как <span class="mark">поверхность</span></h3>
-        <p data-i18n="s2.p1">Колонны, рельефы и портик Большого театра становятся элементами визуальной композиции. <b>Маппинг работает с архитектурным рельефом</b>: проекция не накладывается поверх здания, а встраивается в его геометрию, усиливая каждый объём и тень.</p>
-      </div>
-    </article>
-
-    <article class="chap full reveal">
-      <div class="chap-img">
-        <div class="ph" data-ph="cymatics паттерны">
-          <img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-03.webp" alt="">
-        </div>
-        <span class="chap-img-tag">02</span>
-      </div>
-      <div class="chap-body">
-        <span class="chap-key" data-i18n="s2.k2">Контент · 02</span>
-        <h3 class="chap-title" data-i18n="s2.t2">Генеративные <span class="mark">паттерны</span></h3>
-        <p data-i18n="s2.p2">Контент шоу построен на принципах cymatics — <b>визуализации акустических частот</b> в виде геометрических структур. Кристаллические паттерны меняются в реальном времени, следуя музыкальной партитуре. Каждая нота — своя геометрия.</p>
-      </div>
-    </article>
-
-    <article class="chap flip reveal">
-      <div class="chap-img">
-        <div class="ph" data-ph="аудитория · площадь">
-          <img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-04.webp" alt="">
-        </div>
-        <span class="chap-img-tag">03</span>
-      </div>
-      <div class="chap-body">
-        <span class="chap-key" data-i18n="s2.k3">Аудитория · 03</span>
-        <h3 class="chap-title" data-i18n="s2.t3">Площадь как <span class="mark">зрительный</span> зал</h3>
-        <p data-i18n="s2.p3">Театральная площадь перед зданием становится открытым зрительным залом. <b>Проекция работает на большое расстояние</b> и воспринимается как масштабное уличное шоу — без привычных рамок экрана или сцены.</p>
-      </div>
-    </article>
-  </div>
+<div class="wrap">
+<div class="sec-head reveal">
+<span class="sec-num" data-i18n="s2.num">02 / Execution</span>
+<h2 class="sec-h" data-i18n="s2.h">Sound as <span class="word-pill">visuals</span>.</h2>
+<span class="sec-side" data-i18n="s2.side"><b>Generative · Mapping</b><br/>Bolshoi Theatre</span>
+</div>
+<article class="chap reveal">
+<div class="chap-img">
+<div class="ph" data-ph="theatre facade · mapping">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-02.webp"/>
+</div>
+<span class="chap-img-tag">01</span>
+</div>
+<div class="chap-body">
+<span class="chap-key" data-i18n="s2.k1">Object · 01</span>
+<h3 class="chap-title" data-i18n="s2.t1">The facade as a <span class="mark">surface</span></h3>
+<p data-i18n="s2.p1">The columns, reliefs and portico of the Bolshoi Theatre become elements of the visual composition. <b>The mapping works with the architectural relief</b>: the projection is not laid over the building but built into its geometry, reinforcing every volume and shadow.</p>
+</div>
+</article>
+<article class="chap full reveal">
+<div class="chap-img">
+<div class="ph" data-ph="cymatics patterns">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-03.webp"/>
+</div>
+<span class="chap-img-tag">02</span>
+</div>
+<div class="chap-body">
+<span class="chap-key" data-i18n="s2.k2">Content · 02</span>
+<h3 class="chap-title" data-i18n="s2.t2">Generative <span class="mark">patterns</span></h3>
+<p data-i18n="s2.p2">The show’s content is built on the principles of cymatics — <b>the visualization of acoustic frequencies</b> as geometric structures. Crystalline patterns shift in real time, following the musical score. Each note has its own geometry.</p>
+</div>
+</article>
+<article class="chap flip reveal">
+<div class="chap-img">
+<div class="ph" data-ph="audience · square">
+<img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-04.webp"/>
+</div>
+<span class="chap-img-tag">03</span>
+</div>
+<div class="chap-body">
+<span class="chap-key" data-i18n="s2.k3">Audience · 03</span>
+<h3 class="chap-title" data-i18n="s2.t3">The square as an <span class="mark">auditorium</span></h3>
+<p data-i18n="s2.p3">The theatre square in front of the building becomes an open-air auditorium. <b>The projection works over a long distance</b> and reads as a large-scale street show — without the usual frame of a screen or stage.</p>
+</div>
+</article>
+</div>
 </section>
-
 <!-- MY ROLE (cream) -->
 <section class="sec on-cream">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num" data-i18n="s3.num">03 / Роль</span>
-      <h2 class="sec-h" data-i18n="s3.h"><span class="word-pill">Роль</span>.</h2>
-      <span class="sec-side" data-i18n="s3.side"><b>Видеохудожник · контент</b><br>в команде проекта</span>
-    </div>
-
-    <div class="role-grid reveal">
-      <div class="role-card">
-        <span class="num">01</span>
-        <span class="step" data-i18n="s3.step1">Шаг · 01 / 03</span>
-        <h3 data-i18n="s3.t1">Часть команды <span class="mark">контента</span></h3>
-        <p data-i18n="s3.p1">Работа в команде Supervisuals и Global Illumination. <b>Зона ответственности — создание части визуального контента</b> шоу: не весь проект, а конкретные сцены и элементы.</p>
-      </div>
-      <div class="role-card">
-        <span class="num">02</span>
-        <span class="step" data-i18n="s3.step2">Шаг · 02 / 03</span>
-        <h3 data-i18n="s3.t2">Геометрия <span class="mark">звука</span></h3>
-        <p data-i18n="s3.p2">Перевод принципов cymatics в визуальный материал: <b>волновые и кристаллические паттерны</b>, которые ложатся на фасад. Каждый кадр держит связь между акустической частотой и геометрией.</p>
-      </div>
-      <div class="role-card">
-        <span class="num">03</span>
-        <span class="step" data-i18n="s3.step3">Шаг · 03 / 03</span>
-        <h3 data-i18n="s3.t3">Контент под <span class="mark">фасад</span></h3>
-        <p data-i18n="s3.p3">Визуал делался с учётом архитектурного рельефа Большого театра: <b>колонны, портик и объёмы — часть композиции</b>. Контент подгонялся под маппинг и масштаб площади.</p>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head reveal">
+<span class="sec-num" data-i18n="s3.num">03 / Role</span>
+<h2 class="sec-h" data-i18n="s3.h"><span class="word-pill">Role</span>.</h2>
+<span class="sec-side" data-i18n="s3.side"><b>Video artist · content</b><br/>in the project team</span>
+</div>
+<div class="role-grid reveal">
+<div class="role-card">
+<span class="num">01</span>
+<span class="step" data-i18n="s3.step1">Step · 01 / 03</span>
+<h3 data-i18n="s3.t1">Part of the <span class="mark">content</span> team</h3>
+<p data-i18n="s3.p1">Working within the Supervisuals and Global Illumination team. <b>The area of responsibility was creating part of the visual content</b> for the show: not the whole project, but specific scenes and elements.</p>
+</div>
+<div class="role-card">
+<span class="num">02</span>
+<span class="step" data-i18n="s3.step2">Step · 02 / 03</span>
+<h3 data-i18n="s3.t2">The geometry of <span class="mark">sound</span></h3>
+<p data-i18n="s3.p2">Translating the principles of cymatics into visual material: <b>wave and crystalline patterns</b> that map onto the facade. Every frame keeps the link between acoustic frequency and geometry.</p>
+</div>
+<div class="role-card">
+<span class="num">03</span>
+<span class="step" data-i18n="s3.step3">Step · 03 / 03</span>
+<h3 data-i18n="s3.t3">Content for the <span class="mark">facade</span></h3>
+<p data-i18n="s3.p3">The visuals were made with the architectural relief of the Bolshoi Theatre in mind: <b>columns, portico and volumes are part of the composition</b>. The content was fitted to the mapping and the scale of the square.</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- VIDEO -->
 <section class="sec on-graphite" id="zone-video" style="padding-top:72px;padding-bottom:72px">
-  <div class="wrap">
-    <div class="sec-head reveal" style="margin-bottom:32px">
-      <span class="sec-num" data-i18n="s3b.num">03b / Видео</span>
-      <h2 class="sec-h" data-i18n="s3b.h"><span class="word-pill">Звук</span> как визуал.</h2>
-      <span class="sec-side">YouTube · Documentation</span>
-    </div>
-    <div class="reveal" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px"
-      onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/NpEbQJ9Gd08?autoplay=1&rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)">
-      <img loading="lazy" decoding="async" src="https://img.youtube.com/vi/NpEbQJ9Gd08/maxresdefault.jpg" onerror="this.src='https://img.youtube.com/vi/NpEbQJ9Gd08/hqdefault.jpg'" style="width:100%;height:100%;object-fit:cover;display:block" alt="Cymatic видео">
-      <div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
-        <div style="width:80px;height:80px;border-radius:50%;background:#C8FF2E;display:grid;place-items:center;color:#16161A"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3.5v17l15-8.5z"/></svg></div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head reveal" style="margin-bottom:32px">
+<span class="sec-num" data-i18n="s3b.num">03b / Video</span>
+<h2 class="sec-h" data-i18n="s3b.h"><span class="word-pill">Sound</span> as visuals.</h2>
+<span class="sec-side">YouTube · Documentation</span>
+</div>
+<div class="reveal" onclick="(function(el){var i=document.createElement('iframe');i.src='https://www.youtube.com/embed/NpEbQJ9Gd08?autoplay=1&amp;rel=0';i.style.cssText='position:absolute;inset:0;width:100%;height:100%;border:0';i.allow='accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture';i.allowFullscreen=true;el.innerHTML='';el.appendChild(i);el.style.cursor='default';el.onclick=null})(this)" style="position:relative;width:100%;aspect-ratio:16/9;background:#000;cursor:pointer;overflow:hidden;border-radius:12px">
+<img alt="Cymatic video" decoding="async" loading="lazy" onerror="this.src='https://img.youtube.com/vi/NpEbQJ9Gd08/hqdefault.jpg'" src="https://img.youtube.com/vi/NpEbQJ9Gd08/maxresdefault.jpg" style="width:100%;height:100%;object-fit:cover;display:block"/>
+<div style="position:absolute;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.28)">
+<div style="width:80px;height:80px;border-radius:50%;background:#C8FF2E;display:grid;place-items:center;color:#16161A"><svg fill="currentColor" height="28" viewbox="0 0 24 24" width="28"><path d="M5 3.5v17l15-8.5z"></path></svg></div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- GALLERY (graphite) -->
 <section class="sec on-graphite" id="zone-gallery">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-num" data-i18n="s4.num">04 / Галерея</span>
-      <h2 class="sec-h" data-i18n="s4.h"><span class="word-pill">Галерея</span>.</h2>
-      <span class="sec-side" data-i18n="s4.side"><b>Большой театр</b><br>Круг света</span>
-    </div>
-
-    <div class="gal reveal">
-      <div class="gcap dark">
-        <div class="big" data-i18n="s4.cap1big">Звук<br>→ Свет</div>
-        <div class="sub" data-i18n="s4.cap1sub">геометрия волн · cymatics</div>
-      </div>
-      <figure class="gi">
-        <div class="ph" data-ph="cymatic · фасад общий"><img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-01.webp" alt=""></div>
-      </figure>
-      <figure class="gi">
-        <div class="ph" data-ph="cymatic · паттерны"><img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-02.webp" alt=""></div>
-      </figure>
-      <figure class="gi">
-        <div class="ph" data-ph="cymatic · кристаллы"><img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-03.webp" alt=""></div>
-      </figure>
-      <figure class="gi">
-        <div class="ph" data-ph="cymatic · площадь"><img loading="lazy" decoding="async" src="../assets/cymatic/photo/webp/cymatic-04.webp" alt=""></div>
-      </figure>
-      <div class="gcap">
-        <div class="big" data-i18n="s4.cap2big">Большой<br>театр</div>
-        <div class="sub" data-i18n="s4.cap2sub">фестиваль «Круг света» · Москва</div>
-      </div>
-    </div>
-  </div>
+<div class="wrap">
+<div class="sec-head reveal">
+<span class="sec-num" data-i18n="s4.num">04 / Gallery</span>
+<h2 class="sec-h" data-i18n="s4.h"><span class="word-pill">Gallery</span>.</h2>
+<span class="sec-side" data-i18n="s4.side"><b>Bolshoi Theatre</b><br/>Circle of Light</span>
+</div>
+<div class="gal reveal">
+<div class="gcap dark">
+<div class="big" data-i18n="s4.cap1big">Sound<br/>→ Light</div>
+<div class="sub" data-i18n="s4.cap1sub">wave geometry · cymatics</div>
+</div>
+<figure class="gi">
+<div class="ph" data-ph="cymatic · full facade"><img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-01.webp"/></div>
+</figure>
+<figure class="gi">
+<div class="ph" data-ph="cymatic · patterns"><img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-02.webp"/></div>
+</figure>
+<figure class="gi">
+<div class="ph" data-ph="cymatic · crystals"><img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-03.webp"/></div>
+</figure>
+<figure class="gi">
+<div class="ph" data-ph="cymatic · square"><img alt="" decoding="async" loading="lazy" src="../../assets/cymatic/photo/webp/cymatic-04.webp"/></div>
+</figure>
+<div class="gcap">
+<div class="big" data-i18n="s4.cap2big">Bolshoi<br/>Theatre</div>
+<div class="sub" data-i18n="s4.cap2sub">“Circle of Light” festival · Moscow</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- CREDITS (cream) -->
 <section class="credits" id="zone-credits">
-  <div class="wrap">
-    <div class="credits-top reveal">
-      <div>
-        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-3);margin-bottom:16px" data-i18n="cr.toplbl">● Команда</div>
-        <h2 class="credits-title" data-i18n="cr.title">Команда проекта</h2>
-      </div>
-    </div>
-
-    <div class="credits-body reveal">
-      <dl>
-        <div class="cred-row">
-          <dt data-i18n="cr.dt1">Команда</dt>
-          <dd data-i18n="cr.dd1">Supervisuals + Global <span class="mark">Illumination</span></dd>
-        </div>
-        <div class="cred-row">
-          <dt data-i18n="cr.dt2">Контент</dt>
-          <dd data-i18n="cr.dd2">Рустам Юсупов, Дима Ольгин,<br>Татьяна <span class="mark">Самараковская</span></dd>
-        </div>
-        <div class="cred-row">
-          <dt data-i18n="cr.dt3">Объект</dt>
-          <dd data-i18n="cr.dd3">Большой <span class="mark">театр</span><span class="sub">Театральная площадь · Москва</span></dd>
-        </div>
-        <div class="cred-row">
-          <dt data-i18n="cr.dt4">Формат</dt>
-          <dd data-i18n="cr.dd4">Фестиваль «Круг света»</dd>
-        </div>
-      </dl>
-      <dl class="credits-col-right">
-        <div class="cred-row">
-          <dt data-i18n="cr.dt5">Концепция</dt>
-          <dd data-i18n="cr.dd5">Cymatics<span class="sub">визуализация акустических частот</span></dd>
-        </div>
-        <div class="cred-row">
-          <dt data-i18n="cr.dt6">Технология</dt>
-          <dd data-i18n="cr.dd6">Projection mapping<span class="sub">генеративный визуал · фасад</span></dd>
-        </div>
-        <div class="cred-row">
-          <dt data-i18n="cr.dt7">Площадка</dt>
-          <dd data-i18n="cr.dd7">Фестиваль «Круг <span class="mark">света</span>»<span class="sub">Театральная площадь · Москва</span></dd>
-        </div>
-        <div class="cred-row">
-          <dt data-i18n="cr.dt8">Тип</dt>
-          <dd data-i18n="cr.dd8">Архитектурный <span class="mark">маппинг</span></dd>
-        </div>
-      </dl>
-    </div>
-  </div>
+<div class="wrap">
+<div class="credits-top reveal">
+<div>
+<div data-i18n="cr.toplbl" style="font-family:'JetBrains Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-3);margin-bottom:16px">● Team</div>
+<h2 class="credits-title" data-i18n="cr.title">Project team</h2>
+</div>
+</div>
+<div class="credits-body reveal">
+<dl>
+<div class="cred-row">
+<dt data-i18n="cr.dt1">Team</dt>
+<dd data-i18n="cr.dd1">Supervisuals + Global <span class="mark">Illumination</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt2">Content</dt>
+<dd data-i18n="cr.dd2">Rustam Yusupov, Dima Olgin,<br/>Tatiana <span class="mark">Samarakovskaya</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt3">Object</dt>
+<dd data-i18n="cr.dd3">Bolshoi <span class="mark">Theatre</span><span class="sub">Teatralnaya Square · Moscow</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt4">Format</dt>
+<dd data-i18n="cr.dd4">“Circle of Light” festival</dd>
+</div>
+</dl>
+<dl class="credits-col-right">
+<div class="cred-row">
+<dt data-i18n="cr.dt5">Concept</dt>
+<dd data-i18n="cr.dd5">Cymatics<span class="sub">visualization of acoustic frequencies</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt6">Technology</dt>
+<dd data-i18n="cr.dd6">Projection mapping<span class="sub">generative visuals · facade</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt7">Venue</dt>
+<dd data-i18n="cr.dd7">“Circle of <span class="mark">Light</span>” festival<span class="sub">Teatralnaya Square · Moscow</span></dd>
+</div>
+<div class="cred-row">
+<dt data-i18n="cr.dt8">Type</dt>
+<dd data-i18n="cr.dd8">Architectural <span class="mark">mapping</span></dd>
+</div>
+</dl>
+</div>
+</div>
 </section>
-
 <!-- PROJ NAV -->
-<nav class="proj-nav" aria-label="Другие проекты">
-  <div class="proj-nav-inner">
-    <a class="pn-card" href="nebula.html">
-      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/nebula.webp" alt="" aria-hidden="true">
-      <span class="pn-dir" data-i18n="pn.prev"><span style="display:inline-block;margin-bottom:14px;font-size:20px">←</span><br>Предыдущий</span>
-      <span class="pn-name" data-i18n="pn.prevname">Небула</span>
-      <span class="pn-sub">Exhibitions · Experience design · 2023</span>
-    </a>
-    <a class="pn-contact" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener">
-      <span class="pn-contact-label" data-i18n="pn.clabel">Есть проект?</span>
-      <span class="pn-btn" data-i18n="pn.cbtn">Написать ↗</span>
-    </a>
-    <a class="pn-card" href="capybarabooom.html" style="text-align:right">
-      <img loading="lazy" decoding="async" class="bg" src="../assets/preview_projects/capybaraboom.webp" alt="" aria-hidden="true">
-      <span class="pn-dir" data-i18n="pn.next"><span style="display:inline-block;margin-bottom:14px;font-size:20px">→</span><br>Следующий</span>
-      <span class="pn-name" data-i18n="pn.nextname">КапибараБууум</span>
-      <span class="pn-sub">Exhibitions · IP system · 2024—26</span>
-    </a>
-  </div>
+<nav aria-label="Other projects" class="proj-nav">
+<div class="proj-nav-inner">
+<a class="pn-card" href="nebula.html">
+<img alt="" aria-hidden="true" class="bg" decoding="async" loading="lazy" src="../../assets/preview_projects/nebula.webp"/>
+<span class="pn-dir" data-i18n="pn.prev"><span style="display:inline-block;margin-bottom:14px;font-size:20px">←</span><br/>Previous</span>
+<span class="pn-name" data-i18n="pn.prevname">Nebula</span>
+<span class="pn-sub">Exhibitions · Experience design · 2023</span>
+</a>
+<a class="pn-contact" href="https://t.me/samarakovskaya_tanya" rel="noopener" target="_blank">
+<span class="pn-contact-label" data-i18n="pn.clabel">Got a project?</span>
+<span class="pn-btn" data-i18n="pn.cbtn">Get in touch ↗</span>
+</a>
+<a class="pn-card" href="capybarabooom.html" style="text-align:right">
+<img alt="" aria-hidden="true" class="bg" decoding="async" loading="lazy" src="../../assets/preview_projects/capybaraboom.webp"/>
+<span class="pn-dir" data-i18n="pn.next"><span style="display:inline-block;margin-bottom:14px;font-size:20px">→</span><br/>Next</span>
+<span class="pn-name" data-i18n="pn.nextname">CapybaraBooom</span>
+<span class="pn-sub">Exhibitions · IP system · 2024—26</span>
+</a>
+</div>
 </nav>
-
 <footer>
-  <div class="foot-row">
-    <span data-i18n="f.copy">© 2026 · <b>Таня Самараковская</b></span>
-    <span><a href="#top" data-i18n="f.top">↑ Наверх</a></span>
-  </div>
+<div class="foot-row">
+<span data-i18n="f.copy">© 2026 · <b>Tanya Samarakovskaya</b></span>
+<span><a data-i18n="f.top" href="#top">↑ Top</a></span>
+</div>
 </footer>
-
 <script>
 /* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
 (function(){
@@ -699,12 +665,11 @@
     const b = e.target.closest('button'); if(!b) return;
     apply(b.dataset.lang);
   });
-  let saved = 'ru';
-  try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
-  apply('ru'); try{localStorage.removeItem('site_lang');}catch(e){}
+  let saved = 'en';
+  try{ saved = localStorage.getItem('site_lang') || 'en'; }catch(e){}
+  apply('en'); try{localStorage.removeItem('site_lang');}catch(e){}
 })();
 </script>
-
 <script>
   /* MAGNETIC PILLS */
   document.querySelectorAll('.mag-pill').forEach(pill => {
@@ -736,7 +701,6 @@
   }, { threshold: 0.25 });
   sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
 </script>
-
 <script>
   const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }}), {threshold:.08});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));

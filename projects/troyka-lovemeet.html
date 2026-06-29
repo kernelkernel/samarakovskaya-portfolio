@@ -333,6 +333,16 @@
     .hero-meta-row,.hero-title,.hero-foot{opacity:1!important;transform:none!important;animation:none!important}
   }
 </style>
+<style id="ru-switch-css">
+.nav-end{display:inline-flex;align-items:center;gap:10px}
+.lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
+.lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
+.lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
+.lang-toggle a.lang-seg:hover{color:#fff}
+</style>
+<link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/troyka-lovemeet.html">
+<link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/troyka-lovemeet.html">
+<link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/troyka-lovemeet.html">
 </head>
 <body>
 
@@ -356,8 +366,8 @@
       <a class="mag-pill" href="#s-results" data-section="s-results" data-i18n="n.nav5">Результат</a>
     </nav>
     <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
-      <button class="lang-seg on" data-lang="ru" type="button">RU</button>
-      <button class="lang-seg" data-lang="en" type="button">EN</button>
+      <span class="lang-seg on" data-lang="ru">RU</span>
+      <a class="lang-seg" data-lang="en" href="../en/projects/troyka-lovemeet.html">EN</a>
     </div>
     <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="n.cta">Написать</a>
   </div>
@@ -1077,7 +1087,7 @@
   });
   let saved = 'ru';
   try{ saved = localStorage.getItem('site_lang') || 'ru'; }catch(e){}
-  apply(saved === 'en' ? 'en' : 'ru');
+  apply('ru'); try{localStorage.removeItem('site_lang');}catch(e){}
 })();
 </script>
 </body></html>
