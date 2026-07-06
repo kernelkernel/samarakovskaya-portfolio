@@ -81,15 +81,16 @@
 
   /* HERO */
   .hero{padding:104px 24px 40px;min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;gap:28px;background:var(--graphite);color:var(--bg);position:relative;overflow:hidden}
-  .hero-kv-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-  .hero-kv-bg img{width:100%;height:100%;object-fit:cover;object-position:center center;opacity:.96;display:block;filter:saturate(1.1) contrast(1.02)}
+  .hero-kv-bg{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;background:var(--graphite)}
+  .hero-kv-bg::before{content:"";position:absolute;inset:-6%;background:url("../../assets/capybarabooom/kv/hero-kv.webp") center/cover no-repeat;filter:blur(36px) saturate(1.15);transform:scale(1.06);opacity:.5}
+  .hero-kv-bg img{position:relative;width:100%;height:100%;object-fit:contain;object-position:center center;opacity:1;display:block;filter:saturate(1.08) contrast(1.02)}
   .hero-kv-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.22) 0%,rgba(18,18,18,.06) 32%,rgba(18,18,18,.26) 72%,rgba(18,18,18,.5) 100%)}
   .hero-meta{position:relative;z-index:2;display:flex;justify-content:center;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:rgba(243,239,230,.6);gap:24px;flex-wrap:wrap;margin-bottom:auto;padding-top:8px}
   .hero-meta b{color:var(--bg);font-weight:500;display:block}
   .hero-meta em{font-family:var(--serif);font-style:italic;text-transform:none;color:rgba(243,239,230,.4);font-size:13px}
-  .hero-title-wrap{position:relative;z-index:2;text-align:center;margin:0;padding-top:16px}
-  .hero-h{font-family:var(--sans);font-weight:500;font-size:clamp(52px,11vw,172px);line-height:1;letter-spacing:-.05em;margin:0;text-align:center}
-  .hero-h em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--lime)}
+  .hero-title-wrap{position:relative;z-index:2;text-align:center;margin:0;padding-top:16px;padding-inline:16px}
+  .hero-h{font-family:var(--sans);font-weight:500;font-size:clamp(46px,9vw,132px);line-height:1;letter-spacing:-.04em;margin:0;text-align:center}
+  .hero-h em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--lime);display:inline-block;padding:0 .14em;letter-spacing:-.01em}
   .hero-sub{max-width:640px;margin:22px auto 0;font-size:clamp(15px,1.7vw,20px);line-height:1.45;color:rgba(243,239,230,.82);text-align:center;text-shadow:0 1px 12px rgba(0,0,0,.4)}
   .hero-h .o{display:inline-block;color:var(--lime);animation:wobble 4s ease-in-out infinite}
   .hero-h .o:nth-child(2){animation-delay:.2s}
@@ -140,7 +141,7 @@
   .editorial-still.tagline img{object-position:center 30%}
   .editorial-still-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,10,10,.15) 0%,rgba(10,10,10,.55) 70%,rgba(10,10,10,.78) 100%)}
   .editorial-still-text{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 24px clamp(36px,6vh,72px);max-width:1400px;margin:0 auto}
-  .editorial-still-text .editorial-h{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  .editorial-still-text .editorial-h{color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.45);font-size:clamp(24px,4.4vw,60px);line-height:1.08;text-wrap:balance;max-width:20ch}
   .editorial-still-text .word-oval{border-color:#FFC92A;color:#fff}
   @media (max-width:560px){.editorial-still.tagline{height:clamp(360px,62vh,520px)}}
   .word-oval{display:inline-block;border:2px solid currentColor;border-radius:99px;padding:.04em .32em;line-height:1.15}
@@ -189,7 +190,8 @@
   @media (max-width:900px){.why-cell:nth-child(3n){border-right:1px solid currentColor}.why-cell:nth-child(2n){border-right:0}.why-cell:nth-last-child(-n+3){border-bottom:1px solid currentColor}.why-cell:nth-last-child(-n+2){border-bottom:0}}
   @media (max-width:560px){.why-cell{border-right:0!important}.why-cell:not(:last-child){border-bottom:1px solid currentColor!important}}
   .why-cell:hover{background:var(--lime);color:var(--ink)}
-  .why-num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6;display:flex;justify-content:space-between}
+  .why-num{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6;display:flex;justify-content:space-between;align-items:center}
+  .why-num .n{font-family:var(--sans);font-size:38px;font-weight:500;letter-spacing:-.04em;opacity:1;line-height:1}
   .why-num .star{color:var(--lime);animation:spinFast 5s linear infinite;opacity:1}
   .why-cell:hover .why-num .star{color:var(--ink)}
   .why-cell:hover .why-h em{color:var(--ink)!important}
@@ -210,7 +212,7 @@
   /* VIDEO */
   .video-frame{aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:var(--graphite);border:1px solid var(--ink);position:relative;cursor:pointer}
   .video-frame .placeholder{position:absolute;inset:0;display:grid;place-items:center;color:var(--bg);text-align:center;padding:32px}
-  .video-frame .placeholder .play{width:96px;height:96px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-size:32px;margin:0 auto 24px;transition:transform .3s}
+  .video-frame .placeholder .play{width:96px;height:96px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;font-size:32px;margin:0;transition:transform .3s}
   .video-frame:hover .placeholder .play{transform:scale(1.1)}
   .video-frame .placeholder h4{font-family:var(--sans);font-size:clamp(28px,4vw,56px);font-weight:500;letter-spacing:-.03em;line-height:1;margin-bottom:14px}
   .video-frame .placeholder h4 em{font-family:var(--serif);font-style:italic;color:var(--lime);font-weight:400}
@@ -256,8 +258,8 @@
 
   /* LEADERBOARD */
   .lboard{display:flex;flex-direction:column;border:1px solid var(--ink);border-radius:18px;overflow:hidden}
-  .lboard-head{display:grid;grid-template-columns:48px 1fr auto auto;gap:16px;padding:14px 24px;background:var(--graphite);color:rgba(243,239,230,.55);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid rgba(243,239,230,.12)}
-  .lboard-row{display:grid;grid-template-columns:48px 1fr auto auto;gap:16px;padding:16px 24px;border-bottom:1px solid rgba(18,18,18,.1);align-items:center;transition:background .2s}
+  .lboard-head{display:grid;grid-template-columns:48px 1fr auto;gap:16px;padding:14px 24px;background:var(--graphite);color:rgba(243,239,230,.55);font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;border-bottom:1px solid rgba(243,239,230,.12)}
+  .lboard-row{display:grid;grid-template-columns:48px 1fr auto;gap:16px;padding:16px 24px;border-bottom:1px solid rgba(18,18,18,.1);align-items:center;transition:background .2s}
   .lboard-row:last-child{border-bottom:none}
   .lboard-row:hover{background:var(--bg-2)}
   .lboard-row.top1{background:rgba(200,255,46,.12)}
@@ -272,6 +274,11 @@
   .lboard-slogan{padding:32px 40px;background:var(--lime);color:var(--ink);text-align:center;border-top:1px solid var(--ink)}
   .lboard-slogan h3{font-family:var(--sans);font-style:normal;font-size:clamp(28px,5vw,64px);font-weight:500;line-height:1.05;letter-spacing:-.03em}
   .lboard-slogan p{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.12em;opacity:.7;margin-top:12px}
+  .lboard-layout{display:grid;grid-template-columns:minmax(220px,330px) 1fr;gap:24px;align-items:start}
+  .lboard-previews{display:flex;flex-direction:column;gap:14px;position:sticky;top:100px}
+  .lboard-previews img{width:100%;border-radius:16px;border:1px solid rgba(243,239,230,.14);display:block;background:#0d0d0d}
+  @media (max-width:900px){.lboard-layout{grid-template-columns:1fr}.lboard-previews{position:static;flex-direction:row}.lboard-previews img{width:50%}}
+  @media (max-width:560px){.lboard-previews{flex-direction:column}.lboard-previews img{width:100%}}
 
   /* GALLERY (legacy single-row carousel — kept for reference) */
   /* Новый блок — 2-row marquee с scroll-coupled параллаксом */
@@ -485,8 +492,8 @@
   .char-card{position:relative;display:flex;flex-direction:column;gap:0;border-radius:22px;overflow:hidden;background:linear-gradient(160deg,rgba(243,239,230,.04),rgba(243,239,230,.01));border:1px solid rgba(243,239,230,.12);transition:transform .45s cubic-bezier(.2,.7,.25,1),border-color .35s,background .35s}
   .char-card:hover{transform:translateY(-8px);border-color:rgba(200,255,46,.45);background:linear-gradient(160deg,rgba(200,255,46,.07),rgba(243,239,230,.02))}
   .char-card-img{position:relative;aspect-ratio:1/1;display:grid;place-items:center;padding:0;overflow:hidden}
-  .char-card-img img{width:128%;height:128%;object-fit:contain;display:block;transition:transform .5s cubic-bezier(.2,.7,.25,1)}
-  @media (max-width:560px){.char-card-img img{width:110%;height:110%}}
+  .char-card-img img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:transform .5s cubic-bezier(.2,.7,.25,1)}
+  @media (max-width:560px){.char-card-img img{width:100%;height:100%}}
   .char-card:hover .char-card-img img{transform:scale(1.05) rotate(-1.5deg)}
   /* яркие фоны персонажей из гайдлайна */
   .char-card-img.bg-pink{background:radial-gradient(ellipse at 50% 38%,#ff9ccf,#ff6fb5)}
@@ -512,7 +519,7 @@
   .char-cross-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
   .char-cross-grid figure,.char-cross-grid .cross-empty{position:relative;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:rgba(243,239,230,.10);border:1px solid rgba(243,239,230,.12);transition:border-color .25s,transform .25s,background .25s;margin:0;display:flex;align-items:center;justify-content:center}
   .char-cross-grid figure:hover{border-color:var(--lime);transform:translateY(-4px)}
-  .char-cross-grid img{width:100%;height:100%;object-fit:contain;padding:12%;display:block;transition:transform .4s}
+  .char-cross-grid img{width:100%;height:100%;object-fit:contain;object-position:center;padding:5%;display:block;transition:transform .4s}
   .char-cross-grid figure:hover img{transform:scale(1.06)}
   .char-cross-grid figcaption{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(to top,rgba(0,0,0,.85) 20%,transparent);color:var(--bg);font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.07em;line-height:1.4;opacity:0;transition:opacity .25s}
   .char-cross-grid figure:hover figcaption{opacity:1}
@@ -557,8 +564,8 @@
 
   /* === ЦИТАТА В СТИЛЕ РЕФЕРЕНСА === */
   .quote-new{position:relative;overflow:hidden;background:var(--graphite);color:var(--bg);padding:168px 24px;border-top:1px solid var(--ink)}
-  .quote-bg{position:absolute;inset:0;z-index:0;background:url("../../assets/capybarabooom/photo/webp/406a9842.webp") center/cover no-repeat;opacity:.32;filter:grayscale(35%) contrast(1.05)}
-  .quote-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.45) 0%,rgba(18,18,18,.85) 100%)}
+  .quote-bg{position:absolute;inset:0;z-index:0;background:url("../../assets/capybarabooom/photo/webp/5-capyzen3.webp") center/cover no-repeat;opacity:.72;filter:grayscale(6%) contrast(1.02)}
+  .quote-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,18,18,.28) 0%,rgba(18,18,18,.6) 100%)}
   .quote-inner{position:relative;z-index:1;max-width:1280px;margin:0 auto}
   .quote-text{font-family:var(--sans);font-weight:600;font-size:clamp(26px,3.8vw,52px);line-height:1.3;letter-spacing:-.02em;color:var(--bg);text-wrap:balance;max-width:24ch;margin:0 auto;min-height:2.7em}
   .qword-mark{background:var(--lime);color:var(--ink);padding:.02em .18em .08em;border-radius:8px;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-weight:700}
@@ -615,11 +622,11 @@
 
   /* === СВЁРНУТЫЙ ПОДРОБНЫЙ PIPELINE === */
   .pipeline-toggle{margin:24px 0 0;border-top:1px solid var(--ink);padding-top:24px}
-  .pipeline-toggle summary{cursor:pointer;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid var(--ink);border-radius:99px;background:var(--bg);transition:background .2s,color .2s;list-style:none;width:fit-content;user-select:none}
+  .pipeline-toggle summary{cursor:pointer;font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;display:flex;align-items:center;gap:12px;padding:14px 18px;border:1px solid var(--ink);border-radius:99px;background:var(--lime);color:var(--ink);transition:background .2s,color .2s;list-style:none;width:fit-content;user-select:none}
   .pipeline-toggle summary::-webkit-details-marker{display:none}
   .pipeline-toggle summary::after{content:"+";font-family:var(--sans);font-size:18px;font-weight:300;transition:transform .25s}
   .pipeline-toggle[open] summary::after{transform:rotate(45deg)}
-  .pipeline-toggle summary:hover{background:var(--lime)}
+  .pipeline-toggle summary:hover{background:#d6ff63;color:var(--ink)}
   .pipeline-toggle .pipeline{margin-top:32px;padding-top:0;border-top:0}
 
   /* === КОМПАКТНЫЙ ПАЙПЛАЙН ФОРМЫ ПЕРСОНАЖЕЙ (в блоке Процесс) === */
@@ -769,21 +776,15 @@
 <img alt="Capybara with a mandarin" decoding="async" loading="lazy" src="../../assets/capybarabooom/photo/webp/quote-bg.webp"/>
 <div class="editorial-still-overlay"></div>
 <div class="editorial-still-text reveal">
-<p class="editorial-h" data-i18n="ed.h">The planet’s most <span class="word-oval">meme-worthy</span> animal —<br/>for the first time, the star of an entire <span class="mark">500 m²</span> exhibition.</p>
+<p class="editorial-h" data-i18n="ed.h">The planet’s most <span class="word-oval">meme-worthy</span> animal — for the first time, an entire <span class="mark">500 m²</span> exhibition.</p>
 </div>
 </section>
 <!-- VIDEO — шоурил без крупного заголовка, сразу после тэглайна -->
-<section class="sec" style="padding-top:clamp(48px,7vh,96px)">
-<div class="sec-head reveal" style="margin-bottom:28px">
-<span class="sec-tag" data-i18n="s1.tag"><span class="num">01</span><span class="star">✦</span> Showreel</span>
-<span class="sec-side" data-i18n="s1.side"><b>Project showreel</b><br/>atmosphere<br/>and key zones</span>
-</div>
-<div class="video-frame" data-src="https://youtu.be/PTzOGjehN-4" id="videoFrame">
-<img alt="" onerror="this.src='https://img.youtube.com/vi/PTzOGjehN-4/hqdefault.jpg'" src="https://img.youtube.com/vi/PTzOGjehN-4/maxresdefault.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0"/>
+<section class="sec" style="padding-top:clamp(32px,5vh,64px)">
+<div class="video-frame reveal" data-src="https://youtu.be/AHCEc-q1Cj4" id="videoFrame">
+<img alt="" onerror="this.src='https://img.youtube.com/vi/AHCEc-q1Cj4/hqdefault.jpg'" src="https://img.youtube.com/vi/AHCEc-q1Cj4/maxresdefault.jpg" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;z-index:0"/>
 <div class="placeholder">
 <div class="play"><svg fill="currentColor" height="30" viewBox="0 0 24 24" width="30"><path d="M5 3.5v17l15-8.5z"></path></svg></div>
-<h4 data-i18n="s1.phh">CAPYBARABOOOM</h4>
-<p data-i18n="s1.php">Project showreel · click to play</p>
 </div>
 <div class="corners">
 <span class="tl">REC ●</span><span class="tr">4K</span>
@@ -794,14 +795,14 @@
 <!-- INTRO -->
 <section class="sec">
 <div class="sec-head reveal">
-<span class="sec-tag" data-i18n="s2.tag"><span class="num">02</span><span class="star">✦</span> Concept</span>
-<h2 class="sec-h" data-i18n="s2.h"><em>Don’t stress</em> — it’s a<br/>philosophy<span style="color:var(--graphite)">.</span></h2>
-<span class="sec-side" data-i18n="s2.side"><b>A character-led universe</b><br/>from scratch · world<br/>· exhibition</span>
+<span class="sec-tag" data-i18n="s2.tag"><span class="num">02</span><span class="star">✦</span></span>
+<h2 class="sec-h" data-i18n="s2.h">Exhibition <em>concept</em><span style="color:var(--graphite)">.</span></h2>
+<span class="sec-side" aria-hidden="true"></span>
 </div>
 <div class="intro">
 <aside class="intro-aside reveal">
 <div class="aside-img">
-<img alt="CapyHall" decoding="async" loading="lazy" src="../../assets/capybarabooom/photo/webp/0-capyhall.webp" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;"/>
+<img alt="Capybarization zone" decoding="async" loading="lazy" src="../../assets/capybarabooom/photo/webp/1-capybarizatsya.webp" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:14px;"/>
 </div>
 <dl data-i18n="s2.dl"><dt>Project</dt><dd>Moskvarium · VDNKh</dd><dt>Format</dt><dd>Multimedia exhibition</dd><dt>Audience</dt><dd>Families · Gen Z</dd><dt>Area</dt><dd>500 m² / 7 zones</dd><dt>Route</dt><dd>~ 90 minutes</dd><dt>Mechanics</dt><dd>Quest · capycoins · interactive</dd><dt>Style</dt><dd>Kawaii · Japanese pop</dd></dl>
 </aside>
@@ -813,12 +814,12 @@
 </div>
 <div class="poster-duo">
 <div>
-<img alt="Key visual" decoding="async" loading="lazy" src="../../assets/capybarabooom/photo/webp/3-capytour.webp" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;"/>
-<span class="lbl" data-i18n="s2.lbl1">Key visual</span>
+<img alt="Tangerine booom" decoding="async" loading="lazy" src="../../assets/capybarabooom/photo/webp/7-orange-pool.webp" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;"/>
+<span class="lbl" data-i18n="s2.lbl1">Tangerine booom</span>
 </div>
 <div>
-<img alt="Merch" decoding="async" loading="lazy" src="../../assets/capybarabooom/photo/webp/8-shop.webp" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;"/>
-<span class="lbl" data-i18n="s2.lbl2">Merch line</span>
+<img alt="Capybara-san" decoding="async" loading="lazy" src="../../assets/capybarabooom/photo/webp/5-capyzen.webp" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:18px;"/>
+<span class="lbl" data-i18n="s2.lbl2">Capybara-san</span>
 </div>
 </div>
 </div>
@@ -827,38 +828,38 @@
 <!-- WHY -->
 <section class="sec dark">
 <div class="sec-head reveal">
-<span class="sec-tag" data-i18n="s3.tag"><span class="num">03</span><span class="star">✦</span> Why it works</span>
-<h2 class="sec-h" data-i18n="s3.h">Why it<br/><em>works</em><span style="color:var(--lime)">.</span></h2>
-<span class="sec-side" data-i18n="s3.side"><b>Experience pillars</b><br/>what visitors<br/>take away</span>
+<span class="sec-tag" data-i18n="s3.tag"><span class="num">03</span><span class="star">✦</span> Success formula</span>
+<h2 class="sec-h" data-i18n="s3.h">Success <em>formula</em><span style="color:var(--lime)">.</span></h2>
+<span class="sec-side" aria-hidden="true"></span>
 </div>
 <div class="why reveal">
 <div class="why-cell">
-<div class="why-num" data-i18n="s3.n1"><span>01 / Immersion</span><span class="star">✦</span></div>
+<div class="why-num" data-i18n="s3.n1"><span class="n">01</span><span class="star">✦</span></div>
 <h3 class="why-h" data-i18n="s3.h1">Full <em>immersion</em></h3>
 <p class="why-d" data-i18n="s3.d1">7 zones, a quest, capycoins. Visitors don’t just observe — they spend 90 minutes inside the universe.</p>
 </div>
 <div class="why-cell">
-<div class="why-num" data-i18n="s3.n2"><span>02 / Audience</span><span class="star">✦</span></div>
+<div class="why-num" data-i18n="s3.n2"><span class="n">02</span><span class="star">✦</span></div>
 <h3 class="why-h" data-i18n="s3.h2">For <em>the whole family</em></h3>
 <p class="why-d" data-i18n="s3.d2">From ages 3 to 99: play for kids, irony for parents, and Gen Z aesthetics without compromise.</p>
 </div>
 <div class="why-cell">
-<div class="why-num" data-i18n="s3.n3"><span>03 / Virality</span><span class="star">✦</span></div>
+<div class="why-num" data-i18n="s3.n3"><span class="n">03</span><span class="star">✦</span></div>
 <h3 class="why-h" data-i18n="s3.h3">Built-in <em>virality</em></h3>
 <p class="why-d" data-i18n="s3.d3">Every zone is designed as a ready-made shot for stories. Organic sharing is built into the experience.</p>
 </div>
 <div class="why-cell">
-<div class="why-num" data-i18n="s3.n4"><span>04 / Phygital</span><span class="star">✦</span></div>
+<div class="why-num" data-i18n="s3.n4"><span class="n">04</span><span class="star">✦</span></div>
 <h3 class="why-h" data-i18n="s3.h4"><em>Phygital</em> ecosystem</h3>
 <p class="why-d" data-i18n="s3.d4">Digital gifts and online activations — the experience continues beyond the venue.</p>
 </div>
 <div class="why-cell">
-<div class="why-num" data-i18n="s3.n5"><span>05 / Edutainment</span><span class="star">✦</span></div>
+<div class="why-num" data-i18n="s3.n5"><span class="n">05</span><span class="star">✦</span></div>
 <h3 class="why-h" data-i18n="s3.h5"><em>Edutainment</em></h3>
 <p class="why-d" data-i18n="s3.d5">Facts about capybaras are built into the mechanics. Visitors learn something new without feeling like they are being taught.</p>
 </div>
 <div class="why-cell">
-<div class="why-num" data-i18n="s3.n6"><span>06 / Universe</span><span class="star">✦</span></div>
+<div class="why-num" data-i18n="s3.n6"><span class="n">06</span><span class="star">✦</span></div>
 <h3 class="why-h" data-i18n="s3.h6">A full <em>universe</em></h3>
 <p class="why-d" data-i18n="s3.d6">4 characters with distinct personalities, backstories and merch. Not just a mascot — a living universe.</p>
 </div>
@@ -874,7 +875,7 @@
 <div class="gal-row" data-row="1" style="margin-left:-700px">
 <figure class="gal-tile"><img alt="Exhibition hall" loading="lazy" src="../../assets/capybarabooom/photo/webp/0-capyhall.webp"/><span class="gt-lbl" data-i18n="g.t1">Hall</span></figure>
 <figure class="gal-tile"><img alt="Capybarization zone" loading="lazy" src="../../assets/capybarabooom/photo/webp/1-capybarizatsya2.webp"/><span class="gt-lbl" data-i18n="g.t2">Capybarization</span></figure>
-<figure class="gal-tile"><img alt="Capybarius" loading="lazy" src="../../assets/capybarabooom/photo/webp/2-capybarius3.webp"/><span class="gt-lbl" data-i18n="g.t3">Capybarius</span></figure>
+<figure class="gal-tile"><img alt="Arcades" loading="lazy" src="../../assets/capybarabooom/photo/webp/6-capydance-arcade.webp"/><span class="gt-lbl" data-i18n="g.t3">Arcades</span></figure>
 <figure class="gal-tile"><img alt="Amazon 360°" loading="lazy" src="../../assets/capybarabooom/photo/webp/3-capytour.webp"/><span class="gt-lbl" data-i18n="g.t4">Amazon</span></figure>
 <figure class="gal-tile"><img alt="CapyBro" loading="lazy" src="../../assets/capybarabooom/photo/webp/4-capybro2.webp"/><span class="gt-lbl" data-i18n="g.t5">CapyBro</span></figure>
 <figure class="gal-tile"><img alt="Capybara-san" loading="lazy" src="../../assets/capybarabooom/photo/webp/5-capyzen.webp"/><span class="gt-lbl" data-i18n="g.t6">Capybara-san</span></figure>
@@ -882,6 +883,7 @@
 <figure class="gal-tile"><img alt="Mandarin Booom" loading="lazy" src="../../assets/capybarabooom/photo/webp/7-orange-pool2.webp"/><span class="gt-lbl" data-i18n="g.t8">Tangerine booom</span></figure>
 <figure class="gal-tile"><img alt="Merch shop" loading="lazy" src="../../assets/capybarabooom/photo/webp/8-shop.webp"/><span class="gt-lbl" data-i18n="g.t9">Shop · merch</span></figure>
 <figure class="gal-tile"><img alt="General view" loading="lazy" src="../../assets/capybarabooom/photo/webp/406a0086.webp"/><span class="gt-lbl" data-i18n="g.t10">Overview</span></figure>
+<figure class="gal-tile"><img alt="Tangerine booom" loading="lazy" src="../../assets/capybarabooom/photo/webp/7-orange-pool3.webp"/><span class="gt-lbl">Tangerine booom</span></figure>
 </div>
 <div class="gal-row" data-row="2" style="margin-left:-700px">
 <figure class="gal-tile"><img alt="Onboarding" loading="lazy" src="../../assets/capybarabooom/photo/webp/1-capybarizatsya.webp"/><span class="gt-lbl" data-i18n="g.t11">Onboarding</span></figure>
@@ -922,9 +924,9 @@
 <!-- ZONES -->
 <section class="sec" id="zones">
 <div class="sec-head reveal">
-<span class="sec-tag" data-i18n="s4.tag"><span class="num">04</span><span class="star">✦</span> Exhibition zones</span>
+<span class="sec-tag" data-i18n="s4.tag"><span class="num">04</span><span class="star">✦</span></span>
 <h2 class="sec-h" data-i18n="s4.h">Exhibition <em>zones</em><span style="color:var(--graphite)">.</span></h2>
-<span class="sec-side" data-i18n="s4.side"><b>Experience route</b><br/>~90 min · quest<br/>with capycoins</span>
+<span class="sec-side" aria-hidden="true"></span>
 </div>
 <div class="zones-wrap">
 <article class="zone-card" id="zone-1">
@@ -944,8 +946,8 @@
 <figure class="zone-thumb" data-pin-x="30%" data-pin-y="55%">
 <img alt="Onboarding" loading="lazy" src="../../assets/capybarabooom/photo/webp/1-capybarizatsya.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z1.t1n">Capybarization</span>
-<span class="zone-thumb-desc" data-i18n="z1.t1d">Interactive installation · character creation · starter capycoins</span>
+<span class="zone-thumb-name" data-i18n="z1.t1n">Capy Creator</span>
+<span class="zone-thumb-desc" data-i18n="z1.t1d">Build your own capybara, name it and save it to your card — it travels the whole route with you</span>
 </figcaption>
 </figure>
 <figure class="zone-thumb" data-pin-x="60%" data-pin-y="45%">
@@ -981,15 +983,15 @@
 <figure class="zone-thumb" data-pin-x="35%" data-pin-y="50%">
 <img alt="CapyQuiz screen" loading="lazy" src="../../assets/capybarabooom/photo/webp/2-capybarius6.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z2.t1n">The CapyQuiz screen</span>
-<span class="zone-thumb-desc" data-i18n="z2.t1d">Quiz · correct answers earn capycoins</span>
+<span class="zone-thumb-name" data-i18n="z2.t1n">Capy Quiz</span>
+<span class="zone-thumb-desc" data-i18n="z2.t1d">Listen to Professor Capybarius’ questions and pick the right answer</span>
 </figcaption>
 </figure>
 <figure class="zone-thumb" data-pin-x="65%" data-pin-y="55%">
 <img alt="Capycoin on an interactive pedestal" loading="lazy" src="../../assets/capybarabooom/photo/webp/2-capybarius7.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z2.t2n">Capycoin on the stand</span>
-<span class="zone-thumb-desc" data-i18n="z2.t2d">RFID stations for collecting capycoins</span>
+<span class="zone-thumb-name" data-i18n="z2.t2n">Capy Food · Capy Tour</span>
+<span class="zone-thumb-desc" data-i18n="z2.t2d">Feed the capybara healthy food and row toward adventure — tap your card for capycoins</span>
 </figcaption>
 </figure>
 </div>
@@ -1011,8 +1013,8 @@
 <figure class="zone-thumb" data-pin-x="35%" data-pin-y="55%">
 <img alt="Journey through the Amazon" loading="lazy" src="../../assets/capybarabooom/photo/webp/3-capytour.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z3.t1n">Journey down the Amazon</span>
-<span class="zone-thumb-desc" data-i18n="z3.t1d">Sharp turns · a controllable boat · cinematic motion without moving seats</span>
+<span class="zone-thumb-name" data-i18n="z3.t1n">Capy Tour · Amazon</span>
+<span class="zone-thumb-desc" data-i18n="z3.t1d">Row with the paddles, dodge obstacles and collect capycoins along the way</span>
 </figcaption>
 </figure>
 </div>
@@ -1034,8 +1036,8 @@
 <figure class="zone-thumb" data-pin-x="30%" data-pin-y="55%">
 <img alt="Bamboo barbell" loading="lazy" src="../../assets/capybarabooom/photo/webp/4-capybro.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z4.t1n">CapyBro · bamboo barbell</span>
-<span class="zone-thumb-desc" data-i18n="z4.t1d">Bamboo + coconuts · absurd · viral</span>
+<span class="zone-thumb-name" data-i18n="z4.t1n">Capy & Leo · Capy Jump</span>
+<span class="zone-thumb-desc" data-i18n="z4.t1d">Turn the cranks to the finish and jump as high as you can — who jumps higher, you or the capybara?</span>
 </figcaption>
 </figure>
 <figure class="zone-thumb" data-pin-x="55%" data-pin-y="40%">
@@ -1048,8 +1050,8 @@
 <figure class="zone-thumb" data-pin-x="78%" data-pin-y="60%">
 <img alt="Sports zone" loading="lazy" src="../../assets/capybarabooom/photo/webp/4-capybro4.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z4.t3n">Sports zone · overview</span>
-<span class="zone-thumb-desc" data-i18n="z4.t3d">Competition · energy · the CapyBro spirit</span>
+<span class="zone-thumb-name" data-i18n="z4.t3n">Capy Basket · Fast Reaction</span>
+<span class="zone-thumb-desc" data-i18n="z4.t3d">Toss balls into moving cups and catch the stick before it hits the floor</span>
 </figcaption>
 </figure>
 </div>
@@ -1078,8 +1080,8 @@
 <figure class="zone-thumb" data-pin-x="70%" data-pin-y="55%">
 <img alt="Silence" loading="lazy" src="../../assets/capybarabooom/photo/webp/5-capyzen3.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z5.t2n">Quiet point</span>
-<span class="zone-thumb-desc" data-i18n="z5.t2d">The only zone without active mechanics</span>
+<span class="zone-thumb-name" data-i18n="z5.t2n">Capy Mandala · Capy Tarot</span>
+<span class="zone-thumb-desc" data-i18n="z5.t2d">Draw a light mandala in the sand with your fingers and get a fortune from Capybara-san</span>
 </figcaption>
 </figure>
 </div>
@@ -1108,15 +1110,15 @@
 <figure class="zone-thumb" data-pin-x="50%" data-pin-y="40%">
 <img alt="Arcade machines" loading="lazy" src="../../assets/capybarabooom/photo/webp/6-capydance2-new.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z6.t2n">Arcade machines</span>
-<span class="zone-thumb-desc" data-i18n="z6.t2d">Games in the universe’s visual language · the longest dwell time</span>
+<span class="zone-thumb-name" data-i18n="z6.t2n">Capy Arcade</span>
+<span class="zone-thumb-desc" data-i18n="z6.t2d">8 games: run, jump, clear obstacles and set new records</span>
 </figcaption>
 </figure>
 <figure class="zone-thumb" data-pin-x="78%" data-pin-y="55%">
 <img alt="Dance floor with LED floor" loading="lazy" src="../../assets/capybarabooom/photo/webp/6-capydance3.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z6.t3n">Dance floor · LED floor</span>
-<span class="zone-thumb-desc" data-i18n="z6.t3d">Motion tracking · ready-made content for stories</span>
+<span class="zone-thumb-name" data-i18n="z6.t3n">Capy Dance</span>
+<span class="zone-thumb-desc" data-i18n="z6.t3d">Dance battle: step on the arrows on the floor right in time with the music</span>
 </figcaption>
 </figure>
 </div>
@@ -1138,15 +1140,15 @@
 <figure class="zone-thumb" data-pin-x="40%" data-pin-y="55%">
 <img alt="Orange ball pit" loading="lazy" src="../../assets/capybarabooom/photo/webp/7-orange-pool.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z7.t1n">Ball pit</span>
-<span class="zone-thumb-desc" data-i18n="z7.t1d">Orange balls instead of tangerines · a viral meme turned into a space</span>
+<span class="zone-thumb-name" data-i18n="z7.t1n">Tangerine ball pit</span>
+<span class="zone-thumb-desc" data-i18n="z7.t1d">Jump into the pool of orange balls and snap a photo on the banana swing</span>
 </figcaption>
 </figure>
 <figure class="zone-thumb" data-pin-x="72%" data-pin-y="50%">
 <img alt="Photo zone · top view" loading="lazy" src="../../assets/capybarabooom/photo/webp/7-orange-pool3.webp"/>
 <figcaption class="zone-thumb-cap">
-<span class="zone-thumb-name" data-i18n="z7.t2n">Photo zone · top view</span>
-<span class="zone-thumb-desc" data-i18n="z7.t2d">The route finale — a shift from digital to physical</span>
+<span class="zone-thumb-name" data-i18n="z7.t2n">Neuro photo zone · Leaderboard</span>
+<span class="zone-thumb-desc" data-i18n="z7.t2d">Create an animated photo with the characters, tap your card and grab your digital rewards via QR</span>
 </figcaption>
 </figure>
 </div>
@@ -1195,7 +1197,7 @@
 </article>
 <article class="char-card">
 <div class="char-card-img bg-purple">
-<img alt="Capybara Boy — character card" loading="lazy" src="../../assets/capybarabooom/characters/cards/capy-boy-card.webp"/>
+<img alt="CapybaraBoy — character card" loading="lazy" src="../../assets/capybarabooom/characters/cards/capy-boy-card.webp"/>
 </div>
 <div class="char-card-info">
 <span class="char-card-tag" data-i18n="c3.tag">03 · Fun</span>
@@ -1244,7 +1246,7 @@
 </div>
 <!-- ПОДРОБНЫЙ PIPELINE формы персонажей — свёрнутый -->
 <details class="pipeline-toggle reveal">
-<summary data-i18n="pl.summary">Show the detailed character design pipeline · 6 steps</summary>
+<summary data-i18n="pl.summary">See the development</summary>
 <div class="pipeline">
 <div class="pipeline-head">
 <h3 data-i18n="pl.h">Exploring the character form</h3>
@@ -1306,9 +1308,9 @@
 <!-- PROCESS -->
 <section class="sec" id="process">
 <div class="sec-head reveal">
-<span class="sec-tag" data-i18n="s6.tag"><span class="num">06</span><span class="star">✦</span> Process</span>
-<h2 class="sec-h" data-i18n="s6.h">Working<br/><em>materials</em><span style="color:var(--graphite)">.</span></h2>
-<span class="sec-side" data-i18n="s6.side"><b>Behind the scenes</b><br/>UI · sketches<br/>· scenography · key visual</span>
+<span class="sec-tag" data-i18n="s6.tag"><span class="num">06</span><span class="star">✦</span></span>
+<h2 class="sec-h" data-i18n="s6.h"><em>Process</em><span style="color:var(--graphite)">.</span></h2>
+<span class="sec-side" aria-hidden="true"></span>
 </div>
 <div class="process-grid reveal">
 <div class="proc-card wide">
@@ -1423,17 +1425,13 @@
 <figcaption class="pf-cap" data-i18n="pf.c10"><b>Print wall</b><span>Large-format graphics for the space</span></figcaption>
 </figure>
 </div>
-<div class="process-meta reveal">
-<div class="pm-cell"><span class="pm-v">30<em>+</em></span><span class="pm-l" data-i18n="s6.pm1">people on the team · from concept to opening</span></div>
-<div class="pm-cell"><span class="pm-v">100<em>+</em></span><span class="pm-l" data-i18n="s6.pm2">visual iterations</span></div>
-</div>
 </section>
 <!-- QUEST -->
 <section class="sec">
 <div class="sec-head reveal">
 <span class="sec-tag" data-i18n="s7.tag"><span class="num">07</span><span class="star">✦</span> Interactive quest</span>
 <h2 class="sec-h" data-i18n="s7.h">Go full<br/><em>capybara</em><span style="color:var(--graphite)">.</span></h2>
-<span class="sec-side" data-i18n="s7.side"><b>Quest mechanic</b><br/>capycoins<br/>· leaderboard</span>
+<span class="sec-side" aria-hidden="true"></span>
 </div>
 <div class="quest reveal">
 <div class="quest-half dark">
@@ -1459,7 +1457,7 @@
 </div>
 </div>
 <div class="quest-coins">
-<div class="coin-icon">₵</div>
+<div class="coin-icon" style="background:transparent;width:56px;height:56px"><img src="../../assets/capybarabooom/process/capicoin-preview.webp" alt="Capycoin" style="width:100%;height:100%;object-fit:contain;display:block"></div>
 <div class="coin-text" data-i18n="s7.coins"><b>Capycoins — the internal currency</b>A single game system across the 90-minute route</div>
 </div>
 </div>
@@ -1491,77 +1489,39 @@
 <h2 class="sec-h" data-i18n="s8.h">Top <em>capybaras</em><span style="color:var(--lime)">.</span></h2>
 <span class="sec-side" data-i18n="s8.side"><b>Results</b><br/>update<br/>in real time</span>
 </div>
-<div class="lboard reveal">
-<div class="lboard-head" data-i18n="s8.head"><span>#</span><span>Capybara</span><span>Zone</span><span>Capycoins</span></div>
+<div class="lboard-layout reveal">
+<div class="lboard-previews">
+<img src="../../assets/capybarabooom/process/leaderboard-1.webp" alt="Leaderboard screen" loading="lazy">
+</div>
+<div class="lboard">
+<div class="lboard-head" data-i18n="s8.head"><span>#</span><span>Capybara</span><span>Capycoins</span></div>
 <div class="lboard-row top1">
 <span class="lboard-rank">🏆</span>
-<div class="lboard-name" data-i18n="s8.n1">CapyChampion<small>Character: CapyBro</small></div>
-<span class="lboard-zone" data-i18n="s8.z1">All 7 zones</span>
-<span class="lboard-coins">2 840<em>₵</em></span>
+<div class="lboard-name" data-i18n="s8.n1">CapyTanya ✦✦✦</div>
+<span class="lboard-coins">120<em>₵</em></span>
 </div>
 <div class="lboard-row">
 <span class="lboard-rank" style="color:var(--ink-2)">02</span>
-<div class="lboard-name" data-i18n="s8.n2">NoStress<small>Character: Capybara-san</small></div>
-<span class="lboard-zone" data-i18n="s8.z2">6 of 7 zones</span>
-<span class="lboard-coins">2 190<em>₵</em></span>
+<div class="lboard-name" data-i18n="s8.n2">CapyLesha ✦✦</div>
+<span class="lboard-coins">119<em>₵</em></span>
 </div>
 <div class="lboard-row">
 <span class="lboard-rank" style="color:var(--ink-2)">03</span>
-<div class="lboard-name" data-i18n="s8.n3">TangerineBooster<small>Character: Capybara-boy</small></div>
-<span class="lboard-zone" data-i18n="s8.z3">7 of 7 zones</span>
-<span class="lboard-coins">1 870<em>₵</em></span>
+<div class="lboard-name" data-i18n="s8.n3">CapySveta ✦</div>
+<span class="lboard-coins">115<em>₵</em></span>
 </div>
 <div class="lboard-row">
 <span class="lboard-rank" style="color:var(--ink-3)">04</span>
-<div class="lboard-name" data-i18n="s8.n4">Capybarius2.0<small>Character: Professor Capybarius</small></div>
-<span class="lboard-zone" data-i18n="s8.z4">5 of 7 zones</span>
-<span class="lboard-coins">1 540<em>₵</em></span>
+<div class="lboard-name" data-i18n="s8.n4">CapyLera</div>
+<span class="lboard-coins">110<em>₵</em></span>
 </div>
 <div class="lboard-row">
 <span class="lboard-rank" style="color:var(--ink-3)">05</span>
-<div class="lboard-name" data-i18n="s8.n5">ZenMaster<small>Character: Capybara-san</small></div>
-<span class="lboard-zone" data-i18n="s8.z5">7 of 7 zones</span>
-<span class="lboard-coins">1 320<em>₵</em></span>
+<div class="lboard-name" data-i18n="s8.n5">CapyYulia</div>
+<span class="lboard-coins">103<em>₵</em></span>
 </div>
 <div class="lboard-slogan">
 <h3 data-i18n="s8.slogan">Go full capybara!</h3>
-</div>
-</div>
-</section>
-<!-- SUMMARY — финальный УТП-блок -->
-<section class="summary">
-<div class="summary-inner reveal">
-<div>
-<h2 class="summary-h" data-i18n="sm.h">A 500 m² Moskvarium exhibition built around a cult <em>character-led universe</em>.</h2>
-</div>
-<div class="summary-utp">
-<div class="summary-row">
-<span class="summary-mark">01</span>
-<div>
-<strong data-i18n="sm.h1">A character-led universe from scratch</strong>
-<p data-i18n="sm.p1">4 characters, backstories, a merch line and tone of voice — beyond a mascot, toward a franchise-ready world.</p>
-</div>
-</div>
-<div class="summary-row">
-<span class="summary-mark">02</span>
-<div>
-<strong data-i18n="sm.h2">A 90-minute phygital experience</strong>
-<p data-i18n="sm.p2">7 zones, 21 installations and a quest mechanic with capycoins. Visitors don’t just observe — they live inside the story.</p>
-</div>
-</div>
-<div class="summary-row">
-<span class="summary-mark">03</span>
-<div>
-<strong data-i18n="sm.h3">Full cycle — from concept to launch</strong>
-<p data-i18n="sm.p3">A team of 30+ people: illustrators, set designers, interactive developers, installation crew, opening team and touring production.</p>
-</div>
-</div>
-<div class="summary-row">
-<span class="summary-mark">04</span>
-<div>
-<strong data-i18n="sm.h4">A themed capy universe</strong>
-<p data-i18n="sm.p4">Merch, a café and gifts turn the exhibition into a full themed experience.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1615,6 +1575,7 @@
 <div class="prod-row"><dt data-i18n="s10.dt7">Concept</dt><dd data-i18n="s10.dd7">In-house Moskvarium team, <em>Tatiana Samarakovskaya</em></dd></div>
 <div class="prod-row"><dt data-i18n="s10.dt8">Technical director</dt><dd data-i18n="s10.dd8">Yuri <em>Chernousov</em></dd></div>
 <div class="prod-row"><dt data-i18n="s10.dt9">Neural artists</dt><dd data-i18n="s10.dd9">Roman <em>Kuligin</em><span class="role">Production</span>Maxim <em>Kozin</em><span class="role">Neural artist</span></dd></div>
+<div class="prod-row"><dt data-i18n="s10.dt10">Media artists</dt><dd data-i18n="s10.dd10"><em>404.zero</em><span class="role">Capybara-san zone</span></dd></div>
 </dl>
 </div>
 </section>
@@ -1689,47 +1650,47 @@
     'h.sub':'“CAPYBARABOOOM” — an exhibition inspired by the worldwide hype around capybaras.',
     'h.l1':'Capybarization zone','h.l2':'Capybarius','h.l3':'CapyBro · Sports','h.l4':'Tangerine booom',
     'tk.row':'don’t stress <span class="star">✦</span> capy or no capy <em>kawaii</em> <span class="star">✦</span> tangerine <em>booom</em> <span class="star">✦</span> phygital <em>edutainment</em> <span class="star">✦</span>',
-    'ed.h':'The planet’s most <span class="word-oval">meme-worthy</span> animal —<br>for the first time, the star of an entire <span class="mark">500 m²</span> exhibition.',
+    'ed.h':'The planet’s most <span class="word-oval">meme-worthy</span> animal — for the first time, an entire <span class="mark">500 m²</span> exhibition.',
     's1.tag':'<span class="num">01</span><span class="star">✦</span> Showreel','s1.side':'<b>Project showreel</b><br>atmosphere<br>and key zones',
     's1.phh':'CAPYBARABOOOM','s1.php':'Project showreel · click to play','s1.bl':'CAPYBARABOOOM','s1.br':'Moskvarium',
-    's2.tag':'<span class="num">02</span><span class="star">✦</span> Concept',
-    's2.h':'<em>Don’t stress</em> — it’s a<br>philosophy<span style="color:var(--graphite)">.</span>',
+    's2.tag':'<span class="num">02</span><span class="star">✦</span>',
+    's2.h':'Exhibition <em>concept</em><span style="color:var(--graphite)">.</span>',
     's2.side':'<b>A character-led universe</b><br>from scratch · world<br>· exhibition',
     's2.dl':'<dt>Project</dt><dd>Moskvarium · VDNKh</dd><dt>Format</dt><dd>Multimedia exhibition</dd><dt>Audience</dt><dd>Families · Gen Z</dd><dt>Area</dt><dd>500 m² / 7 zones</dd><dt>Route</dt><dd>~ 90 minutes</dd><dt>Mechanics</dt><dd>Quest · capycoins · interactive</dd><dt>Style</dt><dd>Kawaii · Japanese pop</dd>',
     's2.introh':'“CapybaraBooom” is a character-led universe built from scratch: characters, a world, a phygital exhibition and a wider ecosystem, all developed from one question — <em>why did the world fall in love with capybaras</em>?',
     's2.p1':'Capybaras took over social media for a reason: in a world of anxiety and overload, their image became <b>the perfect meme for the moment</b>. The Moskvarium exhibition turns this cultural phenomenon into a high-emotion space — alive, playful, visually bright and kawaii.',
     's2.p2':'The format is <b>edutainment</b>: scientific facts are embedded in the mechanics. Visitors don’t just read panels — they act, compete and leave with a story.',
-    's2.lbl1':'Key visual','s2.lbl2':'Merch line',
-    's3.tag':'<span class="num">03</span><span class="star">✦</span> Why it works',
-    's3.h':'Why it<br><em>works</em><span style="color:var(--lime)">.</span>',
+    's2.lbl1':'Tangerine booom','s2.lbl2':'Capybara-san',
+    's3.tag':'<span class="num">03</span><span class="star">✦</span> Success formula',
+    's3.h':'Success <em>formula</em><span style="color:var(--lime)">.</span>',
     's3.side':'<b>Experience pillars</b><br>what visitors<br>take away',
-    's3.n1':'<span>01 / Immersion</span><span class="star">✦</span>','s3.h1':'Full <em>immersion</em>','s3.d1':'7 zones, a quest, capycoins. Visitors don’t just observe — they spend 90 minutes inside the universe.',
-    's3.n2':'<span>02 / Audience</span><span class="star">✦</span>','s3.h2':'For <em>the whole family</em>','s3.d2':'From ages 3 to 99: play for kids, irony for parents, and Gen Z aesthetics without compromise.',
-    's3.n3':'<span>03 / Virality</span><span class="star">✦</span>','s3.h3':'Built-in <em>virality</em>','s3.d3':'Every zone is designed as a ready-made shot for stories. Organic sharing is built into the experience.',
-    's3.n4':'<span>04 / Phygital</span><span class="star">✦</span>','s3.h4':'<em>Phygital</em> ecosystem','s3.d4':'Digital gifts and online activations — the experience continues beyond the venue.',
-    's3.n5':'<span>05 / Edutainment</span><span class="star">✦</span>','s3.h5':'<em>Edutainment</em>','s3.d5':'Facts about capybaras are built into the mechanics. Visitors learn something new without feeling like they are being taught.',
-    's3.n6':'<span>06 / Universe</span><span class="star">✦</span>','s3.h6':'A full <em>universe</em>','s3.d6':'4 characters with distinct personalities, backstories and merch. Not just a mascot — a living universe.',
+    's3.n1':'<span class="n">01</span><span class="star">✦</span>','s3.h1':'Full <em>immersion</em>','s3.d1':'7 zones, a quest, capycoins. Visitors don’t just observe — they spend 90 minutes inside the universe.',
+    's3.n2':'<span class="n">02</span><span class="star">✦</span>','s3.h2':'For <em>the whole family</em>','s3.d2':'From ages 3 to 99: play for kids, irony for parents, and Gen Z aesthetics without compromise.',
+    's3.n3':'<span class="n">03</span><span class="star">✦</span>','s3.h3':'Built-in <em>virality</em>','s3.d3':'Every zone is designed as a ready-made shot for stories. Organic sharing is built into the experience.',
+    's3.n4':'<span class="n">04</span><span class="star">✦</span>','s3.h4':'<em>Phygital</em> ecosystem','s3.d4':'Digital gifts and online activations — the experience continues beyond the venue.',
+    's3.n5':'<span class="n">05</span><span class="star">✦</span>','s3.h5':'<em>Edutainment</em>','s3.d5':'Facts about capybaras are built into the mechanics. Visitors learn something new without feeling like they are being taught.',
+    's3.n6':'<span class="n">06</span><span class="star">✦</span>','s3.h6':'A full <em>universe</em>','s3.d6':'4 characters with distinct personalities, backstories and merch. Not just a mascot — a living universe.',
     'g.h':'Project <em>gallery</em><span style="color:var(--graphite)">.</span>','g.counter':'Scroll the page — the image strips move',
-    'g.t1':'Hall','g.t2':'Capybarization','g.t3':'Capybarius','g.t4':'Amazon','g.t5':'CapyBro','g.t6':'Capybara-san','g.t7':'Capybara-boy','g.t8':'Tangerine booom','g.t9':'Shop · merch','g.t10':'Overview',
+    'g.t1':'Hall','g.t2':'Capybarization','g.t3':'Arcades','g.t4':'Amazon','g.t5':'CapyBro','g.t6':'Capybara-san','g.t7':'Capybara-boy','g.t8':'Tangerine booom','g.t9':'Shop · merch','g.t10':'Overview',
     'g.t11':'Onboarding','g.t12':'CapyQuiz','g.t13':'Capybarius','g.t14':'Amazon · 360°','g.t15':'Sports zone','g.t16':'Mirror wall','g.t17':'Arcades','g.t18':'Photo zone','g.t19':'Opening','g.t20':'Entrance',
     'g.t21':'Professor Capybarius','g.t22':'Quiz screen','g.t23':'Capycoin','g.t24':'Bamboo barbell','g.t25':'LED zone','g.t26':'Point of silence','g.t27':'Capybaraoke','g.t28':'LED floor','g.t29':'Ball pit','g.t30':'Amazon',
     'map.h':'Exhibition <em>map</em><span style="color:var(--ink)">.</span>','map.p':'<b>7 zones</b><br>one route · ~90 minutes',
-    's4.tag':'<span class="num">04</span><span class="star">✦</span> Exhibition zones','s4.h':'Exhibition <em>zones</em><span style="color:var(--graphite)">.</span>','s4.side':'<b>Experience route</b><br>~90 min · quest<br>with capycoins',
-    'z1.tag':'Intro · interactive','z1.h':'<em>Capybarization</em> zone','z1.d':'The first zone of the exhibition: visitors go through a virtual “capybarization” process — creating their own character, collecting capycoins and finding out who becomes the ultimate capy. The route starts here — and immediately pulls them in.','z1.lbl':'Onboarding · interactive','z1.t1n':'Capybarization','z1.t1d':'Interactive installation · character creation · starter capycoins','z1.t2n':'Onboarding · entrance','z1.t2d':'Not inside the zone yet — already inside the story','z1.t3n':'Exhibition hall','z1.t3d':'Branded identity and the quest start screen',
-    'z2.tag':'Edutainment zone','z2.h':'<em>Capybarius</em> zone','z2.d':'An interactive space where scientific facts about capybaras are delivered through pop-culture language. The zone is guided by Professor Capybarius, with CapyQuiz and game mechanics instead of static panels.','z2.lbl':'Capybarius · edutainment','z2.t1n':'The CapyQuiz screen','z2.t1d':'Quiz · correct answers earn capycoins','z2.t2n':'Capycoin on the stand','z2.t2d':'RFID stations for collecting capycoins',
-    'z3.tag':'360° panorama','z3.h':'The <em>Amazon</em> zone','z3.d':'A circular 360° projection screen in a roller-coaster format: an interactive journey down the Amazon with sharp turns and a dynamic boat visitors can steer. The most thrilling point of the route.','z3.lbl':'360° · roller coaster','z3.t1n':'Journey down the Amazon','z3.t1d':'Sharp turns · a controllable boat · cinematic motion without moving seats',
-    'z4.tag':'Sports zone','z4.h':'The <em>CapyBro</em> zone','z4.d':'Visitors discover capybaras’ athletic abilities by competing against them. Turn the cranks, jump higher, test your aim and challenge friends or family. At the center is CapyBro, lifting a bamboo barbell instead of weight plates.','z4.lbl':'Sports zone','z4.t1n':'CapyBro · bamboo barbell','z4.t1d':'Bamboo + coconuts · absurd · viral','z4.t2n':'LED · dynamic lighting','z4.t2d':'More movement — brighter light','z4.t3n':'Sports zone · overview','z4.t3d':'Competition · energy · the CapyBro spirit',
-    'z5.tag':'Zen zone','z5.h':'<em>Capybara-san</em>','z5.d':'A meditating capybara above a glowing lotus. An interactive projection with several modes — a quiet pause in the middle of the route.','z5.lbl':'Glowing lotus · orb','z5.t1n':'Mirror wall','z5.t1d':'Infinite space · visitors see themselves inside the calm','z5.t2n':'Quiet point','z5.t2d':'The only zone without active mechanics',
-    'z6.tag':'Fun zone','z6.h':'The <em>Capybara-boy</em> zone','z6.d':'Capybaraoke, arcade machines and a dance floor with LED flooring and motion tracking. Sing, dance and play — the most playful spot in the exhibition.','z6.lbl':'Arcades · karaoke · dancing','z6.t1n':'Capybaraoke','z6.t1d':'Live singing to capybara tracks','z6.t2n':'Arcade machines','z6.t2d':'Games in the universe’s visual language · the longest dwell time','z6.t3n':'Dance floor · LED floor','z6.t3d':'Motion tracking · ready-made content for stories',
-    'z7.tag':'Finale · photo zone','z7.h':'Tangerine <em>booom</em>','z7.d':'A large pool of orange tangerine-like balls — capybaras’ favorite treat and a viral meme turned into a huge photo zone and physical space. After the digital zones, the route shifts into movement, brightness and activity.','z7.lbl':'Ball pit','z7.t1n':'Ball pit','z7.t1d':'Orange balls instead of tangerines · a viral meme turned into a space','z7.t2n':'Photo zone · top view','z7.t2d':'The route finale — a shift from digital to physical',
+    's4.tag':'<span class="num">04</span><span class="star">✦</span>','s4.h':'Exhibition <em>zones</em><span style="color:var(--graphite)">.</span>',
+    'z1.tag':'Intro · interactive','z1.h':'<em>Capybarization</em> zone','z1.d':'The first zone of the exhibition: visitors go through a virtual “capybarization” process — creating their own character, collecting capycoins and finding out who becomes the ultimate capy. The route starts here — and immediately pulls them in.','z1.lbl':'Onboarding · interactive','z1.t1n':'Capy Creator','z1.t1d':'Build your own capybara, name it and save it to your card — it travels the whole route with you','z1.t2n':'Onboarding · entrance','z1.t2d':'Not inside the zone yet — already inside the story','z1.t3n':'Exhibition hall','z1.t3d':'Branded identity and the quest start screen',
+    'z2.tag':'Edutainment zone','z2.h':'<em>Capybarius</em> zone','z2.d':'An interactive space where scientific facts about capybaras are delivered through pop-culture language. The zone is guided by Professor Capybarius, with CapyQuiz and game mechanics instead of static panels.','z2.lbl':'Capybarius · edutainment','z2.t1n':'Capy Quiz','z2.t1d':'Listen to Professor Capybarius’ questions and pick the right answer','z2.t2n':'Capy Food · Capy Tour','z2.t2d':'Feed the capybara healthy food and row toward adventure — tap your card for capycoins',
+    'z3.tag':'360° panorama','z3.h':'The <em>Amazon</em> zone','z3.d':'A circular 360° projection screen in a roller-coaster format: an interactive journey down the Amazon with sharp turns and a dynamic boat visitors can steer. The most thrilling point of the route.','z3.lbl':'360° · roller coaster','z3.t1n':'Capy Tour · Amazon','z3.t1d':'Row with the paddles, dodge obstacles and collect capycoins along the way',
+    'z4.tag':'Sports zone','z4.h':'The <em>CapyBro</em> zone','z4.d':'Visitors discover capybaras’ athletic abilities by competing against them. Turn the cranks, jump higher, test your aim and challenge friends or family. At the center is CapyBro, lifting a bamboo barbell instead of weight plates.','z4.lbl':'Sports zone','z4.t1n':'Capy & Leo · Capy Jump','z4.t1d':'Turn the cranks to the finish and jump as high as you can — who jumps higher, you or the capybara?','z4.t2n':'LED · dynamic lighting','z4.t2d':'More movement — brighter light','z4.t3n':'Capy Basket · Fast Reaction','z4.t3d':'Toss balls into moving cups and catch the stick before it hits the floor',
+    'z5.tag':'Zen zone','z5.h':'<em>Capybara-san</em>','z5.d':'A meditating capybara above a glowing lotus. An interactive projection with several modes — a quiet pause in the middle of the route.','z5.lbl':'Glowing lotus · orb','z5.t1n':'Mirror wall','z5.t1d':'Infinite space · visitors see themselves inside the calm','z5.t2n':'Capy Mandala · Capy Tarot','z5.t2d':'Draw a light mandala in the sand with your fingers and get a fortune from Capybara-san',
+    'z6.tag':'Fun zone','z6.h':'The <em>Capybara-boy</em> zone','z6.d':'Capybaraoke, arcade machines and a dance floor with LED flooring and motion tracking. Sing, dance and play — the most playful spot in the exhibition.','z6.lbl':'Arcades · karaoke · dancing','z6.t1n':'Capybaraoke','z6.t1d':'Live singing to capybara tracks','z6.t2n':'Capy Arcade','z6.t2d':'8 games: run, jump, clear obstacles and set new records','z6.t3n':'Capy Dance','z6.t3d':'Dance battle: step on the arrows on the floor right in time with the music',
+    'z7.tag':'Finale · photo zone','z7.h':'Tangerine <em>booom</em>','z7.d':'A large pool of orange tangerine-like balls — capybaras’ favorite treat and a viral meme turned into a huge photo zone and physical space. After the digital zones, the route shifts into movement, brightness and activity.','z7.lbl':'Ball pit','z7.t1n':'Tangerine ball pit','z7.t1d':'Jump into the pool of orange balls and snap a photo on the banana swing','z7.t2n':'Neuro photo zone · Leaderboard','z7.t2d':'Create an animated photo with the characters, tap your card and grab your digital rewards via QR',
     's5.tag':'<span class="num">05</span><span class="star">✦</span> Character development','s5.h':'From sketch<br><em>to launch</em><span style="color:var(--lime)">.</span>','s5.side':'<b>A character-led universe</b><br>dozens of iterations<br>4 capybaras · merch','s5.cvtag':'Form exploration · recording','s5.cvtitle':'Form exploration — process recording','s5.intro':'The 4 final characters grew out of dozens of alternative versions. Each capybara has its own world, backstory and silhouette logic — from a hand-drawn sketch to a 3D render ready for the exhibition space and the merch line.','s5.crossh':'20 characters','s5.crossd':'The full cast of the universe: mascot guides, crossover looks, special editions and collaborations. Each one has its own personality, costume and vibe.',
     'c1.tag':'01 · Zen','c1.h':'Capy<em>San</em>','c1.motto':'Don’t stress, be capy','c1.p':'Floats above a lotus. Brings visitors into a state of zen — effortlessly and without words.','c1.traits':'<li><b>Palette:</b> ochre · soft pink · gold</li><li><b>Attribute:</b> lotus · an aura of calm</li><li><b>Zone:</b> Capybara-san · zen</li>',
     'c2.tag':'02 · Joy','c2.h':'Capy<em>Ballerina</em>','c2.motto':'Life is a celebration','c2.p':'Donuts for energy, music in her ears. The most light-hearted capybara in the exhibition.','c2.traits':'<li><b>Palette:</b> pink · cream · peach</li><li><b>Attribute:</b> donut · beads · pointe shoes</li><li><b>Zone:</b> Capybara-boy · dancing</li>',
     'c3.tag':'03 · Fun','c3.h':'Capybara<em>Boy</em>','c3.motto':'Dancing is life','c3.p':'Star-shaped glasses, a purple blazer and a party spirit. The most stylish capybara in the exhibition.','c3.traits':'<li><b>Palette:</b> purple · fuchsia · neon</li><li><b>Attribute:</b> star glasses · headphones · cap</li><li><b>Zone:</b> Capybara-boy · fun zone</li>',
     'c4.tag':'04 · Drive','c4.h':'Capybara<em>Bro</em>','c4.motto':'Sport is life','c4.p':'Lifts a bamboo barbell, wears a hoodie and believes in morning workouts. Proud. Absurd. Viral.','c4.traits':'<li><b>Palette:</b> blue · brown · pink</li><li><b>Attribute:</b> bamboo barbell · hoodie · rock-on sign</li><li><b>Zone:</b> CapyBro · sport</li>',
-    'pl.summary':'Show the detailed character design pipeline · 6 steps','pl.h':'Exploring the character form','pl.p':'From references and moodboards through dozens of 3D iterations to four final capybaras. Six key milestones of the process. Click any card to view it full size.',
+    'pl.summary':'See the development','pl.h':'Exploring the character form','pl.p':'From references and moodboards through dozens of 3D iterations to four final capybaras. Six key milestones of the process. Click any card to view it full size.',
     'pl.c1':'<b>References</b><span>Moodboards · shared traits · style groups</span>','pl.c2':'<b>Silhouette</b><span>Line → flat color → volume</span>','pl.c3':'<b>3D iterations</b><span>Renders + direct art direction notes</span>','pl.c4':'<b>Base form</b><span>“before / going with this, hooray!”</span>','pl.c5':'<b>Looks and personalities</b><span>Dozens of outfit and expression variants</span>','pl.c6':'<b>Final cast</b><span>4 capybaras + key visual</span>',
-    's6.tag':'<span class="num">06</span><span class="star">✦</span> Process','s6.h':'Working<br><em>materials</em><span style="color:var(--graphite)">.</span>','s6.side':'<b>Behind the scenes</b><br>UI · sketches<br>· scenography · key visual',
+    's6.tag':'<span class="num">06</span><span class="star">✦</span>','s6.h':'<em>Process</em><span style="color:var(--graphite)">.</span>',
     's6.c1tag':'Concept map','s6.c1h':'Route zoning','s6.c1p':'A graphic system for the route: 7 zones, 21 installations and a consistent visual grammar. The map works both as navigation and as a standalone poster.',
     's6.c2tag':'Key visual','s6.c2h':'The main 6×3 visual','s6.c2p':'The flagship visual for outdoor advertising. The exhibition identity grew out of it.',
     's6.c3tag':'Quest mechanic','s6.c3h':'RFID tags and capycoins','s6.c3p':'A wristband with an RFID tag lets visitors collect capycoins at RFID stations across the zones — a single game currency for the whole route.',
@@ -1751,12 +1712,12 @@
     's7.tagR':'Leaderboard','s7.hR':'Who’s the<br><em>ultimate</em> capybara?','s7.bodyR':'The leaderboard updates in real time. Visitors know where they stand — and want to climb higher.',
     's7.sr1':'<b>The top 3 earn the title</b> “Ultimate Capybara” and a special prize at the exit','s7.sr2':'<b>Result QR code</b> — a personal quest card, ready for stories','s7.sr3':'<b>A reason to return</b> — the score resets, and visitors want to come back and beat the record',
     's8.tag':'<span class="num">08</span><span class="star">✦</span> Leaderboard','s8.h':'Top <em>capybaras</em><span style="color:var(--lime)">.</span>','s8.side':'<b>Results</b><br>update<br>in real time',
-    's8.head':'<span>#</span><span>Capybara</span><span>Zone</span><span>Capycoins</span>',
-    's8.n1':'CapyChampion<small>Character: CapyBro</small>','s8.z1':'All 7 zones',
-    's8.n2':'NoStress<small>Character: Capybara-san</small>','s8.z2':'6 of 7 zones',
-    's8.n3':'TangerineBooster<small>Character: Capybara-boy</small>','s8.z3':'7 of 7 zones',
-    's8.n4':'Capybarius2.0<small>Character: Professor Capybarius</small>','s8.z4':'5 of 7 zones',
-    's8.n5':'ZenMaster<small>Character: Capybara-san</small>','s8.z5':'7 of 7 zones',
+    's8.head':'<span>#</span><span>Capybara</span><span>Capycoins</span>',
+    's8.n1':'CapyTanya ✦✦✦',
+    's8.n2':'CapyLesha ✦✦',
+    's8.n3':'CapySveta ✦',
+    's8.n4':'CapyLera',
+    's8.n5':'CapyYulia',
     's8.slogan':'Go full capybara!',
     'sm.h':'A 500 m² Moskvarium exhibition built around a cult <em>character-led universe</em>.',
     'sm.h1':'A character-led universe from scratch','sm.p1':'4 characters, backstories, a merch line and tone of voice — beyond a mascot, toward a franchise-ready world.',
@@ -1838,19 +1799,18 @@
       if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
-  /* ACTIVE PILL on scroll */
+  /* ACTIVE PILL on scroll — подсветка секции под средней линией вьюпорта */
   const sectionIds = ['gallery-section','zones','cast','process','team'];
   const pillMap = {};
   document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
+  function setActivePill(id){
+    Object.values(pillMap).forEach(p => p.classList.remove('active'));
+    const active = pillMap[id];
+    if (active) active.classList.add('active');
+  }
   const secObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        Object.values(pillMap).forEach(p => p.classList.remove('active'));
-        const active = pillMap[entry.target.id];
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { threshold: 0.25 });
+    entries.forEach(entry => { if (entry.isIntersecting) setActivePill(entry.target.id); });
+  }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
   sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
 </script>
 <script>
