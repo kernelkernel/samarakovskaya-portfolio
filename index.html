@@ -147,6 +147,17 @@
   @media(hover:none){.lang-seg{cursor:pointer}}
   @media(max-width:880px){.top-nav{display:none}}
   @media(max-width:560px){.brand small{display:none}}
+  /* мобайл: шапка не помещалась — кнопка «Написать» вылезала за экран. Ужимаем отступы и кегль */
+  @media(max-width:480px){
+    .top{width:calc(100% - 24px)}
+    .nav-bar{gap:8px;padding:6px 6px 6px 12px}
+    .brand{font-size:12px;gap:8px;min-width:0;overflow:hidden;text-overflow:ellipsis}
+    .brand-mark{width:20px;height:20px}
+    .lang-toggle{padding:2px;flex-shrink:0}
+    .lang-seg{padding:5px 6px;font-size:9px}
+    .nav-cta{padding:8px 10px;font-size:9px;letter-spacing:.05em;gap:5px;flex-shrink:0}
+  }
+  @media(max-width:380px){.brand{font-size:11px;gap:7px}.nav-cta{padding:8px 9px;font-size:8.5px}}
 
   /* ───── PAGE WRAP ───── */
   .wrap{max-width:1320px;margin:0 auto;padding:0 var(--side-pad);width:100%}
@@ -504,6 +515,7 @@
   .svc-tag{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
   .svc-h{font-family:"Space Grotesk",sans-serif;font-size:28px;font-weight:600;letter-spacing:-.02em;line-height:1.05}
   .svc-h .mark{color:inherit}
+  .nb{white-space:nowrap}
   .svc-desc{font-size:13px;line-height:1.55;color:var(--ink-2)}
   .svc-cell.feat{background:var(--lime);color:var(--ink);grid-column:span 2}
   .svc-cell.feat:hover{background:var(--ink);color:var(--lime)}
@@ -602,6 +614,17 @@
   .wcard.s12 .wcard-title-over{font-size:clamp(56px,8vw,128px);letter-spacing:-.05em;line-height:.85}
   @media(max-width:900px){.wcard,.wcard.s4,.wcard.s5,.wcard.s6,.wcard.s7,.wcard.s8{grid-column:span 6}.wcard.s12{grid-column:span 12}}
   @media(max-width:560px){.wcard,.wcard.s12{grid-column:1/-1;min-height:300px}}
+  /* мобайл: длинные названия вылезали за карточку и выталкивали стрелку за экран.
+     Название занимает всю ширину, стрелка уходит на отдельную строку под ним */
+  @media(max-width:560px){
+    .wcard{padding:16px}
+    .wcard-foot{flex-direction:column;align-items:flex-end;gap:10px}
+    .wcard-title-over{align-self:stretch;font-size:clamp(20px,6vw,26px);line-height:1.04;overflow-wrap:break-word}
+    .wcard.s12 .wcard-title-over{font-size:clamp(30px,9.5vw,52px);line-height:.94}
+    .wcard-go{width:36px;height:36px}
+    .wcard-top .tag{font-size:11px;padding:6px 11px}
+    .wcard.s12 .wcard-top .tag{font-size:12px;padding:7px 13px}
+  }
   /* мобайл: сетка проектов во всю ширину — без боковых отступов .wrap */
   @media(max-width:768px){
     body[data-view="grid"] .works-grid{margin-left:calc(-1*var(--side-pad));margin-right:calc(-1*var(--side-pad));gap:8px}
@@ -916,7 +939,7 @@
         <div class="svc-num"><span>✦ 02 / STORYTELLING</span><span class="star">✦</span></div>
         <div>
           <span class="svc-tag">Storytelling &amp; engagement</span>
-          <h3 class="svc-h" data-i18n="svc.h2">Сторителлинг&nbsp;<span class="mark">&amp;</span>&nbsp;вовлечение</h3>
+          <h3 class="svc-h" data-i18n="svc.h2">Сторителлинг <span class="nb"><span class="mark">&amp;</span> вовлечение</span></h3>
           <p class="svc-desc" data-i18n="svc.d2">Нарратив, игровые механики, модели вовлечения и удержания аудитории.</p>
         </div>
       </div>
@@ -1030,20 +1053,20 @@
         <span class="wrow-year">2016</span>
         <span class="wrow-go">↗︎</span>
       </a>
-      <a class="wrow" href="projects/baal.html">
-        <span class="wrow-num">06</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><span class="ph">B</span></span>
-        <span class="wrow-title" data-i18n="work.l.baal">Баал</span>
-        <span class="wrow-tags">Theater · Media artist</span>
-        <span class="wrow-year">2019</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
       <a class="wrow" href="projects/wayofwater.html">
-        <span class="wrow-num">07</span>
+        <span class="wrow-num">06</span>
         <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><span class="ph">~</span></span>
         <span class="wrow-title" data-i18n="work.l.wow">Путь <em>воды</em></span>
         <span class="wrow-tags">Exhibitions · Experience design</span>
         <span class="wrow-year">2022—24</span>
+        <span class="wrow-go">↗︎</span>
+      </a>
+      <a class="wrow" href="projects/cgi-worldcup.html">
+        <span class="wrow-num">07</span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/cgi-worldcup.webp" alt="CGI for World Cup 2026 — концепты вирусной CGI-кампании" onerror="this.style.display='none'"><span class="ph">◆</span></span>
+        <span class="wrow-title" data-i18n="work.l.cgiwc">CGI for <em>World Cup 2026</em></span>
+        <span class="wrow-tags">CGI · FOOH · Creative concept</span>
+        <span class="wrow-year">2026</span>
         <span class="wrow-go">↗︎</span>
       </a>
       <a class="wrow" href="projects/prosvetitel.html">
@@ -1094,19 +1117,19 @@
         <span class="wrow-year">2023—25</span>
         <span class="wrow-go">↗︎</span>
       </a>
-      <a class="wrow" href="projects/cgi-worldcup.html">
+      <a class="wrow" href="projects/baal.html">
         <span class="wrow-num">14</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/cgi-worldcup.webp" alt="CGI for World Cup 2026 — концепты вирусной CGI-кампании" onerror="this.style.display='none'"><span class="ph">◆</span></span>
-        <span class="wrow-title" data-i18n="work.l.cgiwc">CGI for <em>World Cup 2026</em></span>
-        <span class="wrow-tags">CGI · FOOH · Creative concept</span>
-        <span class="wrow-year">2026</span>
+        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><span class="ph">B</span></span>
+        <span class="wrow-title" data-i18n="work.l.baal">Баал</span>
+        <span class="wrow-tags">Theater · Media artist</span>
+        <span class="wrow-year">2019</span>
         <span class="wrow-go">↗︎</span>
       </a>
     </div>
 
     <!-- GRID — ритм 2 · 1 крупный · 2 · 1 крупный · 2 · 1 крупный · 2 -->
     <div class="works-grid">
-      <!-- ряд 1 — два -->
+      <!-- два -->
       <a class="wcard s6" href="projects/nebula.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — мультимедийная арт-инсталляция" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.nebula">Небула</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
@@ -1117,13 +1140,13 @@
         <div class="wcard-top"><span class="tag" data-i18n="cat.festival">● Фестиваль</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.cymatic">Круг света</h3><span class="wcard-go">↗︎</span></div>
       </a>
-      <!-- ряд 2 — крупный (флагман) -->
+      <!-- крупный (флагман) -->
       <a class="wcard s12" href="projects/capybarabooom.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="КапибараБууум — интерактивная выставка" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.capy">КапибараБууум</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.capy">КапибараБууум</h3><span class="wcard-go">↗︎</span></div>
       </a>
-      <!-- ряд 3 — два -->
+      <!-- два -->
       <a class="wcard s6" href="projects/pole.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="Поле — театральный медиаарт" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.pole">Поле</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
@@ -1134,30 +1157,30 @@
         <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.kandid">Кандид</h3><span class="wcard-go">↗︎</span></div>
       </a>
-      <!-- ряд 4 — крупный (флагман) -->
-      <a class="wcard s12" href="projects/baal.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.baal">Баал</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.baal">Баал</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- ряд 5 — два -->
-      <a class="wcard s6" href="projects/wayofwater.html">
+      <!-- крупный (флагман) -->
+      <a class="wcard s12" href="projects/wayofwater.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.wow">Путь воды</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.wow">Путь воды</h3><span class="wcard-go">↗︎</span></div>
+      </a>
+      <!-- два -->
+      <a class="wcard s6" href="projects/cgi-worldcup.html">
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/cgi-worldcup.webp" alt="CGI for World Cup 2026 — концепты вирусной CGI-кампании" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.cgiwc">CGI for World Cup 2026</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.cgi">● CGI-кампания</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.cgiwc">CGI for World Cup 2026</h3><span class="wcard-go">↗︎</span></div>
       </a>
       <a class="wcard s6" href="projects/prosvetitel.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="Просветитель — фестиваль и награды" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.prosv">Просветитель</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.festival">● Фестиваль</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.prosv">Просветитель</h3><span class="wcard-go">↗︎</span></div>
       </a>
-      <!-- ряд 6 — крупный (флагман) -->
+      <!-- крупный (флагман) -->
       <a class="wcard s12" href="projects/moskvaruim.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/msq_10let/photo/webp/city-01.webp" alt="Рыбов показываем — рекламная кампания 360°" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.moskvaruim">Рыбов показываем</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.adcampaign">● Рекламная кампания</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.moskvaruim">Рыбов показываем</h3><span class="wcard-go">↗︎</span></div>
       </a>
-      <!-- ряд 7 — два -->
+      <!-- два -->
       <a class="wcard s6" href="projects/troyka-lovemeet.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.arproject">● AR-проект</span></div>
@@ -1168,21 +1191,23 @@
         <div class="wcard-top"><span class="tag" data-i18n="cat.webar">● WebAR-квест</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.ocean">С океаном начистоту</h3><span class="wcard-go">↗︎</span></div>
       </a>
-      <!-- ряд 8 — крупный (флагман) -->
+      <!-- крупный (флагман) -->
       <a class="wcard s12" href="projects/souzmultpark.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.souz">Союзмультпарк</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.park">● Интерактивный парк</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.souz">Союзмультпарк</h3><span class="wcard-go">↗︎</span></div>
       </a>
+      <!-- крупный (флагман) -->
       <a class="wcard s12" href="projects/art-direction.html">
         <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/art-direction.webp" alt="Арт-дирекшн — избранные работы" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.artdir">Арт-дирекшн</div></div>
         <div class="wcard-top"><span class="tag" data-i18n="cat.artdirection">● Арт-дирекшн</span></div>
         <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.artdir">Арт-дирекшн</h3><span class="wcard-go">↗︎</span></div>
       </a>
-      <a class="wcard s12" href="projects/cgi-worldcup.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/cgi-worldcup.webp" alt="CGI for World Cup 2026 — концепты вирусной CGI-кампании" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.cgiwc">CGI for World Cup 2026</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.cgi">● CGI-кампания</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.cgiwc">CGI for World Cup 2026</h3><span class="wcard-go">↗︎</span></div>
+      <!-- крупный (флагман) -->
+      <a class="wcard s12" href="projects/baal.html">
+        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.baal">Баал</div></div>
+        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
+        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.baal">Баал</h3><span class="wcard-go">↗︎</span></div>
       </a>
     </div>
   </div>
@@ -1364,7 +1389,7 @@
     'svc.h':'Expertise',
     'svc.side':'Eight disciplines',
     'svc.feat':'Experience design — <span class="mark">from the first contact</span> to the impression a person leaves with.',
-    'svc.h2':'Storytelling&nbsp;<span class="mark">&amp;</span>&nbsp;engagement',
+    'svc.h2':'Storytelling <span class="nb"><span class="mark">&amp;</span> engagement</span>',
     'svc.d2':'Narrative, game mechanics, models for engaging and retaining audiences.',
     'svc.h3':'Multimedia &amp;&nbsp;<span class="mark">interaction</span>',
     'svc.d3':'Light, sound, content and mechanics that make a space engaging.',
