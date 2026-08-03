@@ -57,7 +57,7 @@
   .mag-pill{display:inline-flex;align-items:center;padding:7px 13px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);transition:background .2s,color .2s;cursor:pointer;white-space:nowrap;will-change:transform;text-decoration:none}
   .mag-pill:hover{background:rgba(238,243,243,.08);color:var(--bone)}
   .mag-pill.active{color:var(--lime)}
-  @media(max-width:900px){.mag-nav{display:none}}
+  @media(max-width:1000px){.mag-nav{display:none}}
   .nav-cta{display:inline-flex;align-items:center;gap:7px;background:var(--lime);color:#fff;padding:9px 16px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;font-weight:600;white-space:nowrap;flex-shrink:0}
   .nav-cta::after{content:"↗\FE0E"}
   .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(238,243,243,.06);border:1px solid var(--line-d2);border-radius:99px;flex-shrink:0}
@@ -79,11 +79,34 @@
   .word-block{background:var(--lime);color:#fff;padding:0 .14em}
 
   /* HERO — KV-картинка во весь экран, без текста */
-  .hero{position:relative;min-height:100svh;overflow:hidden;background:#07131c}
-  .hero-bg{position:absolute;inset:-8% 0;z-index:0;will-change:transform}
-  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,transparent 60%,rgba(7,19,28,.4) 82%,var(--graphite) 100%)}
-  @media(max-width:780px){.hero{min-height:74svh}.hero-bg{inset:0}.hero-bg img{object-fit:contain;object-position:center}}
+  .hero{position:relative;overflow:hidden;background:#07131c;line-height:0}
+  .hero-bg{position:relative;z-index:0;width:100%}
+  .hero-bg img{width:100%;height:auto;display:block}
+  .hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(7,19,28,.28) 0%,transparent 26%,transparent 62%,rgba(7,19,28,.35) 84%,var(--graphite) 100%)}
+  /* низ героя: пилюли строкой выше, логотипы партнёров строкой ниже */
+  .hero-foot{position:absolute;left:0;right:0;bottom:clamp(26px,3.4vw,52px);z-index:3;padding:0 clamp(24px,4vw,56px);display:flex;flex-direction:column;align-items:flex-start;gap:clamp(14px,1.6vw,22px);line-height:1}
+  .hero-meta-row{display:flex;flex-wrap:wrap;gap:10px}
+  .hero-meta-row .pill{background:rgba(7,19,28,.5);border-color:rgba(255,255,255,.22);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff}
+  .hero-meta-row .pill.solid{background:var(--grad);border-color:transparent}
+  .hero-logos{display:flex;align-items:center;gap:clamp(16px,2.2vw,30px)}
+  .hero-logos img{width:auto;opacity:.92;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
+  .hero-logos .lg-msq{height:clamp(15px,1.5vw,22px)}
+  .hero-logos .lg-bbdo{height:clamp(12px,1.2vw,17px)}
+  .hero-logos .lg-sep{width:1px;height:clamp(16px,1.7vw,24px);background:rgba(255,255,255,.32);flex-shrink:0}
+
+  /* стикер: приклеен к правому краю, лёгкий параллакс при скролле */
+  .hero-sticker{position:absolute;right:clamp(24px,4vw,56px);bottom:clamp(120px,13vw,168px);z-index:4;width:clamp(150px,17vw,230px);transform:rotate(-4deg);transform-origin:100% 100%;filter:drop-shadow(0 14px 30px rgba(4,16,26,.45));pointer-events:none}
+  .hero-sticker img{width:100%;height:auto;display:block}
+
+  /* ниже 900 картинка становится низкой — низ героя уходит под неё, на картинке остаётся только стикер */
+  @media(max-width:900px){
+    .hero{line-height:normal}
+    .hero-foot{position:static;padding:20px clamp(20px,4vw,24px) 4px;background:var(--graphite);gap:16px}
+    .hero-meta-row .pill{font-size:10px;padding:7px 12px 7px 10px;backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--graphite-2);border-color:var(--line-d)}
+    .hero-logos img{filter:none}
+    .hero-sticker{width:clamp(96px,15vw,140px);right:clamp(14px,2.4vw,22px);bottom:clamp(12px,2vw,18px)}
+  }
+  @media (prefers-reduced-motion:reduce){.hero-sticker{transform:rotate(-4deg)!important}}
 
   /* MARQUEE */
   .marq{background:var(--grad);color:#fff;overflow:hidden;padding:17px 0;border-block:1px solid rgba(255,255,255,.18)}
@@ -145,7 +168,7 @@
   .sec.on-graphite{background:var(--graphite);color:var(--bone)}
   .sec.on-blue{background:var(--blue-deep);color:var(--bone)}
   .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
-  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
+  @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}.sec-head>div:empty{display:none}}
   .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
   .sec-label::before{content:"✦";color:var(--lime);font-size:12px}
   .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
@@ -286,11 +309,26 @@
   @media (prefers-reduced-motion:reduce){.reveal,.stagger>*{opacity:1!important;transform:none!important}.hero-kv,.hero-cap{opacity:1!important;transform:none!important;animation:none!important}}
 </style>
 <style id="ru-switch-css">
-.nav-end{display:inline-flex;align-items:center;gap:10px}
+.nav-end{display:inline-flex;align-items:center;gap:8px;flex-shrink:0}
+@media(max-width:560px){.nav-bar{padding:6px 7px 6px 14px;gap:6px}.nav-end{gap:6px}.nav-cta{padding:8px 12px}.back{font-size:10px}}
 .lang-toggle{display:inline-flex;gap:2px;padding:3px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:999px;flex-shrink:0}
 .lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
 .lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
 .lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
 </style>
 <link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/clean-ocean.html">
 <link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/clean-ocean.html">
@@ -330,11 +368,13 @@
       <a class="mag-pill" href="#s-mascots" data-section="s-mascots" data-i18n="n.m5">Персонажи</a>
       <a class="mag-pill" href="#s-credits" data-section="s-credits" data-i18n="n.m6">Команда</a>
     </nav>
-    <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
-      <span class="lang-seg on" data-lang="ru">RU</span>
-      <a class="lang-seg" data-lang="en" href="../en/projects/clean-ocean.html">EN</a>
+    <div class="nav-end">
+      <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
+        <span class="lang-seg on" data-lang="ru">RU</span>
+        <a class="lang-seg" data-lang="en" href="../en/projects/clean-ocean.html">EN</a>
+      </div>
+      <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="n.cta">Написать</a>
     </div>
-    <a class="nav-cta" href="https://t.me/samarakovskaya_tanya" target="_blank" rel="noopener" data-i18n="n.cta">Написать</a>
   </div>
 </header>
 
@@ -343,6 +383,23 @@
   <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0" data-i18n="h.h1">С океаном начистоту — WebAR-квест в Москвариуме</h1>
   <div class="hero-bg" id="heroBg" aria-hidden="true">
     <img src="../assets/msq_clean-ocean/kv/clean-ocean-kv-buoy.webp" alt="С океаном начистоту — Москвариум × BBDO" loading="eager" decoding="async">
+  </div>
+  <div class="hero-sticker" id="heroSticker" aria-hidden="true">
+    <img src="../assets/msq_clean-ocean/logo/sticker-eco-quest.webp" alt="" loading="eager" decoding="async">
+  </div>
+  <div class="hero-foot">
+    <div class="hero-meta-row">
+      <span class="pill solid">2026</span>
+      <span class="pill" data-i18n="h.pill1">москвариум</span>
+      <span class="pill" data-i18n="h.pill2">bbdo</span>
+      <span class="pill" data-i18n="h.pill3">webar-квест</span>
+      <span class="pill" data-i18n="h.pill4">creative direction</span>
+    </div>
+    <div class="hero-logos">
+      <img class="lg-msq" src="../assets/msq_clean-ocean/logo/moskvarium-white.webp" alt="Москвариум" loading="eager" decoding="async">
+      <span class="lg-sep" aria-hidden="true"></span>
+      <img class="lg-bbdo" src="../assets/msq_clean-ocean/logo/bbdo-white.webp" alt="BBDO" loading="eager" decoding="async">
+    </div>
   </div>
 </section>
 
@@ -363,7 +420,7 @@
         <span class="about-eyebrow" data-i18n="about.eyebrow">О проекте</span>
         <h2 class="about-h" data-i18n="about.h">Экологическая инициатива о судьбе воды</h2>
         <div class="about-text">
-          <p data-i18n="about.p1">«С океаном начистоту». Образовательный интерактивный проект, который в понятном формате рассказывает о загрязнении мирового океана, показывает последствия для водных обитателей и предлагает простые действия, доступные каждому.</p>
+          <p data-i18n="about.p1">«С океаном начистоту» — совместный проект Москвариума и креативного агентства BBDO. Образовательный интерактивный проект, который в понятном формате рассказывает о загрязнении мирового океана, показывает последствия для водных обитателей и предлагает простые действия, доступные каждому.</p>
           <p data-i18n="about.p2">Проект стартовал во Всемирный день Океана, <b>8 июня 2026 года</b>, в экспозиции Москвариума на ВДНХ.</p>
         </div>
         <div class="about-tags">
@@ -503,7 +560,7 @@
 </section>
 
 <!-- SCREENS -->
-<section class="sec on-graphite" id="s-screens">
+<section class="sec on-graphite" id="s-screens" style="padding-bottom:46px">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label" data-i18n="screens.label">03 / Экраны</span>
@@ -528,7 +585,7 @@
 </section>
 
 <!-- MASCOTS -->
-<section class="sec on-graphite" id="s-mascots">
+<section class="sec on-graphite" id="s-mascots" style="padding-top:46px">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-label" data-i18n="mascots.label">04 / Персонажи</span>
@@ -634,18 +691,22 @@
   <div class="foot-row">
     <span data-i18n="foot.copy">© 2026 · <b>Таня Самараковская</b></span>
     <span><a href="#top" data-i18n="foot.top">↑ Наверх</a></span>
+    <a class="foot-lang" href="../en/projects/clean-ocean.html" hreflang="en">EN</a>
   </div>
 </footer>
 
 <script>
+  /* лёгкий параллакс стикера: смещается медленнее страницы, пока герой в кадре */
+  (function(){
+    const st=document.getElementById('heroSticker');
+    if(!st||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+    let t=false;
+    const upd=()=>{const y=scrollY;if(y<innerHeight*1.2){st.style.transform='translateY('+(y*-0.14)+'px) rotate(-4deg)';}t=false;};
+    addEventListener('scroll',()=>{if(!t){t=true;requestAnimationFrame(upd);}},{passive:true});
+  })();
+
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');if(e.target.classList.contains('stagger')){Array.from(e.target.children).forEach((c,i)=>c.style.transitionDelay=(i*45)+'ms');}io.unobserve(e.target);}}),{threshold:.1});
   document.querySelectorAll('.reveal,.stagger').forEach(el=>io.observe(el));
-
-  const hb=document.getElementById('heroBg'),hk=document.getElementById('heroKv');
-  if(hb && !matchMedia('(prefers-reduced-motion:reduce)').matches){
-    let ticking=false;
-    addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(()=>{const y=scrollY;if(y<window.innerHeight){hb.style.transform='translateY('+(y*0.28)+'px)';if(hk)hk.style.transform='translateY('+(y*-0.05)+'px)';}ticking=false;});}},{passive:true});
-  }
 
   document.querySelectorAll('.mag-pill').forEach(p=>{
     p.addEventListener('mousemove',e=>{const r=p.getBoundingClientRect();p.style.transform=`translate(${(e.clientX-(r.left+r.width/2))*.38}px,${(e.clientY-(r.top+r.height/2))*.42}px) scale(1.06)`;});
@@ -686,10 +747,11 @@
     "n.m6":"Team",
     "n.cta":"Contact",
     "h.h1":"Clean Ocean — a WebAR quest at Moskvarium",
+    "h.pill1":"moskvarium","h.pill2":"bbdo","h.pill3":"webar quest","h.pill4":"creative direction",
     "marq.row":"Ten locations <span class=\"dot\"></span> ten characters <span class=\"dot\"></span> eco-rescuer code word <span class=\"dot\"></span> plastic · oil · microplastics · nets <span class=\"dot\"></span> WebAR without an app <span class=\"dot\"></span> ",
     "about.eyebrow":"About the project",
     "about.h":"An environmental initiative about the future of water",
-    "about.p1":"Clean Ocean is an educational interactive project that explains ocean pollution in a clear, accessible format, shows its impact on aquatic life, and offers simple actions anyone can take.",
+    "about.p1":"Clean Ocean is a joint project by Moskvarium and the creative agency BBDO. An educational interactive project that explains ocean pollution in a clear, accessible format, shows its impact on aquatic life, and offers simple actions anyone can take.",
     "about.p2":"The project launched on World Ocean Day, <b>June 8, 2026</b>, inside the Moskvarium exhibition at VDNH.",
     "about.tag1":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11z\"/></svg>Water pollution",
     "about.tag2":"<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3l2.6 5.6 6.1.7-4.5 4.1 1.2 6L12 16.9 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z\"/></svg>Interactive format",
