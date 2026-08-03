@@ -78,20 +78,19 @@
   .hero{position:relative;overflow:hidden;background:#07131c;line-height:0}
   .hero-bg{position:relative;z-index:0;width:100%}
   .hero-bg img{width:100%;height:auto;display:block}
-  .hero-bg::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(7,19,28,.28) 0%,transparent 26%,transparent 62%,rgba(7,19,28,.35) 84%,var(--graphite) 100%)}
   /* низ героя: пилюли строкой выше, логотипы партнёров строкой ниже */
-  .hero-foot{position:absolute;left:0;right:0;bottom:clamp(26px,3.4vw,52px);z-index:3;padding:0 clamp(24px,4vw,56px);display:flex;flex-direction:column;align-items:flex-start;gap:clamp(14px,1.6vw,22px);line-height:1}
+  .hero-foot{position:absolute;left:0;right:0;bottom:clamp(20px,2.4vw,34px);z-index:3;padding:0 clamp(24px,4vw,56px);display:flex;flex-direction:column;align-items:flex-start;gap:clamp(14px,1.6vw,22px);line-height:1}
   .hero-meta-row{display:flex;flex-wrap:wrap;gap:10px}
   .hero-meta-row .pill{background:rgba(7,19,28,.5);border-color:rgba(255,255,255,.22);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff}
-  .hero-meta-row .pill.solid{background:var(--grad);border-color:transparent}
+  .hero-meta-row .pill.pill-case{text-transform:none;letter-spacing:.02em}
   .hero-logos{display:flex;align-items:center;gap:clamp(16px,2.2vw,30px)}
   .hero-logos img{width:auto;opacity:.92;filter:drop-shadow(0 2px 10px rgba(0,0,0,.45))}
-  .hero-logos .lg-msq{height:clamp(15px,1.5vw,22px)}
+  .hero-logos .lg-msq{height:clamp(17px,1.85vw,26px)}
   .hero-logos .lg-bbdo{height:clamp(12px,1.2vw,17px)}
   .hero-logos .lg-sep{width:1px;height:clamp(16px,1.7vw,24px);background:rgba(255,255,255,.32);flex-shrink:0}
 
   /* стикер: приклеен к правому краю, лёгкий параллакс при скролле */
-  .hero-sticker{position:absolute;right:clamp(24px,4vw,56px);bottom:clamp(120px,13vw,168px);z-index:4;width:clamp(150px,17vw,230px);transform:rotate(-4deg);transform-origin:100% 100%;filter:drop-shadow(0 14px 30px rgba(4,16,26,.45));pointer-events:none}
+  .hero-sticker{position:absolute;right:0;bottom:clamp(120px,13vw,168px);z-index:4;width:clamp(150px,17vw,230px);filter:drop-shadow(0 14px 30px rgba(4,16,26,.45));pointer-events:none}
   .hero-sticker img{width:100%;height:auto;display:block}
 
   /* ниже 900 картинка становится низкой — низ героя уходит под неё, на картинке остаётся только стикер */
@@ -100,10 +99,9 @@
     .hero-foot{position:static;padding:20px clamp(20px,4vw,24px) 4px;background:var(--graphite);gap:16px}
     .hero-meta-row .pill{font-size:10px;padding:7px 12px 7px 10px;backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--graphite-2);border-color:var(--line-d)}
     .hero-logos img{filter:none}
-    .hero-sticker{width:clamp(96px,15vw,140px);right:clamp(14px,2.4vw,22px);bottom:clamp(12px,2vw,18px)}
+    .hero-sticker{width:clamp(96px,15vw,140px);right:0;bottom:clamp(12px,2vw,18px)}
   }
-  @media (prefers-reduced-motion:reduce){.hero-sticker{transform:rotate(-4deg)!important}}
-
+  
   /* MARQUEE */
   .marq{background:var(--grad);color:#fff;overflow:hidden;padding:17px 0;border-block:1px solid rgba(255,255,255,.18)}
   .marq-track{display:flex;gap:30px;width:max-content;animation:scroll 36s linear infinite;font-weight:700;font-size:clamp(20px,3vw,44px);letter-spacing:-.03em;line-height:1;white-space:nowrap;text-transform:uppercase}
@@ -367,10 +365,10 @@
   </div>
   <div class="hero-foot">
     <div class="hero-meta-row">
-      <span class="pill solid">2026</span>
       <span class="pill">moskvarium</span>
       <span class="pill">bbdo</span>
-      <span class="pill">webar quest</span>
+      <span class="pill pill-case">WebAR</span>
+      <span class="pill">quest</span>
       <span class="pill">creative direction</span>
     </div>
     <div class="hero-logos">
@@ -679,7 +677,7 @@
     const st=document.getElementById('heroSticker');
     if(!st||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
     let t=false;
-    const upd=()=>{const y=scrollY;if(y<innerHeight*1.2){st.style.transform='translateY('+(y*-0.14)+'px) rotate(-4deg)';}t=false;};
+    const upd=()=>{const y=scrollY;if(y<innerHeight*1.2){st.style.transform='translateY('+(y*-0.14)+'px)';}t=false;};
     addEventListener('scroll',()=>{if(!t){t=true;requestAnimationFrame(upd);}},{passive:true});
   })();
 
