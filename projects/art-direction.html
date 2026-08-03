@@ -184,6 +184,14 @@ section[id]{scroll-margin-top:84px}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .reveal.shown{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.ad-tile img,.ad-tile .ad-media{transition:none}}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
 </style>
 <link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/art-direction.html">
 <link rel="alternate" hreflang="x-default" href="https://samarakovskaya.art/projects/art-direction.html">

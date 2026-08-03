@@ -321,6 +321,14 @@
   #zone-gallery .gal{grid-template-columns:repeat(2,1fr)}
   #zone-gallery .gi.tall{aspect-ratio:9/16}
 }
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
 </style>
 <link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/cgi-worldcup.html">
 

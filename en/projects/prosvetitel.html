@@ -291,6 +291,20 @@
 .lang-toggle .lang-seg{padding:6px 9px;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(241,236,221,.6);line-height:1;text-decoration:none;transition:color .2s,background .2s}
 .lang-toggle .lang-seg.on{background:#f1ecdd;color:#16161a;font-weight:600}
 .lang-toggle a.lang-seg:hover{color:#fff}
+
+/* NAV FIX 31.07.2026 — «Написать» всегда у правого края шапки, RU/EN только на десктопе */
+.nav-bar>.nav-end{margin-left:auto}
+.nav-bar>.lang-toggle{margin-left:auto}
+@media(max-width:780px){
+  .nav-bar .lang-toggle{display:none}
+  .nav-bar>.nav-cta{margin-left:auto}
+}
+
+/* FOOT LANG 31.07.2026 — переключатель языка в футере, только на мобильном (в шапке он скрыт) */
+.foot-lang{display:none}
+@media(max-width:780px){
+  .foot-lang{display:inline-flex;align-items:center;padding:6px 12px;border:1px solid currentColor;border-radius:999px;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:inherit;opacity:.75}
+}
 </style>
 <link rel="alternate" hreflang="ru" href="https://samarakovskaya.art/projects/prosvetitel.html">
 <link rel="alternate" hreflang="en" href="https://samarakovskaya.art/en/projects/prosvetitel.html">
@@ -664,6 +678,7 @@
   <div class="foot-row">
     <span>© 2026 · <b>Tanya Samarakovskaya</b></span>
     <span><a href="#top">↑ Back to top</a></span>
+    <a class="foot-lang" href="../../projects/prosvetitel.html" hreflang="ru">RU</a>
   </div>
 </footer>
 
