@@ -833,8 +833,8 @@
     <!-- decorative circle text -->
     <div class="hero-curve" aria-hidden="true">
       <svg viewBox="0 0 500 500">
-        <defs><path id="curveA" d="M 60 250 C 60 60, 440 60, 440 250 S 60 440, 60 250" fill="none"/></defs>
-        <text><textPath href="#curveA" startOffset="0" data-i18n="hero.curve">Кайф · делать то, чего ещё не делали · </textPath></text>
+        <defs><path id="curveA" d="M 88 250 C 88 88, 412 88, 412 250 S 88 412, 88 250" fill="none"/></defs>
+        <text><textPath href="#curveA" startOffset="0" data-i18n="hero.curve">Кайф делать то, чего ещё не делали · </textPath></text>
       </svg>
     </div>
 
@@ -1346,7 +1346,7 @@
     'nav.contact':'Contact',
     'nav.cta':'Get in touch',
 
-    'hero.curve':'The thrill · making things no one has made yet · ',
+    'hero.curve':'The thrill of making things no one has made yet · ',
     'hero.name':'<span class="row"><span class="syl s1">Ta</span><span class="syl s2">nya</span><span class="small"><em>★</em>cd · producer</span></span><span class="row"><span class="syl s1">Sa</span><span class="syl s2">ma</span><span class="syl s3">ra</span></span><span class="row"><span class="syl s1">kov</span><span class="syl s2">ska</span><span class="syl s3">ya</span></span>',
     'hero.lede':'Creative director and <span class="word-oval">full-cycle</span> producer: concept, storytelling, visual language, interaction, team, production, launch and operation.',
     'hero.role1':'creative',
@@ -1506,7 +1506,7 @@
 
   const BASE_SIZE = 30; // px — макс. размер, как в CSS .hero-curve text
   const MIN_SIZE = 15;  // px — нижняя граница читаемости
-  const MARGIN = 0.94;  // небольшой зазор, чтобы виток не наезжал сам на себя
+  const MARGIN = 0.995; // текст занимает кольцо целиком: конец фразы смыкается с началом
 
   function fit(){
     textEl.style.fontSize = BASE_SIZE + 'px';
