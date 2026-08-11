@@ -135,15 +135,35 @@
   .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
   .sec.on-cream .sec-head{border-color:var(--line-l)}
   @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
-  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
-  .sec-label::before{content:"✦";color:var(--lime-bright);font-size:12px}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+  .sec-label .num{color:var(--lime-bright);font-weight:700;letter-spacing:.06em}
   .sec.on-cream .sec-label{color:var(--ink-3)}
-  .sec.on-cream .sec-label::before{color:var(--lime-deep)}
+  .sec.on-cream .sec-label .num{color:var(--lime-deep)}
+  .sec-head.no-title{grid-template-columns:auto 1fr}
+  @media(max-width:780px){.sec-head.no-title{grid-template-columns:1fr}}
   .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
   .sec.on-cream .sec-side{color:var(--ink-2)}
   .sec-side b{font-weight:700;color:var(--bone)}
   .sec.on-cream .sec-side b{color:var(--ink)}
   .sec-h{font-weight:700;font-size:clamp(44px,7.5vw,112px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+
+  /* STATS BAND */
+  .stats{background:var(--lime);color:#fff;padding:64px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;max-width:1320px;margin:0 auto;padding:0 24px}
+  @media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:36px 24px}}
+  .stat b{display:block;font-weight:700;font-size:clamp(46px,5.6vw,84px);line-height:.84;letter-spacing:-.045em;color:#fff}
+  .stat span{display:block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.82);line-height:1.5}
+
+  /* VIDEO */
+  .yt-wrap{position:relative;aspect-ratio:16/9;background:var(--graphite-2);cursor:pointer;overflow:hidden;border:1px solid var(--line-d)}
+  .yt-wrap .yt-thumb{width:100%;height:100%;object-fit:cover;transition:transform .8s ease,filter .4s}
+  .yt-wrap:hover .yt-thumb{transform:scale(1.03);filter:brightness(.72)}
+  .yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .yt-play{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+  .yt-play svg{width:clamp(64px,7vw,92px);height:auto;transition:transform .3s}
+  .yt-wrap:hover .yt-play svg{transform:scale(1.09)}
+  .video-caption{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);line-height:1.7}
+  .video-caption a{color:var(--lime-bright);text-decoration:underline;text-underline-offset:3px}
 
   /* CONCEPT (cream) */
   .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream)}
@@ -337,6 +357,7 @@
     <a class="back" href="../index.html#works">Все проекты</a>
     <nav class="mag-nav" id="magNav">
       <a class="mag-pill" href="#s-concept" data-section="s-concept">О проекте</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video">Видео</a>
       <a class="mag-pill" href="#s-zones" data-section="s-zones">Зоны</a>
       <a class="mag-pill" href="#s-process" data-section="s-process">Роль</a>
       <a class="mag-pill" href="#s-gallery" data-section="s-gallery">Галерея</a>
@@ -349,8 +370,8 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-bg" aria-hidden="true">
-    <div class="ph" data-ph="союзмультпарк · зона «ёжик в тумане»">
-      <img src="../assets/souzmultpark/photo/webp/smp-hedgehog-fog.webp" alt="" loading="eager" decoding="async">
+    <div class="ph" data-ph="союзмультпарк · проекционная зона">
+      <img src="../assets/souzmultpark/photo/webp/smp-city-roofs.webp" alt="" loading="eager" decoding="async">
     </div>
   </div>
 
@@ -397,15 +418,15 @@
 <section class="sec on-cream" id="s-concept">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">О проекте</span>
+      <span class="sec-label"><span class="num">01</span> О проекте</span>
       <h2 class="sec-h">Студия, которую любят <span class="word-pill">поколениями</span>.</h2>
       <span class="sec-side"><b>Союзмультфильм · 1936</b><br>ВДНХ, Москва</span>
     </div>
 
     <div class="concept reveal">
       <div class="concept-img">
-        <div class="ph" data-ph="иммерсивная зона · проекция">
-          <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-projection-zone.webp" alt="Иммерсивная проекционная зона парка">
+        <div class="ph" data-ph="музей-таймлайн · кинолента студии">
+          <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-filmstrip-family.webp" alt="Семья у интерактивной киноленты в музее «Союзмультфильма»">
         </div>
       </div>
       <div class="concept-body">
@@ -414,7 +435,7 @@
         </p>
         <div class="concept-text">
           <p>«Союзмультфильм» основан в 1936 году как советский ответ Disney и к 1970–80-м стал крупнейшей анимационной студией Европы. За его плечами больше полутора тысяч фильмов и свыше 400 фестивальных наград. Чебурашка, Ёжик в тумане, Карлсон, Винни-Пух, Вовка в Тридевятом царстве: <b>персонажи, которых в России знают наизусть.</b></p>
-          <p>Союзмультпарк переносит эту вселенную в физическое пространство. Это первый в мире phygital-парк по советской анимации: <b>10 интерактивных зон и 14 игр</b> на 2500 м² и трёх этажах, 69 проекторов. Классические мультфильмы становятся осязаемыми. Команда из более чем 50 специалистов год собирала персонажей и их миры с нуля, заново озвучивала героев и придумывала игровые механики. AR, XR, ToF, BLE и motion capture работают на одно: гость попадает внутрь легендарной истории и проживает её сам.</p>
+          <p>Союзмультпарк переносит эту вселенную в физическое пространство. Это первый в мире phygital-парк по советской анимации: <b>10 интерактивных зон и 14 игр</b> на 2500 м² и трёх этажах, 69 проекторов. Классические мультфильмы становятся осязаемыми. Команда Hello Computer из более чем 50 специалистов год собирала персонажей и их миры с нуля, заново озвучивала героев и придумывала игровые механики. AR, XR, ToF, BLE и motion capture работают на одно: гость попадает внутрь легендарной истории и проживает её сам.</p>
         </div>
         <dl class="concept-meta">
           <div><dt>Студия</dt><dd>Союзмультфильм · 1936</dd></div>
@@ -426,11 +447,44 @@
   </div>
 </section>
 
-<!-- 02 · ЗОНЫ → CHAPTERS (graphite) -->
+<!-- ЦИФРЫ -->
+<section class="stats" aria-label="Парк в цифрах">
+  <div class="stats-grid">
+    <div class="stat"><b>∞</b><span>количество<br>игроков</span></div>
+    <div class="stat"><b>3+</b><span>возраст</span></div>
+    <div class="stat"><b>800+</b><span>посетителей в день</span></div>
+    <div class="stat"><b>4.9</b><span>рейтинг на Яндексе</span></div>
+    <div class="stat"><b>2020</b><span>год открытия</span></div>
+  </div>
+</section>
+
+<!-- 02 · ВИДЕО -->
+<section class="sec on-graphite" id="s-video" style="padding:80px 0">
+  <div class="wrap">
+    <div class="sec-head no-title reveal" style="margin-bottom:40px">
+      <span class="sec-label"><span class="num">02</span> Видео</span>
+      <span class="sec-side"><b>Союзмультпарк на ВДНХ</b><br>парк в движении</span>
+    </div>
+    <div class="reveal" style="max-width:1100px;margin:0 auto">
+      <div class="yt-wrap" id="yt-player" data-vid="ptHsjPwl5zY">
+        <img class="yt-thumb" src="../assets/souzmultpark/photo/webp/smp-planet-pool-green.webp" alt="Видео о Союзмультпарке" loading="lazy" decoding="async">
+        <div class="yt-play">
+          <svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="36" cy="36" r="36" fill="rgba(0,0,0,0.55)"/>
+            <path d="M28 22l24 14-24 14V22z" fill="white"/>
+          </svg>
+        </div>
+      </div>
+      <p class="video-caption">Союзмультпарк · ВДНХ, павильон №7 · <a href="https://www.youtube.com/watch?v=ptHsjPwl5zY" target="_blank" rel="noopener">смотреть на YouTube</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · ЗОНЫ → CHAPTERS (graphite) -->
 <section class="sec on-graphite" id="s-zones">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Зоны и инсталляции</span>
+      <span class="sec-label"><span class="num">03</span> Зоны и инсталляции</span>
       <h2 class="sec-h">Каждый мультфильм это <span class="word-pill">зона</span>.</h2>
       <span class="sec-side"><b>10 зон · 14 игр</b><br>phygital-механики</span>
     </div>
@@ -447,7 +501,7 @@
 
     <article class="chap full reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="интерактивный пол · 10 зон"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="Интерактивная зона парка"></div>
+        <div class="ph" data-ph="интерактивная проекция · пол и стены"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-projection-zone.webp" alt="Интерактивная проекция на полу и стенах зоны"></div>
       </div>
       <div class="chap-body">
         <h3 class="chap-title">10 зон, ни одного <span class="mark">гаджета</span></h3>
@@ -457,7 +511,7 @@
 
     <article class="chap flip reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="зона «тайна третьей планеты»"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-third-planet.webp" alt="Зона «Тайна третьей планеты»"></div>
+        <div class="ph" data-ph="зона «тайна третьей планеты»"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-planet-pool-blue.webp" alt="Зона «Тайна третьей планеты»: сухой бассейн и проекция планеты"></div>
       </div>
       <div class="chap-body">
         <h3 class="chap-title">Тайна третьей <span class="mark">планеты</span></h3>
@@ -467,7 +521,7 @@
 
     <article class="chap reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="зона «вовка в тридевятом царстве»"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-vovka.webp" alt="Зона «Вовка в Тридевятом царстве»"></div>
+        <div class="ph" data-ph="зона «вовка в тридевятом царстве»"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/mechanic-paint.webp" alt="Зона «Вовка в Тридевятом царстве»: игра «покрась забор»"></div>
       </div>
       <div class="chap-body">
         <h3 class="chap-title">Вовка в Тридевятом <span class="mark">царстве</span></h3>
@@ -476,6 +530,16 @@
     </article>
 
     <article class="chap flip reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="зона «винни-пух» · декорации"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-winnie-house.webp" alt="Зона «Винни-Пух»: домик с дуплом-проходом и расписанный лес"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Не только <span class="mark">проекции</span></h3>
+        <p>Часть зон построена физически: домик Винни-Пуха с дуплом-проходом, расписанный лес, объёмные фактуры, в которые можно залезть. <b>Декорация и проекция работают в паре: одна даёт тактильность, другая — масштаб и движение.</b> Ребёнок сначала трогает мир руками, а потом видит, как он оживает.</p>
+      </div>
+    </article>
+
+    <article class="chap reveal">
       <div class="chap-img">
         <div class="ph" data-ph="музей-таймлайн · кинолента"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-museum-timeline.webp" alt="Музей-таймлайн «Союзмультфильма»"></div>
       </div>
@@ -487,20 +551,19 @@
   </div>
 </section>
 
-<!-- 03 · РОЛЬ → ROLE GRID (cream) -->
+<!-- 04 · РОЛЬ → ROLE GRID (cream) -->
 <section class="sec on-cream" id="s-process">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Роль</span>
-      <h2 class="sec-h"><span class="word-pill">Креатор</span> в команде.</h2>
-      <span class="sec-side"><b>Hello Computer</b><br>концепция · сценарии · зоны</span>
+    <div class="sec-head no-title reveal">
+      <span class="sec-label"><span class="num">04</span> Роль</span>
+      <span class="sec-side"><b>Креатор · Hello Computer</b><br>концепция · сценарии · зоны</span>
     </div>
 
     <div class="role-grid reveal">
       <div class="role-card">
         <div class="role-photo">
-          <div class="ph" data-ph="зона парка · рендер">
-            <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-gallery-01.webp" alt="">
+          <div class="ph" data-ph="концепция музея-таймлайна">
+            <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-concept-filmstrip.webp" alt="Концепция музея-таймлайна: кадры киноленты по годам">
           </div>
         </div>
         <div class="role-text">
@@ -524,7 +587,7 @@
       <div class="role-card">
         <div class="role-photo">
           <div class="ph" data-ph="визуальный язык зон">
-            <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-vovka.webp" alt="">
+            <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/zone-characters.webp" alt="">
           </div>
         </div>
         <div class="role-text">
@@ -536,7 +599,7 @@
       <div class="role-card">
         <div class="role-photo">
           <div class="ph" data-ph="оформление зоны">
-            <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="">
+            <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-gallery-01.webp" alt="">
           </div>
         </div>
         <div class="role-text">
@@ -548,23 +611,23 @@
   </div>
 </section>
 
-<!-- 04 · ГАЛЕРЕЯ → GALLERY (graphite) -->
+<!-- 05 · ГАЛЕРЕЯ → GALLERY (graphite) -->
 <section class="sec on-graphite" id="s-gallery">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Галерея</span>
-      <h2 class="sec-h"><span class="word-pill">Галерея</span>.</h2>
-      <span class="sec-side"><b>Зоны · проекции</b><br>рендеры и съёмка</span>
+      <span class="sec-label"><span class="num">05</span> Материалы</span>
+      <h2 class="sec-h">Галерея</h2>
+      <span class="sec-side"><b>Зоны · проекции</b><br>съёмка и рендеры</span>
     </div>
 
     <div class="gal reveal">
 
       <figure class="gi">
-        <div class="ph" data-ph="зона «ёжик в тумане»"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-hedgehog-fog.webp" alt="Зона «Ёжик в тумане»"></div>
+        <div class="ph" data-ph="интерактивная краска"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-paint-run.webp" alt="Дети бегут по интерактивной проекции"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="зона «тайна третьей планеты»"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-third-planet.webp" alt="Зона «Тайна третьей планеты»"></div>
+        <div class="ph" data-ph="светящиеся пеньки"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-forest-stumps.webp" alt="Лесная зона со светящимися пеньками"></div>
       </figure>
 
       <div class="gcap">
@@ -573,23 +636,39 @@
       </div>
 
       <figure class="gi">
-        <div class="ph" data-ph="музей-таймлайн"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-museum-timeline.webp" alt="Музей-таймлайн"></div>
+        <div class="ph" data-ph="рисунок оживает"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/scene-rain.webp" alt="Гость с рисунками, которые попадают в проекцию"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="интерактивная зона · рендер"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-gallery-01.webp" alt="Интерактивная зона"></div>
+        <div class="ph" data-ph="проекционный ландшафт"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/scene-landscape.webp" alt="Проекционный ландшафт зоны"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="интерактивный пол"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="Интерактивный пол"></div>
+        <div class="ph" data-ph="качели в проекции"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/hero-space-swing.webp" alt="Качели внутри проекционной зоны"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="зона «вовка»"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-vovka.webp" alt="Зона «Вовка в Тридевятом царстве»"></div>
+        <div class="ph" data-ph="круглая проекция на полу"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/scene-stamp.webp" alt="Круглая проекция на полу"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="цветная иммерсивная зона"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-projection-zone.webp" alt="Цветная иммерсивная зона"></div>
+        <div class="ph" data-ph="зона «вовка» · рендер"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-vovka.webp" alt="Зона «Вовка в Тридевятом царстве», рендер"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="интерактивный пол · рендер"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="Интерактивный пол, рендер"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="зона-лес · рендер"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/scene-forest.webp" alt="Лесная зона, рендер"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="игровая комната · рендер"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/scene-room-kids.webp" alt="Игровая зона, рендер"></div>
+      </figure>
+
+      <figure class="gi">
+        <div class="ph" data-ph="вертикальный экран · рендер"><img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/scene-reach.webp" alt="Вертикальный проекционный экран, рендер"></div>
       </figure>
 
     </div>
@@ -600,7 +679,7 @@
 <section class="pullq">
   <div class="pullq-bg" aria-hidden="true">
     <div class="ph" data-ph="проекционная зона">
-      <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-third-planet.webp" alt="">
+      <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/scene-circle.webp" alt="">
     </div>
   </div>
   <div class="pullq-inner reveal">
@@ -610,16 +689,12 @@
   </div>
 </section>
 
-<!-- BIG IMAGE -->
-<section style="background:var(--graphite)">
-  <img loading="lazy" decoding="async" src="../assets/souzmultpark/photo/webp/smp-museum-timeline.webp" alt="Союзмультпарк · музей-таймлайн" style="width:100%;height:auto;display:block">
-</section>
-
-<!-- 05 · КОНТЕКСТ → CREDITS (cream) -->
+<!-- 06 · КОНТЕКСТ → CREDITS (cream) -->
 <section class="credits" id="s-credits">
   <div class="wrap">
     <div class="credits-top reveal">
       <div>
+        <span class="sec-label" style="color:var(--ink-3);margin-bottom:18px;display:inline-flex"><span class="num" style="color:var(--lime-deep)">06</span> Контекст</span>
         <h2 class="credits-title">Контекст <span class="word-pill">проекта</span></h2>
       </div>
       <div class="credits-facts">
@@ -642,6 +717,10 @@
         <div class="cred-row">
           <dt>Локация</dt>
           <dd>ВДНХ, павильон №7 <span class="mark">«Семена»</span><span class="sub">Москва</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Открытие</dt>
+          <dd><span class="mark">2020</span><span class="sub">парк работает по сей день</span></dd>
         </div>
         <div class="cred-row">
           <dt>Масштаб</dt>
@@ -721,7 +800,7 @@
   });
 
   /* ACTIVE PILL on scroll */
-  const sectionIds = ['s-concept','s-zones','s-process','s-gallery','s-credits'];
+  const sectionIds = ['s-concept','s-video','s-zones','s-process','s-gallery','s-credits'];
   const pillMap = {};
   document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
   const secObs = new IntersectionObserver(entries => {
@@ -734,6 +813,21 @@
     });
   }, { threshold: 0.25 });
   sectionIds.forEach(id => { const el = document.getElementById(id); if (el) secObs.observe(el); });
+
+  /* VIDEO click-to-play — YouTube грузится только по клику */
+  const ytPlayer = document.getElementById('yt-player');
+  if (ytPlayer) {
+    ytPlayer.addEventListener('click', () => {
+      if (ytPlayer.dataset.loaded) return;
+      ytPlayer.dataset.loaded = '1';
+      const vid = ytPlayer.dataset.vid;
+      ytPlayer.innerHTML = '<iframe src="https://www.youtube.com/embed/' + vid +
+        '?autoplay=1&rel=0&modestbranding=1" title="Союзмультпарк — видео о проекте" ' +
+        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+        'allowfullscreen></iframe>';
+      ytPlayer.style.cursor = 'default';
+    });
+  }
 
   const lb = document.getElementById('lb');
   const lbImg = document.getElementById('lbImg');
