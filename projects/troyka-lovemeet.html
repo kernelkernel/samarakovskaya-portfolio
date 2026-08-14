@@ -283,6 +283,9 @@
   .stat-item strong{display:block;font-family:"Space Grotesk",sans-serif;font-size:clamp(28px,3.5vw,52px);font-weight:700;letter-spacing:-.04em;line-height:.9;color:var(--ink);margin-bottom:6px}
   .stat-item strong .mark{color:var(--lime-deep)}
   .results-body{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .results-src{margin-top:36px;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+  .results-src a{color:var(--ink);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+  .results-src a:hover{color:var(--ink-3)}
   @media(max-width:900px){.results-body{grid-template-columns:1fr}}
   .cred-row{display:grid;grid-template-columns:160px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line-l);align-items:baseline}
   .cred-row:first-child{border-top:1px solid var(--line-l)}
@@ -444,8 +447,8 @@
 <!-- MARQUEE -->
 <div class="marq" aria-hidden="true">
   <div class="marq-track">
-    <span data-i18n="tk.row">10 000 карт за пару дней <span class="dot"></span> 5 часов в закрытом вагоне метро <span class="dot"></span> Ночные съёмки на ВДНХ <span class="dot"></span> Кастинг · PPM-бук · Treatment <span class="dot"></span> Уэс Андерсон meets московское метро <span class="dot"></span> 1,1 млн охват <span class="dot"></span></span>
-    <span data-i18n="tk.row">10 000 карт за пару дней <span class="dot"></span> 5 часов в закрытом вагоне метро <span class="dot"></span> Ночные съёмки на ВДНХ <span class="dot"></span> Кастинг · PPM-бук · Treatment <span class="dot"></span> Уэс Андерсон meets московское метро <span class="dot"></span> 1,1 млн охват <span class="dot"></span></span>
+    <span data-i18n="tk.row">10 000 карт за 2 дня <span class="dot"></span> 5 часов в закрытом вагоне метро <span class="dot"></span> Ночные съёмки на ВДНХ <span class="dot"></span> Кастинг · PPM-бук · Treatment <span class="dot"></span> Уэс Андерсон meets московское метро <span class="dot"></span> 1,1 млн охват <span class="dot"></span></span>
+    <span data-i18n="tk.row">10 000 карт за 2 дня <span class="dot"></span> 5 часов в закрытом вагоне метро <span class="dot"></span> Ночные съёмки на ВДНХ <span class="dot"></span> Кастинг · PPM-бук · Treatment <span class="dot"></span> Уэс Андерсон meets московское метро <span class="dot"></span> 1,1 млн охват <span class="dot"></span></span>
   </div>
 </div>
 
@@ -465,7 +468,7 @@
           А что если транспортная карта поможет встретить того единственного?
         </p>
         <p class="concept-lead" data-i18n="concept.lead">
-          Москвариум и Дептранс Москвы выпускают первую лимитированную серию брендированных карт «Тройка» — <span class="word-block">с персонажами, которые оживают.</span>
+          Москвариум и Дептранс Москвы выпускают первую лимитированную серию брендированных карт «Тройка» — <span class="word-block">с персонажами, которые оживают.</span> Повод — восьмилетие Москвариума.
         </p>
       </div>
 
@@ -844,7 +847,7 @@
         <h2 class="results-title" data-i18n="results.title">Резуль<span class="word-pill">таты</span></h2>
       </div>
       <div class="results-numbers">
-        <div class="stat-item"><strong>10<span class="mark">K</span></strong><span data-i18n="results.stat1">карт · за пару дней</span></div>
+        <div class="stat-item"><strong>10<span class="mark">K</span></strong><span data-i18n="results.stat1">карт · за 2 дня</span></div>
         <div class="stat-item"><strong>530<span class="mark">+</span></strong><span data-i18n="results.stat2">публикаций</span></div>
         <div class="stat-item"><strong data-i18n="results.stat3num">1,1<span class="mark">M</span></strong><span data-i18n="results.stat3">охват</span></div>
       </div>
@@ -854,7 +857,7 @@
       <dl>
         <div class="cred-row">
           <dt data-i18n="results.dt1">Тираж</dt>
-          <dd data-i18n="results.dd1">около 10 000 карт — <span class="mark">за пару дней</span><span class="sub">MOSMETROSHOP · стойки «Живое общение» · Москвариум</span></dd>
+          <dd data-i18n="results.dd1">10 000 карт — <span class="mark">за 2 дня</span><span class="sub">MOSMETROSHOP · стойки «Живое общение» · Москвариум</span></dd>
         </div>
         <div class="cred-row">
           <dt data-i18n="results.dt2">Медиа</dt>
@@ -880,6 +883,11 @@
         </div>
       </dl>
     </div>
+
+    <p class="results-src reveal">
+      <span data-i18n="results.srclabel">Данные публичного кейса:</span>
+      <a href="https://www.sostav.ru/publication/moskvarium-64594.html" target="_blank" rel="noopener noreferrer" data-i18n="results.srclink">Sostav.ru, 25.11.2023</a>
+    </p>
   </div>
 </section>
 
@@ -1020,10 +1028,10 @@
     'h.fact2l':'Film','h.fact2v':'Commercial film supporting&nbsp;the project',
     'h.fact3l':'Project','h.fact3v':'Moskvarium × Moscow Department of Transport',
     'h.fact4l':'Role','h.fact4v':'Creative Director at Moskvarium',
-    'tk.row':'10,000 cards in a couple of days <span class="dot"></span> 5 hours in a closed metro carriage <span class="dot"></span> Night shoot at VDNH <span class="dot"></span> Casting · PPM deck · treatment <span class="dot"></span> Wes Anderson meets the Moscow Metro <span class="dot"></span> 1.1M reach <span class="dot"></span>',
+    'tk.row':'10,000 cards in 2 days <span class="dot"></span> 5 hours in a closed metro carriage <span class="dot"></span> Night shoot at VDNH <span class="dot"></span> Casting · PPM deck · treatment <span class="dot"></span> Wes Anderson meets the Moscow Metro <span class="dot"></span> 1.1M reach <span class="dot"></span>',
     'concept.label':'Project','concept.h':'7 million people. <span class="word-pill">One</span> encounter.','concept.side':'<b>Moskvarium × Moscow Transport</b><br>First edition',
     'concept.hook':'The Moscow Metro carries <span class="word-block">7 million</span> passengers every day.<br>What if a transit card could help you meet the one?',
-    'concept.lead':'Moskvarium and Moscow Transport launch the first limited-edition Troika cards — <span class="word-block">with characters that come to life.</span>',
+    'concept.lead':'Moskvarium and Moscow Transport launch the first limited-edition Troika cards — <span class="word-block">with characters that come to life.</span> The occasion: Moskvarium’s eighth birthday.',
     'concept.card1n':'Capybara','concept.card1d':'jumps','concept.card2n':'Otter','concept.card2d':'dives','concept.card3n':'Sea lion','concept.card3d':'swims through the air',
     'concept.p1':'Three cards, three heroes: <b>capybaras, otters, and sea lions</b> — some of Moskvarium’s most popular residents. Custom illustrations in a Wes Anderson-inspired aesthetic: bright colors, frontal precision, and eccentric accessories. Close in spirit to Fantastic Mr. Fox.',
     'concept.p2':'Each card has a QR code. Point the camera at it, and a virtual resident appears beside you with <b>a personality of its own</b>. Sea lions swim through the air, otters dive, capybaras jump. Each character has its own original music theme.',
@@ -1066,8 +1074,9 @@
     'gallery.cap2big':'Docu-<br>ments','gallery.cap2sub':'treatment · PPM · brief',
     'gallery.cap3big':'Frames<br>and set','gallery.cap3sub':'film · backstage',
     'results.title':'Re<span class="word-pill">sults</span>',
-    'results.stat1':'cards · in a couple of days','results.stat2':'publications','results.stat3num':'1.1<span class="mark">M</span>','results.stat3':'reach',
-    'results.dt1':'Edition','results.dd1':'~10,000 cards — <span class="mark">in a couple of days</span><span class="sub">MOSMETROSHOP · Live Communication desks · Moskvarium</span>',
+    'results.srclabel':'Public case data:','results.srclink':'Sostav.ru, 25 Nov 2023',
+    'results.stat1':'cards · in 2 days','results.stat2':'publications','results.stat3num':'1.1<span class="mark">M</span>','results.stat3':'reach',
+    'results.dt1':'Edition','results.dd1':'10,000 cards — <span class="mark">in 2 days</span><span class="sub">MOSMETROSHOP · Live Communication desks · Moskvarium</span>',
     'results.dt2':'Media','results.dd2':'530+ publications<span class="sub">press · TV · social media</span>',
     'results.dt3':'Video','results.dd3':'~100,000 views<span class="sub">commercial film · YouTube + social media</span>',
     'results.dt4':'Reach','results.dd4':'1.1 million people<span class="sub">total campaign reach</span>',
