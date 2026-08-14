@@ -135,15 +135,30 @@
   .sec-head{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:end;padding-bottom:28px;border-bottom:1px solid var(--line-d);margin-bottom:56px}
   .sec.on-cream .sec-head{border-color:var(--line-l)}
   @media(max-width:780px){.sec-head{grid-template-columns:1fr;gap:14px}}
-  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px}
-  .sec-label::before{content:"✦";color:var(--lime-bright);font-size:12px}
+  .sec-label{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--bone-3);display:inline-flex;align-items:center;gap:10px;white-space:nowrap}
+  .sec-label .num{color:var(--lime-bright);font-weight:700;letter-spacing:.06em}
   .sec.on-cream .sec-label{color:var(--ink-3)}
-  .sec.on-cream .sec-label::before{color:var(--lime-deep)}
+  .sec.on-cream .sec-label .num{color:var(--lime-deep)}
+  .sec-head.no-title{grid-template-columns:auto 1fr}
+  @media(max-width:780px){.sec-head.no-title{grid-template-columns:1fr}}
   .sec-side{font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-2);text-align:right;line-height:1.7}
   .sec.on-cream .sec-side{color:var(--ink-2)}
   .sec-side b{font-weight:700;color:var(--bone)}
   .sec.on-cream .sec-side b{color:var(--ink)}
   .sec-h{font-weight:700;font-size:clamp(44px,7.5vw,112px);line-height:.9;letter-spacing:-.045em;text-wrap:balance}
+
+  /* STATS BAND */
+  .stats{background:var(--lime);color:#fff;padding:64px 0}
+  .stats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;max-width:1320px;margin:0 auto;padding:0 24px}
+  @media(max-width:900px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:36px 24px}}
+  .stat b{display:block;font-weight:700;font-size:clamp(46px,5.6vw,84px);line-height:.84;letter-spacing:-.045em;color:#fff}
+  .stat span{display:block;margin-top:14px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:rgba(255,255,255,.82);line-height:1.5}
+
+  /* VIDEO */
+  .yt-wrap{position:relative;aspect-ratio:16/9;background:var(--graphite-2);overflow:hidden;border:1px solid var(--line-d)}
+  .yt-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-caption{margin-top:18px;font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--bone-3);line-height:1.7}
+  .video-caption a{color:var(--lime-bright);text-decoration:underline;text-underline-offset:3px}
 
   /* CONCEPT (cream) */
   .concept{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--cream)}
@@ -325,6 +340,7 @@
     <a class="back" href="../index.html#works">All projects</a>
     <nav class="mag-nav" id="magNav">
       <a class="mag-pill" href="#s-concept" data-section="s-concept">About</a>
+      <a class="mag-pill" href="#s-video" data-section="s-video">Video</a>
       <a class="mag-pill" href="#s-zones" data-section="s-zones">Zones</a>
       <a class="mag-pill" href="#s-process" data-section="s-process">Role</a>
       <a class="mag-pill" href="#s-gallery" data-section="s-gallery">Gallery</a>
@@ -337,8 +353,8 @@
 <!-- HERO -->
 <section class="hero" id="top">
   <div class="hero-bg" aria-hidden="true">
-    <div class="ph" data-ph="soyuzmultpark · hedgehog in the fog zone">
-      <img src="../../assets/souzmultpark/photo/webp/smp-hedgehog-fog.webp" alt="" loading="eager" decoding="async">
+    <div class="ph" data-ph="soyuzmultpark · projection zone">
+      <img src="../../assets/souzmultpark/photo/webp/smp-city-roofs.webp" alt="" loading="eager" decoding="async">
     </div>
   </div>
 
@@ -385,15 +401,15 @@
 <section class="sec on-cream" id="s-concept">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">About</span>
+      <span class="sec-label"><span class="num">01</span> About</span>
       <h2 class="sec-h">A studio loved for <span class="word-pill">generations</span>.</h2>
       <span class="sec-side"><b>Soyuzmultfilm · 1936</b><br>VDNH, Moscow</span>
     </div>
 
     <div class="concept reveal">
       <div class="concept-img">
-        <div class="ph" data-ph="immersive zone · projection">
-          <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-projection-zone.webp" alt="Immersive projection zone of the park">
+        <div class="ph" data-ph="museum timeline · studio filmstrip">
+          <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-filmstrip-family.webp" alt="A family at the interactive filmstrip in the Soyuzmultfilm museum">
         </div>
       </div>
       <div class="concept-body">
@@ -402,7 +418,7 @@
         </p>
         <div class="concept-text">
           <p><b>Soyuzmultfilm</b> was founded in 1936 as the Soviet answer to Disney, and by the 1970s–80s had become Europe’s largest animation studio. Its legacy includes more than 1,500 films and over 400 festival awards. Cheburashka, Hedgehog in the Fog, Karlsson-on-the-Roof, Winnie-the-Pooh, Vovka in the Far Far Away Kingdom: <b>characters people in Russia know by heart.</b></p>
-          <p>Soyuzmultpark brings this universe into physical space. It is the world’s first phygital park dedicated to Soviet animation: <b>10 interactive zones and 14 games</b> across 2,500 m² and three floors, powered by 69 projectors. Classic cartoons become tangible. A team of more than 50 specialists spent a year rebuilding the characters and their worlds from scratch, recording new voices and developing the game mechanics. AR, XR, ToF, BLE and motion capture serve one purpose: the visitor steps inside a legendary story and experiences it firsthand.</p>
+          <p>Soyuzmultpark brings this universe into physical space. It is the world’s first phygital park dedicated to Soviet animation: <b>10 interactive zones and 14 games</b> across 2,500 m² and three floors, powered by 69 projectors. Classic cartoons become tangible. A Hello Computer team of more than 50 specialists spent a year rebuilding the characters and their worlds from scratch, recording new voices and developing the game mechanics. AR, XR, ToF, BLE and motion capture serve one purpose: the visitor steps inside a legendary story and experiences it firsthand.</p>
         </div>
         <dl class="concept-meta">
           <div><dt>Studio</dt><dd>Soyuzmultfilm · 1936</dd></div>
@@ -414,18 +430,48 @@
   </div>
 </section>
 
-<!-- 02 · ZONES → CHAPTERS (graphite) -->
+<!-- ЦИФРЫ / STATS -->
+<section class="stats" aria-label="The park in numbers">
+  <div class="stats-grid">
+    <div class="stat"><b>∞</b><span>number<br>of players</span></div>
+    <div class="stat"><b>3+</b><span>age</span></div>
+    <div class="stat"><b>800+</b><span>visitors per day</span></div>
+    <div class="stat"><b>4.9</b><span>rated on Yandex</span></div>
+    <div class="stat"><b>2020</b><span>opening date</span></div>
+  </div>
+</section>
+
+<!-- 02 · VIDEO -->
+<section class="sec on-graphite" id="s-video" style="padding:80px 0">
+  <div class="wrap">
+    <div class="sec-head no-title reveal" style="margin-bottom:40px">
+      <span class="sec-label"><span class="num">02</span> Video</span>
+      <span class="sec-side"><b>Soyuzmultpark at VDNH</b><br>the park in motion</span>
+    </div>
+    <div class="reveal" style="max-width:1100px;margin:0 auto">
+      <div class="yt-wrap">
+        <iframe src="https://www.youtube.com/embed/ptHsjPwl5zY?rel=0&amp;modestbranding=1"
+                title="Soyuzmultpark — project video" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+      </div>
+      <p class="video-caption">Soyuzmultpark · VDNH, Pavilion No. 7 · <a href="https://www.youtube.com/watch?v=ptHsjPwl5zY" target="_blank" rel="noopener">watch on YouTube</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · ZONES → CHAPTERS (graphite) -->
 <section class="sec on-graphite" id="s-zones">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Zones and installations</span>
+      <span class="sec-label"><span class="num">03</span> Zones and installations</span>
       <h2 class="sec-h">Every cartoon becomes a <span class="word-pill">zone</span>.</h2>
       <span class="sec-side"><b>10 zones · 14 games</b><br>phygital mechanics</span>
     </div>
 
     <article class="chap reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="“Hedgehog in the Fog” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-hedgehog-fog.webp" alt="“Hedgehog in the Fog” zone"></div>
+        <div class="ph" data-ph="“Hedgehog in the Fog” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-hedgehog-lanterns.webp" alt="“Hedgehog in the Fog” zone: lanterns and a projected night forest"></div>
       </div>
       <div class="chap-body">
         <h3 class="chap-title">Hedgehog in the <span class="mark">Fog</span></h3>
@@ -435,17 +481,17 @@
 
     <article class="chap full reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="interactive floor · 10 zones"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="Interactive zone of the park"></div>
+        <div class="ph" data-ph="interactive projection · floor and walls"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-paint-zone-wide.webp" alt="Interactive projection across the floor and walls of the zone"></div>
       </div>
       <div class="chap-body">
-        <h3 class="chap-title">10 zones, not a single <span class="mark">gadget</span></h3>
+        <h3 class="chap-title">10 zones with beloved <span class="mark">characters</span></h3>
         <p>Each zone lives according to its own cartoon, with its own light, sound and set of games. Visitors wear an RFID wristband, complete missions, collect points and receive their photos and videos by email. <b>AR, XR, ToF, BLE and motion capture allow dozens of children to influence a shared projection at the same time.</b> No headsets or personal devices are required, making the format safe for any age.</p>
       </div>
     </article>
 
     <article class="chap flip reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="“The Mystery of the Third Planet” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-third-planet.webp" alt="“The Mystery of the Third Planet” zone"></div>
+        <div class="ph" data-ph="“The Mystery of the Third Planet” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-planet-pool-blue.webp" alt="“The Mystery of the Third Planet” zone: ball pool and planet projection"></div>
       </div>
       <div class="chap-body">
         <h3 class="chap-title">The Mystery of the Third <span class="mark">Planet</span></h3>
@@ -455,7 +501,7 @@
 
     <article class="chap reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="“Vovka in the Far Far Away Kingdom” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-vovka.webp" alt="“Vovka in the Far Far Away Kingdom” zone"></div>
+        <div class="ph" data-ph="“Vovka in the Far Far Away Kingdom” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-gallery-01.webp" alt="“Vovka in the Far Far Away Kingdom” zone"></div>
       </div>
       <div class="chap-body">
         <h3 class="chap-title">Vovka in the Far Far Away <span class="mark">Kingdom</span></h3>
@@ -465,7 +511,17 @@
 
     <article class="chap flip reveal">
       <div class="chap-img">
-        <div class="ph" data-ph="museum timeline · filmstrip"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-museum-timeline.webp" alt="Soyuzmultfilm museum timeline"></div>
+        <div class="ph" data-ph="“Winnie-the-Pooh” zone · set design"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-winnie-house.webp" alt="“Winnie-the-Pooh” zone: a built house with a hollow passage and a painted forest"></div>
+      </div>
+      <div class="chap-body">
+        <h3 class="chap-title">Not only <span class="mark">projections</span></h3>
+        <p>Some zones are built physically: Winnie-the-Pooh’s house with a hollow to crawl through, a painted forest, three-dimensional textures children can climb into. <b>Set design and projection work as a pair: one gives you touch, the other gives you scale and movement.</b> A child first feels the world with their hands, then watches it come alive.</p>
+      </div>
+    </article>
+
+    <article class="chap reveal">
+      <div class="chap-img">
+        <div class="ph" data-ph="museum timeline · filmstrip"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-museum-wall.webp" alt="Soyuzmultfilm museum timeline: visitors at the interactive wall"></div>
       </div>
       <div class="chap-body">
         <h3 class="chap-title">The studio <span class="mark">museum timeline</span></h3>
@@ -475,20 +531,19 @@
   </div>
 </section>
 
-<!-- 03 · ROLE → ROLE GRID (cream) -->
+<!-- 04 · ROLE → ROLE GRID (cream) -->
 <section class="sec on-cream" id="s-process">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="sec-label">Role</span>
-      <h2 class="sec-h"><span class="word-pill">Creator</span> in the team.</h2>
-      <span class="sec-side"><b>Hello Computer</b><br>concept · scripts · zones</span>
+    <div class="sec-head no-title reveal">
+      <span class="sec-label"><span class="num">04</span> Role</span>
+      <span class="sec-side"><b>Creator · Hello Computer</b><br>concept · scripts · zones</span>
     </div>
 
     <div class="role-grid reveal">
       <div class="role-card">
         <div class="role-photo">
-          <div class="ph" data-ph="park zone · render">
-            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-gallery-01.webp" alt="">
+          <div class="ph" data-ph="park plan · three floors">
+            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-park-plan.webp" alt="Park plan: three floors and the layout of the zones">
           </div>
         </div>
         <div class="role-text">
@@ -500,7 +555,7 @@
       <div class="role-card">
         <div class="role-photo">
           <div class="ph" data-ph="installation · script">
-            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-third-planet.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-concept-filmstrip.webp" alt="">
           </div>
         </div>
         <div class="role-text">
@@ -524,7 +579,7 @@
       <div class="role-card">
         <div class="role-photo">
           <div class="ph" data-ph="zone design">
-            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="">
+            <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-museum-timeline.webp" alt="">
           </div>
         </div>
         <div class="role-text">
@@ -536,48 +591,39 @@
   </div>
 </section>
 
-<!-- 04 · GALLERY → GALLERY (graphite) -->
+<!-- 05 · GALLERY → GALLERY (graphite) -->
 <section class="sec on-graphite" id="s-gallery">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="sec-label">Gallery</span>
-      <h2 class="sec-h"><span class="word-pill">Gallery</span>.</h2>
-      <span class="sec-side"><b>Zones · projections</b><br>renders and photography</span>
+      <span class="sec-label"><span class="num">05</span> Materials</span>
+      <h2 class="sec-h">Gallery</h2>
+      <span class="sec-side"><b>Zones · projections</b><br>photography and renders</span>
     </div>
 
     <div class="gal reveal">
 
       <figure class="gi">
-        <div class="ph" data-ph="“Hedgehog in the Fog” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-hedgehog-fog.webp" alt="“Hedgehog in the Fog” zone"></div>
+        <div class="ph" data-ph="tablet game"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-tablet-game.webp" alt="“The Orange Cow” game on a tablet in the park"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="“The Mystery of the Third Planet” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-third-planet.webp" alt="“The Mystery of the Third Planet” zone"></div>
-      </figure>
-
-      <div class="gcap">
-        <div class="big">10 zones,<br>one world</div>
-        <div class="sub">from Cheburashka to Vovka</div>
-      </div>
-
-      <figure class="gi">
-        <div class="ph" data-ph="museum timeline"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-museum-timeline.webp" alt="Museum timeline"></div>
+        <div class="ph" data-ph="painted set design"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-rabbit-kitchen.webp" alt="Visitors in a zone with painted set design"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="interactive zone · render"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-gallery-01.webp" alt="Interactive zone"></div>
+        <div class="ph" data-ph="glowing tree stumps"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-forest-stumps.webp" alt="Forest zone with glowing tree stumps"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="interactive floor"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="Interactive floor"></div>
+        <div class="ph" data-ph="ball pool · alien planet"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-planet-pool-green.webp" alt="Ball pool and a projection of an alien planet"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="“Vovka” zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-vovka.webp" alt="“Vovka in the Far Far Away Kingdom” zone"></div>
+        <div class="ph" data-ph="interactive paint"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-paint-run.webp" alt="Children running across an interactive projection"></div>
       </figure>
 
       <figure class="gi">
-        <div class="ph" data-ph="colourful immersive zone"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-projection-zone.webp" alt="Colourful immersive zone"></div>
+        <div class="ph" data-ph="interactive zone · render"><img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-interactive-zone.webp" alt="Interactive zone, render"></div>
       </figure>
 
     </div>
@@ -588,7 +634,7 @@
 <section class="pullq">
   <div class="pullq-bg" aria-hidden="true">
     <div class="ph" data-ph="projection zone">
-      <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-third-planet.webp" alt="">
+      <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-hedgehog-fog.webp" alt="">
     </div>
   </div>
   <div class="pullq-inner reveal">
@@ -598,16 +644,12 @@
   </div>
 </section>
 
-<!-- BIG IMAGE -->
-<section style="background:var(--graphite)">
-  <img loading="lazy" decoding="async" src="../../assets/souzmultpark/photo/webp/smp-museum-timeline.webp" alt="Soyuzmultpark · museum timeline" style="width:100%;height:auto;display:block">
-</section>
-
-<!-- 05 · CONTEXT → CREDITS (cream) -->
+<!-- 06 · CONTEXT → CREDITS (cream) -->
 <section class="credits" id="s-credits">
   <div class="wrap">
     <div class="credits-top reveal">
       <div>
+        <span class="sec-label" style="color:var(--ink-3);margin-bottom:18px;display:inline-flex"><span class="num" style="color:var(--lime-deep)">06</span> Context</span>
         <h2 class="credits-title">Project <span class="word-pill">context</span></h2>
       </div>
       <div class="credits-facts">
@@ -630,6 +672,10 @@
         <div class="cred-row">
           <dt>Location</dt>
           <dd>VDNH, Pavilion No. 7 <span class="mark">“Seeds”</span><span class="sub">Moscow</span></dd>
+        </div>
+        <div class="cred-row">
+          <dt>Opened</dt>
+          <dd><span class="mark">2020</span><span class="sub">the park is still running</span></dd>
         </div>
         <div class="cred-row">
           <dt>Scale</dt>
@@ -709,7 +755,7 @@
   });
 
   /* ACTIVE PILL on scroll */
-  const sectionIds = ['s-concept','s-zones','s-process','s-gallery','s-credits'];
+  const sectionIds = ['s-concept','s-video','s-zones','s-process','s-gallery','s-credits'];
   const pillMap = {};
   document.querySelectorAll('.mag-pill').forEach(p => { pillMap[p.dataset.section] = p; });
   const secObs = new IntersectionObserver(entries => {
