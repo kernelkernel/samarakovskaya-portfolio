@@ -283,6 +283,77 @@
 
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease,transform .8s ease}
   .reveal.in{opacity:1;transform:none}
+
+/* ═════════ ФОН-ПОЛЕ КЕЙСА ═════════
+   Тот же слой, что на главной: семь радиальных пятен в одном background,
+   без blur и без анимации. Размеры пятен в процентах от высоты поля —
+   ритм синего одинаковый и на странице в 8 000px, и в 27 000px.
+   Поле прокручивается вместе со страницей, не fixed и не тайлится.
+   Собственный акцент кейса не трогаем: он живёт в контенте поверх поля. */
+html{background:#0C0E16}
+body{position:relative;background:transparent}
+.page-field{
+  position:absolute;inset:0;z-index:-2;overflow:hidden;pointer-events:none;
+  background:
+    radial-gradient(62% 13% at 16% 5%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+    radial-gradient(52% 11% at 88% 20%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+    radial-gradient(58% 12% at 8% 35%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+    radial-gradient(60% 13% at 92% 50%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+    radial-gradient(66% 11% at 18% 65%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+    radial-gradient(54% 12% at 84% 81%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+    radial-gradient(62% 13% at 22% 96%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%);
+  background-color:#0C0E16;
+}
+.page-field::before{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(7,9,18,.62) 0%,rgba(7,9,18,.40) 55%,rgba(7,9,18,.20) 100%);
+}
+/* Зерно живёт внутри поля, а не поверх страницы: на кейсах много фотографий
+   и видео, крупная крупинка поверх них портит материал. */
+.page-field::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  opacity:.52;mix-blend-mode:soft-light;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='460' viewBox='0 0 460 460'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:460px 460px;
+  filter:contrast(200%);
+}
+@media(max-width:700px){
+  .page-field{
+    background:
+      radial-gradient(105% 9% at 4% 5%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(88% 8% at 100% 20%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(95% 9% at 0% 35%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(90% 9% at 104% 50%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(102% 8% at 2% 65%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(90% 9% at 100% 81%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(98% 9% at 4% 96%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%);
+    background-color:#0C0E16;
+  }
+  .page-field::after{opacity:.44;background-size:330px 330px}
+}
+
+/* Графитовые плоскости становятся полупрозрачными — сквозь них работает поле.
+   Кремовые секции остаются светлыми «островами»: это ритм самого кейса,
+   убирать его вместе с фоном было бы лишним. */
+.sec.on-graphite,
+.sec.on-dark,
+.pullq,
+.results,
+.proj-nav{background:transparent}
+.chap{background:rgba(30,30,34,.55)}
+footer{background:rgba(10,12,20,.55)}
+/* Тёмное стекло под текстом: на ярких участках поля вторичный текст
+   (--bone-2) терял контраст. Маска по 90px, чтобы плашка не читалась
+   прямоугольником. */
+.sec.on-graphite{position:relative}
+.sec.on-graphite::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:rgba(9,13,30,.46);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 90px,#000 calc(100% - 90px),transparent 100%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 90px,#000 calc(100% - 90px),transparent 100%);
+}
+
 </style>
 <style id="ru-switch-css">
 .nav-end{display:inline-flex;align-items:center;gap:10px}
@@ -322,6 +393,7 @@
 <!-- /Yandex.Metrika counter -->
 </head>
 <body>
+<div class="page-field" aria-hidden="true"></div>
 
 <div class="lb" id="lb">
   <button class="lb-close" id="lbClose">[ESC] закрыть</button>
