@@ -466,8 +466,8 @@
   /* about — фоновый портрет + текст поверх, 2 колонки */
   .about-sec{position:relative;overflow:hidden}
   .about-bg{position:absolute;inset:0;z-index:0}
-  .about-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:92% center}
-  .about-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--graphite) 0%,rgba(22,22,26,.86) 40%,rgba(22,22,26,.5) 64%,rgba(22,22,26,.08) 100%)}
+  .about-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:10% 22%}
+  .about-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--graphite) 0%,rgba(22,22,26,.88) 38%,rgba(22,22,26,.56) 62%,rgba(22,22,26,.34) 82%,rgba(22,22,26,.30) 100%)}
   .about-sec .wrap{position:relative;z-index:2}
   .about-content{display:flex;flex-direction:column;gap:clamp(20px,2.4vw,32px);max-width:min(720px,56%)}
   .about-statement-h{
@@ -482,8 +482,14 @@
     .about-content{max-width:100%;gap:22px}
     .about-statement-h{font-size:clamp(24px,6vw,34px)}
     .about-content .about-body{max-width:60ch}
-    .about-bg{background-position:80% top}
-    .about-bg::after{background:linear-gradient(180deg,rgba(22,22,26,.5) 0%,rgba(22,22,26,.82) 52%,var(--graphite) 100%)}
+    /* На узком экране секция выше кадра почти вчетверо: cover показывает
+       вертикальную полосу в 14% ширины фото, лицо в неё не помещается,
+       а текст всё равно ложится поверх. Портрет выходит из фона в поток
+       отдельным блоком — кадр целый, текст под ним. */
+    .about-sec{overflow:visible}
+    .about-bg{position:relative;inset:auto;height:min(54vh,440px);margin-bottom:clamp(22px,4vw,34px)}
+    .about-bg img{object-position:60% 18%}
+    .about-bg::after{background:linear-gradient(180deg,rgba(22,22,26,.10) 0%,rgba(22,22,26,.16) 54%,rgba(22,22,26,.72) 88%,var(--graphite) 100%)}
     .about-content .about-tags{max-width:100%}
   }
   /* телефон: мельче кегль и плотнее интерлиньяж — чтобы текст меньше перекрывал портрет */
@@ -729,6 +735,142 @@
     .reveal,.stagger>*{opacity:1!important;transform:none!important;transition:none}
     .hero-name .row,.hero-mid,.hero-stats{opacity:1!important;transform:none!important;animation:none!important}
   }
+
+  /* ═════════ ФОН-ПОЛЕ: синий градиент (перенос с t.samarakovskaya.art) ═════════
+     Начинается на «Обо мне» и идёт до подвала. Одно поле, семь радиальных пятен
+     в одном background-слое: без filter:blur и без анимации, иначе браузер
+     перерисовывает поле на каждом кадре и оно догоняет контент с задержкой.
+     Размеры пятен в процентах от высоты поля — ритм синего одинаковый на
+     короткой и длинной странице. Акцент сайта остаётся салатовым. */
+  .post-about-bg{
+    position:relative;isolation:isolate;overflow:hidden;
+    background-color:#0C0E16;
+  }
+  .gradient-field{
+    position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;
+    background:
+      radial-gradient(62% 13% at 16% 5%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(52% 11% at 88% 20%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(58% 12% at 8% 35%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(60% 13% at 92% 50%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(66% 11% at 18% 65%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(54% 12% at 84% 81%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(62% 13% at 22% 96%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%);
+    background-color:#0C0E16;
+  }
+  .gradient-field::after{
+    content:"";position:absolute;inset:0;z-index:2;
+    background:linear-gradient(90deg,rgba(7,9,18,.62) 0%,rgba(7,9,18,.40) 55%,rgba(7,9,18,.20) 100%);
+  }
+  /* Зерно поверх поля. Тайл 460px: клетка повтора не читается.
+     overlay на базе #0C0E16 крупное зерно не показывает — держим soft-light. */
+  .post-about-bg::after{
+    content:"";position:absolute;inset:0;z-index:20;pointer-events:none;
+    opacity:.52;mix-blend-mode:soft-light;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='460' height='460' viewBox='0 0 460 460'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat:repeat;background-size:460px 460px;
+    filter:contrast(200%);
+  }
+  .post-about-bg > *{position:relative;z-index:1}
+  .post-about-bg > .gradient-field{position:absolute;z-index:0}
+
+  /* Секции внутри поля становятся прозрачными.
+     «Обо мне» исключено: у него собственный фотофон. */
+  .post-about-bg .svc-section,
+  .post-about-bg .sec.on-cream,
+  .post-about-bg .sec.on-graphite:not(.about-sec){
+    background:transparent;color:var(--bone);
+  }
+  .post-about-bg .sec-head{border-color:var(--line-d2)}
+  .post-about-bg .sec-num{color:var(--bone-3)}
+  .post-about-bg .sec-side{color:var(--bone-2)}
+  .post-about-bg .sec-side b{color:var(--bone)}
+
+  /* «Обо мне» остаётся фотоблоком, но его низ растворяется в поле:
+     иначе между графитом секции и синим полем видна жёсткая горизонталь. */
+  .post-about-bg .about-sec{background:transparent;z-index:21}
+  .post-about-bg .about-bg{
+    -webkit-mask-image:linear-gradient(180deg,#000 0%,#000 44%,rgba(0,0,0,.78) 64%,rgba(0,0,0,.42) 82%,rgba(0,0,0,.12) 94%,rgba(0,0,0,0) 100%);
+    mask-image:linear-gradient(180deg,#000 0%,#000 44%,rgba(0,0,0,.78) 64%,rgba(0,0,0,.42) 82%,rgba(0,0,0,.12) 94%,rgba(0,0,0,0) 100%);
+  }
+
+  /* ── Компетенции: кремовая сетка → тёмное стекло на поле ── */
+  .post-about-bg .svc-section{border-top-color:var(--line-d2)}
+  .post-about-bg .svc{background:transparent;border:0;gap:10px}
+  @media(max-width:560px){.post-about-bg .svc{gap:8px}}
+  .post-about-bg .svc-cell{
+    background:rgba(12,13,18,.78);color:var(--bone);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  }
+  .post-about-bg .svc-cell .svc-num,
+  .post-about-bg .svc-cell .svc-tag{color:var(--bone-3)}
+  .post-about-bg .svc-cell .svc-desc{color:var(--bone-2)}
+  /* Ховер — кремовая вспышка, а не салатовая: салатовым остаётся только
+     ключевая ячейка, иначе на сетке загораются два одинаковых пятна и
+     иерархия рассыпается. Салатовые детали на кремовом не ставим — 1.5:1. */
+  .post-about-bg .svc-cell:hover{background:rgba(241,236,221,.95);color:var(--ink)}
+  .post-about-bg .svc-cell:hover .svc-num,
+  .post-about-bg .svc-cell:hover .svc-tag{color:var(--ink-3)}
+  .post-about-bg .svc-cell:hover .svc-desc{color:var(--ink-2)}
+  .post-about-bg .svc-cell:hover .svc-num .star{color:var(--ink)}
+  /* Ключевая ячейка идёт наоборот: салатовая по умолчанию, тёмная на ховере */
+  .post-about-bg .svc-cell.feat{background:var(--lime);color:var(--ink)}
+  .post-about-bg .svc-cell.feat:hover{background:var(--ink);color:var(--lime)}
+  .post-about-bg .svc-cell.feat:hover .svc-num,
+  .post-about-bg .svc-cell.feat:hover .svc-tag,
+  .post-about-bg .svc-cell.feat:hover .svc-headline{color:var(--lime)}
+  .post-about-bg .svc-cell.feat:hover .svc-num .star{color:var(--lime)}
+
+  /* ── Проекты ── */
+  .post-about-bg .wrow{background:rgba(18,21,36,.74)}
+  .post-about-bg .wrow:nth-child(even){background:rgba(8,10,18,.60)}
+  .post-about-bg .wrow:hover{background:rgba(38,42,60,.92)}
+  .post-about-bg .wcard{background:#121524}
+
+  /* ── Опыт: кремовая секция → светлый текст и стеклянные строки ── */
+  .post-about-bg .career-aside p{color:var(--bone-2)}
+  .post-about-bg .timeline{border-color:var(--line-d2)}
+  .post-about-bg .titem{
+    border-color:var(--line-d2);color:var(--bone);
+    background:rgba(10,12,22,.42);
+    backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  }
+  .post-about-bg .titem:hover{background:rgba(30,30,36,.92);color:var(--bone)}
+  .post-about-bg .tyear{color:var(--bone-3)}
+  .post-about-bg .trole,
+  .post-about-bg .tdesc{color:var(--bone-2)}
+  .post-about-bg .titem:hover .tyear,
+  .post-about-bg .titem:hover .trole,
+  .post-about-bg .titem:hover .tdesc{color:var(--bone-2)}
+  .post-about-bg .tarrow{border-color:var(--line-d2);color:var(--bone-2)}
+  .post-about-bg .tools-stack{border-color:var(--line-d2)}
+  .post-about-bg .tg-items{color:var(--bone-2)}
+  .post-about-bg .tg-name{color:var(--lime)}
+  /* Кнопка CV была тёмной на кремовом — на поле её не видно */
+  .post-about-bg .btn-dark{background:var(--lime);color:var(--ink)}
+  .post-about-bg .btn-dark:hover{background:var(--bone);color:var(--ink)}
+  .post-about-bg .btn-dark .arrow{background:var(--ink);color:var(--lime)}
+
+  /* ── Подвал ── */
+  .post-about-bg footer{background:rgba(7,9,18,.30);border-color:var(--line-d2)}
+
+  /* На узком экране пятна шире экрана и уходят за края: синий читается
+     полосами вдоль страницы, а не кружками по центру. */
+  @media(max-width:700px){
+    .gradient-field{
+      background:
+        radial-gradient(105% 9% at 4% 5%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(88% 8% at 100% 20%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(95% 9% at 0% 35%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(90% 9% at 104% 50%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(102% 8% at 2% 65%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(90% 9% at 100% 81%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(98% 9% at 4% 96%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%);
+      background-color:#0C0E16;
+    }
+    .post-about-bg::after{opacity:.44;background-size:330px 330px}
+  }
+
 </style>
 <script type="application/ld+json">
 {
@@ -899,9 +1041,14 @@
   </div>
 </div>
 
+<!-- Фон-поле и зерно начинаются здесь, с «Обо мне», и идут до подвала. -->
+<div class="post-about-bg">
+
+  <div class="gradient-field" aria-hidden="true"></div>
+
 <!-- ════════════ ABOUT ════════════ -->
 <section class="sec on-graphite about-sec" id="about" data-screen-label="01 About">
-  <div class="about-bg"><img src="assets/tanya-samarakovskaya-creative-director.webp" alt="Таня Самараковская — креативный директор и продюсер мультимедийных проектов" loading="lazy" decoding="async"></div>
+  <div class="about-bg"><img src="assets/tanya-samarakovskaya-creative-director-2026.webp" alt="Таня Самараковская — креативный директор и продюсер мультимедийных проектов" loading="lazy" decoding="async"></div>
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-num">01</span>
@@ -938,7 +1085,7 @@
   <div class="wrap">
     <div class="sec-head reveal" style="border-color:var(--line-l)">
       <span class="sec-num" style="color:var(--ink-3)">02</span>
-      <h2 class="sec-h" style="color:var(--ink)" data-i18n="svc.h">Компетенции</h2>
+      <h2 class="sec-h" style="color:var(--cream)" data-i18n="svc.h">Компетенции</h2>
       <span class="sec-side" style="color:var(--ink-2)" data-i18n="svc.side">Восемь направлений</span>
     </div>
     <div class="svc reveal stagger">
@@ -1232,7 +1379,7 @@
   <div class="wrap">
     <div class="sec-head reveal" style="border-color:var(--line-l)">
       <span class="sec-num" style="color:var(--ink-3)">04</span>
-      <h2 class="sec-h" style="color:var(--ink)" data-i18n="career.h">Опыт</h2>
+      <h2 class="sec-h" style="color:var(--cream)" data-i18n="career.h">Опыт</h2>
       <span class="sec-side" style="color:var(--ink-2)" data-i18n="career.side">12+ лет практики</span>
     </div>
 
@@ -1361,6 +1508,8 @@
     <a class="foot-lang" href="en/index.html" hreflang="en">EN</a>
   </div>
 </footer>
+
+</div><!-- /post-about-bg -->
 
 <script>
 /* ════════════ i18n ENGINE (RU default · EN overlay) ════════════ */
