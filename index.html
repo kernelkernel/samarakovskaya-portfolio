@@ -145,7 +145,11 @@
   .lang-seg.on{background:var(--lime);color:var(--ink);font-weight:600}
   .lang-seg:hover:not(.on){color:var(--bone)}
   @media(hover:none){.lang-seg{cursor:pointer}}
-  @media(max-width:880px){.top-nav{display:none}}
+  @media(min-width:1001px) and (max-width:1250px){
+    .brand small{display:none}
+    .top-nav a{padding-inline:8px}
+  }
+  @media(max-width:1000px){.top-nav{display:none}}
   @media(max-width:560px){.brand small{display:none}}
   /* мобайл: шапка не помещалась — кнопка «Написать» вылезала за экран. Ужимаем отступы и кегль */
   @media(max-width:480px){
@@ -724,6 +728,77 @@
     color:var(--ink-2);letter-spacing:.04em;line-height:1.4;
   }
 
+  /* ───── AWARDS & PRESS ───── */
+  #awards{scroll-margin-top:64px}
+  #awards .sec-h{color:var(--lime);font-size:clamp(38px,7vw,108px);line-height:.94}
+  .awards-grid{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(12px,1.8vw,24px);
+  }
+  .award-card{
+    min-width:0;background:var(--graphite-2);border:1px solid var(--line-d2);
+    display:flex;flex-direction:column;
+  }
+  .post-about-bg .award-card{background:rgba(18,21,36,.8)}
+  .award-card:focus-within{border-color:var(--lime)}
+  .award-cover{
+    display:block;position:relative;isolation:isolate;overflow:hidden;
+    width:100%;aspect-ratio:16/9;background:var(--graphite);
+  }
+  .award-cover::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.83));
+  }
+  .award-cover > img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .5s cubic-bezier(.2,.7,.2,1);
+  }
+  @media(hover:hover){
+    .award-cover:hover > img{transform:scale(1.045)}
+  }
+  .award-cover .wcard-foot{
+    position:absolute;inset:auto clamp(12px,2vw,24px) clamp(12px,2vw,24px);
+    margin:0;text-align:left;align-items:flex-end;
+  }
+  .award-cover .wcard-title-over{font-size:clamp(22px,3.2vw,46px);line-height:1}
+  .award-cover .wcard-go{width:38px;height:38px}
+  .award-cover:hover .wcard-go,.award-press-link:hover .wcard-go{transform:rotate(45deg)}
+  .award-cover:focus-visible,.award-press-link:focus-visible{
+    outline:2px solid var(--lime);outline-offset:-3px;
+  }
+  .award-logos{
+    position:absolute;z-index:2;top:12px;left:12px;
+    display:flex;align-items:center;gap:9px;max-width:calc(100% - 24px);
+    padding:7px 10px;background:var(--bone);border-radius:999px;
+  }
+  .award-logos img{
+    width:auto;height:clamp(18px,2.4vw,29px);max-width:24vw;
+    object-fit:contain;filter:brightness(0);
+  }
+  .award-player{position:relative;aspect-ratio:16/9;background:var(--graphite)}
+  .award-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .award-play .wcard-go{margin-left:auto}
+  .award-play:hover .wcard-go{transform:scale(1.1)}
+  .award-body{padding:clamp(14px,2vw,26px)}
+  .award-list{list-style:none}
+  .award-entry + .award-entry{border-top:1px solid var(--line-d2);margin-top:12px;padding-top:12px}
+  .award-entry h3,.award-press-link h3{font-size:clamp(17px,1.65vw,24px);line-height:1.14;letter-spacing:-.025em}
+  .award-status{
+    display:block;color:var(--lime);margin-bottom:5px;
+    font-size:11px;line-height:1.4;text-transform:uppercase;
+  }
+  .award-body p{color:var(--bone-2);font-size:14px;line-height:1.4;margin-top:5px}
+  .award-press-link{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  @media(max-width:560px){
+    .awards-grid{grid-template-columns:1fr}
+    .award-cover .wcard-foot{flex-direction:row}
+    .award-cover .wcard-title-over{align-self:auto}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .award-cover > img,.award-cover .wcard-go,.award-press-link .wcard-go{transition:none}
+    .award-cover:hover > img,.award-cover:hover .wcard-go,.award-press-link:hover .wcard-go{transform:none}
+  }
+
   /* ───── REVEAL ───── */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
@@ -954,6 +1029,7 @@
       <a href="#services" data-i18n="nav.services">Компетенции</a>
       <a href="#works" data-i18n="nav.works">Проекты</a>
       <a href="#career" data-i18n="nav.career">Опыт</a>
+      <a href="#awards" data-i18n="nav.awards">Награды и статьи</a>
       <a href="#contact" data-i18n="nav.contact">Контакты</a>
     </nav>
     <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
@@ -1473,11 +1549,109 @@
   </div>
 </section>
 
+<!-- ════════════ AWARDS & PRESS ════════════ -->
+<section class="sec on-graphite" id="awards" aria-labelledby="awards-title" data-screen-label="05 Awards &amp; Press">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-h" id="awards-title">Награды и статьи</h2>
+    </div>
+    <div class="awards-grid">
+      <article class="award-card">
+        <a class="award-cover" href="projects/wayofwater.html">
+          <img src="assets/preview_projects/wayofwater.webp" alt="" loading="lazy">
+          <span class="award-logos" aria-hidden="true"><img src="assets/award-logos/digital.svg" alt="" loading="lazy"><img src="assets/award-logos/regions.webp" alt="" loading="lazy"><img src="assets/award-logos/quality.svg" alt="" loading="lazy"></span>
+          <span class="wcard-foot"><span class="wcard-title-over">«Путь воды»</span><span class="wcard-go" aria-hidden="true">↗︎</span></span>
+        </a>
+        <div class="award-body">
+          <ul class="award-list" role="list">
+            <li class="award-entry">
+              <span class="award-status mono">Лауреат · 2023</span>
+              <h3>Digital Leaders Award</h3>
+              <p>Геймификация просветительских проектов</p>
+            </li>
+            <li class="award-entry">
+              <span class="award-status mono">Лауреат · 2023</span>
+              <h3>Лучшее для России. Развитие регионов</h3>
+              <p>Лучший проект для детей</p>
+            </li>
+            <li class="award-entry">
+              <span class="award-status mono">Лауреат · 2023</span>
+              <h3>Качество обслуживания и права потребителей</h3>
+              <p>Пространство года для отдыха и развлечений всей семьи</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="award-card">
+        <a class="award-cover" href="projects/capybarabooom.html">
+          <img src="assets/preview_projects/capybaraboom.webp" alt="" loading="lazy">
+          <span class="award-logos" aria-hidden="true"><img src="assets/award-logos/blooloop.webp" alt="" loading="lazy"></span>
+          <span class="wcard-foot"><span class="wcard-title-over">«КапибараБууум»</span><span class="wcard-go" aria-hidden="true">↗︎</span></span>
+        </a>
+        <div class="award-body">
+          <ul class="award-list" role="list">
+            <li class="award-entry">
+              <span class="award-status mono">Номинант · 2026–2027</span>
+              <h3>blooloop Innovation Awards</h3>
+              <p>Иммерсивные развлечения и аттракционы</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="award-card">
+        <a class="award-cover" href="projects/art-direction.html#zone-brands">
+          <img src="assets/art-direction/photo/webp/buddysol-packs.webp" alt="" loading="lazy">
+          <span class="award-logos" aria-hidden="true"><img src="assets/award-logos/mercury.svg" alt="" loading="lazy"><img src="assets/award-logos/3itech.svg" alt="" loading="lazy"></span>
+          <span class="wcard-foot"><span class="wcard-title-over">Buddy&amp;Sol</span><span class="wcard-go" aria-hidden="true">↗︎</span></span>
+        </a>
+        <div class="award-body">
+          <ul class="award-list" role="list">
+            <li class="award-entry">
+              <span class="award-status mono">Бронзовый диплом · 2024</span>
+              <h3>AI-жюри 3iTech / Silver Mercury</h3>
+              <p>Параллельное судейство</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="award-card">
+        <div class="award-player">
+          <button class="award-cover award-play" type="button" aria-label="Смотреть видео «С океаном начистоту»">
+            <img src="assets/msq_clean-ocean/photo/webp/clean-ocean-ar-02.webp" alt="" loading="lazy">
+            <span class="wcard-foot"><span class="wcard-go" aria-hidden="true">▶︎</span></span>
+          </button>
+          <template>
+            <iframe src="https://player.vimeo.com/video/1200388837?h=7cd92f8373&amp;autoplay=1" title="«С океаном начистоту» · Sostav.ru" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </template>
+        </div>
+        <div class="award-body">
+          <span class="award-status mono">Статья · Sostav.ru · 2026</span>
+          <a class="award-press-link" href="https://www.sostav.ru/publication/s-okeanom-nachistotu-moskvarium-zapuskaet-ekokvest-dlya-moskvichej-i-gostej-stolitsy-84573.html" target="_blank" rel="noopener">
+            <h3>«С океаном начистоту»</h3><span class="wcard-go" aria-hidden="true">↗︎</span>
+          </a>
+          <p>Москвариум × BBDO</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelector('#awards .award-play').addEventListener('click', function(){
+    const template = this.nextElementSibling;
+    const player = template.content.firstElementChild.cloneNode(true);
+    this.replaceWith(player);
+    player.focus();
+  }, {once:true});
+</script>
+
+
 <!-- ════════════ CONTACT ════════════ -->
-<section class="sec on-graphite" id="contact" data-screen-label="05 Contact">
+<section class="sec on-graphite" id="contact" data-screen-label="06 Contact">
   <div class="wrap">
     <div class="reveal" style="margin-bottom:48px">
-      <span class="sec-num" style="margin-bottom:24px;display:inline-flex" data-i18n="contact.num">05 / Контакты</span>
+      <span class="sec-num" style="margin-bottom:24px;display:inline-flex" data-i18n="contact.num">06 / Контакты</span>
       <h2 class="contact-h">
         <span data-i18n="contact.h1">Давайте</span> <span class="word-pill" data-i18n="contact.make">сделаем</span><br>
         <span data-i18n="contact.h2">что-то</span> <span class="word-oval" id="cycleWord" style="display:inline-block;min-width:6ch">&nbsp;</span>.
@@ -1521,6 +1695,7 @@
     'nav.services':'Expertise',
     'nav.works':'Projects',
     'nav.career':'Experience',
+    'nav.awards':'Awards &amp; Press',
     'nav.contact':'Contact',
     'nav.cta':'Get in touch',
 
@@ -1633,7 +1808,7 @@
     'career.t7':'Digital &amp;&nbsp;<span class="mark">advertising</span>',
     'career.d7':'Digital special projects, advertising campaigns, interactive promo mechanics at the international agencies Actis Wunderman and ADV Digital. A path from technical execution to art direction.',
 
-    'contact.num':'05 / Contact',
+    'contact.num':'06 / Contact',
     'contact.h1':'Let’s',
     'contact.make':'make',
     'contact.h2':'something',
