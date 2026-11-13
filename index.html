@@ -145,7 +145,11 @@
   .lang-seg.on{background:var(--lime);color:var(--ink);font-weight:600}
   .lang-seg:hover:not(.on){color:var(--bone)}
   @media(hover:none){.lang-seg{cursor:pointer}}
-  @media(max-width:880px){.top-nav{display:none}}
+  @media(min-width:1001px) and (max-width:1250px){
+    .brand small{display:none}
+    .top-nav a{padding-inline:8px}
+  }
+  @media(max-width:1000px){.top-nav{display:none}}
   @media(max-width:560px){.brand small{display:none}}
   /* мобайл: шапка не помещалась — кнопка «Написать» вылезала за экран. Ужимаем отступы и кегль */
   @media(max-width:480px){
@@ -534,106 +538,97 @@
   .svc-cell.feat:hover .svc-headline .mark{background:var(--lime);color:var(--ink)}
   @media(max-width:560px){.svc-cell.feat{grid-column:span 1}.svc-cell.feat .svc-headline{font-size:30px}}
 
-  /* ───── WORKS ───── */
-  .works-tools{
-    display:flex;justify-content:space-between;align-items:center;
-    margin-bottom:20px;flex-wrap:wrap;gap:12px;
-    font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone-3);
+  /* Сетка проектов */
+  #works {scroll-margin-top:72px}
+  .portfolio-grid {display:grid;gap:clamp(38px,6.4vw,100px)}
+  .portfolio-pair {
+    display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);
+    gap:clamp(20px,4vw,64px);align-items:start;
   }
-  .view-toggle{display:inline-flex;gap:4px;padding:4px;background:var(--graphite-2);border-radius:999px;border:1px solid var(--line-d)}
-  .view-toggle button{padding:7px 13px;border-radius:999px;color:var(--bone-2);transition:all .2s;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
-  .view-toggle button.on{background:var(--bone);color:var(--ink);font-weight:600}
+  .portfolio-pair--reverse {grid-template-columns:minmax(0,5fr) minmax(0,7fr)}
+  .portfolio-pair > :nth-child(2) {margin-top:clamp(30px,6.5vw,106px)}
+  .portfolio-project {display:block;min-width:0}
+  .portfolio-image {
+    display:block;aspect-ratio:var(--ratio,3/2);overflow:hidden;
+    background:var(--graphite-2);
+  }
+  .portfolio-image img {
+    width:100%;height:100%;object-fit:cover;object-position:var(--position,center);
+    transition:transform .55s cubic-bezier(.2,.7,.2,1);
+  }
+  .portfolio-cap {
+    display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;
+    gap:12px;margin-top:12px;padding-top:14px;border-top:1px solid var(--line-d2);
+    transition:border-color .25s;
+  }
+  .portfolio-title {
+    font-family:"Bricolage Grotesque","Space Grotesk",sans-serif;font-weight:700;
+    font-size:clamp(23px,3.2vw,46px);line-height:1.02;letter-spacing:-.045em;
+    text-wrap:balance;overflow-wrap:anywhere;
+  }
+  .portfolio-project--wide .portfolio-title {font-size:clamp(28px,4.2vw,64px)}
+  .portfolio-meta {
+    margin-top:7px;color:var(--bone-2);font-size:11px;line-height:1.5;text-transform:uppercase;
+  }
+  .portfolio-go {
+    display:grid;place-items:center;width:40px;height:40px;border:1px solid var(--line-d2);
+    border-radius:50%;color:var(--lime);transition:background .25s,color .25s,transform .25s;
+  }
+  .portfolio-project:focus-visible {outline:2px solid var(--lime);outline-offset:6px}
+  .portfolio-project:focus-visible .portfolio-go {background:var(--lime);color:var(--ink)}
+  @media(hover:hover) {
+    .portfolio-project:hover .portfolio-image img {transform:scale(1.045)}
+    .portfolio-project:hover .portfolio-cap {border-color:var(--lime)}
+    .portfolio-project:hover .portfolio-go {background:var(--lime);color:var(--ink);transform:rotate(12deg)}
+  }
+  @media(max-width:700px) {
+    .portfolio-grid {gap:34px}
+    .portfolio-pair,.portfolio-pair--reverse {grid-template-columns:1fr;gap:34px}
+    .portfolio-pair > :nth-child(2) {margin-top:0}
+    .portfolio-project--wide .portfolio-image {aspect-ratio:3/2}
+    .portfolio-cap {padding-top:11px;margin-top:9px}
+    .portfolio-go {width:34px;height:34px}
+  }
+  @media(prefers-reduced-motion:reduce) {
+    .portfolio-image img,.portfolio-cap,.portfolio-go {transition:none}
+    .portfolio-project:hover .portfolio-image img,.portfolio-project:hover .portfolio-go {transform:none}
+  }
 
-  /* works list — flat, horizontal lines only */
-  .works-list{
-    border-top:1px solid var(--line-d);border-radius:0;overflow:hidden;
+  /* Тёмно-синее поле опубликованной мультимедийной версии */
+  #works {
+    background:
+      linear-gradient(90deg,rgba(7,9,18,.62),rgba(7,9,18,.40) 55%,rgba(7,9,18,.20)),
+            radial-gradient(62% 13% at 16% 5%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(52% 11% at 88% 20%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(58% 12% at 8% 35%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(60% 13% at 92% 50%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(66% 11% at 18% 65%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(54% 12% at 84% 81%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+      radial-gradient(62% 13% at 22% 96%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%);
+    background-color:#0C0E16;
   }
-  .wrow{
-    display:grid;grid-template-columns:50px 132px 1.4fr 1fr 100px 36px;
-    gap:24px;padding:18px 20px;border-bottom:1px solid var(--line-d);
-    align-items:center;color:var(--bone);background:var(--graphite-2);
-    transition:background .3s,color .3s,padding .55s cubic-bezier(.4,0,.2,1),grid-template-columns .55s cubic-bezier(.4,0,.2,1);
-    position:relative;
-  }
-  .wrow:nth-child(even){background:var(--graphite)}
-  .wrow:last-child{border-bottom:0}
-  .wrow:hover{
-    background:var(--graphite-3);color:var(--bone);
-    padding-left:28px;
-    grid-template-columns:50px 340px 1.4fr 1fr 100px 36px;
-  }
-  .wrow-num{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-3);letter-spacing:.06em;transition:color .25s}
-  .wrow:hover .wrow-num{color:var(--bone-2)}
-  .wrow-thumb{
-    width:100%;height:92px;border-radius:8px;overflow:hidden;
-    background:var(--graphite-3);position:relative;
-    transition:height .55s cubic-bezier(.4,0,.2,1),border-radius .55s cubic-bezier(.4,0,.2,1);
-  }
-  .wrow-thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;position:relative;z-index:1;transition:transform .6s cubic-bezier(.2,.7,.2,1);will-change:transform}
-  .wrow:hover .wrow-thumb{border-radius:10px;height:237px}
-  .wrow:hover .wrow-thumb img{transform:scale(1.05)}
-  .wrow-thumb .ph{position:absolute;inset:0;z-index:0;display:grid;place-items:center;color:var(--bone-3);font-size:22px}
-  .wrow-title{font-weight:600;font-size:clamp(20px,2.6vw,34px);letter-spacing:-.025em;line-height:1;transition:color .25s;hyphens:none;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .wrow-title em{font-family:"Bricolage Grotesque",sans-serif;font-style:italic;color:var(--lime-deep);font-weight:700;transition:color .25s}
-  .wrow:hover .wrow-title em{color:var(--lime)}
-  .wrow-tags{font-family:"JetBrains Mono",monospace;font-size:clamp(9.5px,.78vw,11px);letter-spacing:.05em;text-transform:uppercase;color:var(--bone-2);transition:color .25s;white-space:nowrap}
-  .wrow-year{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--bone-3);text-align:right;letter-spacing:.06em;transition:color .25s}
-  .wrow:hover .wrow-tags,.wrow:hover .wrow-year{color:var(--bone-3)}
-  .wrow-go{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-d2);display:grid;place-items:center;color:var(--bone-2);transition:all .25s;justify-self:end}
-  .wrow:hover .wrow-go{background:var(--lime);color:var(--ink);border-color:var(--lime);transform:rotate(45deg)}
-  @media(max-width:780px){
-    .wrow,.wrow:hover{grid-template-columns:32px 56px 1fr 28px;gap:12px;padding:12px 14px}
-    .wrow-tags,.wrow-year{display:none}
-    .wrow:hover{grid-template-columns:32px 56px 1fr 28px}
+  @media(max-width:700px) {
+    #works {
+      background-image:
+        linear-gradient(90deg,rgba(7,9,18,.62),rgba(7,9,18,.40) 55%,rgba(7,9,18,.20)),
+                radial-gradient(105% 9% at 4% 5%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(88% 8% at 100% 20%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(95% 9% at 0% 35%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(90% 9% at 104% 50%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(102% 8% at 2% 65%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(90% 9% at 100% 81%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%),
+        radial-gradient(98% 9% at 4% 96%,#0E1120 0%,#111530 11%,#141E42 22%,#16265C 31%,#18349B 41%,#1A44DC 49%,#2551E8 56%,#3059C8 63%,#3E5FA8 71%,rgba(70,96,158,.55) 80%,rgba(40,56,96,.28) 88%,rgba(12,14,22,0) 95%);
+    }
   }
 
-  /* works grid */
-  .works-grid{display:none;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:20px}
-  body[data-view="grid"] .works-grid{display:grid}
-  body[data-view="grid"] .works-list{display:none}
-  body[data-view="list"] .works-grid{display:none}
-  .wcard{
-    position:relative;overflow:hidden;background:var(--cream-3);
-    min-height:clamp(300px,26vw,408px);display:flex;flex-direction:column;justify-content:flex-end;
-    padding:20px;transition:transform .25s;color:var(--bone);
-  }
-  .wcard:hover{transform:translateY(-3px)}
-  .wcard .vis{position:absolute;inset:0;z-index:0}
-  .wcard .vis img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1);position:relative;z-index:1}
-  .wcard:hover .vis img{transform:scale(1.045)}
-  .wcard .vis::after{content:"";position:absolute;inset:0;z-index:2;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.7) 100%)}
-  .wcard .vph{position:absolute;inset:0;z-index:0;display:grid;place-items:center;color:var(--bone-3);font-family:"JetBrains Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.1em;background:repeating-linear-gradient(135deg,var(--graphite-2) 0 8px,var(--graphite-3) 8px 16px)}
-  .wcard-top{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--bone);margin-bottom:auto}
-  .wcard-top .tag{padding:8px 15px;font-size:clamp(12px,1.05vw,15px);font-weight:600;letter-spacing:.04em;border:1px solid rgba(180,180,180,.22);background:rgba(0,0,0,.5);backdrop-filter:blur(6px);border-radius:999px}
-  .wcard.s12 .wcard-top .tag{font-size:clamp(13px,1.2vw,17px);padding:9px 17px}
+  /* ───── CARD CAPTIONS ───── */
   .wcard-title-over{position:relative;z-index:2;font-weight:700;font-size:clamp(28px,3.4vw,52px);letter-spacing:-.035em;line-height:.92;color:var(--bone);text-wrap:balance}
-  .wcard-title-over .mark{color:inherit}
-  .wcard-meta{position:relative;z-index:2;display:flex;justify-content:flex-end;align-items:end;gap:14px;margin-top:14px}
-  /* название проекта и стрелка — на одном уровне снизу */
   .wcard-foot{position:relative;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:14px}
-  .wcard-cat{font-family:"JetBrains Mono",monospace;font-size:10px;color:var(--bone-2);text-transform:uppercase;letter-spacing:.1em}
   .wcard-go{width:42px;height:42px;border-radius:50%;background:var(--lime);color:var(--ink);display:grid;place-items:center;flex-shrink:0;transition:transform .3s}
-  .wcard:hover .wcard-go{transform:rotate(45deg)}
-  .wcard.s7{grid-column:span 7}.wcard.s5{grid-column:span 5}.wcard.s4{grid-column:span 4}
-  .wcard.s6{grid-column:span 6}.wcard.s8{grid-column:span 8}
-  .wcard.s12{grid-column:span 12;min-height:clamp(360px,38vw,520px)}
-  .wcard.s12 .wcard-title-over{font-size:clamp(56px,8vw,128px);letter-spacing:-.05em;line-height:.85}
-  @media(max-width:900px){.wcard,.wcard.s4,.wcard.s5,.wcard.s6,.wcard.s7,.wcard.s8{grid-column:span 6}.wcard.s12{grid-column:span 12}}
-  @media(max-width:560px){.wcard,.wcard.s12{grid-column:1/-1;min-height:300px}}
-  /* мобайл: длинные названия вылезали за карточку и выталкивали стрелку за экран.
-     Название занимает всю ширину, стрелка уходит на отдельную строку под ним */
   @media(max-width:560px){
-    .wcard{padding:16px}
     .wcard-foot{flex-direction:column;align-items:flex-end;gap:10px}
     .wcard-title-over{align-self:stretch;font-size:clamp(20px,6vw,26px);line-height:1.04;overflow-wrap:break-word}
-    .wcard.s12 .wcard-title-over{font-size:clamp(30px,9.5vw,52px);line-height:.94}
     .wcard-go{width:36px;height:36px}
-    .wcard-top .tag{font-size:11px;padding:6px 11px}
-    .wcard.s12 .wcard-top .tag{font-size:12px;padding:7px 13px}
-  }
-  /* мобайл: сетка проектов во всю ширину — без боковых отступов .wrap */
-  @media(max-width:768px){
-    body[data-view="grid"] .works-grid{margin-left:calc(-1*var(--side-pad));margin-right:calc(-1*var(--side-pad));gap:8px}
   }
 
   /* ───── CAREER ───── */
@@ -722,6 +717,77 @@
   .tg-items{
     font-family:"JetBrains Mono",monospace;font-size:10px;
     color:var(--ink-2);letter-spacing:.04em;line-height:1.4;
+  }
+
+  /* ───── AWARDS & PRESS ───── */
+  #awards{scroll-margin-top:64px}
+  #awards .sec-h{color:var(--lime);font-size:clamp(38px,7vw,108px);line-height:.94}
+  .awards-grid{
+    display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:clamp(12px,1.8vw,24px);
+  }
+  .award-card{
+    min-width:0;background:var(--graphite-2);border:1px solid var(--line-d2);
+    display:flex;flex-direction:column;
+  }
+  .post-about-bg .award-card{background:rgba(18,21,36,.8)}
+  .award-card:focus-within{border-color:var(--lime)}
+  .award-cover{
+    display:block;position:relative;isolation:isolate;overflow:hidden;
+    width:100%;aspect-ratio:16/9;background:var(--graphite);
+  }
+  .award-cover::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.83));
+  }
+  .award-cover > img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .5s cubic-bezier(.2,.7,.2,1);
+  }
+  @media(hover:hover){
+    .award-cover:hover > img{transform:scale(1.045)}
+  }
+  .award-cover .wcard-foot{
+    position:absolute;inset:auto clamp(12px,2vw,24px) clamp(12px,2vw,24px);
+    margin:0;text-align:left;align-items:flex-end;
+  }
+  .award-cover .wcard-title-over{font-size:clamp(22px,3.2vw,46px);line-height:1}
+  .award-cover .wcard-go{width:38px;height:38px}
+  .award-cover:hover .wcard-go,.award-press-link:hover .wcard-go{transform:rotate(45deg)}
+  .award-cover:focus-visible,.award-press-link:focus-visible{
+    outline:2px solid var(--lime);outline-offset:-3px;
+  }
+  .award-logos{
+    position:absolute;z-index:2;top:12px;left:12px;
+    display:flex;align-items:center;gap:9px;max-width:calc(100% - 24px);
+    padding:7px 10px;background:var(--bone);border-radius:999px;
+  }
+  .award-logos img{
+    width:auto;height:clamp(18px,2.4vw,29px);max-width:24vw;
+    object-fit:contain;filter:brightness(0);
+  }
+  .award-player{position:relative;aspect-ratio:16/9;background:var(--graphite)}
+  .award-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .award-play .wcard-go{margin-left:auto}
+  .award-play:hover .wcard-go{transform:scale(1.1)}
+  .award-body{padding:clamp(14px,2vw,26px)}
+  .award-list{list-style:none}
+  .award-entry + .award-entry{border-top:1px solid var(--line-d2);margin-top:12px;padding-top:12px}
+  .award-entry h3,.award-press-link h3{font-size:clamp(17px,1.65vw,24px);line-height:1.14;letter-spacing:-.025em}
+  .award-status{
+    display:block;color:var(--lime);margin-bottom:5px;
+    font-size:11px;line-height:1.4;text-transform:uppercase;
+  }
+  .award-body p{color:var(--bone-2);font-size:14px;line-height:1.4;margin-top:5px}
+  .award-press-link{display:flex;align-items:center;justify-content:space-between;gap:10px}
+  @media(max-width:560px){
+    .awards-grid{grid-template-columns:1fr}
+    .award-cover .wcard-foot{flex-direction:row}
+    .award-cover .wcard-title-over{align-self:auto}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .award-cover > img,.award-cover .wcard-go,.award-press-link .wcard-go{transition:none}
+    .award-cover:hover > img,.award-cover:hover .wcard-go,.award-press-link:hover .wcard-go{transform:none}
   }
 
   /* ───── REVEAL ───── */
@@ -822,10 +888,6 @@
   .post-about-bg .svc-cell.feat:hover .svc-num .star{color:var(--lime)}
 
   /* ── Проекты ── */
-  .post-about-bg .wrow{background:rgba(18,21,36,.74)}
-  .post-about-bg .wrow:nth-child(even){background:rgba(8,10,18,.60)}
-  .post-about-bg .wrow:hover{background:rgba(38,42,60,.92)}
-  .post-about-bg .wcard{background:#121524}
 
   /* ── Опыт: кремовая секция → светлый текст и стеклянные строки ── */
   .post-about-bg .career-aside p{color:var(--bone-2)}
@@ -937,7 +999,7 @@
 <noscript><div><img src="https://mc.yandex.ru/watch/110759704" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
 </head>
-<body data-view="list">
+<body>
 
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="curRing"></div>
@@ -954,6 +1016,7 @@
       <a href="#services" data-i18n="nav.services">Компетенции</a>
       <a href="#works" data-i18n="nav.works">Проекты</a>
       <a href="#career" data-i18n="nav.career">Опыт</a>
+      <a href="#awards" data-i18n="nav.awards">Награды и статьи</a>
       <a href="#contact" data-i18n="nav.contact">Контакты</a>
     </nav>
     <div class="lang-toggle" id="langToggle" role="group" aria-label="Language / Язык">
@@ -1165,211 +1228,157 @@
       <span class="sec-side" data-i18n="works.side">30+ реализованных<br><b>проектов</b></span>
     </div>
 
-    <div class="works-tools reveal">
-      <div class="view-toggle" id="viewToggle">
-        <button data-view="list" class="on" data-i18n="works.list">≡ Список</button>
-        <button data-view="grid" data-i18n="works.grid">◧ Сетка</button>
+    <div class="portfolio-grid">
+      <div class="portfolio-pair">
+        <a class="portfolio-project" href="projects/nebula.html" style="--ratio:3/2;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/nebula.webp" alt="" loading="eager" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.nebula">Небула</h3>
+              <p class="portfolio-meta mono"><span>Иммерсивная инсталляция</span> <span aria-hidden="true">·</span> 2023</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+        <a class="portfolio-project" href="projects/cymatic.html" style="--ratio:1/1;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/cymatic.webp" alt="" loading="eager" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.cymatic">Круг света</h3>
+              <p class="portfolio-meta mono"><span>Фестиваль</span> <span aria-hidden="true">·</span> 2018—22</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
       </div>
-    </div>
-
-    <!-- LIST -->
-    <div class="works-list reveal stagger">
-      <a class="wrow" href="projects/nebula.html">
-        <span class="wrow-num">01</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — мультимедийная арт-инсталляция" onerror="this.style.display='none'"><span class="ph">✦</span></span>
-        <span class="wrow-title" data-i18n="work.l.nebula">Небула</span>
-        <span class="wrow-tags">Exhibitions · Experience design</span>
-        <span class="wrow-year">2023</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/cymatic.html">
-        <span class="wrow-num">02</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/cymatic.webp" alt="Круг света — проекционный маппинг" onerror="this.style.display='none'"><span class="ph">◐</span></span>
-        <span class="wrow-title" data-i18n="work.l.cymatic">Круг <em>света</em></span>
-        <span class="wrow-tags">Festivals · Projection mapping</span>
-        <span class="wrow-year">2018—22</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/capybarabooom.html">
-        <span class="wrow-num">03</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="КапибараБууум — интерактивная выставка" onerror="this.style.display='none'"><span class="ph">◯</span></span>
-        <span class="wrow-title" data-i18n="work.l.capy">Капибара<em>Бууум</em></span>
-        <span class="wrow-tags">Exhibitions · IP system</span>
-        <span class="wrow-year">2024—26</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/pole.html">
-        <span class="wrow-num">04</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="Поле — театральный медиаарт" onerror="this.style.display='none'"><span class="ph">▲</span></span>
-        <span class="wrow-title" data-i18n="work.l.pole">Поле</span>
-        <span class="wrow-tags">Theater · Media artist</span>
-        <span class="wrow-year">2021</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/kandid.html">
-        <span class="wrow-num">05</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="Кандид — театральный видеодизайн" onerror="this.style.display='none'"><span class="ph">K</span></span>
-        <span class="wrow-title" data-i18n="work.l.kandid">Кандид</span>
-        <span class="wrow-tags">Theater · Video design</span>
-        <span class="wrow-year">2016</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/wayofwater.html">
-        <span class="wrow-num">06</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><span class="ph">~</span></span>
-        <span class="wrow-title" data-i18n="work.l.wow">Путь <em>воды</em></span>
-        <span class="wrow-tags">Exhibitions · Experience design</span>
-        <span class="wrow-year">2022—24</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/cgi-worldcup.html">
-        <span class="wrow-num">07</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/cgi-worldcup.webp" alt="CGI for World Cup 2026 — концепты вирусной CGI-кампании" onerror="this.style.display='none'"><span class="ph">◆</span></span>
-        <span class="wrow-title" data-i18n="work.l.cgiwc">CGI for <em>World Cup 2026</em></span>
-        <span class="wrow-tags">CGI · FOOH · Creative concept</span>
-        <span class="wrow-year">2026</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/prosvetitel.html">
-        <span class="wrow-num">08</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="Просветитель — фестиваль и награды" onerror="this.style.display='none'"><span class="ph">✶</span></span>
-        <span class="wrow-title" data-i18n="work.l.prosv">Просветитель</span>
-        <span class="wrow-tags">Festivals · Awards</span>
-        <span class="wrow-year">2018</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/moskvaruim.html">
-        <span class="wrow-num">09</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/msq_10let/photo/webp/city-01.webp" alt="Рыбов показываем — рекламная кампания 360°" onerror="this.style.display='none'"><span class="ph">◉</span></span>
-        <span class="wrow-title" data-i18n="work.l.moskvaruim">Рыбов <em>показываем</em></span>
-        <span class="wrow-tags">Advertising · CGI · 360°</span>
-        <span class="wrow-year">2024</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/troyka-lovemeet.html">
-        <span class="wrow-num">10</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект" onerror="this.style.display='none'"><span class="ph">◇</span></span>
-        <span class="wrow-title" data-i18n="work.l.troyka">Случайное<em> знакомство</em></span>
-        <span class="wrow-tags">Cards · AR · Video production</span>
-        <span class="wrow-year">2023</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/clean-ocean.html">
-        <span class="wrow-num">11</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/clean-ocean.webp" alt="С океаном начистоту — WebAR-квест в Москвариуме" onerror="this.style.display='none'"><span class="ph">◐</span></span>
-        <span class="wrow-title" data-i18n="work.l.ocean">С океаном <em>начистоту</em></span>
-        <span class="wrow-tags">WebAR · Quest · Creative direction</span>
-        <span class="wrow-year">2026</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/souzmultpark.html">
-        <span class="wrow-num">12</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><span class="ph">✦</span></span>
-        <span class="wrow-title" data-i18n="work.l.souz">Союзмульт<em>парк</em></span>
-        <span class="wrow-tags">Interactive parks</span>
-        <span class="wrow-year">2020—23</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/art-direction.html">
-        <span class="wrow-num">13</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/art-direction.webp" alt="Арт-дирекшн — избранные работы" onerror="this.style.display='none'"><span class="ph">✦</span></span>
-        <span class="wrow-title" data-i18n="work.l.artdir">Арт-<em>дирекшн</em></span>
-        <span class="wrow-tags">Art direction</span>
-        <span class="wrow-year">2023—25</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-      <a class="wrow" href="projects/baal.html">
-        <span class="wrow-num">14</span>
-        <span class="wrow-thumb"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><span class="ph">B</span></span>
-        <span class="wrow-title" data-i18n="work.l.baal">Баал</span>
-        <span class="wrow-tags">Theater · Media artist</span>
-        <span class="wrow-year">2019</span>
-        <span class="wrow-go">↗︎</span>
-      </a>
-    </div>
-
-    <!-- GRID — ритм 2 · 1 крупный · 2 · 1 крупный · 2 · 1 крупный · 2 -->
-    <div class="works-grid">
-      <!-- два -->
-      <a class="wcard s6" href="projects/nebula.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/nebula.webp" alt="Небула — мультимедийная арт-инсталляция" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.nebula">Небула</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.nebula">Небула</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <a class="wcard s6" href="projects/cymatic.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/cymatic.webp" alt="Круг света — проекционный маппинг" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.cymatic">Круг света</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.festival">● Фестиваль</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.cymatic">Круг света</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/capybarabooom.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/capybaraboom.webp" alt="КапибараБууум — интерактивная выставка" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.capy">КапибараБууум</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.capy">КапибараБууум</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- два -->
-      <a class="wcard s6" href="projects/pole.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/pole.webp" alt="Поле — театральный медиаарт" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.pole">Поле</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.pole">Поле</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <a class="wcard s6" href="projects/kandid.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/kandid.webp" alt="Кандид — театральный видеодизайн" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.kandid">Кандид</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.kandid">Кандид</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/wayofwater.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/wayofwater.webp" alt="Путь воды — мультимедийная выставка" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.wow">Путь воды</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.exhibition">● Выставка</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.wow">Путь воды</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- два -->
-      <a class="wcard s6" href="projects/cgi-worldcup.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/cgi-worldcup.webp" alt="CGI for World Cup 2026 — концепты вирусной CGI-кампании" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.cgiwc">CGI for World Cup 2026</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.cgi">● CGI-кампания</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.cgiwc">CGI for World Cup 2026</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <a class="wcard s6" href="projects/prosvetitel.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/prosvetitel.webp" alt="Просветитель — фестиваль и награды" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.prosv">Просветитель</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.festival">● Фестиваль</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.prosv">Просветитель</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/moskvaruim.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/msq_10let/photo/webp/city-01.webp" alt="Рыбов показываем — рекламная кампания 360°" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.moskvaruim">Рыбов показываем</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.adcampaign">● Рекламная кампания</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.moskvaruim">Рыбов показываем</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- два -->
-      <a class="wcard s6" href="projects/troyka-lovemeet.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/troyka-lovemeet.webp" alt="Случайное знакомство — AR-проект" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.troyka">Случайное знакомство</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.arproject">● AR-проект</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.troyka">Случайное знакомство</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <a class="wcard s6" href="projects/clean-ocean.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/clean-ocean.webp" alt="С океаном начистоту — WebAR-квест в Москвариуме" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.ocean">С океаном начистоту</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.webar">● WebAR-квест</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.ocean">С океаном начистоту</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/souzmultpark.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/souzmultpark.webp" alt="Союзмультпарк — интерактивный парк" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.souz">Союзмультпарк</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.park">● Интерактивный парк</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.souz">Союзмультпарк</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/art-direction.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/art-direction.webp" alt="Арт-дирекшн — избранные работы" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.artdir">Арт-дирекшн</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.artdirection">● Арт-дирекшн</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.artdir">Арт-дирекшн</h3><span class="wcard-go">↗︎</span></div>
-      </a>
-      <!-- крупный (флагман) -->
-      <a class="wcard s12" href="projects/baal.html">
-        <div class="vis"><img loading="lazy" decoding="async" src="assets/preview_projects/baal.webp" alt="Баал — театральный медиаарт" onerror="this.style.display='none'"><div class="vph" data-i18n="work.g.baal">Баал</div></div>
-        <div class="wcard-top"><span class="tag" data-i18n="cat.theater">● Театр</span></div>
-        <div class="wcard-foot"><h3 class="wcard-title-over" data-i18n="work.g.baal">Баал</h3><span class="wcard-go">↗︎</span></div>
-      </a>
+        <a class="portfolio-project portfolio-project--wide" href="projects/capybarabooom.html" style="--ratio:21/9;--position:center 48%">
+          <span class="portfolio-image"><img src="assets/preview_projects/capybaraboom.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.capy">КапибараБууум</h3>
+              <p class="portfolio-meta mono"><span>Выставка</span> <span aria-hidden="true">·</span> 2024—26</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+      <div class="portfolio-pair portfolio-pair--reverse">
+        <a class="portfolio-project" href="projects/pole.html" style="--ratio:1/1;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/pole.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.pole">Поле</h3>
+              <p class="portfolio-meta mono"><span>Театр</span> <span aria-hidden="true">·</span> 2021</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+        <a class="portfolio-project" href="projects/kandid.html" style="--ratio:3/2;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/kandid.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.kandid">Кандид</h3>
+              <p class="portfolio-meta mono"><span>Театр</span> <span aria-hidden="true">·</span> 2016</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+      </div>
+        <a class="portfolio-project portfolio-project--wide" href="projects/wayofwater.html" style="--ratio:21/9;--position:center 53%">
+          <span class="portfolio-image"><img src="assets/preview_projects/wayofwater.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.wow">Путь воды</h3>
+              <p class="portfolio-meta mono"><span>Выставка</span> <span aria-hidden="true">·</span> 2022—24</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+      <div class="portfolio-pair">
+        <a class="portfolio-project" href="projects/cgi-worldcup.html" style="--ratio:3/2;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/cgi-worldcup.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.cgiwc">CGI for World Cup 2026</h3>
+              <p class="portfolio-meta mono"><span>CGI-кампания</span> <span aria-hidden="true">·</span> 2026</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+        <a class="portfolio-project" href="projects/prosvetitel.html" style="--ratio:1/1;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/prosvetitel.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.prosv">Просветитель</h3>
+              <p class="portfolio-meta mono"><span>Фестиваль</span> <span aria-hidden="true">·</span> 2018</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+      </div>
+        <a class="portfolio-project portfolio-project--wide" href="projects/moskvaruim.html" style="--ratio:21/9;--position:center 52%">
+          <span class="portfolio-image"><img src="assets/msq_10let/photo/webp/city-01.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.moskvaruim">Рыбов показываем</h3>
+              <p class="portfolio-meta mono"><span>Рекламная кампания</span> <span aria-hidden="true">·</span> 2024</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+      <div class="portfolio-pair portfolio-pair--reverse">
+        <a class="portfolio-project" href="projects/troyka-lovemeet.html" style="--ratio:1/1;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/troyka-lovemeet.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.troyka">Случайное знакомство</h3>
+              <p class="portfolio-meta mono"><span>AR-проект</span> <span aria-hidden="true">·</span> 2023</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+        <a class="portfolio-project" href="projects/clean-ocean.html" style="--ratio:3/2;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/clean-ocean.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.ocean">С океаном начистоту</h3>
+              <p class="portfolio-meta mono"><span>WebAR-квест</span> <span aria-hidden="true">·</span> 2026</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+      </div>
+        <a class="portfolio-project portfolio-project--wide" href="projects/souzmultpark.html" style="--ratio:21/9;--position:center 52%">
+          <span class="portfolio-image"><img src="assets/preview_projects/souzmultpark.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.souz">Союзмультпарк</h3>
+              <p class="portfolio-meta mono"><span>Интерактивный парк</span> <span aria-hidden="true">·</span> 2020—23</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+      <div class="portfolio-pair">
+        <a class="portfolio-project" href="projects/art-direction.html" style="--ratio:3/2;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/art-direction.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.artdir">Арт-дирекшн</h3>
+              <p class="portfolio-meta mono"><span>Арт-дирекшн</span> <span aria-hidden="true">·</span> 2023—25</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+        <a class="portfolio-project" href="projects/baal.html" style="--ratio:1/1;--position:center">
+          <span class="portfolio-image"><img src="assets/preview_projects/baal.webp" alt="" loading="lazy" decoding="async"></span>
+          <div class="portfolio-cap">
+            <div>
+              <h3 class="portfolio-title" data-i18n="work.g.baal">Баал</h3>
+              <p class="portfolio-meta mono"><span>Театр</span> <span aria-hidden="true">·</span> 2019</p>
+            </div>
+            <span class="portfolio-go" aria-hidden="true">↗︎</span>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1473,11 +1482,109 @@
   </div>
 </section>
 
+<!-- ════════════ AWARDS & PRESS ════════════ -->
+<section class="sec on-graphite" id="awards" aria-labelledby="awards-title" data-screen-label="05 Awards &amp; Press">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-h" id="awards-title">Награды и статьи</h2>
+    </div>
+    <div class="awards-grid">
+      <article class="award-card">
+        <a class="award-cover" href="projects/wayofwater.html">
+          <img src="assets/preview_projects/wayofwater.webp" alt="" loading="lazy">
+          <span class="award-logos" aria-hidden="true"><img src="assets/award-logos/digital.svg" alt="" loading="lazy"><img src="assets/award-logos/regions.webp" alt="" loading="lazy"><img src="assets/award-logos/quality.svg" alt="" loading="lazy"></span>
+          <span class="wcard-foot"><span class="wcard-title-over">«Путь воды»</span><span class="wcard-go" aria-hidden="true">↗︎</span></span>
+        </a>
+        <div class="award-body">
+          <ul class="award-list" role="list">
+            <li class="award-entry">
+              <span class="award-status mono">Лауреат · 2023</span>
+              <h3>Digital Leaders Award</h3>
+              <p>Геймификация просветительских проектов</p>
+            </li>
+            <li class="award-entry">
+              <span class="award-status mono">Лауреат · 2023</span>
+              <h3>Лучшее для России. Развитие регионов</h3>
+              <p>Лучший проект для детей</p>
+            </li>
+            <li class="award-entry">
+              <span class="award-status mono">Лауреат · 2023</span>
+              <h3>Качество обслуживания и права потребителей</h3>
+              <p>Пространство года для отдыха и развлечений всей семьи</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="award-card">
+        <a class="award-cover" href="projects/capybarabooom.html">
+          <img src="assets/preview_projects/capybaraboom.webp" alt="" loading="lazy">
+          <span class="award-logos" aria-hidden="true"><img src="assets/award-logos/blooloop.webp" alt="" loading="lazy"></span>
+          <span class="wcard-foot"><span class="wcard-title-over">«КапибараБууум»</span><span class="wcard-go" aria-hidden="true">↗︎</span></span>
+        </a>
+        <div class="award-body">
+          <ul class="award-list" role="list">
+            <li class="award-entry">
+              <span class="award-status mono">Номинант · 2026–2027</span>
+              <h3>blooloop Innovation Awards</h3>
+              <p>Иммерсивные развлечения и аттракционы</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="award-card">
+        <a class="award-cover" href="projects/art-direction.html#zone-brands">
+          <img src="assets/art-direction/photo/webp/buddysol-packs.webp" alt="" loading="lazy">
+          <span class="award-logos" aria-hidden="true"><img src="assets/award-logos/mercury.svg" alt="" loading="lazy"><img src="assets/award-logos/3itech.svg" alt="" loading="lazy"></span>
+          <span class="wcard-foot"><span class="wcard-title-over">Buddy&amp;Sol</span><span class="wcard-go" aria-hidden="true">↗︎</span></span>
+        </a>
+        <div class="award-body">
+          <ul class="award-list" role="list">
+            <li class="award-entry">
+              <span class="award-status mono">Бронзовый диплом · 2024</span>
+              <h3>AI-жюри 3iTech / Silver Mercury</h3>
+              <p>Параллельное судейство</p>
+            </li>
+          </ul>
+        </div>
+      </article>
+      <article class="award-card">
+        <div class="award-player">
+          <button class="award-cover award-play" type="button" aria-label="Смотреть видео «С океаном начистоту»">
+            <img src="assets/msq_clean-ocean/photo/webp/clean-ocean-ar-02.webp" alt="" loading="lazy">
+            <span class="wcard-foot"><span class="wcard-go" aria-hidden="true">▶︎</span></span>
+          </button>
+          <template>
+            <iframe src="https://player.vimeo.com/video/1200388837?h=7cd92f8373&amp;autoplay=1" title="«С океаном начистоту» · Sostav.ru" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </template>
+        </div>
+        <div class="award-body">
+          <span class="award-status mono">Статья · Sostav.ru · 2026</span>
+          <a class="award-press-link" href="https://www.sostav.ru/publication/s-okeanom-nachistotu-moskvarium-zapuskaet-ekokvest-dlya-moskvichej-i-gostej-stolitsy-84573.html" target="_blank" rel="noopener">
+            <h3>«С океаном начистоту»</h3><span class="wcard-go" aria-hidden="true">↗︎</span>
+          </a>
+          <p>Москвариум × BBDO</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelector('#awards .award-play').addEventListener('click', function(){
+    const template = this.nextElementSibling;
+    const player = template.content.firstElementChild.cloneNode(true);
+    this.replaceWith(player);
+    player.focus();
+  }, {once:true});
+</script>
+
+
 <!-- ════════════ CONTACT ════════════ -->
-<section class="sec on-graphite" id="contact" data-screen-label="05 Contact">
+<section class="sec on-graphite" id="contact" data-screen-label="06 Contact">
   <div class="wrap">
     <div class="reveal" style="margin-bottom:48px">
-      <span class="sec-num" style="margin-bottom:24px;display:inline-flex" data-i18n="contact.num">05 / Контакты</span>
+      <span class="sec-num" style="margin-bottom:24px;display:inline-flex" data-i18n="contact.num">06 / Контакты</span>
       <h2 class="contact-h">
         <span data-i18n="contact.h1">Давайте</span> <span class="word-pill" data-i18n="contact.make">сделаем</span><br>
         <span data-i18n="contact.h2">что-то</span> <span class="word-oval" id="cycleWord" style="display:inline-block;min-width:6ch">&nbsp;</span>.
@@ -1521,6 +1628,7 @@
     'nav.services':'Expertise',
     'nav.works':'Projects',
     'nav.career':'Experience',
+    'nav.awards':'Awards &amp; Press',
     'nav.contact':'Contact',
     'nav.cta':'Get in touch',
 
@@ -1570,21 +1678,7 @@
 
     'works.h':'Projects',
     'works.side':'30+ delivered<br><b>projects</b>',
-    'works.list':'≡ List',
-    'works.grid':'◧ Grid',
 
-    'work.l.nebula':'Nebula',
-    'work.l.cymatic':'Circle of <em>Light</em>',
-    'work.l.capy':'Capybara<em>Booom</em>',
-    'work.l.pole':'Mother <em>Earth</em>',
-    'work.l.kandid':'Candide',
-    'work.l.baal':'Baal',
-    'work.l.wow':'Way of <em>Water</em>',
-    'work.l.prosv':'Prosvetitel',
-    'work.l.moskvaruim':'Got <em>Fish?</em>',
-    'work.l.troyka':'Chance <em>Encounter</em>',
-    'work.l.ocean':'Clean <em>Ocean</em>',
-    'work.l.souz':'Soyuz<em>multpark</em>',
 
     'work.g.nebula':'Nebula',
     'work.g.cymatic':'Circle of Light',
@@ -1599,7 +1693,6 @@
     'work.g.ocean':'Clean Ocean',
     'work.g.souz':'Soyuzmultpark',
 
-    'work.l.cgiwc':'CGI for <em>World Cup 2026</em>',
     'work.g.cgiwc':'CGI for World Cup 2026',
 
 
@@ -1633,7 +1726,7 @@
     'career.t7':'Digital &amp;&nbsp;<span class="mark">advertising</span>',
     'career.d7':'Digital special projects, advertising campaigns, interactive promo mechanics at the international agencies Actis Wunderman and ADV Digital. A path from technical execution to art direction.',
 
-    'contact.num':'05 / Contact',
+    'contact.num':'06 / Contact',
     'contact.h1':'Let’s',
     'contact.make':'make',
     'contact.h2':'something',
@@ -1749,36 +1842,10 @@
     curRing.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
     requestAnimationFrame(loop);
   })();
-  document.querySelectorAll('a,button,.wcard,.wrow,.ccard,.titem,.svc-cell').forEach(el => {
+  document.querySelectorAll('a,button,.ccard,.titem,.svc-cell').forEach(el => {
     el.addEventListener('mouseenter', () => { cur.classList.add('hot'); curRing.classList.add('hot'); });
     el.addEventListener('mouseleave', () => { cur.classList.remove('hot'); curRing.classList.remove('hot'); });
   });
-
-  // View toggle
-  const vt = document.getElementById('viewToggle');
-  if(vt) vt.addEventListener('click', e => {
-    const b = e.target.closest('button'); if(!b) return;
-    vt.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
-    document.body.dataset.view = b.dataset.view;
-  });
-  // works-list / works-grid switching
-  const _wl = document.querySelector('.works-list');
-  const _wg = document.querySelector('.works-grid');
-  function applyView(v){
-    if(!_wl || !_wg) return;
-    _wl.style.display = v === 'grid' ? 'none' : '';
-    _wg.style.display = v === 'grid' ? 'grid' : 'none';
-  }
-  if(vt) vt.addEventListener('click', e => {
-    const b = e.target.closest('button'); if(!b) return;
-    applyView(b.dataset.view);
-  });
-  // мобайл: по умолчанию вид «сетка»
-  if(window.matchMedia('(max-width:768px)').matches){
-    document.body.dataset.view = 'grid';
-    if(vt) vt.querySelectorAll('button').forEach(x => x.classList.toggle('on', x.dataset.view === 'grid'));
-    applyView('grid');
-  }
 
   // Scramble cycling words (language-aware)
   (function(){
