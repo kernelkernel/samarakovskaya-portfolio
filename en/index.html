@@ -72,13 +72,6 @@
 
   .mono{font-family:"JetBrains Mono",ui-monospace,monospace;letter-spacing:.04em}
 
-  /* film grain — static, no animation to avoid paint lag */
-  body::before{
-    content:"";position:fixed;inset:-50%;pointer-events:none;z-index:1000;opacity:.04;
-    mix-blend-mode:screen;will-change:transform;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-  }
-
   /* ───── CURSOR ───── */
   .cur{
     position:fixed;top:0;left:0;width:12px;height:12px;border-radius:50%;
@@ -533,7 +526,12 @@
   @media(max-width:560px){.svc-cell.feat{grid-column:span 1}.svc-cell.feat .svc-headline{font-size:30px}}
 
   /* Сетка проектов */
-  #works {scroll-margin-top:72px}
+  #works {isolation:isolate;scroll-margin-top:72px}
+  #works::before{
+    content:"";position:absolute;inset:0;pointer-events:none;z-index:-1;opacity:.04;
+    mix-blend-mode:screen;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
   .portfolio-grid {display:grid;gap:clamp(38px,6.4vw,100px)}
   .portfolio-pair {
     display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);
